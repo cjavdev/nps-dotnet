@@ -158,7 +158,7 @@ public abstract record class ParamsBase
 
     protected string QueryString(ClientOptions options)
     {
-        NameValueCollection collection = [];
+        NameValueCollection collection = new();
         foreach (var item in this.RawQueryData)
         {
             ParamsBase.AddQueryElementToCollection(collection, item.Key, item.Value);
@@ -196,10 +196,6 @@ public abstract record class ParamsBase
             request.Headers.Add(header.Key, header.Value);
         }
 
-        if (options.ApiKey != null)
-        {
-            request.Headers.Add("Authorization", string.Format("Bearer {0}", options.ApiKey));
-        }
         request.Headers.Add(
             "X-Stainless-Timeout",
             (options.Timeout ?? ClientOptions.DefaultTimeout).TotalSeconds.ToString()

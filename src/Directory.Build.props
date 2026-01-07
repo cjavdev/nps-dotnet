@@ -5,8 +5,8 @@
     <PackageTags>sdk;api;http;library</PackageTags>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <Copyright>Copyright 2026 Nps</Copyright>
-    <PackageProjectUrl>https://www.github.com/stainless-sdks/nps-csharp</PackageProjectUrl>
-    <RepositoryUrl>https://www.github.com/stainless-sdks/nps-csharp</RepositoryUrl>
+    <PackageProjectUrl>https://www.github.com/cjavdev/nps-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://www.github.com/cjavdev/nps-dotnet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
     <!-- Documentation-->
