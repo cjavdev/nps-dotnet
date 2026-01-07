@@ -4,12 +4,12 @@ using Nps.Models.Mapdata;
 
 namespace Nps.Tests.Models.Mapdata;
 
-public class MapdataRetrieveParkboundariesResponseTest : TestBase
+public class MapdataRetrieveParkBoundariesResponseTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new MapdataRetrieveParkboundariesResponse
+        var model = new MapdataRetrieveParkBoundariesResponse
         {
             ID = "abli",
             Geometry = new()
@@ -255,7 +255,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new MapdataRetrieveParkboundariesResponse
+        var model = new MapdataRetrieveParkBoundariesResponse
         {
             ID = "abli",
             Geometry = new()
@@ -376,7 +376,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<MapdataRetrieveParkboundariesResponse>(json);
+        var deserialized = JsonSerializer.Deserialize<MapdataRetrieveParkBoundariesResponse>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -384,7 +384,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new MapdataRetrieveParkboundariesResponse
+        var model = new MapdataRetrieveParkBoundariesResponse
         {
             ID = "abli",
             Geometry = new()
@@ -505,7 +505,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<MapdataRetrieveParkboundariesResponse>(
+        var deserialized = JsonSerializer.Deserialize<MapdataRetrieveParkBoundariesResponse>(
             element
         );
         Assert.NotNull(deserialized);
@@ -636,7 +636,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new MapdataRetrieveParkboundariesResponse
+        var model = new MapdataRetrieveParkBoundariesResponse
         {
             ID = "abli",
             Geometry = new()
@@ -762,7 +762,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new MapdataRetrieveParkboundariesResponse { };
+        var model = new MapdataRetrieveParkBoundariesResponse { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -777,7 +777,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new MapdataRetrieveParkboundariesResponse { };
+        var model = new MapdataRetrieveParkBoundariesResponse { };
 
         model.Validate();
     }
@@ -785,7 +785,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new MapdataRetrieveParkboundariesResponse
+        var model = new MapdataRetrieveParkBoundariesResponse
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -807,7 +807,7 @@ public class MapdataRetrieveParkboundariesResponseTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new MapdataRetrieveParkboundariesResponse
+        var model = new MapdataRetrieveParkBoundariesResponse
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

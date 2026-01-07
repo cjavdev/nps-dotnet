@@ -21,15 +21,15 @@ public interface IMapdataService
     /// </summary>
     IMapdataService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
-    Task<List<MapdataRetrieveParkboundariesResponse>> RetrieveParkboundaries(
-        MapdataRetrieveParkboundariesParams parameters,
+    Task<List<MapdataRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
+        MapdataRetrieveParkBoundariesParams parameters,
         CancellationToken cancellationToken = default
     );
 
-    /// <inheritdoc cref="RetrieveParkboundaries(MapdataRetrieveParkboundariesParams, CancellationToken)"/>
-    Task<List<MapdataRetrieveParkboundariesResponse>> RetrieveParkboundaries(
+    /// <inheritdoc cref="RetrieveParkBoundaries(MapdataRetrieveParkBoundariesParams, CancellationToken)"/>
+    Task<List<MapdataRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         string sitecode,
-        MapdataRetrieveParkboundariesParams? parameters = null,
+        MapdataRetrieveParkBoundariesParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 }

@@ -26,8 +26,8 @@ public sealed class MapdataService : IMapdataService
     }
 
     /// <inheritdoc/>
-    public async Task<List<MapdataRetrieveParkboundariesResponse>> RetrieveParkboundaries(
-        MapdataRetrieveParkboundariesParams parameters,
+    public async Task<List<MapdataRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
+        MapdataRetrieveParkBoundariesParams parameters,
         CancellationToken cancellationToken = default
     )
     {
@@ -36,7 +36,7 @@ public sealed class MapdataService : IMapdataService
             throw new NpsInvalidDataException("'parameters.Sitecode' cannot be null");
         }
 
-        HttpRequest<MapdataRetrieveParkboundariesParams> request = new()
+        HttpRequest<MapdataRetrieveParkBoundariesParams> request = new()
         {
             Method = HttpMethod.Get,
             Params = parameters,
@@ -45,7 +45,7 @@ public sealed class MapdataService : IMapdataService
             ._client.Execute(request, cancellationToken)
             .ConfigureAwait(false);
         var deserializedResponse = await response
-            .Deserialize<List<MapdataRetrieveParkboundariesResponse>>(cancellationToken)
+            .Deserialize<List<MapdataRetrieveParkBoundariesResponse>>(cancellationToken)
             .ConfigureAwait(false);
         if (this._client.ResponseValidation)
         {
@@ -58,15 +58,15 @@ public sealed class MapdataService : IMapdataService
     }
 
     /// <inheritdoc/>
-    public async Task<List<MapdataRetrieveParkboundariesResponse>> RetrieveParkboundaries(
+    public async Task<List<MapdataRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         string sitecode,
-        MapdataRetrieveParkboundariesParams? parameters = null,
+        MapdataRetrieveParkBoundariesParams? parameters = null,
         CancellationToken cancellationToken = default
     )
     {
         parameters ??= new();
 
-        return await this.RetrieveParkboundaries(
+        return await this.RetrieveParkBoundaries(
             parameters with
             {
                 Sitecode = sitecode,

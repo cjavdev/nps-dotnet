@@ -8,18 +8,18 @@ using Nps.Core;
 
 namespace Nps.Models.Mapdata;
 
-public sealed record class MapdataRetrieveParkboundariesParams : ParamsBase
+public sealed record class MapdataRetrieveParkBoundariesParams : ParamsBase
 {
     public string? Sitecode { get; init; }
 
-    public MapdataRetrieveParkboundariesParams() { }
+    public MapdataRetrieveParkBoundariesParams() { }
 
-    public MapdataRetrieveParkboundariesParams(
-        MapdataRetrieveParkboundariesParams mapdataRetrieveParkboundariesParams
+    public MapdataRetrieveParkBoundariesParams(
+        MapdataRetrieveParkBoundariesParams mapdataRetrieveParkBoundariesParams
     )
-        : base(mapdataRetrieveParkboundariesParams) { }
+        : base(mapdataRetrieveParkBoundariesParams) { }
 
-    public MapdataRetrieveParkboundariesParams(
+    public MapdataRetrieveParkBoundariesParams(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )
@@ -30,7 +30,7 @@ public sealed record class MapdataRetrieveParkboundariesParams : ParamsBase
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    MapdataRetrieveParkboundariesParams(
+    MapdataRetrieveParkBoundariesParams(
         FrozenDictionary<string, JsonElement> rawHeaderData,
         FrozenDictionary<string, JsonElement> rawQueryData
     )
@@ -41,7 +41,7 @@ public sealed record class MapdataRetrieveParkboundariesParams : ParamsBase
 #pragma warning restore CS8618
 
     /// <inheritdoc cref="IFromRawJson.FromRawUnchecked"/>
-    public static MapdataRetrieveParkboundariesParams FromRawUnchecked(
+    public static MapdataRetrieveParkBoundariesParams FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )

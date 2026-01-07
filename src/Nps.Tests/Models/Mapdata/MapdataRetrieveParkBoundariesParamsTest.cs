@@ -3,12 +3,12 @@ using Nps.Models.Mapdata;
 
 namespace Nps.Tests.Models.Mapdata;
 
-public class MapdataRetrieveParkboundariesParamsTest : TestBase
+public class MapdataRetrieveParkBoundariesParamsTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var parameters = new MapdataRetrieveParkboundariesParams { Sitecode = "sitecode" };
+        var parameters = new MapdataRetrieveParkBoundariesParams { Sitecode = "sitecode" };
 
         string expectedSitecode = "sitecode";
 
@@ -18,7 +18,7 @@ public class MapdataRetrieveParkboundariesParamsTest : TestBase
     [Fact]
     public void Url_Works()
     {
-        MapdataRetrieveParkboundariesParams parameters = new() { Sitecode = "sitecode" };
+        MapdataRetrieveParkBoundariesParams parameters = new() { Sitecode = "sitecode" };
 
         var url = parameters.Url(new() { ApiKey = "My API Key" });
 
