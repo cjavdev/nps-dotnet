@@ -78,7 +78,7 @@ public struct ClientOptions()
     /// </summary>
     public TimeSpan? Timeout { get; set; }
 
-    Lazy<string?> _apiKey = new(() => Environment.GetEnvironmentVariable("NPS_API_KEY"));
+    Lazy<string?> _apiKey = new(() => Environment.GetEnvironmentVariable("NATIONAL_PARK_KEY"));
     public string? ApiKey
     {
         readonly get { return _apiKey.Value; }
