@@ -47,7 +47,7 @@ Configure the client using environment variables:
 ```csharp
 using Nps;
 
-// Configured using the NPS_API_KEY and NPS_BASE_URL environment variables
+// Configured using the NATIONAL_PARK_KEY and NPS_BASE_URL environment variables
 NpsClient client = new();
 ```
 
@@ -65,7 +65,7 @@ See this table for the available options:
 
 | Property  | Environment variable | Required | Default value                        |
 | --------- | -------------------- | -------- | ------------------------------------ |
-| `ApiKey`  | `NPS_API_KEY`        | false    | -                                    |
+| `ApiKey`  | `NATIONAL_PARK_KEY`  | false    | -                                    |
 | `BaseUrl` | `NPS_BASE_URL`       | true     | `"https://developer.nps.gov/api/v1"` |
 
 ### Modifying configuration
