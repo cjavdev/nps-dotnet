@@ -1,0 +1,421 @@
+using System.Collections.Frozen;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Nps.Core;
+
+namespace Nps.Models.Lessonplans;
+
+[JsonConverter(typeof(JsonModelConverter<LessonplanListResponse, LessonplanListResponseFromRaw>))]
+public sealed record class LessonplanListResponse : JsonModel
+{
+    public IReadOnlyList<Data>? Data
+    {
+        get { return JsonModel.GetNullableClass<List<Data>>(this.RawData, "data"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public string? Limit
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public string? Start
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public string? Total
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.Data ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public LessonplanListResponse() { }
+
+    public LessonplanListResponse(LessonplanListResponse lessonplanListResponse)
+        : base(lessonplanListResponse) { }
+
+    public LessonplanListResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    LessonplanListResponse(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="LessonplanListResponseFromRaw.FromRawUnchecked"/>
+    public static LessonplanListResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class LessonplanListResponseFromRaw : IFromRawJson<LessonplanListResponse>
+{
+    /// <inheritdoc/>
+    public LessonplanListResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => LessonplanListResponse.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(typeof(JsonModelConverter<Data, DataFromRaw>))]
+public sealed record class Data : JsonModel
+{
+    /// <summary>
+    /// Unique identifier for this lesson plan
+    /// </summary>
+    public string? ID
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "id", value);
+        }
+    }
+
+    /// <summary>
+    /// Educational standards that apply to this lesson
+    /// </summary>
+    public Commoncore? Commoncore
+    {
+        get { return JsonModel.GetNullableClass<Commoncore>(this.RawData, "commoncore"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "commoncore", value);
+        }
+    }
+
+    /// <summary>
+    /// Time it takes to peform the lesson
+    /// </summary>
+    public string? Duration
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "duration"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "duration", value);
+        }
+    }
+
+    /// <summary>
+    /// Grade level of students at which this lesson is aimed
+    /// </summary>
+    public string? Gradelevel
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "gradelevel"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "gradelevel", value);
+        }
+    }
+
+    /// <summary>
+    /// Related parks for this lesson plan
+    /// </summary>
+    public IReadOnlyList<string>? Parks
+    {
+        get { return JsonModel.GetNullableClass<List<string>>(this.RawData, "parks"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "parks", value);
+        }
+    }
+
+    /// <summary>
+    /// Objective of the lesson or the question student should be able to answer at
+    /// the end of the lesson
+    /// </summary>
+    public string? Questionobjective
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "questionobjective"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "questionobjective", value);
+        }
+    }
+
+    /// <summary>
+    /// Broad subject the lesson falls under= literacy and language arts, math, science,
+    /// or social studies
+    /// </summary>
+    public string? Subject
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "subject"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "subject", value);
+        }
+    }
+
+    /// <summary>
+    /// Lesson plan title
+    /// </summary>
+    public string? Title
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "title"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "title", value);
+        }
+    }
+
+    /// <summary>
+    /// Lesson plan link
+    /// </summary>
+    public string? Url
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "url"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "url", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        _ = this.ID;
+        this.Commoncore?.Validate();
+        _ = this.Duration;
+        _ = this.Gradelevel;
+        _ = this.Parks;
+        _ = this.Questionobjective;
+        _ = this.Subject;
+        _ = this.Title;
+        _ = this.Url;
+    }
+
+    public Data() { }
+
+    public Data(Data data)
+        : base(data) { }
+
+    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    Data(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
+    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class DataFromRaw : IFromRawJson<Data>
+{
+    /// <inheritdoc/>
+    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        Data.FromRawUnchecked(rawData);
+}
+
+/// <summary>
+/// Educational standards that apply to this lesson
+/// </summary>
+[JsonConverter(typeof(JsonModelConverter<Commoncore, CommoncoreFromRaw>))]
+public sealed record class Commoncore : JsonModel
+{
+    public string? Additionalstandards
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "additionalstandards"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "additionalstandards", value);
+        }
+    }
+
+    public IReadOnlyList<string>? Elastandards
+    {
+        get { return JsonModel.GetNullableClass<List<string>>(this.RawData, "elastandards"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "elastandards", value);
+        }
+    }
+
+    public IReadOnlyList<string>? Mathstandards
+    {
+        get { return JsonModel.GetNullableClass<List<string>>(this.RawData, "mathstandards"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "mathstandards", value);
+        }
+    }
+
+    public string? Statestandards
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "statestandards"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "statestandards", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        _ = this.Additionalstandards;
+        _ = this.Elastandards;
+        _ = this.Mathstandards;
+        _ = this.Statestandards;
+    }
+
+    public Commoncore() { }
+
+    public Commoncore(Commoncore commoncore)
+        : base(commoncore) { }
+
+    public Commoncore(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    Commoncore(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="CommoncoreFromRaw.FromRawUnchecked"/>
+    public static Commoncore FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class CommoncoreFromRaw : IFromRawJson<Commoncore>
+{
+    /// <inheritdoc/>
+    public Commoncore FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        Commoncore.FromRawUnchecked(rawData);
+}
