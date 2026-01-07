@@ -120,11 +120,11 @@ class MapRetrieveParkBoundariesResponseFromRaw : IFromRawJson<MapRetrieveParkBou
 [JsonConverter(typeof(JsonModelConverter<Geometry, GeometryFromRaw>))]
 public sealed record class Geometry : JsonModel
 {
-    public IReadOnlyList<List<List<UnnamedSchemaWithArrayParent0>>>? Coordinates
+    public IReadOnlyList<List<List<List<double>>>>? Coordinates
     {
         get
         {
-            return JsonModel.GetNullableClass<List<List<List<UnnamedSchemaWithArrayParent0>>>>(
+            return JsonModel.GetNullableClass<List<List<List<List<double>>>>>(
                 this.RawData,
                 "coordinates"
             );
@@ -157,16 +157,7 @@ public sealed record class Geometry : JsonModel
     /// <inheritdoc/>
     public override void Validate()
     {
-        foreach (var item in this.Coordinates ?? [])
-        {
-            foreach (var item1 in item)
-            {
-                foreach (var item2 in item1)
-                {
-                    item2.Validate();
-                }
-            }
-        }
+        _ = this.Coordinates;
         _ = this.Type;
     }
 
@@ -200,83 +191,6 @@ class GeometryFromRaw : IFromRawJson<Geometry>
     /// <inheritdoc/>
     public Geometry FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
         Geometry.FromRawUnchecked(rawData);
-}
-
-[JsonConverter(
-    typeof(JsonModelConverter<UnnamedSchemaWithArrayParent0, UnnamedSchemaWithArrayParent0FromRaw>)
-)]
-public sealed record class UnnamedSchemaWithArrayParent0 : JsonModel
-{
-    public double? U0
-    {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "0"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "0", value);
-        }
-    }
-
-    public double? U1
-    {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "1"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "1", value);
-        }
-    }
-
-    /// <inheritdoc/>
-    public override void Validate()
-    {
-        _ = this.U0;
-        _ = this.U1;
-    }
-
-    public UnnamedSchemaWithArrayParent0() { }
-
-    public UnnamedSchemaWithArrayParent0(
-        UnnamedSchemaWithArrayParent0 unnamedSchemaWithArrayParent0
-    )
-        : base(unnamedSchemaWithArrayParent0) { }
-
-    public UnnamedSchemaWithArrayParent0(IReadOnlyDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-
-#pragma warning disable CS8618
-    [SetsRequiredMembers]
-    UnnamedSchemaWithArrayParent0(FrozenDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-#pragma warning restore CS8618
-
-    /// <inheritdoc cref="UnnamedSchemaWithArrayParent0FromRaw.FromRawUnchecked"/>
-    public static UnnamedSchemaWithArrayParent0 FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
-    {
-        return new(FrozenDictionary.ToFrozenDictionary(rawData));
-    }
-}
-
-class UnnamedSchemaWithArrayParent0FromRaw : IFromRawJson<UnnamedSchemaWithArrayParent0>
-{
-    /// <inheritdoc/>
-    public UnnamedSchemaWithArrayParent0 FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    ) => UnnamedSchemaWithArrayParent0.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<Properties, PropertiesFromRaw>))]
