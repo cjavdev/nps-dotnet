@@ -123,10 +123,10 @@ public sealed class NpsClient : INpsClient
         get { return _lessonplans.Value; }
     }
 
-    readonly Lazy<IMapdataService> _mapdata;
-    public IMapdataService Mapdata
+    readonly Lazy<IMapService> _maps;
+    public IMapService Maps
     {
-        get { return _mapdata.Value; }
+        get { return _maps.Value; }
     }
 
     readonly Lazy<IMultimediaService> _multimedia;
@@ -135,16 +135,16 @@ public sealed class NpsClient : INpsClient
         get { return _multimedia.Value; }
     }
 
-    readonly Lazy<INewsreleaseService> _newsreleases;
-    public INewsreleaseService Newsreleases
+    readonly Lazy<INewsReleaseService> _newsReleases;
+    public INewsReleaseService NewsReleases
     {
-        get { return _newsreleases.Value; }
+        get { return _newsReleases.Value; }
     }
 
-    readonly Lazy<IParkinglotService> _parkinglots;
-    public IParkinglotService Parkinglots
+    readonly Lazy<IParkingLotService> _parkingLots;
+    public IParkingLotService ParkingLots
     {
-        get { return _parkinglots.Value; }
+        get { return _parkingLots.Value; }
     }
 
     readonly Lazy<IParkService> _parks;
@@ -153,10 +153,10 @@ public sealed class NpsClient : INpsClient
         get { return _parks.Value; }
     }
 
-    readonly Lazy<IPassportstamplocationService> _passportstamplocations;
-    public IPassportstamplocationService Passportstamplocations
+    readonly Lazy<IPassportStampLocationService> _passportStampLocations;
+    public IPassportStampLocationService PassportStampLocations
     {
-        get { return _passportstamplocations.Value; }
+        get { return _passportStampLocations.Value; }
     }
 
     readonly Lazy<IPersonService> _people;
@@ -171,16 +171,16 @@ public sealed class NpsClient : INpsClient
         get { return _places.Value; }
     }
 
-    readonly Lazy<IRoadeventService> _roadevents;
-    public IRoadeventService Roadevents
+    readonly Lazy<IRoadEventService> _roadEvents;
+    public IRoadEventService RoadEvents
     {
-        get { return _roadevents.Value; }
+        get { return _roadEvents.Value; }
     }
 
-    readonly Lazy<IThingstodoService> _thingstodo;
-    public IThingstodoService Thingstodo
+    readonly Lazy<IThingsTodoService> _thingsTodo;
+    public IThingsTodoService ThingsTodo
     {
-        get { return _thingstodo.Value; }
+        get { return _thingsTodo.Value; }
     }
 
     readonly Lazy<ITopicService> _topics;
@@ -195,10 +195,10 @@ public sealed class NpsClient : INpsClient
         get { return _tours.Value; }
     }
 
-    readonly Lazy<IVisitorcenterService> _visitorcenters;
-    public IVisitorcenterService Visitorcenters
+    readonly Lazy<IVisitorCenterService> _visitorCenters;
+    public IVisitorCenterService VisitorCenters
     {
-        get { return _visitorcenters.Value; }
+        get { return _visitorCenters.Value; }
     }
 
     readonly Lazy<IWebcamService> _webcams;
@@ -409,19 +409,19 @@ public sealed class NpsClient : INpsClient
         _events = new(() => new EventService(this));
         _feespasses = new(() => new FeespassService(this));
         _lessonplans = new(() => new LessonplanService(this));
-        _mapdata = new(() => new MapdataService(this));
+        _maps = new(() => new MapService(this));
         _multimedia = new(() => new MultimediaService(this));
-        _newsreleases = new(() => new NewsreleaseService(this));
-        _parkinglots = new(() => new ParkinglotService(this));
+        _newsReleases = new(() => new NewsReleaseService(this));
+        _parkingLots = new(() => new ParkingLotService(this));
         _parks = new(() => new ParkService(this));
-        _passportstamplocations = new(() => new PassportstamplocationService(this));
+        _passportStampLocations = new(() => new PassportStampLocationService(this));
         _people = new(() => new PersonService(this));
         _places = new(() => new PlaceService(this));
-        _roadevents = new(() => new RoadeventService(this));
-        _thingstodo = new(() => new ThingstodoService(this));
+        _roadEvents = new(() => new RoadEventService(this));
+        _thingsTodo = new(() => new ThingsTodoService(this));
         _topics = new(() => new TopicService(this));
         _tours = new(() => new TourService(this));
-        _visitorcenters = new(() => new VisitorcenterService(this));
+        _visitorCenters = new(() => new VisitorCenterService(this));
         _webcams = new(() => new WebcamService(this));
     }
 

@@ -3,9 +3,9 @@ using Nps.Exceptions;
 using Nps.Models.Alerts;
 using Nps.Models.Campgrounds;
 using Nps.Models.Feespasses;
-using Parkinglots = Nps.Models.Parkinglots;
+using ParkingLots = Nps.Models.ParkingLots;
 using Parks = Nps.Models.Parks;
-using Visitorcenters = Nps.Models.Visitorcenters;
+using VisitorCenters = Nps.Models.VisitorCenters;
 
 namespace Nps.Core;
 
@@ -29,10 +29,10 @@ public abstract record class ModelBase
             new ApiEnumConverter<string, Type>(),
             new ApiEnumConverter<string, PhoneNumberType>(),
             new ApiEnumConverter<string, ContentOrderOrdinals>(),
-            new ApiEnumConverter<string, Parkinglots::Type>(),
+            new ApiEnumConverter<string, ParkingLots::Type>(),
             new ApiEnumConverter<string, Parks::Type>(),
             new ApiEnumConverter<string, Parks::PhoneNumberType>(),
-            new ApiEnumConverter<string, Visitorcenters::Type>(),
+            new ApiEnumConverter<string, VisitorCenters::Type>(),
         },
     };
 

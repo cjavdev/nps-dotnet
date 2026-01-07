@@ -98,31 +98,31 @@ public interface INpsClient : IDisposable
 
     ILessonplanService Lessonplans { get; }
 
-    IMapdataService Mapdata { get; }
+    IMapService Maps { get; }
 
     IMultimediaService Multimedia { get; }
 
-    INewsreleaseService Newsreleases { get; }
+    INewsReleaseService NewsReleases { get; }
 
-    IParkinglotService Parkinglots { get; }
+    IParkingLotService ParkingLots { get; }
 
     IParkService Parks { get; }
 
-    IPassportstamplocationService Passportstamplocations { get; }
+    IPassportStampLocationService PassportStampLocations { get; }
 
     IPersonService People { get; }
 
     IPlaceService Places { get; }
 
-    IRoadeventService Roadevents { get; }
+    IRoadEventService RoadEvents { get; }
 
-    IThingstodoService Thingstodo { get; }
+    IThingsTodoService ThingsTodo { get; }
 
     ITopicService Topics { get; }
 
     ITourService Tours { get; }
 
-    IVisitorcenterService Visitorcenters { get; }
+    IVisitorCenterService VisitorCenters { get; }
 
     IWebcamService Webcams { get; }
 
