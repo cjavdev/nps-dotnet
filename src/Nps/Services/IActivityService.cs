@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Nps.Core;
+using Nps.Models.Activities;
+
+namespace Nps.Services;
+
+/// <summary>
+/// NOTE: Do not inherit from this type outside the SDK unless you're okay with breaking
+/// changes in non-major versions. We may add new methods in the future that cause
+/// existing derived classes to break.
+/// </summary>
+public interface IActivityService
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IActivityService WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    Task<List<ActivityListResponse>> List(
+        ActivityListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Returns activites parks information.
+    /// </summary>
+    Task<List<ActivityListParksResponse>> ListParks(
+        ActivityListParksParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
