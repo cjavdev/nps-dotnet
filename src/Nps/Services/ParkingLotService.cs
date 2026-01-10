@@ -11,21 +11,62 @@ namespace Nps.Services;
 /// <inheritdoc/>
 public sealed class ParkingLotService : IParkingLotService
 {
+    readonly Lazy<IParkingLotServiceWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public IParkingLotServiceWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
+    }
+
+    readonly INpsClient _client;
+
     /// <inheritdoc/>
     public IParkingLotService WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
         return new ParkingLotService(this._client.WithOptions(modifier));
     }
 
-    readonly INpsClient _client;
-
     public ParkingLotService(INpsClient client)
+    {
+        _client = client;
+
+        _withRawResponse = new(() => new ParkingLotServiceWithRawResponse(client.WithRawResponse));
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<ParkingLotListResponse>> List(
+        ParkingLotListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.List(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+}
+
+/// <inheritdoc/>
+public sealed class ParkingLotServiceWithRawResponse : IParkingLotServiceWithRawResponse
+{
+    readonly INpsClientWithRawResponse _client;
+
+    /// <inheritdoc/>
+    public IParkingLotServiceWithRawResponse WithOptions(
+        Func<ClientOptions, ClientOptions> modifier
+    )
+    {
+        return new ParkingLotServiceWithRawResponse(this._client.WithOptions(modifier));
+    }
+
+    public ParkingLotServiceWithRawResponse(INpsClientWithRawResponse client)
     {
         _client = client;
     }
 
     /// <inheritdoc/>
-    public async Task<List<ParkingLotListResponse>> List(
+    public async Task<HttpResponse<List<ParkingLotListResponse>>> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -37,19 +78,23 @@ public sealed class ParkingLotService : IParkingLotService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var parkingLots = await response
-            .Deserialize<List<ParkingLotListResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in parkingLots)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var parkingLots = await response
+                    .Deserialize<List<ParkingLotListResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in parkingLots)
+                    {
+                        item.Validate();
+                    }
+                }
+                return parkingLots;
             }
-        }
-        return parkingLots;
+        );
     }
 }

@@ -15,6 +15,12 @@ namespace Nps.Services;
 public interface IParkingLotService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IParkingLotServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
@@ -22,6 +28,29 @@ public interface IParkingLotService
     IParkingLotService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     Task<List<ParkingLotListResponse>> List(
+        ParkingLotListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IParkingLotService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IParkingLotServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IParkingLotServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /parkinglots`, but is otherwise the
+    /// same as <see cref="IParkingLotService.List(ParkingLotListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<List<ParkingLotListResponse>>> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

@@ -11,21 +11,60 @@ namespace Nps.Services;
 /// <inheritdoc/>
 public sealed class RoadEventService : IRoadEventService
 {
+    readonly Lazy<IRoadEventServiceWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public IRoadEventServiceWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
+    }
+
+    readonly INpsClient _client;
+
     /// <inheritdoc/>
     public IRoadEventService WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
         return new RoadEventService(this._client.WithOptions(modifier));
     }
 
-    readonly INpsClient _client;
-
     public RoadEventService(INpsClient client)
+    {
+        _client = client;
+
+        _withRawResponse = new(() => new RoadEventServiceWithRawResponse(client.WithRawResponse));
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<RoadEventListResponse>> List(
+        RoadEventListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.List(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+}
+
+/// <inheritdoc/>
+public sealed class RoadEventServiceWithRawResponse : IRoadEventServiceWithRawResponse
+{
+    readonly INpsClientWithRawResponse _client;
+
+    /// <inheritdoc/>
+    public IRoadEventServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    {
+        return new RoadEventServiceWithRawResponse(this._client.WithOptions(modifier));
+    }
+
+    public RoadEventServiceWithRawResponse(INpsClientWithRawResponse client)
     {
         _client = client;
     }
 
     /// <inheritdoc/>
-    public async Task<List<RoadEventListResponse>> List(
+    public async Task<HttpResponse<List<RoadEventListResponse>>> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -37,19 +76,23 @@ public sealed class RoadEventService : IRoadEventService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var roadEvents = await response
-            .Deserialize<List<RoadEventListResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in roadEvents)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var roadEvents = await response
+                    .Deserialize<List<RoadEventListResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in roadEvents)
+                    {
+                        item.Validate();
+                    }
+                }
+                return roadEvents;
             }
-        }
-        return roadEvents;
+        );
     }
 }

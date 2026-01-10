@@ -15,6 +15,12 @@ namespace Nps.Services;
 public interface IWebcamService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IWebcamServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
@@ -22,6 +28,29 @@ public interface IWebcamService
     IWebcamService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     Task<List<WebcamListResponse>> List(
+        WebcamListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IWebcamService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IWebcamServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IWebcamServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /webcams`, but is otherwise the
+    /// same as <see cref="IWebcamService.List(WebcamListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<List<WebcamListResponse>>> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

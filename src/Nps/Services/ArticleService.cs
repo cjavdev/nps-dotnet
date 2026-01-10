@@ -11,21 +11,60 @@ namespace Nps.Services;
 /// <inheritdoc/>
 public sealed class ArticleService : IArticleService
 {
+    readonly Lazy<IArticleServiceWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public IArticleServiceWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
+    }
+
+    readonly INpsClient _client;
+
     /// <inheritdoc/>
     public IArticleService WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
         return new ArticleService(this._client.WithOptions(modifier));
     }
 
-    readonly INpsClient _client;
-
     public ArticleService(INpsClient client)
+    {
+        _client = client;
+
+        _withRawResponse = new(() => new ArticleServiceWithRawResponse(client.WithRawResponse));
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<ArticleListResponse>> List(
+        ArticleListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.List(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+}
+
+/// <inheritdoc/>
+public sealed class ArticleServiceWithRawResponse : IArticleServiceWithRawResponse
+{
+    readonly INpsClientWithRawResponse _client;
+
+    /// <inheritdoc/>
+    public IArticleServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    {
+        return new ArticleServiceWithRawResponse(this._client.WithOptions(modifier));
+    }
+
+    public ArticleServiceWithRawResponse(INpsClientWithRawResponse client)
     {
         _client = client;
     }
 
     /// <inheritdoc/>
-    public async Task<List<ArticleListResponse>> List(
+    public async Task<HttpResponse<List<ArticleListResponse>>> List(
         ArticleListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -37,19 +76,23 @@ public sealed class ArticleService : IArticleService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var articles = await response
-            .Deserialize<List<ArticleListResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in articles)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var articles = await response
+                    .Deserialize<List<ArticleListResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in articles)
+                    {
+                        item.Validate();
+                    }
+                }
+                return articles;
             }
-        }
-        return articles;
+        );
     }
 }

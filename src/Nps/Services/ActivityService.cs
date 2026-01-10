@@ -11,21 +11,72 @@ namespace Nps.Services;
 /// <inheritdoc/>
 public sealed class ActivityService : IActivityService
 {
+    readonly Lazy<IActivityServiceWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public IActivityServiceWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
+    }
+
+    readonly INpsClient _client;
+
     /// <inheritdoc/>
     public IActivityService WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
         return new ActivityService(this._client.WithOptions(modifier));
     }
 
-    readonly INpsClient _client;
-
     public ActivityService(INpsClient client)
+    {
+        _client = client;
+
+        _withRawResponse = new(() => new ActivityServiceWithRawResponse(client.WithRawResponse));
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<ActivityListResponse>> List(
+        ActivityListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.List(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<ActivityListParksResponse>> ListParks(
+        ActivityListParksParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.ListParks(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+}
+
+/// <inheritdoc/>
+public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResponse
+{
+    readonly INpsClientWithRawResponse _client;
+
+    /// <inheritdoc/>
+    public IActivityServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    {
+        return new ActivityServiceWithRawResponse(this._client.WithOptions(modifier));
+    }
+
+    public ActivityServiceWithRawResponse(INpsClientWithRawResponse client)
     {
         _client = client;
     }
 
     /// <inheritdoc/>
-    public async Task<List<ActivityListResponse>> List(
+    public async Task<HttpResponse<List<ActivityListResponse>>> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -37,24 +88,28 @@ public sealed class ActivityService : IActivityService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var activities = await response
-            .Deserialize<List<ActivityListResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in activities)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var activities = await response
+                    .Deserialize<List<ActivityListResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in activities)
+                    {
+                        item.Validate();
+                    }
+                }
+                return activities;
             }
-        }
-        return activities;
+        );
     }
 
     /// <inheritdoc/>
-    public async Task<List<ActivityListParksResponse>> ListParks(
+    public async Task<HttpResponse<List<ActivityListParksResponse>>> ListParks(
         ActivityListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -66,19 +121,23 @@ public sealed class ActivityService : IActivityService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var deserializedResponse = await response
-            .Deserialize<List<ActivityListParksResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in deserializedResponse)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var deserializedResponse = await response
+                    .Deserialize<List<ActivityListParksResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in deserializedResponse)
+                    {
+                        item.Validate();
+                    }
+                }
+                return deserializedResponse;
             }
-        }
-        return deserializedResponse;
+        );
     }
 }

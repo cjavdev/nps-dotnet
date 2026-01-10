@@ -15,6 +15,12 @@ namespace Nps.Services;
 public interface IRoadEventService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IRoadEventServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
@@ -22,6 +28,29 @@ public interface IRoadEventService
     IRoadEventService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     Task<List<RoadEventListResponse>> List(
+        RoadEventListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IRoadEventService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IRoadEventServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IRoadEventServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /roadevents`, but is otherwise the
+    /// same as <see cref="IRoadEventService.List(RoadEventListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<List<RoadEventListResponse>>> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
