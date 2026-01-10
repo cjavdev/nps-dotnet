@@ -15,6 +15,12 @@ namespace Nps.Services;
 public interface IPersonService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IPersonServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
@@ -22,6 +28,29 @@ public interface IPersonService
     IPersonService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     Task<List<PersonListResponse>> List(
+        PersonListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IPersonService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IPersonServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IPersonServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /people`, but is otherwise the
+    /// same as <see cref="IPersonService.List(PersonListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<List<PersonListResponse>>> List(
         PersonListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

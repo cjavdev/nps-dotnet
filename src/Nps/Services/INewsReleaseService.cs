@@ -15,6 +15,12 @@ namespace Nps.Services;
 public interface INewsReleaseService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    INewsReleaseServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
@@ -22,6 +28,29 @@ public interface INewsReleaseService
     INewsReleaseService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     Task<List<NewsReleaseListResponse>> List(
+        NewsReleaseListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="INewsReleaseService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface INewsReleaseServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    INewsReleaseServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /newsreleases`, but is otherwise the
+    /// same as <see cref="INewsReleaseService.List(NewsReleaseListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<List<NewsReleaseListResponse>>> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

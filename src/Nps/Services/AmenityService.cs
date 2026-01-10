@@ -11,21 +11,84 @@ namespace Nps.Services;
 /// <inheritdoc/>
 public sealed class AmenityService : IAmenityService
 {
+    readonly Lazy<IAmenityServiceWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public IAmenityServiceWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
+    }
+
+    readonly INpsClient _client;
+
     /// <inheritdoc/>
     public IAmenityService WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
         return new AmenityService(this._client.WithOptions(modifier));
     }
 
-    readonly INpsClient _client;
-
     public AmenityService(INpsClient client)
+    {
+        _client = client;
+
+        _withRawResponse = new(() => new AmenityServiceWithRawResponse(client.WithRawResponse));
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<AmenityListResponse>> List(
+        AmenityListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.List(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
+        AmenityRetrieveParksPlacesParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.RetrieveParksPlaces(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<AmenityRetrieveParksVisitorCentersResponse>> RetrieveParksVisitorCenters(
+        AmenityRetrieveParksVisitorCentersParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.RetrieveParksVisitorCenters(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+}
+
+/// <inheritdoc/>
+public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawResponse
+{
+    readonly INpsClientWithRawResponse _client;
+
+    /// <inheritdoc/>
+    public IAmenityServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    {
+        return new AmenityServiceWithRawResponse(this._client.WithOptions(modifier));
+    }
+
+    public AmenityServiceWithRawResponse(INpsClientWithRawResponse client)
     {
         _client = client;
     }
 
     /// <inheritdoc/>
-    public async Task<List<AmenityListResponse>> List(
+    public async Task<HttpResponse<List<AmenityListResponse>>> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -37,24 +100,28 @@ public sealed class AmenityService : IAmenityService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var amenities = await response
-            .Deserialize<List<AmenityListResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in amenities)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var amenities = await response
+                    .Deserialize<List<AmenityListResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in amenities)
+                    {
+                        item.Validate();
+                    }
+                }
+                return amenities;
             }
-        }
-        return amenities;
+        );
     }
 
     /// <inheritdoc/>
-    public async Task<List<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
+    public async Task<HttpResponse<List<AmenityRetrieveParksPlacesResponse>>> RetrieveParksPlaces(
         AmenityRetrieveParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -66,24 +133,30 @@ public sealed class AmenityService : IAmenityService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var deserializedResponse = await response
-            .Deserialize<List<AmenityRetrieveParksPlacesResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in deserializedResponse)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var deserializedResponse = await response
+                    .Deserialize<List<AmenityRetrieveParksPlacesResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in deserializedResponse)
+                    {
+                        item.Validate();
+                    }
+                }
+                return deserializedResponse;
             }
-        }
-        return deserializedResponse;
+        );
     }
 
     /// <inheritdoc/>
-    public async Task<List<AmenityRetrieveParksVisitorCentersResponse>> RetrieveParksVisitorCenters(
+    public async Task<
+        HttpResponse<List<AmenityRetrieveParksVisitorCentersResponse>>
+    > RetrieveParksVisitorCenters(
         AmenityRetrieveParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -95,19 +168,23 @@ public sealed class AmenityService : IAmenityService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var deserializedResponse = await response
-            .Deserialize<List<AmenityRetrieveParksVisitorCentersResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in deserializedResponse)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var deserializedResponse = await response
+                    .Deserialize<List<AmenityRetrieveParksVisitorCentersResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in deserializedResponse)
+                    {
+                        item.Validate();
+                    }
+                }
+                return deserializedResponse;
             }
-        }
-        return deserializedResponse;
+        );
     }
 }

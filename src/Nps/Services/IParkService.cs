@@ -15,6 +15,12 @@ namespace Nps.Services;
 public interface IParkService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IParkServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
@@ -22,6 +28,29 @@ public interface IParkService
     IParkService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     Task<List<ParkListResponse>> List(
+        ParkListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IParkService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IParkServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IParkServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /parks`, but is otherwise the
+    /// same as <see cref="IParkService.List(ParkListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<List<ParkListResponse>>> List(
         ParkListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

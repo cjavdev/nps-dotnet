@@ -11,21 +11,60 @@ namespace Nps.Services;
 /// <inheritdoc/>
 public sealed class EventService : IEventService
 {
+    readonly Lazy<IEventServiceWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public IEventServiceWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
+    }
+
+    readonly INpsClient _client;
+
     /// <inheritdoc/>
     public IEventService WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
         return new EventService(this._client.WithOptions(modifier));
     }
 
-    readonly INpsClient _client;
-
     public EventService(INpsClient client)
+    {
+        _client = client;
+
+        _withRawResponse = new(() => new EventServiceWithRawResponse(client.WithRawResponse));
+    }
+
+    /// <inheritdoc/>
+    public async Task<List<EventListResponse>> List(
+        EventListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.List(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+}
+
+/// <inheritdoc/>
+public sealed class EventServiceWithRawResponse : IEventServiceWithRawResponse
+{
+    readonly INpsClientWithRawResponse _client;
+
+    /// <inheritdoc/>
+    public IEventServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    {
+        return new EventServiceWithRawResponse(this._client.WithOptions(modifier));
+    }
+
+    public EventServiceWithRawResponse(INpsClientWithRawResponse client)
     {
         _client = client;
     }
 
     /// <inheritdoc/>
-    public async Task<List<EventListResponse>> List(
+    public async Task<HttpResponse<List<EventListResponse>>> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -37,19 +76,23 @@ public sealed class EventService : IEventService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var events = await response
-            .Deserialize<List<EventListResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in events)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var events = await response
+                    .Deserialize<List<EventListResponse>>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    foreach (var item in events)
+                    {
+                        item.Validate();
+                    }
+                }
+                return events;
             }
-        }
-        return events;
+        );
     }
 }

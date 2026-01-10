@@ -15,6 +15,12 @@ namespace Nps.Services;
 public interface ICampgroundService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    ICampgroundServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
@@ -22,6 +28,29 @@ public interface ICampgroundService
     ICampgroundService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     Task<List<CampgroundListResponse>> List(
+        CampgroundListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="ICampgroundService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface ICampgroundServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    ICampgroundServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /campgrounds`, but is otherwise the
+    /// same as <see cref="ICampgroundService.List(CampgroundListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<List<CampgroundListResponse>>> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

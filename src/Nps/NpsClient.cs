@@ -14,17 +14,6 @@ namespace Nps;
 /// <inheritdoc/>
 public sealed class NpsClient : INpsClient
 {
-#if NET
-    static readonly Random Random = Random.Shared;
-#else
-    static readonly ThreadLocal<Random> _threadLocalRandom = new(() => new Random());
-
-    static Random Random
-    {
-        get { return _threadLocalRandom.Value!; }
-    }
-#endif
-
     readonly ClientOptions _options;
 
     /// <inheritdoc/>
@@ -67,6 +56,14 @@ public sealed class NpsClient : INpsClient
     {
         get { return this._options.ApiKey; }
         init { this._options.ApiKey = value; }
+    }
+
+    readonly Lazy<INpsClientWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public INpsClientWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
     }
 
     /// <inheritdoc/>
@@ -203,6 +200,240 @@ public sealed class NpsClient : INpsClient
 
     readonly Lazy<IWebcamService> _webcams;
     public IWebcamService Webcams
+    {
+        get { return _webcams.Value; }
+    }
+
+    public void Dispose() => this.HttpClient.Dispose();
+
+    public NpsClient()
+    {
+        _options = new();
+
+        _withRawResponse = new(() => new NpsClientWithRawResponse(this._options));
+        _activities = new(() => new ActivityService(this));
+        _alerts = new(() => new AlertService(this));
+        _amenities = new(() => new AmenityService(this));
+        _articles = new(() => new ArticleService(this));
+        _campgrounds = new(() => new CampgroundService(this));
+        _events = new(() => new EventService(this));
+        _feespasses = new(() => new FeespassService(this));
+        _lessonplans = new(() => new LessonplanService(this));
+        _maps = new(() => new MapService(this));
+        _multimedia = new(() => new MultimediaService(this));
+        _newsReleases = new(() => new NewsReleaseService(this));
+        _parkingLots = new(() => new ParkingLotService(this));
+        _parks = new(() => new ParkService(this));
+        _passportStampLocations = new(() => new PassportStampLocationService(this));
+        _people = new(() => new PersonService(this));
+        _places = new(() => new PlaceService(this));
+        _roadEvents = new(() => new RoadEventService(this));
+        _thingsTodo = new(() => new ThingsTodoService(this));
+        _topics = new(() => new TopicService(this));
+        _tours = new(() => new TourService(this));
+        _visitorCenters = new(() => new VisitorCenterService(this));
+        _webcams = new(() => new WebcamService(this));
+    }
+
+    public NpsClient(ClientOptions options)
+        : this()
+    {
+        _options = options;
+    }
+}
+
+/// <inheritdoc/>
+public sealed class NpsClientWithRawResponse : INpsClientWithRawResponse
+{
+#if NET
+    static readonly Random Random = Random.Shared;
+#else
+    static readonly ThreadLocal<Random> _threadLocalRandom = new(() => new Random());
+
+    static Random Random
+    {
+        get { return _threadLocalRandom.Value!; }
+    }
+#endif
+
+    readonly ClientOptions _options;
+
+    /// <inheritdoc/>
+    public HttpClient HttpClient
+    {
+        get { return this._options.HttpClient; }
+        init { this._options.HttpClient = value; }
+    }
+
+    /// <inheritdoc/>
+    public string BaseUrl
+    {
+        get { return this._options.BaseUrl; }
+        init { this._options.BaseUrl = value; }
+    }
+
+    /// <inheritdoc/>
+    public bool ResponseValidation
+    {
+        get { return this._options.ResponseValidation; }
+        init { this._options.ResponseValidation = value; }
+    }
+
+    /// <inheritdoc/>
+    public int? MaxRetries
+    {
+        get { return this._options.MaxRetries; }
+        init { this._options.MaxRetries = value; }
+    }
+
+    /// <inheritdoc/>
+    public TimeSpan? Timeout
+    {
+        get { return this._options.Timeout; }
+        init { this._options.Timeout = value; }
+    }
+
+    /// <inheritdoc/>
+    public string? ApiKey
+    {
+        get { return this._options.ApiKey; }
+        init { this._options.ApiKey = value; }
+    }
+
+    /// <inheritdoc/>
+    public INpsClientWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    {
+        return new NpsClientWithRawResponse(modifier(this._options));
+    }
+
+    readonly Lazy<IActivityServiceWithRawResponse> _activities;
+    public IActivityServiceWithRawResponse Activities
+    {
+        get { return _activities.Value; }
+    }
+
+    readonly Lazy<IAlertServiceWithRawResponse> _alerts;
+    public IAlertServiceWithRawResponse Alerts
+    {
+        get { return _alerts.Value; }
+    }
+
+    readonly Lazy<IAmenityServiceWithRawResponse> _amenities;
+    public IAmenityServiceWithRawResponse Amenities
+    {
+        get { return _amenities.Value; }
+    }
+
+    readonly Lazy<IArticleServiceWithRawResponse> _articles;
+    public IArticleServiceWithRawResponse Articles
+    {
+        get { return _articles.Value; }
+    }
+
+    readonly Lazy<ICampgroundServiceWithRawResponse> _campgrounds;
+    public ICampgroundServiceWithRawResponse Campgrounds
+    {
+        get { return _campgrounds.Value; }
+    }
+
+    readonly Lazy<IEventServiceWithRawResponse> _events;
+    public IEventServiceWithRawResponse Events
+    {
+        get { return _events.Value; }
+    }
+
+    readonly Lazy<IFeespassServiceWithRawResponse> _feespasses;
+    public IFeespassServiceWithRawResponse Feespasses
+    {
+        get { return _feespasses.Value; }
+    }
+
+    readonly Lazy<ILessonplanServiceWithRawResponse> _lessonplans;
+    public ILessonplanServiceWithRawResponse Lessonplans
+    {
+        get { return _lessonplans.Value; }
+    }
+
+    readonly Lazy<IMapServiceWithRawResponse> _maps;
+    public IMapServiceWithRawResponse Maps
+    {
+        get { return _maps.Value; }
+    }
+
+    readonly Lazy<IMultimediaServiceWithRawResponse> _multimedia;
+    public IMultimediaServiceWithRawResponse Multimedia
+    {
+        get { return _multimedia.Value; }
+    }
+
+    readonly Lazy<INewsReleaseServiceWithRawResponse> _newsReleases;
+    public INewsReleaseServiceWithRawResponse NewsReleases
+    {
+        get { return _newsReleases.Value; }
+    }
+
+    readonly Lazy<IParkingLotServiceWithRawResponse> _parkingLots;
+    public IParkingLotServiceWithRawResponse ParkingLots
+    {
+        get { return _parkingLots.Value; }
+    }
+
+    readonly Lazy<IParkServiceWithRawResponse> _parks;
+    public IParkServiceWithRawResponse Parks
+    {
+        get { return _parks.Value; }
+    }
+
+    readonly Lazy<IPassportStampLocationServiceWithRawResponse> _passportStampLocations;
+    public IPassportStampLocationServiceWithRawResponse PassportStampLocations
+    {
+        get { return _passportStampLocations.Value; }
+    }
+
+    readonly Lazy<IPersonServiceWithRawResponse> _people;
+    public IPersonServiceWithRawResponse People
+    {
+        get { return _people.Value; }
+    }
+
+    readonly Lazy<IPlaceServiceWithRawResponse> _places;
+    public IPlaceServiceWithRawResponse Places
+    {
+        get { return _places.Value; }
+    }
+
+    readonly Lazy<IRoadEventServiceWithRawResponse> _roadEvents;
+    public IRoadEventServiceWithRawResponse RoadEvents
+    {
+        get { return _roadEvents.Value; }
+    }
+
+    readonly Lazy<IThingsTodoServiceWithRawResponse> _thingsTodo;
+    public IThingsTodoServiceWithRawResponse ThingsTodo
+    {
+        get { return _thingsTodo.Value; }
+    }
+
+    readonly Lazy<ITopicServiceWithRawResponse> _topics;
+    public ITopicServiceWithRawResponse Topics
+    {
+        get { return _topics.Value; }
+    }
+
+    readonly Lazy<ITourServiceWithRawResponse> _tours;
+    public ITourServiceWithRawResponse Tours
+    {
+        get { return _tours.Value; }
+    }
+
+    readonly Lazy<IVisitorCenterServiceWithRawResponse> _visitorCenters;
+    public IVisitorCenterServiceWithRawResponse VisitorCenters
+    {
+        get { return _visitorCenters.Value; }
+    }
+
+    readonly Lazy<IWebcamServiceWithRawResponse> _webcams;
+    public IWebcamServiceWithRawResponse Webcams
     {
         get { return _webcams.Value; }
     }
@@ -397,35 +628,35 @@ public sealed class NpsClient : INpsClient
 
     public void Dispose() => this.HttpClient.Dispose();
 
-    public NpsClient()
+    public NpsClientWithRawResponse()
     {
         _options = new();
 
-        _activities = new(() => new ActivityService(this));
-        _alerts = new(() => new AlertService(this));
-        _amenities = new(() => new AmenityService(this));
-        _articles = new(() => new ArticleService(this));
-        _campgrounds = new(() => new CampgroundService(this));
-        _events = new(() => new EventService(this));
-        _feespasses = new(() => new FeespassService(this));
-        _lessonplans = new(() => new LessonplanService(this));
-        _maps = new(() => new MapService(this));
-        _multimedia = new(() => new MultimediaService(this));
-        _newsReleases = new(() => new NewsReleaseService(this));
-        _parkingLots = new(() => new ParkingLotService(this));
-        _parks = new(() => new ParkService(this));
-        _passportStampLocations = new(() => new PassportStampLocationService(this));
-        _people = new(() => new PersonService(this));
-        _places = new(() => new PlaceService(this));
-        _roadEvents = new(() => new RoadEventService(this));
-        _thingsTodo = new(() => new ThingsTodoService(this));
-        _topics = new(() => new TopicService(this));
-        _tours = new(() => new TourService(this));
-        _visitorCenters = new(() => new VisitorCenterService(this));
-        _webcams = new(() => new WebcamService(this));
+        _activities = new(() => new ActivityServiceWithRawResponse(this));
+        _alerts = new(() => new AlertServiceWithRawResponse(this));
+        _amenities = new(() => new AmenityServiceWithRawResponse(this));
+        _articles = new(() => new ArticleServiceWithRawResponse(this));
+        _campgrounds = new(() => new CampgroundServiceWithRawResponse(this));
+        _events = new(() => new EventServiceWithRawResponse(this));
+        _feespasses = new(() => new FeespassServiceWithRawResponse(this));
+        _lessonplans = new(() => new LessonplanServiceWithRawResponse(this));
+        _maps = new(() => new MapServiceWithRawResponse(this));
+        _multimedia = new(() => new MultimediaServiceWithRawResponse(this));
+        _newsReleases = new(() => new NewsReleaseServiceWithRawResponse(this));
+        _parkingLots = new(() => new ParkingLotServiceWithRawResponse(this));
+        _parks = new(() => new ParkServiceWithRawResponse(this));
+        _passportStampLocations = new(() => new PassportStampLocationServiceWithRawResponse(this));
+        _people = new(() => new PersonServiceWithRawResponse(this));
+        _places = new(() => new PlaceServiceWithRawResponse(this));
+        _roadEvents = new(() => new RoadEventServiceWithRawResponse(this));
+        _thingsTodo = new(() => new ThingsTodoServiceWithRawResponse(this));
+        _topics = new(() => new TopicServiceWithRawResponse(this));
+        _tours = new(() => new TourServiceWithRawResponse(this));
+        _visitorCenters = new(() => new VisitorCenterServiceWithRawResponse(this));
+        _webcams = new(() => new WebcamServiceWithRawResponse(this));
     }
 
-    public NpsClient(ClientOptions options)
+    public NpsClientWithRawResponse(ClientOptions options)
         : this()
     {
         _options = options;
