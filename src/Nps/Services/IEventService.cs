@@ -27,6 +27,9 @@ public interface IEventService
     /// </summary>
     IEventService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /events<c/>.
+    /// </summary>
     Task<List<EventListResponse>> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default

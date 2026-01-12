@@ -27,6 +27,9 @@ public interface IParkService
     /// </summary>
     IParkService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /parks<c/>.
+    /// </summary>
     Task<List<ParkListResponse>> List(
         ParkListParams? parameters = null,
         CancellationToken cancellationToken = default

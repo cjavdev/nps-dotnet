@@ -27,6 +27,9 @@ public interface IMapService
     /// </summary>
     IMapService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /mapdata/parkboundaries/{sitecode}<c/>.
+    /// </summary>
     Task<List<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         MapRetrieveParkBoundariesParams parameters,
         CancellationToken cancellationToken = default

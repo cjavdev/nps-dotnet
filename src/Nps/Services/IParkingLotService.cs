@@ -27,6 +27,9 @@ public interface IParkingLotService
     /// </summary>
     IParkingLotService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /parkinglots<c/>.
+    /// </summary>
     Task<List<ParkingLotListResponse>> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default

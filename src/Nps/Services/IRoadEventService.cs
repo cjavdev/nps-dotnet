@@ -27,6 +27,9 @@ public interface IRoadEventService
     /// </summary>
     IRoadEventService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /roadevents<c/>.
+    /// </summary>
     Task<List<RoadEventListResponse>> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default

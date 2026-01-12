@@ -27,6 +27,9 @@ public interface INewsReleaseService
     /// </summary>
     INewsReleaseService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /newsreleases<c/>.
+    /// </summary>
     Task<List<NewsReleaseListResponse>> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default

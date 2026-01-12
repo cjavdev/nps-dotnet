@@ -27,6 +27,9 @@ public interface IVisitorCenterService
     /// </summary>
     IVisitorCenterService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /visitorcenters<c/>.
+    /// </summary>
     Task<List<VisitorCenterListResponse>> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default

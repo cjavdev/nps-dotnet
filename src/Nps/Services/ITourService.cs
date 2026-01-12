@@ -27,6 +27,9 @@ public interface ITourService
     /// </summary>
     ITourService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /tours<c/>.
+    /// </summary>
     Task<List<TourListResponse>> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default

@@ -27,6 +27,9 @@ public interface ILessonplanService
     /// </summary>
     ILessonplanService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /lessonplans<c/>.
+    /// </summary>
     Task<List<LessonplanListResponse>> List(
         LessonplanListParams? parameters = null,
         CancellationToken cancellationToken = default

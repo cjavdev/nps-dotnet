@@ -27,6 +27,9 @@ public interface IPassportStampLocationService
     /// </summary>
     IPassportStampLocationService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /passportstamplocations<c/>.
+    /// </summary>
     Task<List<PassportStampLocationListResponse>> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default

@@ -27,6 +27,9 @@ public interface IArticleService
     /// </summary>
     IArticleService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /articles<c/>.
+    /// </summary>
     Task<List<ArticleListResponse>> List(
         ArticleListParams? parameters = null,
         CancellationToken cancellationToken = default

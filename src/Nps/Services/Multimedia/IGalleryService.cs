@@ -27,11 +27,17 @@ public interface IGalleryService
     /// </summary>
     IGalleryService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /multimedia/galleries<c/>.
+    /// </summary>
     Task<List<GalleryListResponse>> List(
         GalleryListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Sends a request to <c>get /multimedia/galleries/assets<c/>.
+    /// </summary>
     Task<List<GalleryListAssetsResponse>> ListAssets(
         GalleryListAssetsParams? parameters = null,
         CancellationToken cancellationToken = default
