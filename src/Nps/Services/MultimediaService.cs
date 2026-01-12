@@ -42,7 +42,7 @@ public sealed class MultimediaService : IMultimediaService
     }
 
     /// <inheritdoc/>
-    public async Task<MultimediaListAudioResponse> ListAudio(
+    public async Task<MultimediaListAudioPage> ListAudio(
         MultimediaListAudioParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -54,7 +54,7 @@ public sealed class MultimediaService : IMultimediaService
     }
 
     /// <inheritdoc/>
-    public async Task<MultimediaListVideosResponse> ListVideos(
+    public async Task<MultimediaListVideosPage> ListVideos(
         MultimediaListVideosParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -93,7 +93,7 @@ public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<MultimediaListAudioResponse>> ListAudio(
+    public async Task<HttpResponse<MultimediaListAudioPage>> ListAudio(
         MultimediaListAudioParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -110,20 +110,20 @@ public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRaw
             response,
             async (token) =>
             {
-                var deserializedResponse = await response
-                    .Deserialize<MultimediaListAudioResponse>(token)
+                var page = await response
+                    .Deserialize<MultimediaListAudioPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    deserializedResponse.Validate();
+                    page.Validate();
                 }
-                return deserializedResponse;
+                return new MultimediaListAudioPage(this, parameters, page);
             }
         );
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<MultimediaListVideosResponse>> ListVideos(
+    public async Task<HttpResponse<MultimediaListVideosPage>> ListVideos(
         MultimediaListVideosParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -140,14 +140,14 @@ public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRaw
             response,
             async (token) =>
             {
-                var deserializedResponse = await response
-                    .Deserialize<MultimediaListVideosResponse>(token)
+                var page = await response
+                    .Deserialize<MultimediaListVideosPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    deserializedResponse.Validate();
+                    page.Validate();
                 }
-                return deserializedResponse;
+                return new MultimediaListVideosPage(this, parameters, page);
             }
         );
     }

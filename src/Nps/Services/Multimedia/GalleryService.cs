@@ -34,7 +34,7 @@ public sealed class GalleryService : IGalleryService
     }
 
     /// <inheritdoc/>
-    public async Task<GalleryListResponse> List(
+    public async Task<GalleryListPage> List(
         GalleryListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -46,7 +46,7 @@ public sealed class GalleryService : IGalleryService
     }
 
     /// <inheritdoc/>
-    public async Task<GalleryListAssetsResponse> ListAssets(
+    public async Task<GalleryListAssetsPage> ListAssets(
         GalleryListAssetsParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -75,7 +75,7 @@ public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawRespon
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<GalleryListResponse>> List(
+    public async Task<HttpResponse<GalleryListPage>> List(
         GalleryListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -92,20 +92,20 @@ public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawRespon
             response,
             async (token) =>
             {
-                var galleries = await response
-                    .Deserialize<GalleryListResponse>(token)
+                var page = await response
+                    .Deserialize<GalleryListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    galleries.Validate();
+                    page.Validate();
                 }
-                return galleries;
+                return new GalleryListPage(this, parameters, page);
             }
         );
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<GalleryListAssetsResponse>> ListAssets(
+    public async Task<HttpResponse<GalleryListAssetsPage>> ListAssets(
         GalleryListAssetsParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -122,14 +122,14 @@ public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawRespon
             response,
             async (token) =>
             {
-                var deserializedResponse = await response
-                    .Deserialize<GalleryListAssetsResponse>(token)
+                var page = await response
+                    .Deserialize<GalleryListAssetsPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    deserializedResponse.Validate();
+                    page.Validate();
                 }
-                return deserializedResponse;
+                return new GalleryListAssetsPage(this, parameters, page);
             }
         );
     }

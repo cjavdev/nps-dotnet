@@ -34,7 +34,7 @@ public sealed class TopicService : ITopicService
     }
 
     /// <inheritdoc/>
-    public async Task<TopicListResponse> List(
+    public async Task<TopicListPage> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -75,7 +75,7 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<TopicListResponse>> List(
+    public async Task<HttpResponse<TopicListPage>> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -92,14 +92,14 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
             response,
             async (token) =>
             {
-                var topics = await response
-                    .Deserialize<TopicListResponse>(token)
+                var page = await response
+                    .Deserialize<TopicListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    topics.Validate();
+                    page.Validate();
                 }
-                return topics;
+                return new TopicListPage(this, parameters, page);
             }
         );
     }

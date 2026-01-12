@@ -34,7 +34,7 @@ public sealed class PlaceService : IPlaceService
     }
 
     /// <inheritdoc/>
-    public async Task<PlaceListResponse> List(
+    public async Task<PlaceListPage> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class PlaceServiceWithRawResponse : IPlaceServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<PlaceListResponse>> List(
+    public async Task<HttpResponse<PlaceListPage>> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class PlaceServiceWithRawResponse : IPlaceServiceWithRawResponse
             response,
             async (token) =>
             {
-                var places = await response
-                    .Deserialize<PlaceListResponse>(token)
+                var page = await response
+                    .Deserialize<PlaceListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    places.Validate();
+                    page.Validate();
                 }
-                return places;
+                return new PlaceListPage(this, parameters, page);
             }
         );
     }

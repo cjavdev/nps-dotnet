@@ -36,7 +36,7 @@ public sealed class PassportStampLocationService : IPassportStampLocationService
     }
 
     /// <inheritdoc/>
-    public async Task<PassportStampLocationListResponse> List(
+    public async Task<PassportStampLocationListPage> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -68,7 +68,7 @@ public sealed class PassportStampLocationServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<PassportStampLocationListResponse>> List(
+    public async Task<HttpResponse<PassportStampLocationListPage>> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -85,14 +85,14 @@ public sealed class PassportStampLocationServiceWithRawResponse
             response,
             async (token) =>
             {
-                var passportStampLocations = await response
-                    .Deserialize<PassportStampLocationListResponse>(token)
+                var page = await response
+                    .Deserialize<PassportStampLocationListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    passportStampLocations.Validate();
+                    page.Validate();
                 }
-                return passportStampLocations;
+                return new PassportStampLocationListPage(this, parameters, page);
             }
         );
     }

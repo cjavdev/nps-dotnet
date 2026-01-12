@@ -29,7 +29,7 @@ public interface INewsReleaseService
     /// <summary>
     /// Sends a request to <c>get /newsreleases<c/>.
     /// </summary>
-    Task<NewsReleaseListResponse> List(
+    Task<NewsReleaseListPage> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface INewsReleaseServiceWithRawResponse
     /// Returns a raw HTTP response for `get /newsreleases`, but is otherwise the
     /// same as <see cref="INewsReleaseService.List(NewsReleaseListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<NewsReleaseListResponse>> List(
+    Task<HttpResponse<NewsReleaseListPage>> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

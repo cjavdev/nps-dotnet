@@ -34,7 +34,7 @@ public sealed class LessonplanService : ILessonplanService
     }
 
     /// <inheritdoc/>
-    public async Task<LessonplanListResponse> List(
+    public async Task<LessonplanListPage> List(
         LessonplanListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -65,7 +65,7 @@ public sealed class LessonplanServiceWithRawResponse : ILessonplanServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<LessonplanListResponse>> List(
+    public async Task<HttpResponse<LessonplanListPage>> List(
         LessonplanListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +82,14 @@ public sealed class LessonplanServiceWithRawResponse : ILessonplanServiceWithRaw
             response,
             async (token) =>
             {
-                var lessonplans = await response
-                    .Deserialize<LessonplanListResponse>(token)
+                var page = await response
+                    .Deserialize<LessonplanListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    lessonplans.Validate();
+                    page.Validate();
                 }
-                return lessonplans;
+                return new LessonplanListPage(this, parameters, page);
             }
         );
     }

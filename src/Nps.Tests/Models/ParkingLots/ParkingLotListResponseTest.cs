@@ -17,238 +17,216 @@ public class ParkingLotListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "id",
+                    Accessibility = new()
+                    {
+                        AdaFacilitiesDescription = "",
+                        IsLotAccessibleToDisabled = true,
+                        NumberofAdaSpaces = 6,
+                        NumberofAdaStepFreeSpaces = 6,
+                        NumberofAdaVanAccessbileSpaces = 6,
+                        NumberOfOversizeVehicleSpaces = 0,
+                        TotalSpaces = 145,
+                    },
+                    AltName = "altName",
+                    Contacts = new()
+                    {
+                        EmailAddresses =
+                        [
+                            new()
+                            {
+                                Description = "description",
+                                EmailAddressValue = "emailAddress",
+                            },
+                        ],
+                        PhoneNumbers =
+                        [
+                            new()
+                            {
+                                Description = "description",
+                                Extension = "extension",
+                                PhoneNumberValue = "phoneNumber",
+                                Type = Type.Voice,
+                            },
+                        ],
+                    },
+                    Description = "description",
+                    Fees =
                     [
                         new()
                         {
-                            ID = "id",
-                            Accessibility = new()
-                            {
-                                AdaFacilitiesDescription = "",
-                                IsLotAccessibleToDisabled = true,
-                                NumberofAdaSpaces = 6,
-                                NumberofAdaStepFreeSpaces = 6,
-                                NumberofAdaVanAccessbileSpaces = 6,
-                                NumberOfOversizeVehicleSpaces = 0,
-                                TotalSpaces = 145,
-                            },
-                            AltName = "altName",
-                            Contacts = new()
-                            {
-                                EmailAddresses =
-                                [
-                                    new()
-                                    {
-                                        Description = "description",
-                                        EmailAddressValue = "emailAddress",
-                                    },
-                                ],
-                                PhoneNumbers =
-                                [
-                                    new()
-                                    {
-                                        Description = "description",
-                                        Extension = "extension",
-                                        PhoneNumberValue = "phoneNumber",
-                                        Type = Type.Voice,
-                                    },
-                                ],
-                            },
-                            Description = "description",
-                            Fees =
-                            [
-                                new()
-                                {
-                                    Cost = "cost",
-                                    Description =
-                                        "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                                    Title = "Acadia Entrance Fee - Per person or vehicle",
-                                },
-                            ],
-                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                            Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                            Latitude = "latitude",
-                            LiveStatus = new()
-                            {
-                                Description = "description",
-                                EstimatedWaitTimeInMinutes = 0,
-                                ExpirationDate = "expirationDate",
-                                IsActive = true,
-                                Occupancy = "Light",
-                            },
-                            Longitude = "longitude",
-                            ManagedByOrganization = "NPS",
-                            Name = "name",
-                            OperatingHours =
-                            [
-                                new()
-                                {
-                                    Description = "description",
-                                    Exceptions =
-                                    [
-                                        new()
-                                        {
-                                            EndDate = "endDate",
-                                            Name = "name",
-                                            StartDate = "startDate",
-                                        },
-                                    ],
-                                    Name = "Cadillac Mountain",
-                                    StandardHours = new()
-                                    {
-                                        Friday = "All Day",
-                                        Monday = "All Day",
-                                        Saturday = "All Day",
-                                        Sunday = "All Day",
-                                        Thursday = "All Day",
-                                        Tuesday = "All Day",
-                                        Wednesday = "All Day",
-                                    },
-                                },
-                            ],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National River",
-                                    FullName = "Buffalo National River",
-                                    Name = "Buffalo",
-                                    ParkCode = "buff",
-                                    State = "AR",
-                                    Url = "https://www.nps.gov/buff/index.htm",
-                                },
-                            ],
-                            TimeZone = "ET",
-                            WebcamUrl = "webcamUrl",
+                            Cost = "cost",
+                            Description =
+                                "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
+                            Title = "Acadia Entrance Fee - Per person or vehicle",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "4",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
+                    Latitude = "latitude",
+                    LiveStatus = new()
+                    {
+                        Description = "description",
+                        EstimatedWaitTimeInMinutes = 0,
+                        ExpirationDate = "expirationDate",
+                        IsActive = true,
+                        Occupancy = "Light",
+                    },
+                    Longitude = "longitude",
+                    ManagedByOrganization = "NPS",
+                    Name = "name",
+                    OperatingHours =
+                    [
+                        new()
+                        {
+                            Description = "description",
+                            Exceptions =
+                            [
+                                new()
+                                {
+                                    EndDate = "endDate",
+                                    Name = "name",
+                                    StartDate = "startDate",
+                                },
+                            ],
+                            Name = "Cadillac Mountain",
+                            StandardHours = new()
+                            {
+                                Friday = "All Day",
+                                Monday = "All Day",
+                                Saturday = "All Day",
+                                Sunday = "All Day",
+                                Thursday = "All Day",
+                                Tuesday = "All Day",
+                                Wednesday = "All Day",
+                            },
+                        },
+                    ],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National River",
+                            FullName = "Buffalo National River",
+                            Name = "Buffalo",
+                            ParkCode = "buff",
+                            State = "AR",
+                            Url = "https://www.nps.gov/buff/index.htm",
+                        },
+                    ],
+                    TimeZone = "ET",
+                    WebcamUrl = "webcamUrl",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "4",
         };
 
         List<Data> expectedData =
         [
             new()
             {
-                DataValue =
+                ID = "id",
+                Accessibility = new()
+                {
+                    AdaFacilitiesDescription = "",
+                    IsLotAccessibleToDisabled = true,
+                    NumberofAdaSpaces = 6,
+                    NumberofAdaStepFreeSpaces = 6,
+                    NumberofAdaVanAccessbileSpaces = 6,
+                    NumberOfOversizeVehicleSpaces = 0,
+                    TotalSpaces = 145,
+                },
+                AltName = "altName",
+                Contacts = new()
+                {
+                    EmailAddresses =
+                    [
+                        new() { Description = "description", EmailAddressValue = "emailAddress" },
+                    ],
+                    PhoneNumbers =
+                    [
+                        new()
+                        {
+                            Description = "description",
+                            Extension = "extension",
+                            PhoneNumberValue = "phoneNumber",
+                            Type = Type.Voice,
+                        },
+                    ],
+                },
+                Description = "description",
+                Fees =
                 [
                     new()
                     {
-                        ID = "id",
-                        Accessibility = new()
-                        {
-                            AdaFacilitiesDescription = "",
-                            IsLotAccessibleToDisabled = true,
-                            NumberofAdaSpaces = 6,
-                            NumberofAdaStepFreeSpaces = 6,
-                            NumberofAdaVanAccessbileSpaces = 6,
-                            NumberOfOversizeVehicleSpaces = 0,
-                            TotalSpaces = 145,
-                        },
-                        AltName = "altName",
-                        Contacts = new()
-                        {
-                            EmailAddresses =
-                            [
-                                new()
-                                {
-                                    Description = "description",
-                                    EmailAddressValue = "emailAddress",
-                                },
-                            ],
-                            PhoneNumbers =
-                            [
-                                new()
-                                {
-                                    Description = "description",
-                                    Extension = "extension",
-                                    PhoneNumberValue = "phoneNumber",
-                                    Type = Type.Voice,
-                                },
-                            ],
-                        },
-                        Description = "description",
-                        Fees =
-                        [
-                            new()
-                            {
-                                Cost = "cost",
-                                Description =
-                                    "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                                Title = "Acadia Entrance Fee - Per person or vehicle",
-                            },
-                        ],
-                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                        Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                        Latitude = "latitude",
-                        LiveStatus = new()
-                        {
-                            Description = "description",
-                            EstimatedWaitTimeInMinutes = 0,
-                            ExpirationDate = "expirationDate",
-                            IsActive = true,
-                            Occupancy = "Light",
-                        },
-                        Longitude = "longitude",
-                        ManagedByOrganization = "NPS",
-                        Name = "name",
-                        OperatingHours =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                Exceptions =
-                                [
-                                    new()
-                                    {
-                                        EndDate = "endDate",
-                                        Name = "name",
-                                        StartDate = "startDate",
-                                    },
-                                ],
-                                Name = "Cadillac Mountain",
-                                StandardHours = new()
-                                {
-                                    Friday = "All Day",
-                                    Monday = "All Day",
-                                    Saturday = "All Day",
-                                    Sunday = "All Day",
-                                    Thursday = "All Day",
-                                    Tuesday = "All Day",
-                                    Wednesday = "All Day",
-                                },
-                            },
-                        ],
-                        RelatedParks =
-                        [
-                            new()
-                            {
-                                Designation = "National River",
-                                FullName = "Buffalo National River",
-                                Name = "Buffalo",
-                                ParkCode = "buff",
-                                State = "AR",
-                                Url = "https://www.nps.gov/buff/index.htm",
-                            },
-                        ],
-                        TimeZone = "ET",
-                        WebcamUrl = "webcamUrl",
+                        Cost = "cost",
+                        Description =
+                            "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
+                        Title = "Acadia Entrance Fee - Per person or vehicle",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "4",
+                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
+                Latitude = "latitude",
+                LiveStatus = new()
+                {
+                    Description = "description",
+                    EstimatedWaitTimeInMinutes = 0,
+                    ExpirationDate = "expirationDate",
+                    IsActive = true,
+                    Occupancy = "Light",
+                },
+                Longitude = "longitude",
+                ManagedByOrganization = "NPS",
+                Name = "name",
+                OperatingHours =
+                [
+                    new()
+                    {
+                        Description = "description",
+                        Exceptions =
+                        [
+                            new()
+                            {
+                                EndDate = "endDate",
+                                Name = "name",
+                                StartDate = "startDate",
+                            },
+                        ],
+                        Name = "Cadillac Mountain",
+                        StandardHours = new()
+                        {
+                            Friday = "All Day",
+                            Monday = "All Day",
+                            Saturday = "All Day",
+                            Sunday = "All Day",
+                            Thursday = "All Day",
+                            Tuesday = "All Day",
+                            Wednesday = "All Day",
+                        },
+                    },
+                ],
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "National River",
+                        FullName = "Buffalo National River",
+                        Name = "Buffalo",
+                        ParkCode = "buff",
+                        State = "AR",
+                        Url = "https://www.nps.gov/buff/index.htm",
+                    },
+                ],
+                TimeZone = "ET",
+                WebcamUrl = "webcamUrl",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "4";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -270,119 +248,110 @@ public class ParkingLotListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "id",
+                    Accessibility = new()
+                    {
+                        AdaFacilitiesDescription = "",
+                        IsLotAccessibleToDisabled = true,
+                        NumberofAdaSpaces = 6,
+                        NumberofAdaStepFreeSpaces = 6,
+                        NumberofAdaVanAccessbileSpaces = 6,
+                        NumberOfOversizeVehicleSpaces = 0,
+                        TotalSpaces = 145,
+                    },
+                    AltName = "altName",
+                    Contacts = new()
+                    {
+                        EmailAddresses =
+                        [
+                            new()
+                            {
+                                Description = "description",
+                                EmailAddressValue = "emailAddress",
+                            },
+                        ],
+                        PhoneNumbers =
+                        [
+                            new()
+                            {
+                                Description = "description",
+                                Extension = "extension",
+                                PhoneNumberValue = "phoneNumber",
+                                Type = Type.Voice,
+                            },
+                        ],
+                    },
+                    Description = "description",
+                    Fees =
                     [
                         new()
                         {
-                            ID = "id",
-                            Accessibility = new()
-                            {
-                                AdaFacilitiesDescription = "",
-                                IsLotAccessibleToDisabled = true,
-                                NumberofAdaSpaces = 6,
-                                NumberofAdaStepFreeSpaces = 6,
-                                NumberofAdaVanAccessbileSpaces = 6,
-                                NumberOfOversizeVehicleSpaces = 0,
-                                TotalSpaces = 145,
-                            },
-                            AltName = "altName",
-                            Contacts = new()
-                            {
-                                EmailAddresses =
-                                [
-                                    new()
-                                    {
-                                        Description = "description",
-                                        EmailAddressValue = "emailAddress",
-                                    },
-                                ],
-                                PhoneNumbers =
-                                [
-                                    new()
-                                    {
-                                        Description = "description",
-                                        Extension = "extension",
-                                        PhoneNumberValue = "phoneNumber",
-                                        Type = Type.Voice,
-                                    },
-                                ],
-                            },
-                            Description = "description",
-                            Fees =
-                            [
-                                new()
-                                {
-                                    Cost = "cost",
-                                    Description =
-                                        "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                                    Title = "Acadia Entrance Fee - Per person or vehicle",
-                                },
-                            ],
-                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                            Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                            Latitude = "latitude",
-                            LiveStatus = new()
-                            {
-                                Description = "description",
-                                EstimatedWaitTimeInMinutes = 0,
-                                ExpirationDate = "expirationDate",
-                                IsActive = true,
-                                Occupancy = "Light",
-                            },
-                            Longitude = "longitude",
-                            ManagedByOrganization = "NPS",
-                            Name = "name",
-                            OperatingHours =
-                            [
-                                new()
-                                {
-                                    Description = "description",
-                                    Exceptions =
-                                    [
-                                        new()
-                                        {
-                                            EndDate = "endDate",
-                                            Name = "name",
-                                            StartDate = "startDate",
-                                        },
-                                    ],
-                                    Name = "Cadillac Mountain",
-                                    StandardHours = new()
-                                    {
-                                        Friday = "All Day",
-                                        Monday = "All Day",
-                                        Saturday = "All Day",
-                                        Sunday = "All Day",
-                                        Thursday = "All Day",
-                                        Tuesday = "All Day",
-                                        Wednesday = "All Day",
-                                    },
-                                },
-                            ],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National River",
-                                    FullName = "Buffalo National River",
-                                    Name = "Buffalo",
-                                    ParkCode = "buff",
-                                    State = "AR",
-                                    Url = "https://www.nps.gov/buff/index.htm",
-                                },
-                            ],
-                            TimeZone = "ET",
-                            WebcamUrl = "webcamUrl",
+                            Cost = "cost",
+                            Description =
+                                "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
+                            Title = "Acadia Entrance Fee - Per person or vehicle",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "4",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
+                    Latitude = "latitude",
+                    LiveStatus = new()
+                    {
+                        Description = "description",
+                        EstimatedWaitTimeInMinutes = 0,
+                        ExpirationDate = "expirationDate",
+                        IsActive = true,
+                        Occupancy = "Light",
+                    },
+                    Longitude = "longitude",
+                    ManagedByOrganization = "NPS",
+                    Name = "name",
+                    OperatingHours =
+                    [
+                        new()
+                        {
+                            Description = "description",
+                            Exceptions =
+                            [
+                                new()
+                                {
+                                    EndDate = "endDate",
+                                    Name = "name",
+                                    StartDate = "startDate",
+                                },
+                            ],
+                            Name = "Cadillac Mountain",
+                            StandardHours = new()
+                            {
+                                Friday = "All Day",
+                                Monday = "All Day",
+                                Saturday = "All Day",
+                                Sunday = "All Day",
+                                Thursday = "All Day",
+                                Tuesday = "All Day",
+                                Wednesday = "All Day",
+                            },
+                        },
+                    ],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National River",
+                            FullName = "Buffalo National River",
+                            Name = "Buffalo",
+                            ParkCode = "buff",
+                            State = "AR",
+                            Url = "https://www.nps.gov/buff/index.htm",
+                        },
+                    ],
+                    TimeZone = "ET",
+                    WebcamUrl = "webcamUrl",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "4",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -400,119 +369,110 @@ public class ParkingLotListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "id",
+                    Accessibility = new()
+                    {
+                        AdaFacilitiesDescription = "",
+                        IsLotAccessibleToDisabled = true,
+                        NumberofAdaSpaces = 6,
+                        NumberofAdaStepFreeSpaces = 6,
+                        NumberofAdaVanAccessbileSpaces = 6,
+                        NumberOfOversizeVehicleSpaces = 0,
+                        TotalSpaces = 145,
+                    },
+                    AltName = "altName",
+                    Contacts = new()
+                    {
+                        EmailAddresses =
+                        [
+                            new()
+                            {
+                                Description = "description",
+                                EmailAddressValue = "emailAddress",
+                            },
+                        ],
+                        PhoneNumbers =
+                        [
+                            new()
+                            {
+                                Description = "description",
+                                Extension = "extension",
+                                PhoneNumberValue = "phoneNumber",
+                                Type = Type.Voice,
+                            },
+                        ],
+                    },
+                    Description = "description",
+                    Fees =
                     [
                         new()
                         {
-                            ID = "id",
-                            Accessibility = new()
-                            {
-                                AdaFacilitiesDescription = "",
-                                IsLotAccessibleToDisabled = true,
-                                NumberofAdaSpaces = 6,
-                                NumberofAdaStepFreeSpaces = 6,
-                                NumberofAdaVanAccessbileSpaces = 6,
-                                NumberOfOversizeVehicleSpaces = 0,
-                                TotalSpaces = 145,
-                            },
-                            AltName = "altName",
-                            Contacts = new()
-                            {
-                                EmailAddresses =
-                                [
-                                    new()
-                                    {
-                                        Description = "description",
-                                        EmailAddressValue = "emailAddress",
-                                    },
-                                ],
-                                PhoneNumbers =
-                                [
-                                    new()
-                                    {
-                                        Description = "description",
-                                        Extension = "extension",
-                                        PhoneNumberValue = "phoneNumber",
-                                        Type = Type.Voice,
-                                    },
-                                ],
-                            },
-                            Description = "description",
-                            Fees =
-                            [
-                                new()
-                                {
-                                    Cost = "cost",
-                                    Description =
-                                        "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                                    Title = "Acadia Entrance Fee - Per person or vehicle",
-                                },
-                            ],
-                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                            Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                            Latitude = "latitude",
-                            LiveStatus = new()
-                            {
-                                Description = "description",
-                                EstimatedWaitTimeInMinutes = 0,
-                                ExpirationDate = "expirationDate",
-                                IsActive = true,
-                                Occupancy = "Light",
-                            },
-                            Longitude = "longitude",
-                            ManagedByOrganization = "NPS",
-                            Name = "name",
-                            OperatingHours =
-                            [
-                                new()
-                                {
-                                    Description = "description",
-                                    Exceptions =
-                                    [
-                                        new()
-                                        {
-                                            EndDate = "endDate",
-                                            Name = "name",
-                                            StartDate = "startDate",
-                                        },
-                                    ],
-                                    Name = "Cadillac Mountain",
-                                    StandardHours = new()
-                                    {
-                                        Friday = "All Day",
-                                        Monday = "All Day",
-                                        Saturday = "All Day",
-                                        Sunday = "All Day",
-                                        Thursday = "All Day",
-                                        Tuesday = "All Day",
-                                        Wednesday = "All Day",
-                                    },
-                                },
-                            ],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National River",
-                                    FullName = "Buffalo National River",
-                                    Name = "Buffalo",
-                                    ParkCode = "buff",
-                                    State = "AR",
-                                    Url = "https://www.nps.gov/buff/index.htm",
-                                },
-                            ],
-                            TimeZone = "ET",
-                            WebcamUrl = "webcamUrl",
+                            Cost = "cost",
+                            Description =
+                                "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
+                            Title = "Acadia Entrance Fee - Per person or vehicle",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "4",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
+                    Latitude = "latitude",
+                    LiveStatus = new()
+                    {
+                        Description = "description",
+                        EstimatedWaitTimeInMinutes = 0,
+                        ExpirationDate = "expirationDate",
+                        IsActive = true,
+                        Occupancy = "Light",
+                    },
+                    Longitude = "longitude",
+                    ManagedByOrganization = "NPS",
+                    Name = "name",
+                    OperatingHours =
+                    [
+                        new()
+                        {
+                            Description = "description",
+                            Exceptions =
+                            [
+                                new()
+                                {
+                                    EndDate = "endDate",
+                                    Name = "name",
+                                    StartDate = "startDate",
+                                },
+                            ],
+                            Name = "Cadillac Mountain",
+                            StandardHours = new()
+                            {
+                                Friday = "All Day",
+                                Monday = "All Day",
+                                Saturday = "All Day",
+                                Sunday = "All Day",
+                                Thursday = "All Day",
+                                Tuesday = "All Day",
+                                Wednesday = "All Day",
+                            },
+                        },
+                    ],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National River",
+                            FullName = "Buffalo National River",
+                            Name = "Buffalo",
+                            ParkCode = "buff",
+                            State = "AR",
+                            Url = "https://www.nps.gov/buff/index.htm",
+                        },
+                    ],
+                    TimeZone = "ET",
+                    WebcamUrl = "webcamUrl",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "4",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -523,119 +483,106 @@ public class ParkingLotListResponseTest : TestBase
         [
             new()
             {
-                DataValue =
+                ID = "id",
+                Accessibility = new()
+                {
+                    AdaFacilitiesDescription = "",
+                    IsLotAccessibleToDisabled = true,
+                    NumberofAdaSpaces = 6,
+                    NumberofAdaStepFreeSpaces = 6,
+                    NumberofAdaVanAccessbileSpaces = 6,
+                    NumberOfOversizeVehicleSpaces = 0,
+                    TotalSpaces = 145,
+                },
+                AltName = "altName",
+                Contacts = new()
+                {
+                    EmailAddresses =
+                    [
+                        new() { Description = "description", EmailAddressValue = "emailAddress" },
+                    ],
+                    PhoneNumbers =
+                    [
+                        new()
+                        {
+                            Description = "description",
+                            Extension = "extension",
+                            PhoneNumberValue = "phoneNumber",
+                            Type = Type.Voice,
+                        },
+                    ],
+                },
+                Description = "description",
+                Fees =
                 [
                     new()
                     {
-                        ID = "id",
-                        Accessibility = new()
-                        {
-                            AdaFacilitiesDescription = "",
-                            IsLotAccessibleToDisabled = true,
-                            NumberofAdaSpaces = 6,
-                            NumberofAdaStepFreeSpaces = 6,
-                            NumberofAdaVanAccessbileSpaces = 6,
-                            NumberOfOversizeVehicleSpaces = 0,
-                            TotalSpaces = 145,
-                        },
-                        AltName = "altName",
-                        Contacts = new()
-                        {
-                            EmailAddresses =
-                            [
-                                new()
-                                {
-                                    Description = "description",
-                                    EmailAddressValue = "emailAddress",
-                                },
-                            ],
-                            PhoneNumbers =
-                            [
-                                new()
-                                {
-                                    Description = "description",
-                                    Extension = "extension",
-                                    PhoneNumberValue = "phoneNumber",
-                                    Type = Type.Voice,
-                                },
-                            ],
-                        },
-                        Description = "description",
-                        Fees =
-                        [
-                            new()
-                            {
-                                Cost = "cost",
-                                Description =
-                                    "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                                Title = "Acadia Entrance Fee - Per person or vehicle",
-                            },
-                        ],
-                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                        Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                        Latitude = "latitude",
-                        LiveStatus = new()
-                        {
-                            Description = "description",
-                            EstimatedWaitTimeInMinutes = 0,
-                            ExpirationDate = "expirationDate",
-                            IsActive = true,
-                            Occupancy = "Light",
-                        },
-                        Longitude = "longitude",
-                        ManagedByOrganization = "NPS",
-                        Name = "name",
-                        OperatingHours =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                Exceptions =
-                                [
-                                    new()
-                                    {
-                                        EndDate = "endDate",
-                                        Name = "name",
-                                        StartDate = "startDate",
-                                    },
-                                ],
-                                Name = "Cadillac Mountain",
-                                StandardHours = new()
-                                {
-                                    Friday = "All Day",
-                                    Monday = "All Day",
-                                    Saturday = "All Day",
-                                    Sunday = "All Day",
-                                    Thursday = "All Day",
-                                    Tuesday = "All Day",
-                                    Wednesday = "All Day",
-                                },
-                            },
-                        ],
-                        RelatedParks =
-                        [
-                            new()
-                            {
-                                Designation = "National River",
-                                FullName = "Buffalo National River",
-                                Name = "Buffalo",
-                                ParkCode = "buff",
-                                State = "AR",
-                                Url = "https://www.nps.gov/buff/index.htm",
-                            },
-                        ],
-                        TimeZone = "ET",
-                        WebcamUrl = "webcamUrl",
+                        Cost = "cost",
+                        Description =
+                            "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
+                        Title = "Acadia Entrance Fee - Per person or vehicle",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "4",
+                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
+                Latitude = "latitude",
+                LiveStatus = new()
+                {
+                    Description = "description",
+                    EstimatedWaitTimeInMinutes = 0,
+                    ExpirationDate = "expirationDate",
+                    IsActive = true,
+                    Occupancy = "Light",
+                },
+                Longitude = "longitude",
+                ManagedByOrganization = "NPS",
+                Name = "name",
+                OperatingHours =
+                [
+                    new()
+                    {
+                        Description = "description",
+                        Exceptions =
+                        [
+                            new()
+                            {
+                                EndDate = "endDate",
+                                Name = "name",
+                                StartDate = "startDate",
+                            },
+                        ],
+                        Name = "Cadillac Mountain",
+                        StandardHours = new()
+                        {
+                            Friday = "All Day",
+                            Monday = "All Day",
+                            Saturday = "All Day",
+                            Sunday = "All Day",
+                            Thursday = "All Day",
+                            Tuesday = "All Day",
+                            Wednesday = "All Day",
+                        },
+                    },
+                ],
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "National River",
+                        FullName = "Buffalo National River",
+                        Name = "Buffalo",
+                        ParkCode = "buff",
+                        State = "AR",
+                        Url = "https://www.nps.gov/buff/index.htm",
+                    },
+                ],
+                TimeZone = "ET",
+                WebcamUrl = "webcamUrl",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "4";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -657,119 +604,110 @@ public class ParkingLotListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "id",
+                    Accessibility = new()
+                    {
+                        AdaFacilitiesDescription = "",
+                        IsLotAccessibleToDisabled = true,
+                        NumberofAdaSpaces = 6,
+                        NumberofAdaStepFreeSpaces = 6,
+                        NumberofAdaVanAccessbileSpaces = 6,
+                        NumberOfOversizeVehicleSpaces = 0,
+                        TotalSpaces = 145,
+                    },
+                    AltName = "altName",
+                    Contacts = new()
+                    {
+                        EmailAddresses =
+                        [
+                            new()
+                            {
+                                Description = "description",
+                                EmailAddressValue = "emailAddress",
+                            },
+                        ],
+                        PhoneNumbers =
+                        [
+                            new()
+                            {
+                                Description = "description",
+                                Extension = "extension",
+                                PhoneNumberValue = "phoneNumber",
+                                Type = Type.Voice,
+                            },
+                        ],
+                    },
+                    Description = "description",
+                    Fees =
                     [
                         new()
                         {
-                            ID = "id",
-                            Accessibility = new()
-                            {
-                                AdaFacilitiesDescription = "",
-                                IsLotAccessibleToDisabled = true,
-                                NumberofAdaSpaces = 6,
-                                NumberofAdaStepFreeSpaces = 6,
-                                NumberofAdaVanAccessbileSpaces = 6,
-                                NumberOfOversizeVehicleSpaces = 0,
-                                TotalSpaces = 145,
-                            },
-                            AltName = "altName",
-                            Contacts = new()
-                            {
-                                EmailAddresses =
-                                [
-                                    new()
-                                    {
-                                        Description = "description",
-                                        EmailAddressValue = "emailAddress",
-                                    },
-                                ],
-                                PhoneNumbers =
-                                [
-                                    new()
-                                    {
-                                        Description = "description",
-                                        Extension = "extension",
-                                        PhoneNumberValue = "phoneNumber",
-                                        Type = Type.Voice,
-                                    },
-                                ],
-                            },
-                            Description = "description",
-                            Fees =
-                            [
-                                new()
-                                {
-                                    Cost = "cost",
-                                    Description =
-                                        "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                                    Title = "Acadia Entrance Fee - Per person or vehicle",
-                                },
-                            ],
-                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                            Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                            Latitude = "latitude",
-                            LiveStatus = new()
-                            {
-                                Description = "description",
-                                EstimatedWaitTimeInMinutes = 0,
-                                ExpirationDate = "expirationDate",
-                                IsActive = true,
-                                Occupancy = "Light",
-                            },
-                            Longitude = "longitude",
-                            ManagedByOrganization = "NPS",
-                            Name = "name",
-                            OperatingHours =
-                            [
-                                new()
-                                {
-                                    Description = "description",
-                                    Exceptions =
-                                    [
-                                        new()
-                                        {
-                                            EndDate = "endDate",
-                                            Name = "name",
-                                            StartDate = "startDate",
-                                        },
-                                    ],
-                                    Name = "Cadillac Mountain",
-                                    StandardHours = new()
-                                    {
-                                        Friday = "All Day",
-                                        Monday = "All Day",
-                                        Saturday = "All Day",
-                                        Sunday = "All Day",
-                                        Thursday = "All Day",
-                                        Tuesday = "All Day",
-                                        Wednesday = "All Day",
-                                    },
-                                },
-                            ],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National River",
-                                    FullName = "Buffalo National River",
-                                    Name = "Buffalo",
-                                    ParkCode = "buff",
-                                    State = "AR",
-                                    Url = "https://www.nps.gov/buff/index.htm",
-                                },
-                            ],
-                            TimeZone = "ET",
-                            WebcamUrl = "webcamUrl",
+                            Cost = "cost",
+                            Description =
+                                "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
+                            Title = "Acadia Entrance Fee - Per person or vehicle",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "4",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
+                    Latitude = "latitude",
+                    LiveStatus = new()
+                    {
+                        Description = "description",
+                        EstimatedWaitTimeInMinutes = 0,
+                        ExpirationDate = "expirationDate",
+                        IsActive = true,
+                        Occupancy = "Light",
+                    },
+                    Longitude = "longitude",
+                    ManagedByOrganization = "NPS",
+                    Name = "name",
+                    OperatingHours =
+                    [
+                        new()
+                        {
+                            Description = "description",
+                            Exceptions =
+                            [
+                                new()
+                                {
+                                    EndDate = "endDate",
+                                    Name = "name",
+                                    StartDate = "startDate",
+                                },
+                            ],
+                            Name = "Cadillac Mountain",
+                            StandardHours = new()
+                            {
+                                Friday = "All Day",
+                                Monday = "All Day",
+                                Saturday = "All Day",
+                                Sunday = "All Day",
+                                Thursday = "All Day",
+                                Tuesday = "All Day",
+                                Wednesday = "All Day",
+                            },
+                        },
+                    ],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National River",
+                            FullName = "Buffalo National River",
+                            Name = "Buffalo",
+                            ParkCode = "buff",
+                            State = "AR",
+                            Url = "https://www.nps.gov/buff/index.htm",
+                        },
+                    ],
+                    TimeZone = "ET",
+                    WebcamUrl = "webcamUrl",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "4",
         };
 
         model.Validate();
@@ -842,774 +780,6 @@ public class DataTest : TestBase
     public void FieldRoundtrip_Works()
     {
         var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "id",
-                    Accessibility = new()
-                    {
-                        AdaFacilitiesDescription = "",
-                        IsLotAccessibleToDisabled = true,
-                        NumberofAdaSpaces = 6,
-                        NumberofAdaStepFreeSpaces = 6,
-                        NumberofAdaVanAccessbileSpaces = 6,
-                        NumberOfOversizeVehicleSpaces = 0,
-                        TotalSpaces = 145,
-                    },
-                    AltName = "altName",
-                    Contacts = new()
-                    {
-                        EmailAddresses =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                EmailAddressValue = "emailAddress",
-                            },
-                        ],
-                        PhoneNumbers =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                Extension = "extension",
-                                PhoneNumberValue = "phoneNumber",
-                                Type = Type.Voice,
-                            },
-                        ],
-                    },
-                    Description = "description",
-                    Fees =
-                    [
-                        new()
-                        {
-                            Cost = "cost",
-                            Description =
-                                "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                            Title = "Acadia Entrance Fee - Per person or vehicle",
-                        },
-                    ],
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                    Latitude = "latitude",
-                    LiveStatus = new()
-                    {
-                        Description = "description",
-                        EstimatedWaitTimeInMinutes = 0,
-                        ExpirationDate = "expirationDate",
-                        IsActive = true,
-                        Occupancy = "Light",
-                    },
-                    Longitude = "longitude",
-                    ManagedByOrganization = "NPS",
-                    Name = "name",
-                    OperatingHours =
-                    [
-                        new()
-                        {
-                            Description = "description",
-                            Exceptions =
-                            [
-                                new()
-                                {
-                                    EndDate = "endDate",
-                                    Name = "name",
-                                    StartDate = "startDate",
-                                },
-                            ],
-                            Name = "Cadillac Mountain",
-                            StandardHours = new()
-                            {
-                                Friday = "All Day",
-                                Monday = "All Day",
-                                Saturday = "All Day",
-                                Sunday = "All Day",
-                                Thursday = "All Day",
-                                Tuesday = "All Day",
-                                Wednesday = "All Day",
-                            },
-                        },
-                    ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National River",
-                            FullName = "Buffalo National River",
-                            Name = "Buffalo",
-                            ParkCode = "buff",
-                            State = "AR",
-                            Url = "https://www.nps.gov/buff/index.htm",
-                        },
-                    ],
-                    TimeZone = "ET",
-                    WebcamUrl = "webcamUrl",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "4",
-        };
-
-        List<DataData> expectedDataValue =
-        [
-            new()
-            {
-                ID = "id",
-                Accessibility = new()
-                {
-                    AdaFacilitiesDescription = "",
-                    IsLotAccessibleToDisabled = true,
-                    NumberofAdaSpaces = 6,
-                    NumberofAdaStepFreeSpaces = 6,
-                    NumberofAdaVanAccessbileSpaces = 6,
-                    NumberOfOversizeVehicleSpaces = 0,
-                    TotalSpaces = 145,
-                },
-                AltName = "altName",
-                Contacts = new()
-                {
-                    EmailAddresses =
-                    [
-                        new() { Description = "description", EmailAddressValue = "emailAddress" },
-                    ],
-                    PhoneNumbers =
-                    [
-                        new()
-                        {
-                            Description = "description",
-                            Extension = "extension",
-                            PhoneNumberValue = "phoneNumber",
-                            Type = Type.Voice,
-                        },
-                    ],
-                },
-                Description = "description",
-                Fees =
-                [
-                    new()
-                    {
-                        Cost = "cost",
-                        Description =
-                            "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                        Title = "Acadia Entrance Fee - Per person or vehicle",
-                    },
-                ],
-                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                Latitude = "latitude",
-                LiveStatus = new()
-                {
-                    Description = "description",
-                    EstimatedWaitTimeInMinutes = 0,
-                    ExpirationDate = "expirationDate",
-                    IsActive = true,
-                    Occupancy = "Light",
-                },
-                Longitude = "longitude",
-                ManagedByOrganization = "NPS",
-                Name = "name",
-                OperatingHours =
-                [
-                    new()
-                    {
-                        Description = "description",
-                        Exceptions =
-                        [
-                            new()
-                            {
-                                EndDate = "endDate",
-                                Name = "name",
-                                StartDate = "startDate",
-                            },
-                        ],
-                        Name = "Cadillac Mountain",
-                        StandardHours = new()
-                        {
-                            Friday = "All Day",
-                            Monday = "All Day",
-                            Saturday = "All Day",
-                            Sunday = "All Day",
-                            Thursday = "All Day",
-                            Tuesday = "All Day",
-                            Wednesday = "All Day",
-                        },
-                    },
-                ],
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National River",
-                        FullName = "Buffalo National River",
-                        Name = "Buffalo",
-                        ParkCode = "buff",
-                        State = "AR",
-                        Url = "https://www.nps.gov/buff/index.htm",
-                    },
-                ],
-                TimeZone = "ET",
-                WebcamUrl = "webcamUrl",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "4";
-
-        Assert.NotNull(model.DataValue);
-        Assert.Equal(expectedDataValue.Count, model.DataValue.Count);
-        for (int i = 0; i < expectedDataValue.Count; i++)
-        {
-            Assert.Equal(expectedDataValue[i], model.DataValue[i]);
-        }
-        Assert.Equal(expectedLimit, model.Limit);
-        Assert.Equal(expectedStart, model.Start);
-        Assert.Equal(expectedTotal, model.Total);
-    }
-
-    [Fact]
-    public void SerializationRoundtrip_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "id",
-                    Accessibility = new()
-                    {
-                        AdaFacilitiesDescription = "",
-                        IsLotAccessibleToDisabled = true,
-                        NumberofAdaSpaces = 6,
-                        NumberofAdaStepFreeSpaces = 6,
-                        NumberofAdaVanAccessbileSpaces = 6,
-                        NumberOfOversizeVehicleSpaces = 0,
-                        TotalSpaces = 145,
-                    },
-                    AltName = "altName",
-                    Contacts = new()
-                    {
-                        EmailAddresses =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                EmailAddressValue = "emailAddress",
-                            },
-                        ],
-                        PhoneNumbers =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                Extension = "extension",
-                                PhoneNumberValue = "phoneNumber",
-                                Type = Type.Voice,
-                            },
-                        ],
-                    },
-                    Description = "description",
-                    Fees =
-                    [
-                        new()
-                        {
-                            Cost = "cost",
-                            Description =
-                                "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                            Title = "Acadia Entrance Fee - Per person or vehicle",
-                        },
-                    ],
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                    Latitude = "latitude",
-                    LiveStatus = new()
-                    {
-                        Description = "description",
-                        EstimatedWaitTimeInMinutes = 0,
-                        ExpirationDate = "expirationDate",
-                        IsActive = true,
-                        Occupancy = "Light",
-                    },
-                    Longitude = "longitude",
-                    ManagedByOrganization = "NPS",
-                    Name = "name",
-                    OperatingHours =
-                    [
-                        new()
-                        {
-                            Description = "description",
-                            Exceptions =
-                            [
-                                new()
-                                {
-                                    EndDate = "endDate",
-                                    Name = "name",
-                                    StartDate = "startDate",
-                                },
-                            ],
-                            Name = "Cadillac Mountain",
-                            StandardHours = new()
-                            {
-                                Friday = "All Day",
-                                Monday = "All Day",
-                                Saturday = "All Day",
-                                Sunday = "All Day",
-                                Thursday = "All Day",
-                                Tuesday = "All Day",
-                                Wednesday = "All Day",
-                            },
-                        },
-                    ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National River",
-                            FullName = "Buffalo National River",
-                            Name = "Buffalo",
-                            ParkCode = "buff",
-                            State = "AR",
-                            Url = "https://www.nps.gov/buff/index.htm",
-                        },
-                    ],
-                    TimeZone = "ET",
-                    WebcamUrl = "webcamUrl",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "4",
-        };
-
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(json);
-
-        Assert.Equal(model, deserialized);
-    }
-
-    [Fact]
-    public void FieldRoundtripThroughSerialization_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "id",
-                    Accessibility = new()
-                    {
-                        AdaFacilitiesDescription = "",
-                        IsLotAccessibleToDisabled = true,
-                        NumberofAdaSpaces = 6,
-                        NumberofAdaStepFreeSpaces = 6,
-                        NumberofAdaVanAccessbileSpaces = 6,
-                        NumberOfOversizeVehicleSpaces = 0,
-                        TotalSpaces = 145,
-                    },
-                    AltName = "altName",
-                    Contacts = new()
-                    {
-                        EmailAddresses =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                EmailAddressValue = "emailAddress",
-                            },
-                        ],
-                        PhoneNumbers =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                Extension = "extension",
-                                PhoneNumberValue = "phoneNumber",
-                                Type = Type.Voice,
-                            },
-                        ],
-                    },
-                    Description = "description",
-                    Fees =
-                    [
-                        new()
-                        {
-                            Cost = "cost",
-                            Description =
-                                "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                            Title = "Acadia Entrance Fee - Per person or vehicle",
-                        },
-                    ],
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                    Latitude = "latitude",
-                    LiveStatus = new()
-                    {
-                        Description = "description",
-                        EstimatedWaitTimeInMinutes = 0,
-                        ExpirationDate = "expirationDate",
-                        IsActive = true,
-                        Occupancy = "Light",
-                    },
-                    Longitude = "longitude",
-                    ManagedByOrganization = "NPS",
-                    Name = "name",
-                    OperatingHours =
-                    [
-                        new()
-                        {
-                            Description = "description",
-                            Exceptions =
-                            [
-                                new()
-                                {
-                                    EndDate = "endDate",
-                                    Name = "name",
-                                    StartDate = "startDate",
-                                },
-                            ],
-                            Name = "Cadillac Mountain",
-                            StandardHours = new()
-                            {
-                                Friday = "All Day",
-                                Monday = "All Day",
-                                Saturday = "All Day",
-                                Sunday = "All Day",
-                                Thursday = "All Day",
-                                Tuesday = "All Day",
-                                Wednesday = "All Day",
-                            },
-                        },
-                    ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National River",
-                            FullName = "Buffalo National River",
-                            Name = "Buffalo",
-                            ParkCode = "buff",
-                            State = "AR",
-                            Url = "https://www.nps.gov/buff/index.htm",
-                        },
-                    ],
-                    TimeZone = "ET",
-                    WebcamUrl = "webcamUrl",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "4",
-        };
-
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(element);
-        Assert.NotNull(deserialized);
-
-        List<DataData> expectedDataValue =
-        [
-            new()
-            {
-                ID = "id",
-                Accessibility = new()
-                {
-                    AdaFacilitiesDescription = "",
-                    IsLotAccessibleToDisabled = true,
-                    NumberofAdaSpaces = 6,
-                    NumberofAdaStepFreeSpaces = 6,
-                    NumberofAdaVanAccessbileSpaces = 6,
-                    NumberOfOversizeVehicleSpaces = 0,
-                    TotalSpaces = 145,
-                },
-                AltName = "altName",
-                Contacts = new()
-                {
-                    EmailAddresses =
-                    [
-                        new() { Description = "description", EmailAddressValue = "emailAddress" },
-                    ],
-                    PhoneNumbers =
-                    [
-                        new()
-                        {
-                            Description = "description",
-                            Extension = "extension",
-                            PhoneNumberValue = "phoneNumber",
-                            Type = Type.Voice,
-                        },
-                    ],
-                },
-                Description = "description",
-                Fees =
-                [
-                    new()
-                    {
-                        Cost = "cost",
-                        Description =
-                            "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                        Title = "Acadia Entrance Fee - Per person or vehicle",
-                    },
-                ],
-                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                Latitude = "latitude",
-                LiveStatus = new()
-                {
-                    Description = "description",
-                    EstimatedWaitTimeInMinutes = 0,
-                    ExpirationDate = "expirationDate",
-                    IsActive = true,
-                    Occupancy = "Light",
-                },
-                Longitude = "longitude",
-                ManagedByOrganization = "NPS",
-                Name = "name",
-                OperatingHours =
-                [
-                    new()
-                    {
-                        Description = "description",
-                        Exceptions =
-                        [
-                            new()
-                            {
-                                EndDate = "endDate",
-                                Name = "name",
-                                StartDate = "startDate",
-                            },
-                        ],
-                        Name = "Cadillac Mountain",
-                        StandardHours = new()
-                        {
-                            Friday = "All Day",
-                            Monday = "All Day",
-                            Saturday = "All Day",
-                            Sunday = "All Day",
-                            Thursday = "All Day",
-                            Tuesday = "All Day",
-                            Wednesday = "All Day",
-                        },
-                    },
-                ],
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National River",
-                        FullName = "Buffalo National River",
-                        Name = "Buffalo",
-                        ParkCode = "buff",
-                        State = "AR",
-                        Url = "https://www.nps.gov/buff/index.htm",
-                    },
-                ],
-                TimeZone = "ET",
-                WebcamUrl = "webcamUrl",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "4";
-
-        Assert.NotNull(deserialized.DataValue);
-        Assert.Equal(expectedDataValue.Count, deserialized.DataValue.Count);
-        for (int i = 0; i < expectedDataValue.Count; i++)
-        {
-            Assert.Equal(expectedDataValue[i], deserialized.DataValue[i]);
-        }
-        Assert.Equal(expectedLimit, deserialized.Limit);
-        Assert.Equal(expectedStart, deserialized.Start);
-        Assert.Equal(expectedTotal, deserialized.Total);
-    }
-
-    [Fact]
-    public void Validation_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "id",
-                    Accessibility = new()
-                    {
-                        AdaFacilitiesDescription = "",
-                        IsLotAccessibleToDisabled = true,
-                        NumberofAdaSpaces = 6,
-                        NumberofAdaStepFreeSpaces = 6,
-                        NumberofAdaVanAccessbileSpaces = 6,
-                        NumberOfOversizeVehicleSpaces = 0,
-                        TotalSpaces = 145,
-                    },
-                    AltName = "altName",
-                    Contacts = new()
-                    {
-                        EmailAddresses =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                EmailAddressValue = "emailAddress",
-                            },
-                        ],
-                        PhoneNumbers =
-                        [
-                            new()
-                            {
-                                Description = "description",
-                                Extension = "extension",
-                                PhoneNumberValue = "phoneNumber",
-                                Type = Type.Voice,
-                            },
-                        ],
-                    },
-                    Description = "description",
-                    Fees =
-                    [
-                        new()
-                        {
-                            Cost = "cost",
-                            Description =
-                                "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                            Title = "Acadia Entrance Fee - Per person or vehicle",
-                        },
-                    ],
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Images = [JsonSerializer.Deserialize<JsonElement>("{}")],
-                    Latitude = "latitude",
-                    LiveStatus = new()
-                    {
-                        Description = "description",
-                        EstimatedWaitTimeInMinutes = 0,
-                        ExpirationDate = "expirationDate",
-                        IsActive = true,
-                        Occupancy = "Light",
-                    },
-                    Longitude = "longitude",
-                    ManagedByOrganization = "NPS",
-                    Name = "name",
-                    OperatingHours =
-                    [
-                        new()
-                        {
-                            Description = "description",
-                            Exceptions =
-                            [
-                                new()
-                                {
-                                    EndDate = "endDate",
-                                    Name = "name",
-                                    StartDate = "startDate",
-                                },
-                            ],
-                            Name = "Cadillac Mountain",
-                            StandardHours = new()
-                            {
-                                Friday = "All Day",
-                                Monday = "All Day",
-                                Saturday = "All Day",
-                                Sunday = "All Day",
-                                Thursday = "All Day",
-                                Tuesday = "All Day",
-                                Wednesday = "All Day",
-                            },
-                        },
-                    ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National River",
-                            FullName = "Buffalo National River",
-                            Name = "Buffalo",
-                            ParkCode = "buff",
-                            State = "AR",
-                            Url = "https://www.nps.gov/buff/index.htm",
-                        },
-                    ],
-                    TimeZone = "ET",
-                    WebcamUrl = "webcamUrl",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "4",
-        };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
-    {
-        var model = new Data { };
-
-        Assert.Null(model.DataValue);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetValidation_Works()
-    {
-        var model = new Data { };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
-    {
-        var model = new Data
-        {
-            // Null should be interpreted as omitted for these properties
-            DataValue = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        Assert.Null(model.DataValue);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
-    {
-        var model = new Data
-        {
-            // Null should be interpreted as omitted for these properties
-            DataValue = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        model.Validate();
-    }
-}
-
-public class DataDataTest : TestBase
-{
-    [Fact]
-    public void FieldRoundtrip_Works()
-    {
-        var model = new DataData
         {
             ID = "id",
             Accessibility = new()
@@ -1846,7 +1016,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "id",
             Accessibility = new()
@@ -1946,7 +1116,7 @@ public class DataDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataData>(json);
+        var deserialized = JsonSerializer.Deserialize<Data>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -1954,7 +1124,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "id",
             Accessibility = new()
@@ -2054,7 +1224,7 @@ public class DataDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataData>(element);
+        var deserialized = JsonSerializer.Deserialize<Data>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "id";
@@ -2195,7 +1365,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "id",
             Accessibility = new()
@@ -2300,7 +1470,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new DataData { };
+        var model = new Data { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -2341,7 +1511,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new DataData { };
+        var model = new Data { };
 
         model.Validate();
     }
@@ -2349,7 +1519,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -2410,7 +1580,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

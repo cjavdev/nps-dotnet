@@ -29,7 +29,7 @@ public interface IParkingLotService
     /// <summary>
     /// Sends a request to <c>get /parkinglots<c/>.
     /// </summary>
-    Task<ParkingLotListResponse> List(
+    Task<ParkingLotListPage> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IParkingLotServiceWithRawResponse
     /// Returns a raw HTTP response for `get /parkinglots`, but is otherwise the
     /// same as <see cref="IParkingLotService.List(ParkingLotListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<ParkingLotListResponse>> List(
+    Task<HttpResponse<ParkingLotListPage>> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

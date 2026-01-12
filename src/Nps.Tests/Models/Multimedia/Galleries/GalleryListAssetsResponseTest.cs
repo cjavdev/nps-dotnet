@@ -15,114 +15,92 @@ public class GalleryListAssetsResponseTest : TestBase
             [
                 new()
                 {
-                    Data =
+                    ID = "F2D0A915-155D-451F-67EA-767489860884",
+                    AltText = "1st place: 6th – 8th grade category",
+                    ConstraintsInfo = new()
+                    {
+                        Constraint = "Public domain",
+                        GrantingRights = "Full",
+                    },
+                    Copyright =
+                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                    Credit = "",
+                    Description = "1st place: 6th – 8th grade category",
+                    FileInfo = new()
+                    {
+                        FileSizeKB = "147265",
+                        FileType = "image/jpeg",
+                        HeightPixels = "768",
+                        Url =
+                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
+                        WidthPixels = "1024",
+                    },
+                    Ordinal = "1",
+                    PermalinkUrl =
+                        "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                    RelatedParks =
                     [
                         new()
                         {
-                            ID = "F2D0A915-155D-451F-67EA-767489860884",
-                            AltText = "1st place: 6th – 8th grade category",
-                            ConstraintsInfo = new()
-                            {
-                                Constraint = "Public domain",
-                                GrantingRights = "Full",
-                            },
-                            Copyright =
-                                "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                            Credit = "",
-                            Description = "1st place: 6th – 8th grade category",
-                            FileInfo = new()
-                            {
-                                FileSizeKB = "147265",
-                                FileType = "image/jpeg",
-                                HeightPixels = "768",
-                                Url =
-                                    "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                                WidthPixels = "1024",
-                            },
-                            Ordinal = "1",
-                            PermalinkUrl =
-                                "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Glacier National Park",
-                                    Name = "Glacier",
-                                    ParkCode = "glac",
-                                    States = "MT",
-                                    Url = "https://www.nps.gov/glac/index.htm",
-                                },
-                            ],
-                            Tags = ["postcard"],
-                            Title = "1st place: 6th – 8th grade category",
+                            Designation = "National Park",
+                            FullName = "Glacier National Park",
+                            Name = "Glacier",
+                            ParkCode = "glac",
+                            States = "MT",
+                            Url = "https://www.nps.gov/glac/index.htm",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "13",
+                    Tags = ["postcard"],
+                    Title = "1st place: 6th – 8th grade category",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "13",
         };
 
         List<GalleryListAssetsResponseData> expectedData =
         [
             new()
             {
-                Data =
+                ID = "F2D0A915-155D-451F-67EA-767489860884",
+                AltText = "1st place: 6th – 8th grade category",
+                ConstraintsInfo = new() { Constraint = "Public domain", GrantingRights = "Full" },
+                Copyright =
+                    "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                Credit = "",
+                Description = "1st place: 6th – 8th grade category",
+                FileInfo = new()
+                {
+                    FileSizeKB = "147265",
+                    FileType = "image/jpeg",
+                    HeightPixels = "768",
+                    Url =
+                        "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
+                    WidthPixels = "1024",
+                },
+                Ordinal = "1",
+                PermalinkUrl =
+                    "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                RelatedParks =
                 [
                     new()
                     {
-                        ID = "F2D0A915-155D-451F-67EA-767489860884",
-                        AltText = "1st place: 6th – 8th grade category",
-                        ConstraintsInfo = new()
-                        {
-                            Constraint = "Public domain",
-                            GrantingRights = "Full",
-                        },
-                        Copyright =
-                            "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                        Credit = "",
-                        Description = "1st place: 6th – 8th grade category",
-                        FileInfo = new()
-                        {
-                            FileSizeKB = "147265",
-                            FileType = "image/jpeg",
-                            HeightPixels = "768",
-                            Url =
-                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                            WidthPixels = "1024",
-                        },
-                        Ordinal = "1",
-                        PermalinkUrl =
-                            "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                        RelatedParks =
-                        [
-                            new()
-                            {
-                                Designation = "National Park",
-                                FullName = "Glacier National Park",
-                                Name = "Glacier",
-                                ParkCode = "glac",
-                                States = "MT",
-                                Url = "https://www.nps.gov/glac/index.htm",
-                            },
-                        ],
-                        Tags = ["postcard"],
-                        Title = "1st place: 6th – 8th grade category",
+                        Designation = "National Park",
+                        FullName = "Glacier National Park",
+                        Name = "Glacier",
+                        ParkCode = "glac",
+                        States = "MT",
+                        Url = "https://www.nps.gov/glac/index.htm",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "13",
+                Tags = ["postcard"],
+                Title = "1st place: 6th – 8th grade category",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "13";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -144,57 +122,48 @@ public class GalleryListAssetsResponseTest : TestBase
             [
                 new()
                 {
-                    Data =
+                    ID = "F2D0A915-155D-451F-67EA-767489860884",
+                    AltText = "1st place: 6th – 8th grade category",
+                    ConstraintsInfo = new()
+                    {
+                        Constraint = "Public domain",
+                        GrantingRights = "Full",
+                    },
+                    Copyright =
+                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                    Credit = "",
+                    Description = "1st place: 6th – 8th grade category",
+                    FileInfo = new()
+                    {
+                        FileSizeKB = "147265",
+                        FileType = "image/jpeg",
+                        HeightPixels = "768",
+                        Url =
+                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
+                        WidthPixels = "1024",
+                    },
+                    Ordinal = "1",
+                    PermalinkUrl =
+                        "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                    RelatedParks =
                     [
                         new()
                         {
-                            ID = "F2D0A915-155D-451F-67EA-767489860884",
-                            AltText = "1st place: 6th – 8th grade category",
-                            ConstraintsInfo = new()
-                            {
-                                Constraint = "Public domain",
-                                GrantingRights = "Full",
-                            },
-                            Copyright =
-                                "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                            Credit = "",
-                            Description = "1st place: 6th – 8th grade category",
-                            FileInfo = new()
-                            {
-                                FileSizeKB = "147265",
-                                FileType = "image/jpeg",
-                                HeightPixels = "768",
-                                Url =
-                                    "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                                WidthPixels = "1024",
-                            },
-                            Ordinal = "1",
-                            PermalinkUrl =
-                                "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Glacier National Park",
-                                    Name = "Glacier",
-                                    ParkCode = "glac",
-                                    States = "MT",
-                                    Url = "https://www.nps.gov/glac/index.htm",
-                                },
-                            ],
-                            Tags = ["postcard"],
-                            Title = "1st place: 6th – 8th grade category",
+                            Designation = "National Park",
+                            FullName = "Glacier National Park",
+                            Name = "Glacier",
+                            ParkCode = "glac",
+                            States = "MT",
+                            Url = "https://www.nps.gov/glac/index.htm",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "13",
+                    Tags = ["postcard"],
+                    Title = "1st place: 6th – 8th grade category",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "13",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -212,57 +181,48 @@ public class GalleryListAssetsResponseTest : TestBase
             [
                 new()
                 {
-                    Data =
+                    ID = "F2D0A915-155D-451F-67EA-767489860884",
+                    AltText = "1st place: 6th – 8th grade category",
+                    ConstraintsInfo = new()
+                    {
+                        Constraint = "Public domain",
+                        GrantingRights = "Full",
+                    },
+                    Copyright =
+                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                    Credit = "",
+                    Description = "1st place: 6th – 8th grade category",
+                    FileInfo = new()
+                    {
+                        FileSizeKB = "147265",
+                        FileType = "image/jpeg",
+                        HeightPixels = "768",
+                        Url =
+                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
+                        WidthPixels = "1024",
+                    },
+                    Ordinal = "1",
+                    PermalinkUrl =
+                        "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                    RelatedParks =
                     [
                         new()
                         {
-                            ID = "F2D0A915-155D-451F-67EA-767489860884",
-                            AltText = "1st place: 6th – 8th grade category",
-                            ConstraintsInfo = new()
-                            {
-                                Constraint = "Public domain",
-                                GrantingRights = "Full",
-                            },
-                            Copyright =
-                                "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                            Credit = "",
-                            Description = "1st place: 6th – 8th grade category",
-                            FileInfo = new()
-                            {
-                                FileSizeKB = "147265",
-                                FileType = "image/jpeg",
-                                HeightPixels = "768",
-                                Url =
-                                    "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                                WidthPixels = "1024",
-                            },
-                            Ordinal = "1",
-                            PermalinkUrl =
-                                "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Glacier National Park",
-                                    Name = "Glacier",
-                                    ParkCode = "glac",
-                                    States = "MT",
-                                    Url = "https://www.nps.gov/glac/index.htm",
-                                },
-                            ],
-                            Tags = ["postcard"],
-                            Title = "1st place: 6th – 8th grade category",
+                            Designation = "National Park",
+                            FullName = "Glacier National Park",
+                            Name = "Glacier",
+                            ParkCode = "glac",
+                            States = "MT",
+                            Url = "https://www.nps.gov/glac/index.htm",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "13",
+                    Tags = ["postcard"],
+                    Title = "1st place: 6th – 8th grade category",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "13",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -273,57 +233,44 @@ public class GalleryListAssetsResponseTest : TestBase
         [
             new()
             {
-                Data =
+                ID = "F2D0A915-155D-451F-67EA-767489860884",
+                AltText = "1st place: 6th – 8th grade category",
+                ConstraintsInfo = new() { Constraint = "Public domain", GrantingRights = "Full" },
+                Copyright =
+                    "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                Credit = "",
+                Description = "1st place: 6th – 8th grade category",
+                FileInfo = new()
+                {
+                    FileSizeKB = "147265",
+                    FileType = "image/jpeg",
+                    HeightPixels = "768",
+                    Url =
+                        "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
+                    WidthPixels = "1024",
+                },
+                Ordinal = "1",
+                PermalinkUrl =
+                    "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                RelatedParks =
                 [
                     new()
                     {
-                        ID = "F2D0A915-155D-451F-67EA-767489860884",
-                        AltText = "1st place: 6th – 8th grade category",
-                        ConstraintsInfo = new()
-                        {
-                            Constraint = "Public domain",
-                            GrantingRights = "Full",
-                        },
-                        Copyright =
-                            "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                        Credit = "",
-                        Description = "1st place: 6th – 8th grade category",
-                        FileInfo = new()
-                        {
-                            FileSizeKB = "147265",
-                            FileType = "image/jpeg",
-                            HeightPixels = "768",
-                            Url =
-                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                            WidthPixels = "1024",
-                        },
-                        Ordinal = "1",
-                        PermalinkUrl =
-                            "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                        RelatedParks =
-                        [
-                            new()
-                            {
-                                Designation = "National Park",
-                                FullName = "Glacier National Park",
-                                Name = "Glacier",
-                                ParkCode = "glac",
-                                States = "MT",
-                                Url = "https://www.nps.gov/glac/index.htm",
-                            },
-                        ],
-                        Tags = ["postcard"],
-                        Title = "1st place: 6th – 8th grade category",
+                        Designation = "National Park",
+                        FullName = "Glacier National Park",
+                        Name = "Glacier",
+                        ParkCode = "glac",
+                        States = "MT",
+                        Url = "https://www.nps.gov/glac/index.htm",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "13",
+                Tags = ["postcard"],
+                Title = "1st place: 6th – 8th grade category",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "13";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -345,57 +292,48 @@ public class GalleryListAssetsResponseTest : TestBase
             [
                 new()
                 {
-                    Data =
+                    ID = "F2D0A915-155D-451F-67EA-767489860884",
+                    AltText = "1st place: 6th – 8th grade category",
+                    ConstraintsInfo = new()
+                    {
+                        Constraint = "Public domain",
+                        GrantingRights = "Full",
+                    },
+                    Copyright =
+                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                    Credit = "",
+                    Description = "1st place: 6th – 8th grade category",
+                    FileInfo = new()
+                    {
+                        FileSizeKB = "147265",
+                        FileType = "image/jpeg",
+                        HeightPixels = "768",
+                        Url =
+                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
+                        WidthPixels = "1024",
+                    },
+                    Ordinal = "1",
+                    PermalinkUrl =
+                        "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                    RelatedParks =
                     [
                         new()
                         {
-                            ID = "F2D0A915-155D-451F-67EA-767489860884",
-                            AltText = "1st place: 6th – 8th grade category",
-                            ConstraintsInfo = new()
-                            {
-                                Constraint = "Public domain",
-                                GrantingRights = "Full",
-                            },
-                            Copyright =
-                                "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                            Credit = "",
-                            Description = "1st place: 6th – 8th grade category",
-                            FileInfo = new()
-                            {
-                                FileSizeKB = "147265",
-                                FileType = "image/jpeg",
-                                HeightPixels = "768",
-                                Url =
-                                    "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                                WidthPixels = "1024",
-                            },
-                            Ordinal = "1",
-                            PermalinkUrl =
-                                "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Glacier National Park",
-                                    Name = "Glacier",
-                                    ParkCode = "glac",
-                                    States = "MT",
-                                    Url = "https://www.nps.gov/glac/index.htm",
-                                },
-                            ],
-                            Tags = ["postcard"],
-                            Title = "1st place: 6th – 8th grade category",
+                            Designation = "National Park",
+                            FullName = "Glacier National Park",
+                            Name = "Glacier",
+                            ParkCode = "glac",
+                            States = "MT",
+                            Url = "https://www.nps.gov/glac/index.htm",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "13",
+                    Tags = ["postcard"],
+                    Title = "1st place: 6th – 8th grade category",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "13",
         };
 
         model.Validate();
@@ -469,402 +407,6 @@ public class GalleryListAssetsResponseDataTest : TestBase
     {
         var model = new GalleryListAssetsResponseData
         {
-            Data =
-            [
-                new()
-                {
-                    ID = "F2D0A915-155D-451F-67EA-767489860884",
-                    AltText = "1st place: 6th – 8th grade category",
-                    ConstraintsInfo = new()
-                    {
-                        Constraint = "Public domain",
-                        GrantingRights = "Full",
-                    },
-                    Copyright =
-                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                    Credit = "",
-                    Description = "1st place: 6th – 8th grade category",
-                    FileInfo = new()
-                    {
-                        FileSizeKB = "147265",
-                        FileType = "image/jpeg",
-                        HeightPixels = "768",
-                        Url =
-                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                        WidthPixels = "1024",
-                    },
-                    Ordinal = "1",
-                    PermalinkUrl =
-                        "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Glacier National Park",
-                            Name = "Glacier",
-                            ParkCode = "glac",
-                            States = "MT",
-                            Url = "https://www.nps.gov/glac/index.htm",
-                        },
-                    ],
-                    Tags = ["postcard"],
-                    Title = "1st place: 6th – 8th grade category",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "13",
-        };
-
-        List<GalleryListAssetsResponseDataData> expectedData =
-        [
-            new()
-            {
-                ID = "F2D0A915-155D-451F-67EA-767489860884",
-                AltText = "1st place: 6th – 8th grade category",
-                ConstraintsInfo = new() { Constraint = "Public domain", GrantingRights = "Full" },
-                Copyright =
-                    "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                Credit = "",
-                Description = "1st place: 6th – 8th grade category",
-                FileInfo = new()
-                {
-                    FileSizeKB = "147265",
-                    FileType = "image/jpeg",
-                    HeightPixels = "768",
-                    Url =
-                        "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                    WidthPixels = "1024",
-                },
-                Ordinal = "1",
-                PermalinkUrl =
-                    "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National Park",
-                        FullName = "Glacier National Park",
-                        Name = "Glacier",
-                        ParkCode = "glac",
-                        States = "MT",
-                        Url = "https://www.nps.gov/glac/index.htm",
-                    },
-                ],
-                Tags = ["postcard"],
-                Title = "1st place: 6th – 8th grade category",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "13";
-
-        Assert.NotNull(model.Data);
-        Assert.Equal(expectedData.Count, model.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
-        {
-            Assert.Equal(expectedData[i], model.Data[i]);
-        }
-        Assert.Equal(expectedLimit, model.Limit);
-        Assert.Equal(expectedStart, model.Start);
-        Assert.Equal(expectedTotal, model.Total);
-    }
-
-    [Fact]
-    public void SerializationRoundtrip_Works()
-    {
-        var model = new GalleryListAssetsResponseData
-        {
-            Data =
-            [
-                new()
-                {
-                    ID = "F2D0A915-155D-451F-67EA-767489860884",
-                    AltText = "1st place: 6th – 8th grade category",
-                    ConstraintsInfo = new()
-                    {
-                        Constraint = "Public domain",
-                        GrantingRights = "Full",
-                    },
-                    Copyright =
-                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                    Credit = "",
-                    Description = "1st place: 6th – 8th grade category",
-                    FileInfo = new()
-                    {
-                        FileSizeKB = "147265",
-                        FileType = "image/jpeg",
-                        HeightPixels = "768",
-                        Url =
-                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                        WidthPixels = "1024",
-                    },
-                    Ordinal = "1",
-                    PermalinkUrl =
-                        "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Glacier National Park",
-                            Name = "Glacier",
-                            ParkCode = "glac",
-                            States = "MT",
-                            Url = "https://www.nps.gov/glac/index.htm",
-                        },
-                    ],
-                    Tags = ["postcard"],
-                    Title = "1st place: 6th – 8th grade category",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "13",
-        };
-
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseData>(json);
-
-        Assert.Equal(model, deserialized);
-    }
-
-    [Fact]
-    public void FieldRoundtripThroughSerialization_Works()
-    {
-        var model = new GalleryListAssetsResponseData
-        {
-            Data =
-            [
-                new()
-                {
-                    ID = "F2D0A915-155D-451F-67EA-767489860884",
-                    AltText = "1st place: 6th – 8th grade category",
-                    ConstraintsInfo = new()
-                    {
-                        Constraint = "Public domain",
-                        GrantingRights = "Full",
-                    },
-                    Copyright =
-                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                    Credit = "",
-                    Description = "1st place: 6th – 8th grade category",
-                    FileInfo = new()
-                    {
-                        FileSizeKB = "147265",
-                        FileType = "image/jpeg",
-                        HeightPixels = "768",
-                        Url =
-                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                        WidthPixels = "1024",
-                    },
-                    Ordinal = "1",
-                    PermalinkUrl =
-                        "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Glacier National Park",
-                            Name = "Glacier",
-                            ParkCode = "glac",
-                            States = "MT",
-                            Url = "https://www.nps.gov/glac/index.htm",
-                        },
-                    ],
-                    Tags = ["postcard"],
-                    Title = "1st place: 6th – 8th grade category",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "13",
-        };
-
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseData>(element);
-        Assert.NotNull(deserialized);
-
-        List<GalleryListAssetsResponseDataData> expectedData =
-        [
-            new()
-            {
-                ID = "F2D0A915-155D-451F-67EA-767489860884",
-                AltText = "1st place: 6th – 8th grade category",
-                ConstraintsInfo = new() { Constraint = "Public domain", GrantingRights = "Full" },
-                Copyright =
-                    "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                Credit = "",
-                Description = "1st place: 6th – 8th grade category",
-                FileInfo = new()
-                {
-                    FileSizeKB = "147265",
-                    FileType = "image/jpeg",
-                    HeightPixels = "768",
-                    Url =
-                        "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                    WidthPixels = "1024",
-                },
-                Ordinal = "1",
-                PermalinkUrl =
-                    "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National Park",
-                        FullName = "Glacier National Park",
-                        Name = "Glacier",
-                        ParkCode = "glac",
-                        States = "MT",
-                        Url = "https://www.nps.gov/glac/index.htm",
-                    },
-                ],
-                Tags = ["postcard"],
-                Title = "1st place: 6th – 8th grade category",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "13";
-
-        Assert.NotNull(deserialized.Data);
-        Assert.Equal(expectedData.Count, deserialized.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
-        {
-            Assert.Equal(expectedData[i], deserialized.Data[i]);
-        }
-        Assert.Equal(expectedLimit, deserialized.Limit);
-        Assert.Equal(expectedStart, deserialized.Start);
-        Assert.Equal(expectedTotal, deserialized.Total);
-    }
-
-    [Fact]
-    public void Validation_Works()
-    {
-        var model = new GalleryListAssetsResponseData
-        {
-            Data =
-            [
-                new()
-                {
-                    ID = "F2D0A915-155D-451F-67EA-767489860884",
-                    AltText = "1st place: 6th – 8th grade category",
-                    ConstraintsInfo = new()
-                    {
-                        Constraint = "Public domain",
-                        GrantingRights = "Full",
-                    },
-                    Copyright =
-                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                    Credit = "",
-                    Description = "1st place: 6th – 8th grade category",
-                    FileInfo = new()
-                    {
-                        FileSizeKB = "147265",
-                        FileType = "image/jpeg",
-                        HeightPixels = "768",
-                        Url =
-                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                        WidthPixels = "1024",
-                    },
-                    Ordinal = "1",
-                    PermalinkUrl =
-                        "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Glacier National Park",
-                            Name = "Glacier",
-                            ParkCode = "glac",
-                            States = "MT",
-                            Url = "https://www.nps.gov/glac/index.htm",
-                        },
-                    ],
-                    Tags = ["postcard"],
-                    Title = "1st place: 6th – 8th grade category",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "13",
-        };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
-    {
-        var model = new GalleryListAssetsResponseData { };
-
-        Assert.Null(model.Data);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetValidation_Works()
-    {
-        var model = new GalleryListAssetsResponseData { };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
-    {
-        var model = new GalleryListAssetsResponseData
-        {
-            // Null should be interpreted as omitted for these properties
-            Data = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        Assert.Null(model.Data);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
-    {
-        var model = new GalleryListAssetsResponseData
-        {
-            // Null should be interpreted as omitted for these properties
-            Data = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        model.Validate();
-    }
-}
-
-public class GalleryListAssetsResponseDataDataTest : TestBase
-{
-    [Fact]
-    public void FieldRoundtrip_Works()
-    {
-        var model = new GalleryListAssetsResponseDataData
-        {
             ID = "F2D0A915-155D-451F-67EA-767489860884",
             AltText = "1st place: 6th – 8th grade category",
             ConstraintsInfo = new() { Constraint = "Public domain", GrantingRights = "Full" },
@@ -901,7 +443,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
 
         string expectedID = "F2D0A915-155D-451F-67EA-767489860884";
         string expectedAltText = "1st place: 6th – 8th grade category";
-        GalleryListAssetsResponseDataDataConstraintsInfo expectedConstraintsInfo = new()
+        GalleryListAssetsResponseDataConstraintsInfo expectedConstraintsInfo = new()
         {
             Constraint = "Public domain",
             GrantingRights = "Full",
@@ -921,7 +463,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
         string expectedOrdinal = "1";
         string expectedPermalinkUrl =
             "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286";
-        List<GalleryListAssetsResponseDataDataRelatedPark> expectedRelatedParks =
+        List<GalleryListAssetsResponseDataRelatedPark> expectedRelatedParks =
         [
             new()
             {
@@ -963,7 +505,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new GalleryListAssetsResponseDataData
+        var model = new GalleryListAssetsResponseData
         {
             ID = "F2D0A915-155D-451F-67EA-767489860884",
             AltText = "1st place: 6th – 8th grade category",
@@ -1000,7 +542,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataData>(json);
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseData>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -1008,7 +550,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new GalleryListAssetsResponseDataData
+        var model = new GalleryListAssetsResponseData
         {
             ID = "F2D0A915-155D-451F-67EA-767489860884",
             AltText = "1st place: 6th – 8th grade category",
@@ -1045,12 +587,12 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataData>(element);
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseData>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "F2D0A915-155D-451F-67EA-767489860884";
         string expectedAltText = "1st place: 6th – 8th grade category";
-        GalleryListAssetsResponseDataDataConstraintsInfo expectedConstraintsInfo = new()
+        GalleryListAssetsResponseDataConstraintsInfo expectedConstraintsInfo = new()
         {
             Constraint = "Public domain",
             GrantingRights = "Full",
@@ -1070,7 +612,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
         string expectedOrdinal = "1";
         string expectedPermalinkUrl =
             "https://www.nps.gov/media/photo/gallery-item.htm?pg=1&id=F2D0A915-155D-451F-67EA-767489860884&gid=F2D0A8A2-155D-451F-67A9-A67E74025286";
-        List<GalleryListAssetsResponseDataDataRelatedPark> expectedRelatedParks =
+        List<GalleryListAssetsResponseDataRelatedPark> expectedRelatedParks =
         [
             new()
             {
@@ -1112,7 +654,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new GalleryListAssetsResponseDataData
+        var model = new GalleryListAssetsResponseData
         {
             ID = "F2D0A915-155D-451F-67EA-767489860884",
             AltText = "1st place: 6th – 8th grade category",
@@ -1154,7 +696,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new GalleryListAssetsResponseDataData { };
+        var model = new GalleryListAssetsResponseData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -1185,7 +727,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new GalleryListAssetsResponseDataData { };
+        var model = new GalleryListAssetsResponseData { };
 
         model.Validate();
     }
@@ -1193,7 +735,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new GalleryListAssetsResponseDataData
+        var model = new GalleryListAssetsResponseData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -1239,7 +781,7 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new GalleryListAssetsResponseDataData
+        var model = new GalleryListAssetsResponseData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -1260,12 +802,12 @@ public class GalleryListAssetsResponseDataDataTest : TestBase
     }
 }
 
-public class GalleryListAssetsResponseDataDataConstraintsInfoTest : TestBase
+public class GalleryListAssetsResponseDataConstraintsInfoTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataConstraintsInfo
+        var model = new GalleryListAssetsResponseDataConstraintsInfo
         {
             Constraint = "Public domain",
             GrantingRights = "Full",
@@ -1281,15 +823,16 @@ public class GalleryListAssetsResponseDataDataConstraintsInfoTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataConstraintsInfo
+        var model = new GalleryListAssetsResponseDataConstraintsInfo
         {
             Constraint = "Public domain",
             GrantingRights = "Full",
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized =
-            JsonSerializer.Deserialize<GalleryListAssetsResponseDataDataConstraintsInfo>(json);
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataConstraintsInfo>(
+            json
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -1297,15 +840,16 @@ public class GalleryListAssetsResponseDataDataConstraintsInfoTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataConstraintsInfo
+        var model = new GalleryListAssetsResponseDataConstraintsInfo
         {
             Constraint = "Public domain",
             GrantingRights = "Full",
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized =
-            JsonSerializer.Deserialize<GalleryListAssetsResponseDataDataConstraintsInfo>(element);
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataConstraintsInfo>(
+            element
+        );
         Assert.NotNull(deserialized);
 
         string expectedConstraint = "Public domain";
@@ -1318,7 +862,7 @@ public class GalleryListAssetsResponseDataDataConstraintsInfoTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataConstraintsInfo
+        var model = new GalleryListAssetsResponseDataConstraintsInfo
         {
             Constraint = "Public domain",
             GrantingRights = "Full",
@@ -1330,7 +874,7 @@ public class GalleryListAssetsResponseDataDataConstraintsInfoTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataConstraintsInfo { };
+        var model = new GalleryListAssetsResponseDataConstraintsInfo { };
 
         Assert.Null(model.Constraint);
         Assert.False(model.RawData.ContainsKey("constraint"));
@@ -1341,7 +885,7 @@ public class GalleryListAssetsResponseDataDataConstraintsInfoTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataConstraintsInfo { };
+        var model = new GalleryListAssetsResponseDataConstraintsInfo { };
 
         model.Validate();
     }
@@ -1349,7 +893,7 @@ public class GalleryListAssetsResponseDataDataConstraintsInfoTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataConstraintsInfo
+        var model = new GalleryListAssetsResponseDataConstraintsInfo
         {
             // Null should be interpreted as omitted for these properties
             Constraint = null,
@@ -1365,7 +909,7 @@ public class GalleryListAssetsResponseDataDataConstraintsInfoTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataConstraintsInfo
+        var model = new GalleryListAssetsResponseDataConstraintsInfo
         {
             // Null should be interpreted as omitted for these properties
             Constraint = null,
@@ -1534,12 +1078,12 @@ public class FileInfoTest : TestBase
     }
 }
 
-public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
+public class GalleryListAssetsResponseDataRelatedParkTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataRelatedPark
+        var model = new GalleryListAssetsResponseDataRelatedPark
         {
             Designation = "National Park",
             FullName = "Glacier National Park",
@@ -1567,7 +1111,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataRelatedPark
+        var model = new GalleryListAssetsResponseDataRelatedPark
         {
             Designation = "National Park",
             FullName = "Glacier National Park",
@@ -1578,7 +1122,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataDataRelatedPark>(
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataRelatedPark>(
             json
         );
 
@@ -1588,7 +1132,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataRelatedPark
+        var model = new GalleryListAssetsResponseDataRelatedPark
         {
             Designation = "National Park",
             FullName = "Glacier National Park",
@@ -1599,7 +1143,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataDataRelatedPark>(
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataRelatedPark>(
             element
         );
         Assert.NotNull(deserialized);
@@ -1622,7 +1166,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataRelatedPark
+        var model = new GalleryListAssetsResponseDataRelatedPark
         {
             Designation = "National Park",
             FullName = "Glacier National Park",
@@ -1638,7 +1182,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataRelatedPark { };
+        var model = new GalleryListAssetsResponseDataRelatedPark { };
 
         Assert.Null(model.Designation);
         Assert.False(model.RawData.ContainsKey("designation"));
@@ -1657,7 +1201,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataRelatedPark { };
+        var model = new GalleryListAssetsResponseDataRelatedPark { };
 
         model.Validate();
     }
@@ -1665,7 +1209,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataRelatedPark
+        var model = new GalleryListAssetsResponseDataRelatedPark
         {
             // Null should be interpreted as omitted for these properties
             Designation = null,
@@ -1693,7 +1237,7 @@ public class GalleryListAssetsResponseDataDataRelatedParkTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new GalleryListAssetsResponseDataDataRelatedPark
+        var model = new GalleryListAssetsResponseDataRelatedPark
         {
             // Null should be interpreted as omitted for these properties
             Designation = null,

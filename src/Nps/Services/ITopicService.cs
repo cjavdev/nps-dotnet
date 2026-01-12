@@ -29,7 +29,7 @@ public interface ITopicService
     /// <summary>
     /// Sends a request to <c>get /topics<c/>.
     /// </summary>
-    Task<TopicListResponse> List(
+    Task<TopicListPage> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -60,7 +60,7 @@ public interface ITopicServiceWithRawResponse
     /// Returns a raw HTTP response for `get /topics`, but is otherwise the
     /// same as <see cref="ITopicService.List(TopicListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<TopicListResponse>> List(
+    Task<HttpResponse<TopicListPage>> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

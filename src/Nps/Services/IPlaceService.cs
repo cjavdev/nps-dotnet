@@ -29,7 +29,7 @@ public interface IPlaceService
     /// <summary>
     /// Sends a request to <c>get /places<c/>.
     /// </summary>
-    Task<PlaceListResponse> List(
+    Task<PlaceListPage> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IPlaceServiceWithRawResponse
     /// Returns a raw HTTP response for `get /places`, but is otherwise the
     /// same as <see cref="IPlaceService.List(PlaceListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<PlaceListResponse>> List(
+    Task<HttpResponse<PlaceListPage>> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

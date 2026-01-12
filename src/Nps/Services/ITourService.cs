@@ -29,7 +29,7 @@ public interface ITourService
     /// <summary>
     /// Sends a request to <c>get /tours<c/>.
     /// </summary>
-    Task<TourListResponse> List(
+    Task<TourListPage> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface ITourServiceWithRawResponse
     /// Returns a raw HTTP response for `get /tours`, but is otherwise the
     /// same as <see cref="ITourService.List(TourListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<TourListResponse>> List(
+    Task<HttpResponse<TourListPage>> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

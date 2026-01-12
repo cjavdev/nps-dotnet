@@ -29,7 +29,7 @@ public interface IVisitorCenterService
     /// <summary>
     /// Sends a request to <c>get /visitorcenters<c/>.
     /// </summary>
-    Task<VisitorCenterListResponse> List(
+    Task<VisitorCenterListPage> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IVisitorCenterServiceWithRawResponse
     /// Returns a raw HTTP response for `get /visitorcenters`, but is otherwise the
     /// same as <see cref="IVisitorCenterService.List(VisitorCenterListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<VisitorCenterListResponse>> List(
+    Task<HttpResponse<VisitorCenterListPage>> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

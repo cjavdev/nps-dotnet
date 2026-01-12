@@ -29,7 +29,7 @@ public interface IPassportStampLocationService
     /// <summary>
     /// Sends a request to <c>get /passportstamplocations<c/>.
     /// </summary>
-    Task<PassportStampLocationListResponse> List(
+    Task<PassportStampLocationListPage> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -54,7 +54,7 @@ public interface IPassportStampLocationServiceWithRawResponse
     /// Returns a raw HTTP response for `get /passportstamplocations`, but is otherwise the
     /// same as <see cref="IPassportStampLocationService.List(PassportStampLocationListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<PassportStampLocationListResponse>> List(
+    Task<HttpResponse<PassportStampLocationListPage>> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

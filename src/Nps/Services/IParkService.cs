@@ -29,7 +29,7 @@ public interface IParkService
     /// <summary>
     /// Sends a request to <c>get /parks<c/>.
     /// </summary>
-    Task<ParkListResponse> List(
+    Task<ParkListPage> List(
         ParkListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IParkServiceWithRawResponse
     /// Returns a raw HTTP response for `get /parks`, but is otherwise the
     /// same as <see cref="IParkService.List(ParkListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<ParkListResponse>> List(
+    Task<HttpResponse<ParkListPage>> List(
         ParkListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

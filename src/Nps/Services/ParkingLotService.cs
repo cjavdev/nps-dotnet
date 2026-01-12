@@ -34,7 +34,7 @@ public sealed class ParkingLotService : IParkingLotService
     }
 
     /// <inheritdoc/>
-    public async Task<ParkingLotListResponse> List(
+    public async Task<ParkingLotListPage> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -65,7 +65,7 @@ public sealed class ParkingLotServiceWithRawResponse : IParkingLotServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<ParkingLotListResponse>> List(
+    public async Task<HttpResponse<ParkingLotListPage>> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +82,14 @@ public sealed class ParkingLotServiceWithRawResponse : IParkingLotServiceWithRaw
             response,
             async (token) =>
             {
-                var parkingLots = await response
-                    .Deserialize<ParkingLotListResponse>(token)
+                var page = await response
+                    .Deserialize<ParkingLotListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    parkingLots.Validate();
+                    page.Validate();
                 }
-                return parkingLots;
+                return new ParkingLotListPage(this, parameters, page);
             }
         );
     }

@@ -34,7 +34,7 @@ public sealed class TourService : ITourService
     }
 
     /// <inheritdoc/>
-    public async Task<TourListResponse> List(
+    public async Task<TourListPage> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class TourServiceWithRawResponse : ITourServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<TourListResponse>> List(
+    public async Task<HttpResponse<TourListPage>> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class TourServiceWithRawResponse : ITourServiceWithRawResponse
             response,
             async (token) =>
             {
-                var tours = await response
-                    .Deserialize<TourListResponse>(token)
+                var page = await response
+                    .Deserialize<TourListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    tours.Validate();
+                    page.Validate();
                 }
-                return tours;
+                return new TourListPage(this, parameters, page);
             }
         );
     }
