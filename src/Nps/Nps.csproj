@@ -3,7 +3,7 @@
     <!-- Metadata -->
     <AssemblyTitle>Nps C#</AssemblyTitle>
     <AssemblyName>Nps</AssemblyName>
-    <VersionPrefix>0.3.0</VersionPrefix>
+    <VersionPrefix>0.4.0</VersionPrefix>
     <Description>The official .NET library for the Nps API.</Description>
     <OutputType>Library</OutputType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -11,7 +11,6 @@
   <ItemGroup>
     <InternalsVisibleTo Include="Nps.Tests"/>
     <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
-    <InternalsVisibleTo Include="Nps.Tests"/>
     <PackageReference Include="System.Text.Json" Version="9.0.9"/>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
   </ItemGroup>

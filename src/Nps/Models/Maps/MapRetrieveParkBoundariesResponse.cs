@@ -15,6 +15,114 @@ namespace Nps.Models.Maps;
 )]
 public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
 {
+    public IReadOnlyList<Data>? Data
+    {
+        get { return JsonModel.GetNullableClass<List<Data>>(this.RawData, "data"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public double? Limit
+    {
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public double? Start
+    {
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public double? Total
+    {
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.Data ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public MapRetrieveParkBoundariesResponse() { }
+
+    public MapRetrieveParkBoundariesResponse(
+        MapRetrieveParkBoundariesResponse mapRetrieveParkBoundariesResponse
+    )
+        : base(mapRetrieveParkBoundariesResponse) { }
+
+    public MapRetrieveParkBoundariesResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    MapRetrieveParkBoundariesResponse(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="MapRetrieveParkBoundariesResponseFromRaw.FromRawUnchecked"/>
+    public static MapRetrieveParkBoundariesResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class MapRetrieveParkBoundariesResponseFromRaw : IFromRawJson<MapRetrieveParkBoundariesResponse>
+{
+    /// <inheritdoc/>
+    public MapRetrieveParkBoundariesResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => MapRetrieveParkBoundariesResponse.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(typeof(JsonModelConverter<Data, DataFromRaw>))]
+public sealed record class Data : JsonModel
+{
     public string? ID
     {
         get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
@@ -80,41 +188,36 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
         _ = this.Type;
     }
 
-    public MapRetrieveParkBoundariesResponse() { }
+    public Data() { }
 
-    public MapRetrieveParkBoundariesResponse(
-        MapRetrieveParkBoundariesResponse mapRetrieveParkBoundariesResponse
-    )
-        : base(mapRetrieveParkBoundariesResponse) { }
+    public Data(Data data)
+        : base(data) { }
 
-    public MapRetrieveParkBoundariesResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    MapRetrieveParkBoundariesResponse(FrozenDictionary<string, JsonElement> rawData)
+    Data(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="MapRetrieveParkBoundariesResponseFromRaw.FromRawUnchecked"/>
-    public static MapRetrieveParkBoundariesResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
+    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
+    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class MapRetrieveParkBoundariesResponseFromRaw : IFromRawJson<MapRetrieveParkBoundariesResponse>
+class DataFromRaw : IFromRawJson<Data>
 {
     /// <inheritdoc/>
-    public MapRetrieveParkBoundariesResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    ) => MapRetrieveParkBoundariesResponse.FromRawUnchecked(rawData);
+    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        Data.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<Geometry, GeometryFromRaw>))]

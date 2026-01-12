@@ -7,10 +7,7 @@ public class AlertServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task List_Works()
     {
-        var alerts = await this.client.Alerts.List(new(), TestContext.Current.CancellationToken);
-        foreach (var item in alerts)
-        {
-            item.Validate();
-        }
+        var page = await this.client.Alerts.List(new(), TestContext.Current.CancellationToken);
+        page.Validate();
     }
 }

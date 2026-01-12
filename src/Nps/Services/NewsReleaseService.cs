@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,21 +10,62 @@ namespace Nps.Services;
 /// <inheritdoc/>
 public sealed class NewsReleaseService : INewsReleaseService
 {
+    readonly Lazy<INewsReleaseServiceWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public INewsReleaseServiceWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
+    }
+
+    readonly INpsClient _client;
+
     /// <inheritdoc/>
     public INewsReleaseService WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
         return new NewsReleaseService(this._client.WithOptions(modifier));
     }
 
-    readonly INpsClient _client;
-
     public NewsReleaseService(INpsClient client)
+    {
+        _client = client;
+
+        _withRawResponse = new(() => new NewsReleaseServiceWithRawResponse(client.WithRawResponse));
+    }
+
+    /// <inheritdoc/>
+    public async Task<NewsReleaseListPage> List(
+        NewsReleaseListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.List(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+}
+
+/// <inheritdoc/>
+public sealed class NewsReleaseServiceWithRawResponse : INewsReleaseServiceWithRawResponse
+{
+    readonly INpsClientWithRawResponse _client;
+
+    /// <inheritdoc/>
+    public INewsReleaseServiceWithRawResponse WithOptions(
+        Func<ClientOptions, ClientOptions> modifier
+    )
+    {
+        return new NewsReleaseServiceWithRawResponse(this._client.WithOptions(modifier));
+    }
+
+    public NewsReleaseServiceWithRawResponse(INpsClientWithRawResponse client)
     {
         _client = client;
     }
 
     /// <inheritdoc/>
-    public async Task<List<NewsReleaseListResponse>> List(
+    public async Task<HttpResponse<NewsReleaseListPage>> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -37,19 +77,20 @@ public sealed class NewsReleaseService : INewsReleaseService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var newsReleases = await response
-            .Deserialize<List<NewsReleaseListResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in newsReleases)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var page = await response
+                    .Deserialize<NewsReleaseListPageResponse>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    page.Validate();
+                }
+                return new NewsReleaseListPage(this, parameters, page);
             }
-        }
-        return newsReleases;
+        );
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -15,13 +14,45 @@ namespace Nps.Services;
 public interface IArticleService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IArticleServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
     /// </summary>
     IArticleService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
-    Task<List<ArticleListResponse>> List(
+    /// <summary>
+    /// Sends a request to <c>get /articles<c/>.
+    /// </summary>
+    Task<ArticleListPage> List(
+        ArticleListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IArticleService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IArticleServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IArticleServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /articles`, but is otherwise the
+    /// same as <see cref="IArticleService.List(ArticleListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<ArticleListPage>> List(
         ArticleListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

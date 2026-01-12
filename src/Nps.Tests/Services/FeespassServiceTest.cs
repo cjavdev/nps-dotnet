@@ -7,13 +7,7 @@ public class FeespassServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task List_Works()
     {
-        var feespasses = await this.client.Feespasses.List(
-            new(),
-            TestContext.Current.CancellationToken
-        );
-        foreach (var item in feespasses)
-        {
-            item.Validate();
-        }
+        var page = await this.client.Feespasses.List(new(), TestContext.Current.CancellationToken);
+        page.Validate();
     }
 }

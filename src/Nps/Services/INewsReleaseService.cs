@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -15,13 +14,45 @@ namespace Nps.Services;
 public interface INewsReleaseService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    INewsReleaseServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
     /// </summary>
     INewsReleaseService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
-    Task<List<NewsReleaseListResponse>> List(
+    /// <summary>
+    /// Sends a request to <c>get /newsreleases<c/>.
+    /// </summary>
+    Task<NewsReleaseListPage> List(
+        NewsReleaseListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="INewsReleaseService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface INewsReleaseServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    INewsReleaseServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /newsreleases`, but is otherwise the
+    /// same as <see cref="INewsReleaseService.List(NewsReleaseListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<NewsReleaseListPage>> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

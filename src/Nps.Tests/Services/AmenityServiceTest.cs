@@ -7,39 +7,27 @@ public class AmenityServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task List_Works()
     {
-        var amenities = await this.client.Amenities.List(
-            new(),
-            TestContext.Current.CancellationToken
-        );
-        foreach (var item in amenities)
-        {
-            item.Validate();
-        }
+        var page = await this.client.Amenities.List(new(), TestContext.Current.CancellationToken);
+        page.Validate();
     }
 
     [Fact(Skip = "Prism tests are disabled")]
-    public async Task RetrieveParksPlaces_Works()
+    public async Task ListParksPlaces_Works()
     {
-        var response = await this.client.Amenities.RetrieveParksPlaces(
+        var page = await this.client.Amenities.ListParksPlaces(
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in response)
-        {
-            item.Validate();
-        }
+        page.Validate();
     }
 
     [Fact(Skip = "Prism tests are disabled")]
-    public async Task RetrieveParksVisitorCenters_Works()
+    public async Task ListParksVisitorCenters_Works()
     {
-        var response = await this.client.Amenities.RetrieveParksVisitorCenters(
+        var page = await this.client.Amenities.ListParksVisitorCenters(
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in response)
-        {
-            item.Validate();
-        }
+        page.Validate();
     }
 }

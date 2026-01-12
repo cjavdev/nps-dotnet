@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -15,13 +14,45 @@ namespace Nps.Services;
 public interface IFeespassService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IFeespassServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
     /// </summary>
     IFeespassService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
-    Task<List<FeespassListResponse>> List(
+    /// <summary>
+    /// Sends a request to <c>get /feespasses<c/>.
+    /// </summary>
+    Task<FeespassListPage> List(
+        FeespassListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IFeespassService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IFeespassServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IFeespassServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /feespasses`, but is otherwise the
+    /// same as <see cref="IFeespassService.List(FeespassListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<FeespassListPage>> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

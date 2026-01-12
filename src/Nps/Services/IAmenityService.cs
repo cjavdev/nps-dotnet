@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -15,24 +14,80 @@ namespace Nps.Services;
 public interface IAmenityService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IAmenityServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
     /// </summary>
     IAmenityService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
-    Task<List<AmenityListResponse>> List(
+    /// <summary>
+    /// Sends a request to <c>get /amenities<c/>.
+    /// </summary>
+    Task<AmenityListPage> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
-    Task<List<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
-        AmenityRetrieveParksPlacesParams? parameters = null,
+    /// <summary>
+    /// Sends a request to <c>get /amenities/parksplaces<c/>.
+    /// </summary>
+    Task<AmenityListParksPlacesPage> ListParksPlaces(
+        AmenityListParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
-    Task<List<AmenityRetrieveParksVisitorCentersResponse>> RetrieveParksVisitorCenters(
-        AmenityRetrieveParksVisitorCentersParams? parameters = null,
+    /// <summary>
+    /// Sends a request to <c>get /amenities/parksvisitorcenters<c/>.
+    /// </summary>
+    Task<AmenityListParksVisitorCentersPage> ListParksVisitorCenters(
+        AmenityListParksVisitorCentersParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IAmenityService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IAmenityServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IAmenityServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /amenities`, but is otherwise the
+    /// same as <see cref="IAmenityService.List(AmenityListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<AmenityListPage>> List(
+        AmenityListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /amenities/parksplaces`, but is otherwise the
+    /// same as <see cref="IAmenityService.ListParksPlaces(AmenityListParksPlacesParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<AmenityListParksPlacesPage>> ListParksPlaces(
+        AmenityListParksPlacesParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /amenities/parksvisitorcenters`, but is otherwise the
+    /// same as <see cref="IAmenityService.ListParksVisitorCenters(AmenityListParksVisitorCentersParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<AmenityListParksVisitorCentersPage>> ListParksVisitorCenters(
+        AmenityListParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 }

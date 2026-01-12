@@ -1,0 +1,119 @@
+using System.Collections.Frozen;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Nps.Core;
+
+namespace Nps.Models.NewsReleases;
+
+[JsonConverter(
+    typeof(JsonModelConverter<NewsReleaseListPageResponse, NewsReleaseListPageResponseFromRaw>)
+)]
+public sealed record class NewsReleaseListPageResponse : JsonModel
+{
+    public IReadOnlyList<NewsReleaseListResponse>? Data
+    {
+        get
+        {
+            return JsonModel.GetNullableClass<List<NewsReleaseListResponse>>(this.RawData, "data");
+        }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public double? Limit
+    {
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public double? Start
+    {
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public double? Total
+    {
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.Data ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public NewsReleaseListPageResponse() { }
+
+    public NewsReleaseListPageResponse(NewsReleaseListPageResponse newsReleaseListPageResponse)
+        : base(newsReleaseListPageResponse) { }
+
+    public NewsReleaseListPageResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    NewsReleaseListPageResponse(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="NewsReleaseListPageResponseFromRaw.FromRawUnchecked"/>
+    public static NewsReleaseListPageResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class NewsReleaseListPageResponseFromRaw : IFromRawJson<NewsReleaseListPageResponse>
+{
+    /// <inheritdoc/>
+    public NewsReleaseListPageResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => NewsReleaseListPageResponse.FromRawUnchecked(rawData);
+}

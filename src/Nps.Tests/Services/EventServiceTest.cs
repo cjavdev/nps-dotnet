@@ -7,10 +7,7 @@ public class EventServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task List_Works()
     {
-        var events = await this.client.Events.List(new(), TestContext.Current.CancellationToken);
-        foreach (var item in events)
-        {
-            item.Validate();
-        }
+        var page = await this.client.Events.List(new(), TestContext.Current.CancellationToken);
+        page.Validate();
     }
 }

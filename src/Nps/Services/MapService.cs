@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,21 +11,78 @@ namespace Nps.Services;
 /// <inheritdoc/>
 public sealed class MapService : IMapService
 {
+    readonly Lazy<IMapServiceWithRawResponse> _withRawResponse;
+
+    /// <inheritdoc/>
+    public IMapServiceWithRawResponse WithRawResponse
+    {
+        get { return _withRawResponse.Value; }
+    }
+
+    readonly INpsClient _client;
+
     /// <inheritdoc/>
     public IMapService WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
         return new MapService(this._client.WithOptions(modifier));
     }
 
-    readonly INpsClient _client;
-
     public MapService(INpsClient client)
+    {
+        _client = client;
+
+        _withRawResponse = new(() => new MapServiceWithRawResponse(client.WithRawResponse));
+    }
+
+    /// <inheritdoc/>
+    public async Task<MapRetrieveParkBoundariesResponse> RetrieveParkBoundaries(
+        MapRetrieveParkBoundariesParams parameters,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using var response = await this
+            .WithRawResponse.RetrieveParkBoundaries(parameters, cancellationToken)
+            .ConfigureAwait(false);
+        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
+    }
+
+    /// <inheritdoc/>
+    public Task<MapRetrieveParkBoundariesResponse> RetrieveParkBoundaries(
+        string sitecode,
+        MapRetrieveParkBoundariesParams? parameters = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        parameters ??= new();
+
+        return this.RetrieveParkBoundaries(
+            parameters with
+            {
+                Sitecode = sitecode,
+            },
+            cancellationToken
+        );
+    }
+}
+
+/// <inheritdoc/>
+public sealed class MapServiceWithRawResponse : IMapServiceWithRawResponse
+{
+    readonly INpsClientWithRawResponse _client;
+
+    /// <inheritdoc/>
+    public IMapServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    {
+        return new MapServiceWithRawResponse(this._client.WithOptions(modifier));
+    }
+
+    public MapServiceWithRawResponse(INpsClientWithRawResponse client)
     {
         _client = client;
     }
 
     /// <inheritdoc/>
-    public async Task<List<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
+    public async Task<HttpResponse<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         MapRetrieveParkBoundariesParams parameters,
         CancellationToken cancellationToken = default
     )
@@ -41,24 +97,25 @@ public sealed class MapService : IMapService
             Method = HttpMethod.Get,
             Params = parameters,
         };
-        using var response = await this
-            ._client.Execute(request, cancellationToken)
-            .ConfigureAwait(false);
-        var deserializedResponse = await response
-            .Deserialize<List<MapRetrieveParkBoundariesResponse>>(cancellationToken)
-            .ConfigureAwait(false);
-        if (this._client.ResponseValidation)
-        {
-            foreach (var item in deserializedResponse)
+        var response = await this._client.Execute(request, cancellationToken).ConfigureAwait(false);
+        return new(
+            response,
+            async (token) =>
             {
-                item.Validate();
+                var deserializedResponse = await response
+                    .Deserialize<MapRetrieveParkBoundariesResponse>(token)
+                    .ConfigureAwait(false);
+                if (this._client.ResponseValidation)
+                {
+                    deserializedResponse.Validate();
+                }
+                return deserializedResponse;
             }
-        }
-        return deserializedResponse;
+        );
     }
 
     /// <inheritdoc/>
-    public async Task<List<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
+    public Task<HttpResponse<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         string sitecode,
         MapRetrieveParkBoundariesParams? parameters = null,
         CancellationToken cancellationToken = default
@@ -66,7 +123,7 @@ public sealed class MapService : IMapService
     {
         parameters ??= new();
 
-        return await this.RetrieveParkBoundaries(
+        return this.RetrieveParkBoundaries(
             parameters with
             {
                 Sitecode = sitecode,

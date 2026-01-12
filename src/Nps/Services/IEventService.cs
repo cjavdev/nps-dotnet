@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -15,13 +14,45 @@ namespace Nps.Services;
 public interface IEventService
 {
     /// <summary>
+    /// Returns a view of this service that provides access to raw HTTP responses
+    /// for each method.
+    /// </summary>
+    IEventServiceWithRawResponse WithRawResponse { get; }
+
+    /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
     /// </summary>
     IEventService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
-    Task<List<EventListResponse>> List(
+    /// <summary>
+    /// Sends a request to <c>get /events<c/>.
+    /// </summary>
+    Task<EventListPage> List(
+        EventListParams? parameters = null,
+        CancellationToken cancellationToken = default
+    );
+}
+
+/// <summary>
+/// A view of <see cref="IEventService"/> that provides access to raw
+/// HTTP responses for each method.
+/// </summary>
+public interface IEventServiceWithRawResponse
+{
+    /// <summary>
+    /// Returns a view of this service with the given option modifications applied.
+    ///
+    /// <para>The original service is not modified.</para>
+    /// </summary>
+    IEventServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+
+    /// <summary>
+    /// Returns a raw HTTP response for `get /events`, but is otherwise the
+    /// same as <see cref="IEventService.List(EventListParams?, CancellationToken)"/>.
+    /// </summary>
+    Task<HttpResponse<EventListPage>> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
