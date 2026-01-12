@@ -29,7 +29,7 @@ public interface IActivityService
     /// <summary>
     /// Sends a request to <c>get /activities<c/>.
     /// </summary>
-    Task<ActivityListResponse> List(
+    Task<ActivityListPage> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -60,7 +60,7 @@ public interface IActivityServiceWithRawResponse
     /// Returns a raw HTTP response for `get /activities`, but is otherwise the
     /// same as <see cref="IActivityService.List(ActivityListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<ActivityListResponse>> List(
+    Task<HttpResponse<ActivityListPage>> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

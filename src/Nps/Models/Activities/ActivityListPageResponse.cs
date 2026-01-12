@@ -8,19 +8,13 @@ using Nps.Core;
 namespace Nps.Models.Activities;
 
 [JsonConverter(
-    typeof(JsonModelConverter<ActivityListParksPageResponse, ActivityListParksPageResponseFromRaw>)
+    typeof(JsonModelConverter<ActivityListPageResponse, ActivityListPageResponseFromRaw>)
 )]
-public sealed record class ActivityListParksPageResponse : JsonModel
+public sealed record class ActivityListPageResponse : JsonModel
 {
-    public IReadOnlyList<ActivityListParksResponse>? Data
+    public IReadOnlyList<ActivityListResponse>? Data
     {
-        get
-        {
-            return JsonModel.GetNullableClass<List<ActivityListParksResponse>>(
-                this.RawData,
-                "data"
-            );
-        }
+        get { return JsonModel.GetNullableClass<List<ActivityListResponse>>(this.RawData, "data"); }
         init
         {
             if (value == null)
@@ -86,28 +80,26 @@ public sealed record class ActivityListParksPageResponse : JsonModel
         _ = this.Total;
     }
 
-    public ActivityListParksPageResponse() { }
+    public ActivityListPageResponse() { }
 
-    public ActivityListParksPageResponse(
-        ActivityListParksPageResponse activityListParksPageResponse
-    )
-        : base(activityListParksPageResponse) { }
+    public ActivityListPageResponse(ActivityListPageResponse activityListPageResponse)
+        : base(activityListPageResponse) { }
 
-    public ActivityListParksPageResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    public ActivityListPageResponse(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    ActivityListParksPageResponse(FrozenDictionary<string, JsonElement> rawData)
+    ActivityListPageResponse(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="ActivityListParksPageResponseFromRaw.FromRawUnchecked"/>
-    public static ActivityListParksPageResponse FromRawUnchecked(
+    /// <inheritdoc cref="ActivityListPageResponseFromRaw.FromRawUnchecked"/>
+    public static ActivityListPageResponse FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -115,10 +107,10 @@ public sealed record class ActivityListParksPageResponse : JsonModel
     }
 }
 
-class ActivityListParksPageResponseFromRaw : IFromRawJson<ActivityListParksPageResponse>
+class ActivityListPageResponseFromRaw : IFromRawJson<ActivityListPageResponse>
 {
     /// <inheritdoc/>
-    public ActivityListParksPageResponse FromRawUnchecked(
+    public ActivityListPageResponse FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => ActivityListParksPageResponse.FromRawUnchecked(rawData);
+    ) => ActivityListPageResponse.FromRawUnchecked(rawData);
 }

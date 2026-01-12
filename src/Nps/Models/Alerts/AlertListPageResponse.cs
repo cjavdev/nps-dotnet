@@ -24,9 +24,9 @@ public sealed record class AlertListPageResponse : JsonModel
         }
     }
 
-    public double? Limit
+    public long? Limit
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
+        get { return JsonModel.GetNullableStruct<long>(this.RawData, "limit"); }
         init
         {
             if (value == null)
@@ -38,9 +38,9 @@ public sealed record class AlertListPageResponse : JsonModel
         }
     }
 
-    public double? Start
+    public long? Start
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
+        get { return JsonModel.GetNullableStruct<long>(this.RawData, "start"); }
         init
         {
             if (value == null)
@@ -52,9 +52,9 @@ public sealed record class AlertListPageResponse : JsonModel
         }
     }
 
-    public double? Total
+    public long? Total
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
+        get { return JsonModel.GetNullableStruct<long>(this.RawData, "total"); }
         init
         {
             if (value == null)

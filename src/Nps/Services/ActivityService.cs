@@ -34,7 +34,7 @@ public sealed class ActivityService : IActivityService
     }
 
     /// <inheritdoc/>
-    public async Task<ActivityListResponse> List(
+    public async Task<ActivityListPage> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -75,7 +75,7 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<ActivityListResponse>> List(
+    public async Task<HttpResponse<ActivityListPage>> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -92,14 +92,14 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
             response,
             async (token) =>
             {
-                var activities = await response
-                    .Deserialize<ActivityListResponse>(token)
+                var page = await response
+                    .Deserialize<ActivityListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    activities.Validate();
+                    page.Validate();
                 }
-                return activities;
+                return new ActivityListPage(this, parameters, page);
             }
         );
     }
