@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class ActivityService : IActivityService
     }
 
     /// <inheritdoc/>
-    public async Task<List<ActivityListResponse>> List(
+    public async Task<ActivityListResponse> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -47,7 +46,7 @@ public sealed class ActivityService : IActivityService
     }
 
     /// <inheritdoc/>
-    public async Task<List<ActivityListParksResponse>> ListParks(
+    public async Task<ActivityListParksResponse> ListParks(
         ActivityListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -76,7 +75,7 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<ActivityListResponse>>> List(
+    public async Task<HttpResponse<ActivityListResponse>> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -94,14 +93,11 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
             async (token) =>
             {
                 var activities = await response
-                    .Deserialize<List<ActivityListResponse>>(token)
+                    .Deserialize<ActivityListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in activities)
-                    {
-                        item.Validate();
-                    }
+                    activities.Validate();
                 }
                 return activities;
             }
@@ -109,7 +105,7 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<ActivityListParksResponse>>> ListParks(
+    public async Task<HttpResponse<ActivityListParksResponse>> ListParks(
         ActivityListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -127,14 +123,11 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
             async (token) =>
             {
                 var deserializedResponse = await response
-                    .Deserialize<List<ActivityListParksResponse>>(token)
+                    .Deserialize<ActivityListParksResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in deserializedResponse)
-                    {
-                        item.Validate();
-                    }
+                    deserializedResponse.Validate();
                 }
                 return deserializedResponse;
             }

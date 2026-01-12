@@ -8,9 +8,6 @@ public class EventServiceTest : TestBase
     public async Task List_Works()
     {
         var events = await this.client.Events.List(new(), TestContext.Current.CancellationToken);
-        foreach (var item in events)
-        {
-            item.Validate();
-        }
+        events.Validate();
     }
 }

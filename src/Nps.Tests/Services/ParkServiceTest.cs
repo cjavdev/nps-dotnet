@@ -8,9 +8,6 @@ public class ParkServiceTest : TestBase
     public async Task List_Works()
     {
         var parks = await this.client.Parks.List(new(), TestContext.Current.CancellationToken);
-        foreach (var item in parks)
-        {
-            item.Validate();
-        }
+        parks.Validate();
     }
 }

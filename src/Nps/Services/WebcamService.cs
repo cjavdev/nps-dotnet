@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class WebcamService : IWebcamService
     }
 
     /// <inheritdoc/>
-    public async Task<List<WebcamListResponse>> List(
+    public async Task<WebcamListResponse> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -64,7 +63,7 @@ public sealed class WebcamServiceWithRawResponse : IWebcamServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<WebcamListResponse>>> List(
+    public async Task<HttpResponse<WebcamListResponse>> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +81,11 @@ public sealed class WebcamServiceWithRawResponse : IWebcamServiceWithRawResponse
             async (token) =>
             {
                 var webcams = await response
-                    .Deserialize<List<WebcamListResponse>>(token)
+                    .Deserialize<WebcamListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in webcams)
-                    {
-                        item.Validate();
-                    }
+                    webcams.Validate();
                 }
                 return webcams;
             }

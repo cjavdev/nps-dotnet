@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class RoadEventService : IRoadEventService
     }
 
     /// <inheritdoc/>
-    public async Task<List<RoadEventListResponse>> List(
+    public async Task<RoadEventListResponse> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -64,7 +63,7 @@ public sealed class RoadEventServiceWithRawResponse : IRoadEventServiceWithRawRe
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<RoadEventListResponse>>> List(
+    public async Task<HttpResponse<RoadEventListResponse>> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +81,11 @@ public sealed class RoadEventServiceWithRawResponse : IRoadEventServiceWithRawRe
             async (token) =>
             {
                 var roadEvents = await response
-                    .Deserialize<List<RoadEventListResponse>>(token)
+                    .Deserialize<RoadEventListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in roadEvents)
-                    {
-                        item.Validate();
-                    }
+                    roadEvents.Validate();
                 }
                 return roadEvents;
             }

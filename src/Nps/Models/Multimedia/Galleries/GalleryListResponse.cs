@@ -126,6 +126,122 @@ class GalleryListResponseFromRaw : IFromRawJson<GalleryListResponse>
 )]
 public sealed record class Data : JsonModel
 {
+    public IReadOnlyList<global::Nps.Models.Multimedia.Galleries.DataData>? DataValue
+    {
+        get
+        {
+            return JsonModel.GetNullableClass<
+                List<global::Nps.Models.Multimedia.Galleries.DataData>
+            >(this.RawData, "data");
+        }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public string? Limit
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public string? Start
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public string? Total
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.DataValue ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public Data() { }
+
+    public Data(global::Nps.Models.Multimedia.Galleries.Data data)
+        : base(data) { }
+
+    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    Data(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="global::Nps.Models.Multimedia.Galleries.DataFromRaw.FromRawUnchecked"/>
+    public static global::Nps.Models.Multimedia.Galleries.Data FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class DataFromRaw : IFromRawJson<global::Nps.Models.Multimedia.Galleries.Data>
+{
+    /// <inheritdoc/>
+    public global::Nps.Models.Multimedia.Galleries.Data FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => global::Nps.Models.Multimedia.Galleries.Data.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(
+    typeof(JsonModelConverter<
+        global::Nps.Models.Multimedia.Galleries.DataData,
+        global::Nps.Models.Multimedia.Galleries.DataDataFromRaw
+    >)
+)]
+public sealed record class DataData : JsonModel
+{
     public string? ID
     {
         get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
@@ -292,26 +408,26 @@ public sealed record class Data : JsonModel
         _ = this.Url;
     }
 
-    public Data() { }
+    public DataData() { }
 
-    public Data(global::Nps.Models.Multimedia.Galleries.Data data)
-        : base(data) { }
+    public DataData(global::Nps.Models.Multimedia.Galleries.DataData dataData)
+        : base(dataData) { }
 
-    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
+    public DataData(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    Data(FrozenDictionary<string, JsonElement> rawData)
+    DataData(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="global::Nps.Models.Multimedia.Galleries.DataFromRaw.FromRawUnchecked"/>
-    public static global::Nps.Models.Multimedia.Galleries.Data FromRawUnchecked(
+    /// <inheritdoc cref="global::Nps.Models.Multimedia.Galleries.DataDataFromRaw.FromRawUnchecked"/>
+    public static global::Nps.Models.Multimedia.Galleries.DataData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -319,12 +435,12 @@ public sealed record class Data : JsonModel
     }
 }
 
-class DataFromRaw : IFromRawJson<global::Nps.Models.Multimedia.Galleries.Data>
+class DataDataFromRaw : IFromRawJson<global::Nps.Models.Multimedia.Galleries.DataData>
 {
     /// <inheritdoc/>
-    public global::Nps.Models.Multimedia.Galleries.Data FromRawUnchecked(
+    public global::Nps.Models.Multimedia.Galleries.DataData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => global::Nps.Models.Multimedia.Galleries.Data.FromRawUnchecked(rawData);
+    ) => global::Nps.Models.Multimedia.Galleries.DataData.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<ConstraintsInfo, ConstraintsInfoFromRaw>))]

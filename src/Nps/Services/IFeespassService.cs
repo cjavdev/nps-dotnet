@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IFeespassService
     /// <summary>
     /// Sends a request to <c>get /feespasses<c/>.
     /// </summary>
-    Task<List<FeespassListResponse>> List(
+    Task<FeespassListResponse> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IFeespassServiceWithRawResponse
     /// Returns a raw HTTP response for `get /feespasses`, but is otherwise the
     /// same as <see cref="IFeespassService.List(FeespassListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<FeespassListResponse>>> List(
+    Task<HttpResponse<FeespassListResponse>> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

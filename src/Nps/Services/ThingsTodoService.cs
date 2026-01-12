@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class ThingsTodoService : IThingsTodoService
     }
 
     /// <inheritdoc/>
-    public async Task<List<ThingsTodoListResponse>> List(
+    public async Task<ThingsTodoListResponse> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -66,7 +65,7 @@ public sealed class ThingsTodoServiceWithRawResponse : IThingsTodoServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<ThingsTodoListResponse>>> List(
+    public async Task<HttpResponse<ThingsTodoListResponse>> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -84,14 +83,11 @@ public sealed class ThingsTodoServiceWithRawResponse : IThingsTodoServiceWithRaw
             async (token) =>
             {
                 var thingsTodos = await response
-                    .Deserialize<List<ThingsTodoListResponse>>(token)
+                    .Deserialize<ThingsTodoListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in thingsTodos)
-                    {
-                        item.Validate();
-                    }
+                    thingsTodos.Validate();
                 }
                 return thingsTodos;
             }

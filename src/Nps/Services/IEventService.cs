@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IEventService
     /// <summary>
     /// Sends a request to <c>get /events<c/>.
     /// </summary>
-    Task<List<EventListResponse>> List(
+    Task<EventListResponse> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IEventServiceWithRawResponse
     /// Returns a raw HTTP response for `get /events`, but is otherwise the
     /// same as <see cref="IEventService.List(EventListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<EventListResponse>>> List(
+    Task<HttpResponse<EventListResponse>> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -43,7 +42,7 @@ public sealed class MultimediaService : IMultimediaService
     }
 
     /// <inheritdoc/>
-    public async Task<List<MultimediaListAudioResponse>> ListAudio(
+    public async Task<MultimediaListAudioResponse> ListAudio(
         MultimediaListAudioParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -55,7 +54,7 @@ public sealed class MultimediaService : IMultimediaService
     }
 
     /// <inheritdoc/>
-    public async Task<List<MultimediaListVideosResponse>> ListVideos(
+    public async Task<MultimediaListVideosResponse> ListVideos(
         MultimediaListVideosParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -94,7 +93,7 @@ public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<MultimediaListAudioResponse>>> ListAudio(
+    public async Task<HttpResponse<MultimediaListAudioResponse>> ListAudio(
         MultimediaListAudioParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -112,14 +111,11 @@ public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRaw
             async (token) =>
             {
                 var deserializedResponse = await response
-                    .Deserialize<List<MultimediaListAudioResponse>>(token)
+                    .Deserialize<MultimediaListAudioResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in deserializedResponse)
-                    {
-                        item.Validate();
-                    }
+                    deserializedResponse.Validate();
                 }
                 return deserializedResponse;
             }
@@ -127,7 +123,7 @@ public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<MultimediaListVideosResponse>>> ListVideos(
+    public async Task<HttpResponse<MultimediaListVideosResponse>> ListVideos(
         MultimediaListVideosParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -145,14 +141,11 @@ public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRaw
             async (token) =>
             {
                 var deserializedResponse = await response
-                    .Deserialize<List<MultimediaListVideosResponse>>(token)
+                    .Deserialize<MultimediaListVideosResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in deserializedResponse)
-                    {
-                        item.Validate();
-                    }
+                    deserializedResponse.Validate();
                 }
                 return deserializedResponse;
             }

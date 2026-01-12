@@ -8,9 +8,6 @@ public class AlertServiceTest : TestBase
     public async Task List_Works()
     {
         var alerts = await this.client.Alerts.List(new(), TestContext.Current.CancellationToken);
-        foreach (var item in alerts)
-        {
-            item.Validate();
-        }
+        alerts.Validate();
     }
 }

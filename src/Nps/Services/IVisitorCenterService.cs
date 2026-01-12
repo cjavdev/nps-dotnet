@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IVisitorCenterService
     /// <summary>
     /// Sends a request to <c>get /visitorcenters<c/>.
     /// </summary>
-    Task<List<VisitorCenterListResponse>> List(
+    Task<VisitorCenterListResponse> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IVisitorCenterServiceWithRawResponse
     /// Returns a raw HTTP response for `get /visitorcenters`, but is otherwise the
     /// same as <see cref="IVisitorCenterService.List(VisitorCenterListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<VisitorCenterListResponse>>> List(
+    Task<HttpResponse<VisitorCenterListResponse>> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface ITopicService
     /// <summary>
     /// Sends a request to <c>get /topics<c/>.
     /// </summary>
-    Task<List<TopicListResponse>> List(
+    Task<TopicListResponse> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -38,7 +37,7 @@ public interface ITopicService
     /// <summary>
     /// Sends a request to <c>get /topics/parks<c/>.
     /// </summary>
-    Task<List<TopicRetrieveParksResponse>> RetrieveParks(
+    Task<TopicRetrieveParksResponse> RetrieveParks(
         TopicRetrieveParksParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -61,7 +60,7 @@ public interface ITopicServiceWithRawResponse
     /// Returns a raw HTTP response for `get /topics`, but is otherwise the
     /// same as <see cref="ITopicService.List(TopicListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<TopicListResponse>>> List(
+    Task<HttpResponse<TopicListResponse>> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -70,7 +69,7 @@ public interface ITopicServiceWithRawResponse
     /// Returns a raw HTTP response for `get /topics/parks`, but is otherwise the
     /// same as <see cref="ITopicService.RetrieveParks(TopicRetrieveParksParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<TopicRetrieveParksResponse>>> RetrieveParks(
+    Task<HttpResponse<TopicRetrieveParksResponse>> RetrieveParks(
         TopicRetrieveParksParams? parameters = null,
         CancellationToken cancellationToken = default
     );

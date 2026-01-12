@@ -25,6 +25,111 @@ public sealed record class EventListResponse : JsonModel
         }
     }
 
+    public string? Limit
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public string? Start
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public string? Total
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.Data ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public EventListResponse() { }
+
+    public EventListResponse(EventListResponse eventListResponse)
+        : base(eventListResponse) { }
+
+    public EventListResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    EventListResponse(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="EventListResponseFromRaw.FromRawUnchecked"/>
+    public static EventListResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class EventListResponseFromRaw : IFromRawJson<EventListResponse>
+{
+    /// <inheritdoc/>
+    public EventListResponse FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        EventListResponse.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(typeof(JsonModelConverter<Data, DataFromRaw>))]
+public sealed record class Data : JsonModel
+{
+    public IReadOnlyList<DataData>? DataValue
+    {
+        get { return JsonModel.GetNullableClass<List<DataData>>(this.RawData, "data"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
     public string? Dates
     {
         get { return JsonModel.GetNullableClass<string>(this.RawData, "dates"); }
@@ -98,7 +203,7 @@ public sealed record class EventListResponse : JsonModel
     /// <inheritdoc/>
     public override void Validate()
     {
-        foreach (var item in this.Data ?? [])
+        foreach (var item in this.DataValue ?? [])
         {
             item.Validate();
         }
@@ -109,42 +214,40 @@ public sealed record class EventListResponse : JsonModel
         _ = this.Total;
     }
 
-    public EventListResponse() { }
+    public Data() { }
 
-    public EventListResponse(EventListResponse eventListResponse)
-        : base(eventListResponse) { }
+    public Data(Data data)
+        : base(data) { }
 
-    public EventListResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    EventListResponse(FrozenDictionary<string, JsonElement> rawData)
+    Data(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="EventListResponseFromRaw.FromRawUnchecked"/>
-    public static EventListResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
+    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
+    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class EventListResponseFromRaw : IFromRawJson<EventListResponse>
+class DataFromRaw : IFromRawJson<Data>
 {
     /// <inheritdoc/>
-    public EventListResponse FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
-        EventListResponse.FromRawUnchecked(rawData);
+    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        Data.FromRawUnchecked(rawData);
 }
 
-[JsonConverter(typeof(JsonModelConverter<Data, DataFromRaw>))]
-public sealed record class Data : JsonModel
+[JsonConverter(typeof(JsonModelConverter<DataData, DataDataFromRaw>))]
+public sealed record class DataData : JsonModel
 {
     /// <summary>
     /// Unique identifier for this event
@@ -916,36 +1019,36 @@ public sealed record class Data : JsonModel
         _ = this.Types;
     }
 
-    public Data() { }
+    public DataData() { }
 
-    public Data(Data data)
-        : base(data) { }
+    public DataData(DataData dataData)
+        : base(dataData) { }
 
-    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
+    public DataData(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    Data(FrozenDictionary<string, JsonElement> rawData)
+    DataData(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
-    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
+    /// <inheritdoc cref="DataDataFromRaw.FromRawUnchecked"/>
+    public static DataData FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class DataFromRaw : IFromRawJson<Data>
+class DataDataFromRaw : IFromRawJson<DataData>
 {
     /// <inheritdoc/>
-    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
-        Data.FromRawUnchecked(rawData);
+    public DataData FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        DataData.FromRawUnchecked(rawData);
 }
 
 /// <summary>

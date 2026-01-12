@@ -16,100 +16,118 @@ public class NewsReleaseListResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "id",
-                    Abstract = "abstract",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Image = new()
-                    {
-                        AltText = "altText",
-                        Caption = "caption",
-                        Credit = "credit",
-                        Description = "description",
-                        Title = "title",
-                        Url = "url",
-                    },
-                    Latitude = "latitude",
-                    Longitude = "longitude",
-                    ParkCode = "parkCode",
-                    RelatedOrgs =
+                    DataValue =
                     [
                         new()
                         {
-                            ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
-                            Name = "Investigative Services",
-                            Url = "http://www.nps.gov/orgs/1563/",
+                            ID = "id",
+                            Abstract = "abstract",
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Image = new()
+                            {
+                                AltText = "altText",
+                                Caption = "caption",
+                                Credit = "credit",
+                                Description = "description",
+                                Title = "title",
+                                Url = "url",
+                            },
+                            Latitude = "latitude",
+                            Longitude = "longitude",
+                            ParkCode = "parkCode",
+                            RelatedOrgs =
+                            [
+                                new()
+                                {
+                                    ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                                    Name = "Investigative Services",
+                                    Url = "http://www.nps.gov/orgs/1563/",
+                                },
+                            ],
+                            RelatedParks =
+                            [
+                                new()
+                                {
+                                    Designation = "National River",
+                                    FullName = "Buffalo National River",
+                                    Name = "Buffalo",
+                                    ParkCode = "buff",
+                                    State = "AR",
+                                    Url = "https://www.nps.gov/buff/index.htm",
+                                },
+                            ],
+                            Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                            Title = "title",
+                            Url = "url",
                         },
                     ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National River",
-                            FullName = "Buffalo National River",
-                            Name = "Buffalo",
-                            ParkCode = "buff",
-                            State = "AR",
-                            Url = "https://www.nps.gov/buff/index.htm",
-                        },
-                    ],
-                    Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
-                    Title = "title",
-                    Url = "url",
+                    Limit = "50",
+                    Start = "0",
+                    Total = "1889",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "1889",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         List<Data> expectedData =
         [
             new()
             {
-                ID = "id",
-                Abstract = "abstract",
-                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                Image = new()
-                {
-                    AltText = "altText",
-                    Caption = "caption",
-                    Credit = "credit",
-                    Description = "description",
-                    Title = "title",
-                    Url = "url",
-                },
-                Latitude = "latitude",
-                Longitude = "longitude",
-                ParkCode = "parkCode",
-                RelatedOrgs =
+                DataValue =
                 [
                     new()
                     {
-                        ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
-                        Name = "Investigative Services",
-                        Url = "http://www.nps.gov/orgs/1563/",
+                        ID = "id",
+                        Abstract = "abstract",
+                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                        Image = new()
+                        {
+                            AltText = "altText",
+                            Caption = "caption",
+                            Credit = "credit",
+                            Description = "description",
+                            Title = "title",
+                            Url = "url",
+                        },
+                        Latitude = "latitude",
+                        Longitude = "longitude",
+                        ParkCode = "parkCode",
+                        RelatedOrgs =
+                        [
+                            new()
+                            {
+                                ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                                Name = "Investigative Services",
+                                Url = "http://www.nps.gov/orgs/1563/",
+                            },
+                        ],
+                        RelatedParks =
+                        [
+                            new()
+                            {
+                                Designation = "National River",
+                                FullName = "Buffalo National River",
+                                Name = "Buffalo",
+                                ParkCode = "buff",
+                                State = "AR",
+                                Url = "https://www.nps.gov/buff/index.htm",
+                            },
+                        ],
+                        Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                        Title = "title",
+                        Url = "url",
                     },
                 ],
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National River",
-                        FullName = "Buffalo National River",
-                        Name = "Buffalo",
-                        ParkCode = "buff",
-                        State = "AR",
-                        Url = "https://www.nps.gov/buff/index.htm",
-                    },
-                ],
-                Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
-                Title = "title",
-                Url = "url",
+                Limit = "50",
+                Start = "0",
+                Total = "1889",
             },
         ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "1889";
+        string expectedLimit = "limit";
+        string expectedStart = "start";
+        string expectedTotal = "total";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -131,50 +149,59 @@ public class NewsReleaseListResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "id",
-                    Abstract = "abstract",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Image = new()
-                    {
-                        AltText = "altText",
-                        Caption = "caption",
-                        Credit = "credit",
-                        Description = "description",
-                        Title = "title",
-                        Url = "url",
-                    },
-                    Latitude = "latitude",
-                    Longitude = "longitude",
-                    ParkCode = "parkCode",
-                    RelatedOrgs =
+                    DataValue =
                     [
                         new()
                         {
-                            ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
-                            Name = "Investigative Services",
-                            Url = "http://www.nps.gov/orgs/1563/",
+                            ID = "id",
+                            Abstract = "abstract",
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Image = new()
+                            {
+                                AltText = "altText",
+                                Caption = "caption",
+                                Credit = "credit",
+                                Description = "description",
+                                Title = "title",
+                                Url = "url",
+                            },
+                            Latitude = "latitude",
+                            Longitude = "longitude",
+                            ParkCode = "parkCode",
+                            RelatedOrgs =
+                            [
+                                new()
+                                {
+                                    ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                                    Name = "Investigative Services",
+                                    Url = "http://www.nps.gov/orgs/1563/",
+                                },
+                            ],
+                            RelatedParks =
+                            [
+                                new()
+                                {
+                                    Designation = "National River",
+                                    FullName = "Buffalo National River",
+                                    Name = "Buffalo",
+                                    ParkCode = "buff",
+                                    State = "AR",
+                                    Url = "https://www.nps.gov/buff/index.htm",
+                                },
+                            ],
+                            Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                            Title = "title",
+                            Url = "url",
                         },
                     ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National River",
-                            FullName = "Buffalo National River",
-                            Name = "Buffalo",
-                            ParkCode = "buff",
-                            State = "AR",
-                            Url = "https://www.nps.gov/buff/index.htm",
-                        },
-                    ],
-                    Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
-                    Title = "title",
-                    Url = "url",
+                    Limit = "50",
+                    Start = "0",
+                    Total = "1889",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "1889",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -192,50 +219,59 @@ public class NewsReleaseListResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "id",
-                    Abstract = "abstract",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Image = new()
-                    {
-                        AltText = "altText",
-                        Caption = "caption",
-                        Credit = "credit",
-                        Description = "description",
-                        Title = "title",
-                        Url = "url",
-                    },
-                    Latitude = "latitude",
-                    Longitude = "longitude",
-                    ParkCode = "parkCode",
-                    RelatedOrgs =
+                    DataValue =
                     [
                         new()
                         {
-                            ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
-                            Name = "Investigative Services",
-                            Url = "http://www.nps.gov/orgs/1563/",
+                            ID = "id",
+                            Abstract = "abstract",
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Image = new()
+                            {
+                                AltText = "altText",
+                                Caption = "caption",
+                                Credit = "credit",
+                                Description = "description",
+                                Title = "title",
+                                Url = "url",
+                            },
+                            Latitude = "latitude",
+                            Longitude = "longitude",
+                            ParkCode = "parkCode",
+                            RelatedOrgs =
+                            [
+                                new()
+                                {
+                                    ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                                    Name = "Investigative Services",
+                                    Url = "http://www.nps.gov/orgs/1563/",
+                                },
+                            ],
+                            RelatedParks =
+                            [
+                                new()
+                                {
+                                    Designation = "National River",
+                                    FullName = "Buffalo National River",
+                                    Name = "Buffalo",
+                                    ParkCode = "buff",
+                                    State = "AR",
+                                    Url = "https://www.nps.gov/buff/index.htm",
+                                },
+                            ],
+                            Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                            Title = "title",
+                            Url = "url",
                         },
                     ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National River",
-                            FullName = "Buffalo National River",
-                            Name = "Buffalo",
-                            ParkCode = "buff",
-                            State = "AR",
-                            Url = "https://www.nps.gov/buff/index.htm",
-                        },
-                    ],
-                    Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
-                    Title = "title",
-                    Url = "url",
+                    Limit = "50",
+                    Start = "0",
+                    Total = "1889",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "1889",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -246,50 +282,59 @@ public class NewsReleaseListResponseTest : TestBase
         [
             new()
             {
-                ID = "id",
-                Abstract = "abstract",
-                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                Image = new()
-                {
-                    AltText = "altText",
-                    Caption = "caption",
-                    Credit = "credit",
-                    Description = "description",
-                    Title = "title",
-                    Url = "url",
-                },
-                Latitude = "latitude",
-                Longitude = "longitude",
-                ParkCode = "parkCode",
-                RelatedOrgs =
+                DataValue =
                 [
                     new()
                     {
-                        ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
-                        Name = "Investigative Services",
-                        Url = "http://www.nps.gov/orgs/1563/",
+                        ID = "id",
+                        Abstract = "abstract",
+                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                        Image = new()
+                        {
+                            AltText = "altText",
+                            Caption = "caption",
+                            Credit = "credit",
+                            Description = "description",
+                            Title = "title",
+                            Url = "url",
+                        },
+                        Latitude = "latitude",
+                        Longitude = "longitude",
+                        ParkCode = "parkCode",
+                        RelatedOrgs =
+                        [
+                            new()
+                            {
+                                ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                                Name = "Investigative Services",
+                                Url = "http://www.nps.gov/orgs/1563/",
+                            },
+                        ],
+                        RelatedParks =
+                        [
+                            new()
+                            {
+                                Designation = "National River",
+                                FullName = "Buffalo National River",
+                                Name = "Buffalo",
+                                ParkCode = "buff",
+                                State = "AR",
+                                Url = "https://www.nps.gov/buff/index.htm",
+                            },
+                        ],
+                        Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                        Title = "title",
+                        Url = "url",
                     },
                 ],
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National River",
-                        FullName = "Buffalo National River",
-                        Name = "Buffalo",
-                        ParkCode = "buff",
-                        State = "AR",
-                        Url = "https://www.nps.gov/buff/index.htm",
-                    },
-                ],
-                Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
-                Title = "title",
-                Url = "url",
+                Limit = "50",
+                Start = "0",
+                Total = "1889",
             },
         ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "1889";
+        string expectedLimit = "limit";
+        string expectedStart = "start";
+        string expectedTotal = "total";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -311,50 +356,59 @@ public class NewsReleaseListResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "id",
-                    Abstract = "abstract",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Image = new()
-                    {
-                        AltText = "altText",
-                        Caption = "caption",
-                        Credit = "credit",
-                        Description = "description",
-                        Title = "title",
-                        Url = "url",
-                    },
-                    Latitude = "latitude",
-                    Longitude = "longitude",
-                    ParkCode = "parkCode",
-                    RelatedOrgs =
+                    DataValue =
                     [
                         new()
                         {
-                            ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
-                            Name = "Investigative Services",
-                            Url = "http://www.nps.gov/orgs/1563/",
+                            ID = "id",
+                            Abstract = "abstract",
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Image = new()
+                            {
+                                AltText = "altText",
+                                Caption = "caption",
+                                Credit = "credit",
+                                Description = "description",
+                                Title = "title",
+                                Url = "url",
+                            },
+                            Latitude = "latitude",
+                            Longitude = "longitude",
+                            ParkCode = "parkCode",
+                            RelatedOrgs =
+                            [
+                                new()
+                                {
+                                    ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                                    Name = "Investigative Services",
+                                    Url = "http://www.nps.gov/orgs/1563/",
+                                },
+                            ],
+                            RelatedParks =
+                            [
+                                new()
+                                {
+                                    Designation = "National River",
+                                    FullName = "Buffalo National River",
+                                    Name = "Buffalo",
+                                    ParkCode = "buff",
+                                    State = "AR",
+                                    Url = "https://www.nps.gov/buff/index.htm",
+                                },
+                            ],
+                            Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                            Title = "title",
+                            Url = "url",
                         },
                     ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National River",
-                            FullName = "Buffalo National River",
-                            Name = "Buffalo",
-                            ParkCode = "buff",
-                            State = "AR",
-                            Url = "https://www.nps.gov/buff/index.htm",
-                        },
-                    ],
-                    Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
-                    Title = "title",
-                    Url = "url",
+                    Limit = "50",
+                    Start = "0",
+                    Total = "1889",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "1889",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         model.Validate();
@@ -427,6 +481,422 @@ public class DataTest : TestBase
     public void FieldRoundtrip_Works()
     {
         var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
+                    ID = "id",
+                    Abstract = "abstract",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Image = new()
+                    {
+                        AltText = "altText",
+                        Caption = "caption",
+                        Credit = "credit",
+                        Description = "description",
+                        Title = "title",
+                        Url = "url",
+                    },
+                    Latitude = "latitude",
+                    Longitude = "longitude",
+                    ParkCode = "parkCode",
+                    RelatedOrgs =
+                    [
+                        new()
+                        {
+                            ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                            Name = "Investigative Services",
+                            Url = "http://www.nps.gov/orgs/1563/",
+                        },
+                    ],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National River",
+                            FullName = "Buffalo National River",
+                            Name = "Buffalo",
+                            ParkCode = "buff",
+                            State = "AR",
+                            Url = "https://www.nps.gov/buff/index.htm",
+                        },
+                    ],
+                    Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                    Title = "title",
+                    Url = "url",
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "1889",
+        };
+
+        List<DataData> expectedDataValue =
+        [
+            new()
+            {
+                ID = "id",
+                Abstract = "abstract",
+                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                Image = new()
+                {
+                    AltText = "altText",
+                    Caption = "caption",
+                    Credit = "credit",
+                    Description = "description",
+                    Title = "title",
+                    Url = "url",
+                },
+                Latitude = "latitude",
+                Longitude = "longitude",
+                ParkCode = "parkCode",
+                RelatedOrgs =
+                [
+                    new()
+                    {
+                        ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                        Name = "Investigative Services",
+                        Url = "http://www.nps.gov/orgs/1563/",
+                    },
+                ],
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "National River",
+                        FullName = "Buffalo National River",
+                        Name = "Buffalo",
+                        ParkCode = "buff",
+                        State = "AR",
+                        Url = "https://www.nps.gov/buff/index.htm",
+                    },
+                ],
+                Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                Title = "title",
+                Url = "url",
+            },
+        ];
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "1889";
+
+        Assert.NotNull(model.DataValue);
+        Assert.Equal(expectedDataValue.Count, model.DataValue.Count);
+        for (int i = 0; i < expectedDataValue.Count; i++)
+        {
+            Assert.Equal(expectedDataValue[i], model.DataValue[i]);
+        }
+        Assert.Equal(expectedLimit, model.Limit);
+        Assert.Equal(expectedStart, model.Start);
+        Assert.Equal(expectedTotal, model.Total);
+    }
+
+    [Fact]
+    public void SerializationRoundtrip_Works()
+    {
+        var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
+                    ID = "id",
+                    Abstract = "abstract",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Image = new()
+                    {
+                        AltText = "altText",
+                        Caption = "caption",
+                        Credit = "credit",
+                        Description = "description",
+                        Title = "title",
+                        Url = "url",
+                    },
+                    Latitude = "latitude",
+                    Longitude = "longitude",
+                    ParkCode = "parkCode",
+                    RelatedOrgs =
+                    [
+                        new()
+                        {
+                            ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                            Name = "Investigative Services",
+                            Url = "http://www.nps.gov/orgs/1563/",
+                        },
+                    ],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National River",
+                            FullName = "Buffalo National River",
+                            Name = "Buffalo",
+                            ParkCode = "buff",
+                            State = "AR",
+                            Url = "https://www.nps.gov/buff/index.htm",
+                        },
+                    ],
+                    Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                    Title = "title",
+                    Url = "url",
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "1889",
+        };
+
+        string json = JsonSerializer.Serialize(model);
+        var deserialized = JsonSerializer.Deserialize<Data>(json);
+
+        Assert.Equal(model, deserialized);
+    }
+
+    [Fact]
+    public void FieldRoundtripThroughSerialization_Works()
+    {
+        var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
+                    ID = "id",
+                    Abstract = "abstract",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Image = new()
+                    {
+                        AltText = "altText",
+                        Caption = "caption",
+                        Credit = "credit",
+                        Description = "description",
+                        Title = "title",
+                        Url = "url",
+                    },
+                    Latitude = "latitude",
+                    Longitude = "longitude",
+                    ParkCode = "parkCode",
+                    RelatedOrgs =
+                    [
+                        new()
+                        {
+                            ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                            Name = "Investigative Services",
+                            Url = "http://www.nps.gov/orgs/1563/",
+                        },
+                    ],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National River",
+                            FullName = "Buffalo National River",
+                            Name = "Buffalo",
+                            ParkCode = "buff",
+                            State = "AR",
+                            Url = "https://www.nps.gov/buff/index.htm",
+                        },
+                    ],
+                    Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                    Title = "title",
+                    Url = "url",
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "1889",
+        };
+
+        string element = JsonSerializer.Serialize(model);
+        var deserialized = JsonSerializer.Deserialize<Data>(element);
+        Assert.NotNull(deserialized);
+
+        List<DataData> expectedDataValue =
+        [
+            new()
+            {
+                ID = "id",
+                Abstract = "abstract",
+                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                Image = new()
+                {
+                    AltText = "altText",
+                    Caption = "caption",
+                    Credit = "credit",
+                    Description = "description",
+                    Title = "title",
+                    Url = "url",
+                },
+                Latitude = "latitude",
+                Longitude = "longitude",
+                ParkCode = "parkCode",
+                RelatedOrgs =
+                [
+                    new()
+                    {
+                        ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                        Name = "Investigative Services",
+                        Url = "http://www.nps.gov/orgs/1563/",
+                    },
+                ],
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "National River",
+                        FullName = "Buffalo National River",
+                        Name = "Buffalo",
+                        ParkCode = "buff",
+                        State = "AR",
+                        Url = "https://www.nps.gov/buff/index.htm",
+                    },
+                ],
+                Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                Title = "title",
+                Url = "url",
+            },
+        ];
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "1889";
+
+        Assert.NotNull(deserialized.DataValue);
+        Assert.Equal(expectedDataValue.Count, deserialized.DataValue.Count);
+        for (int i = 0; i < expectedDataValue.Count; i++)
+        {
+            Assert.Equal(expectedDataValue[i], deserialized.DataValue[i]);
+        }
+        Assert.Equal(expectedLimit, deserialized.Limit);
+        Assert.Equal(expectedStart, deserialized.Start);
+        Assert.Equal(expectedTotal, deserialized.Total);
+    }
+
+    [Fact]
+    public void Validation_Works()
+    {
+        var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
+                    ID = "id",
+                    Abstract = "abstract",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Image = new()
+                    {
+                        AltText = "altText",
+                        Caption = "caption",
+                        Credit = "credit",
+                        Description = "description",
+                        Title = "title",
+                        Url = "url",
+                    },
+                    Latitude = "latitude",
+                    Longitude = "longitude",
+                    ParkCode = "parkCode",
+                    RelatedOrgs =
+                    [
+                        new()
+                        {
+                            ID = "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                            Name = "Investigative Services",
+                            Url = "http://www.nps.gov/orgs/1563/",
+                        },
+                    ],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National River",
+                            FullName = "Buffalo National River",
+                            Name = "Buffalo",
+                            ParkCode = "buff",
+                            State = "AR",
+                            Url = "https://www.nps.gov/buff/index.htm",
+                        },
+                    ],
+                    Releasedate = DateTimeOffset.Parse("2019-12-27T18:11:19.117Z"),
+                    Title = "title",
+                    Url = "url",
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "1889",
+        };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
+    {
+        var model = new Data { };
+
+        Assert.Null(model.DataValue);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetValidation_Works()
+    {
+        var model = new Data { };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
+    {
+        var model = new Data
+        {
+            // Null should be interpreted as omitted for these properties
+            DataValue = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        Assert.Null(model.DataValue);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
+    {
+        var model = new Data
+        {
+            // Null should be interpreted as omitted for these properties
+            DataValue = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        model.Validate();
+    }
+}
+
+public class DataDataTest : TestBase
+{
+    [Fact]
+    public void FieldRoundtrip_Works()
+    {
+        var model = new DataData
         {
             ID = "id",
             Abstract = "abstract",
@@ -536,7 +1006,7 @@ public class DataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "id",
             Abstract = "abstract",
@@ -580,7 +1050,7 @@ public class DataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(json);
+        var deserialized = JsonSerializer.Deserialize<DataData>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -588,7 +1058,7 @@ public class DataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "id",
             Abstract = "abstract",
@@ -632,7 +1102,7 @@ public class DataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(element);
+        var deserialized = JsonSerializer.Deserialize<DataData>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "id";
@@ -702,7 +1172,7 @@ public class DataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "id",
             Abstract = "abstract",
@@ -751,7 +1221,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new Data { };
+        var model = new DataData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -782,7 +1252,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new Data { };
+        var model = new DataData { };
 
         model.Validate();
     }
@@ -790,7 +1260,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -836,7 +1306,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

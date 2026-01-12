@@ -11,9 +11,6 @@ public class LessonplanServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in lessonplans)
-        {
-            item.Validate();
-        }
+        lessonplans.Validate();
     }
 }

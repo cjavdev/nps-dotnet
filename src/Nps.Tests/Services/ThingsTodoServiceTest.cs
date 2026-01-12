@@ -11,9 +11,6 @@ public class ThingsTodoServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in thingsTodos)
-        {
-            item.Validate();
-        }
+        thingsTodos.Validate();
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,13 +29,13 @@ public interface IMapService
     /// <summary>
     /// Sends a request to <c>get /mapdata/parkboundaries/{sitecode}<c/>.
     /// </summary>
-    Task<List<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
+    Task<MapRetrieveParkBoundariesResponse> RetrieveParkBoundaries(
         MapRetrieveParkBoundariesParams parameters,
         CancellationToken cancellationToken = default
     );
 
     /// <inheritdoc cref="RetrieveParkBoundaries(MapRetrieveParkBoundariesParams, CancellationToken)"/>
-    Task<List<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
+    Task<MapRetrieveParkBoundariesResponse> RetrieveParkBoundaries(
         string sitecode,
         MapRetrieveParkBoundariesParams? parameters = null,
         CancellationToken cancellationToken = default
@@ -60,13 +59,13 @@ public interface IMapServiceWithRawResponse
     /// Returns a raw HTTP response for `get /mapdata/parkboundaries/{sitecode}`, but is otherwise the
     /// same as <see cref="IMapService.RetrieveParkBoundaries(MapRetrieveParkBoundariesParams, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<MapRetrieveParkBoundariesResponse>>> RetrieveParkBoundaries(
+    Task<HttpResponse<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         MapRetrieveParkBoundariesParams parameters,
         CancellationToken cancellationToken = default
     );
 
     /// <inheritdoc cref="RetrieveParkBoundaries(MapRetrieveParkBoundariesParams, CancellationToken)"/>
-    Task<HttpResponse<List<MapRetrieveParkBoundariesResponse>>> RetrieveParkBoundaries(
+    Task<HttpResponse<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         string sitecode,
         MapRetrieveParkBoundariesParams? parameters = null,
         CancellationToken cancellationToken = default

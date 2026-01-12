@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class PlaceService : IPlaceService
     }
 
     /// <inheritdoc/>
-    public async Task<List<PlaceListResponse>> List(
+    public async Task<PlaceListResponse> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -64,7 +63,7 @@ public sealed class PlaceServiceWithRawResponse : IPlaceServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<PlaceListResponse>>> List(
+    public async Task<HttpResponse<PlaceListResponse>> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +81,11 @@ public sealed class PlaceServiceWithRawResponse : IPlaceServiceWithRawResponse
             async (token) =>
             {
                 var places = await response
-                    .Deserialize<List<PlaceListResponse>>(token)
+                    .Deserialize<PlaceListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in places)
-                    {
-                        item.Validate();
-                    }
+                    places.Validate();
                 }
                 return places;
             }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface ICampgroundService
     /// <summary>
     /// Sends a request to <c>get /campgrounds<c/>.
     /// </summary>
-    Task<List<CampgroundListResponse>> List(
+    Task<CampgroundListResponse> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface ICampgroundServiceWithRawResponse
     /// Returns a raw HTTP response for `get /campgrounds`, but is otherwise the
     /// same as <see cref="ICampgroundService.List(CampgroundListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<CampgroundListResponse>>> List(
+    Task<HttpResponse<CampgroundListResponse>> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

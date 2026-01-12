@@ -11,9 +11,6 @@ public class VisitorCenterServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in visitorCenters)
-        {
-            item.Validate();
-        }
+        visitorCenters.Validate();
     }
 }

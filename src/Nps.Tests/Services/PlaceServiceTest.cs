@@ -8,9 +8,6 @@ public class PlaceServiceTest : TestBase
     public async Task List_Works()
     {
         var places = await this.client.Places.List(new(), TestContext.Current.CancellationToken);
-        foreach (var item in places)
-        {
-            item.Validate();
-        }
+        places.Validate();
     }
 }

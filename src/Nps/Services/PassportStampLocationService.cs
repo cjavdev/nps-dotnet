@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,7 +36,7 @@ public sealed class PassportStampLocationService : IPassportStampLocationService
     }
 
     /// <inheritdoc/>
-    public async Task<List<PassportStampLocationListResponse>> List(
+    public async Task<PassportStampLocationListResponse> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -69,7 +68,7 @@ public sealed class PassportStampLocationServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<PassportStampLocationListResponse>>> List(
+    public async Task<HttpResponse<PassportStampLocationListResponse>> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -87,14 +86,11 @@ public sealed class PassportStampLocationServiceWithRawResponse
             async (token) =>
             {
                 var passportStampLocations = await response
-                    .Deserialize<List<PassportStampLocationListResponse>>(token)
+                    .Deserialize<PassportStampLocationListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in passportStampLocations)
-                    {
-                        item.Validate();
-                    }
+                    passportStampLocations.Validate();
                 }
                 return passportStampLocations;
             }

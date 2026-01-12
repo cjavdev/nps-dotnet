@@ -8,9 +8,6 @@ public class WebcamServiceTest : TestBase
     public async Task List_Works()
     {
         var webcams = await this.client.Webcams.List(new(), TestContext.Current.CancellationToken);
-        foreach (var item in webcams)
-        {
-            item.Validate();
-        }
+        webcams.Validate();
     }
 }

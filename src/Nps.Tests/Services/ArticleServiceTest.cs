@@ -11,9 +11,6 @@ public class ArticleServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in articles)
-        {
-            item.Validate();
-        }
+        articles.Validate();
     }
 }

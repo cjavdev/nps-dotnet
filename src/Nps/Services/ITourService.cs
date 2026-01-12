@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface ITourService
     /// <summary>
     /// Sends a request to <c>get /tours<c/>.
     /// </summary>
-    Task<List<TourListResponse>> List(
+    Task<TourListResponse> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface ITourServiceWithRawResponse
     /// Returns a raw HTTP response for `get /tours`, but is otherwise the
     /// same as <see cref="ITourService.List(TourListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<TourListResponse>>> List(
+    Task<HttpResponse<TourListResponse>> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

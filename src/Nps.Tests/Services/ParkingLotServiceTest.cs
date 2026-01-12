@@ -11,9 +11,6 @@ public class ParkingLotServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in parkingLots)
-        {
-            item.Validate();
-        }
+        parkingLots.Validate();
     }
 }

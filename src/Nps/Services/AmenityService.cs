@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class AmenityService : IAmenityService
     }
 
     /// <inheritdoc/>
-    public async Task<List<AmenityListResponse>> List(
+    public async Task<AmenityListResponse> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -47,7 +46,7 @@ public sealed class AmenityService : IAmenityService
     }
 
     /// <inheritdoc/>
-    public async Task<List<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
+    public async Task<AmenityRetrieveParksPlacesResponse> RetrieveParksPlaces(
         AmenityRetrieveParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -59,7 +58,7 @@ public sealed class AmenityService : IAmenityService
     }
 
     /// <inheritdoc/>
-    public async Task<List<AmenityRetrieveParksVisitorCentersResponse>> RetrieveParksVisitorCenters(
+    public async Task<AmenityRetrieveParksVisitorCentersResponse> RetrieveParksVisitorCenters(
         AmenityRetrieveParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -88,7 +87,7 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<AmenityListResponse>>> List(
+    public async Task<HttpResponse<AmenityListResponse>> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -106,14 +105,11 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
             async (token) =>
             {
                 var amenities = await response
-                    .Deserialize<List<AmenityListResponse>>(token)
+                    .Deserialize<AmenityListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in amenities)
-                    {
-                        item.Validate();
-                    }
+                    amenities.Validate();
                 }
                 return amenities;
             }
@@ -121,7 +117,7 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<AmenityRetrieveParksPlacesResponse>>> RetrieveParksPlaces(
+    public async Task<HttpResponse<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
         AmenityRetrieveParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -139,14 +135,11 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
             async (token) =>
             {
                 var deserializedResponse = await response
-                    .Deserialize<List<AmenityRetrieveParksPlacesResponse>>(token)
+                    .Deserialize<AmenityRetrieveParksPlacesResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in deserializedResponse)
-                    {
-                        item.Validate();
-                    }
+                    deserializedResponse.Validate();
                 }
                 return deserializedResponse;
             }
@@ -155,7 +148,7 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
 
     /// <inheritdoc/>
     public async Task<
-        HttpResponse<List<AmenityRetrieveParksVisitorCentersResponse>>
+        HttpResponse<AmenityRetrieveParksVisitorCentersResponse>
     > RetrieveParksVisitorCenters(
         AmenityRetrieveParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default
@@ -174,14 +167,11 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
             async (token) =>
             {
                 var deserializedResponse = await response
-                    .Deserialize<List<AmenityRetrieveParksVisitorCentersResponse>>(token)
+                    .Deserialize<AmenityRetrieveParksVisitorCentersResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in deserializedResponse)
-                    {
-                        item.Validate();
-                    }
+                    deserializedResponse.Validate();
                 }
                 return deserializedResponse;
             }

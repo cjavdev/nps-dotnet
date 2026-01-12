@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class EventService : IEventService
     }
 
     /// <inheritdoc/>
-    public async Task<List<EventListResponse>> List(
+    public async Task<EventListResponse> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -64,7 +63,7 @@ public sealed class EventServiceWithRawResponse : IEventServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<EventListResponse>>> List(
+    public async Task<HttpResponse<EventListResponse>> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +81,11 @@ public sealed class EventServiceWithRawResponse : IEventServiceWithRawResponse
             async (token) =>
             {
                 var events = await response
-                    .Deserialize<List<EventListResponse>>(token)
+                    .Deserialize<EventListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in events)
-                    {
-                        item.Validate();
-                    }
+                    events.Validate();
                 }
                 return events;
             }

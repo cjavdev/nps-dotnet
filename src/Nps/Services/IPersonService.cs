@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IPersonService
     /// <summary>
     /// Sends a request to <c>get /people<c/>.
     /// </summary>
-    Task<List<PersonListResponse>> List(
+    Task<PersonListResponse> List(
         PersonListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IPersonServiceWithRawResponse
     /// Returns a raw HTTP response for `get /people`, but is otherwise the
     /// same as <see cref="IPersonService.List(PersonListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<PersonListResponse>>> List(
+    Task<HttpResponse<PersonListResponse>> List(
         PersonListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

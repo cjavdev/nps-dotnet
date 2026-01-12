@@ -8,9 +8,6 @@ public class PersonServiceTest : TestBase
     public async Task List_Works()
     {
         var people = await this.client.People.List(new(), TestContext.Current.CancellationToken);
-        foreach (var item in people)
-        {
-            item.Validate();
-        }
+        people.Validate();
     }
 }

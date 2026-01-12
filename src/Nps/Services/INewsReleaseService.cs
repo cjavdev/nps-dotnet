@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface INewsReleaseService
     /// <summary>
     /// Sends a request to <c>get /newsreleases<c/>.
     /// </summary>
-    Task<List<NewsReleaseListResponse>> List(
+    Task<NewsReleaseListResponse> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface INewsReleaseServiceWithRawResponse
     /// Returns a raw HTTP response for `get /newsreleases`, but is otherwise the
     /// same as <see cref="INewsReleaseService.List(NewsReleaseListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<NewsReleaseListResponse>>> List(
+    Task<HttpResponse<NewsReleaseListResponse>> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
