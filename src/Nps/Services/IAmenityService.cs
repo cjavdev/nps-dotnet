@@ -37,16 +37,16 @@ public interface IAmenityService
     /// <summary>
     /// Sends a request to <c>get /amenities/parksplaces<c/>.
     /// </summary>
-    Task<AmenityRetrieveParksPlacesResponse> RetrieveParksPlaces(
-        AmenityRetrieveParksPlacesParams? parameters = null,
+    Task<AmenityListParksPlacesPage> ListParksPlaces(
+        AmenityListParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
     /// <summary>
     /// Sends a request to <c>get /amenities/parksvisitorcenters<c/>.
     /// </summary>
-    Task<AmenityRetrieveParksVisitorCentersResponse> RetrieveParksVisitorCenters(
-        AmenityRetrieveParksVisitorCentersParams? parameters = null,
+    Task<AmenityListParksVisitorCentersPage> ListParksVisitorCenters(
+        AmenityListParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 }
@@ -75,19 +75,19 @@ public interface IAmenityServiceWithRawResponse
 
     /// <summary>
     /// Returns a raw HTTP response for `get /amenities/parksplaces`, but is otherwise the
-    /// same as <see cref="IAmenityService.RetrieveParksPlaces(AmenityRetrieveParksPlacesParams?, CancellationToken)"/>.
+    /// same as <see cref="IAmenityService.ListParksPlaces(AmenityListParksPlacesParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
-        AmenityRetrieveParksPlacesParams? parameters = null,
+    Task<HttpResponse<AmenityListParksPlacesPage>> ListParksPlaces(
+        AmenityListParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
     /// <summary>
     /// Returns a raw HTTP response for `get /amenities/parksvisitorcenters`, but is otherwise the
-    /// same as <see cref="IAmenityService.RetrieveParksVisitorCenters(AmenityRetrieveParksVisitorCentersParams?, CancellationToken)"/>.
+    /// same as <see cref="IAmenityService.ListParksVisitorCenters(AmenityListParksVisitorCentersParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<AmenityRetrieveParksVisitorCentersResponse>> RetrieveParksVisitorCenters(
-        AmenityRetrieveParksVisitorCentersParams? parameters = null,
+    Task<HttpResponse<AmenityListParksVisitorCentersPage>> ListParksVisitorCenters(
+        AmenityListParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 }

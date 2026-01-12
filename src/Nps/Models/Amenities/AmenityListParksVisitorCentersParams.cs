@@ -8,14 +8,14 @@ using Nps.Core;
 
 namespace Nps.Models.Amenities;
 
-public sealed record class AmenityRetrieveParksPlacesParams : ParamsBase
+public sealed record class AmenityListParksVisitorCentersParams : ParamsBase
 {
     /// <summary>
     /// A comma delimited list of amenity IDs.
     /// </summary>
-    public IReadOnlyList<string>? ID
+    public string? ID
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "id"); }
+        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "id"); }
         init
         {
             if (value == null)
@@ -47,9 +47,9 @@ public sealed record class AmenityRetrieveParksPlacesParams : ParamsBase
     /// <summary>
     /// A comma delimited list of 4 character park codes.
     /// </summary>
-    public IReadOnlyList<string>? ParkCode
+    public string? ParkCode
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "parkCode"); }
+        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "parkCode"); }
         init
         {
             if (value == null)
@@ -81,11 +81,11 @@ public sealed record class AmenityRetrieveParksPlacesParams : ParamsBase
     /// <summary>
     /// A comma delimited list of fields to sort the results by. Ascending order is
     /// assumed for each field unless the field name is prefixed with the unary negative
-    ///       which implies descending order.
+    /// which implies descending order.
     /// </summary>
-    public string? Sort
+    public IReadOnlyList<string>? Sort
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "sort"); }
+        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "sort"); }
         init
         {
             if (value == null)
@@ -114,14 +114,14 @@ public sealed record class AmenityRetrieveParksPlacesParams : ParamsBase
         }
     }
 
-    public AmenityRetrieveParksPlacesParams() { }
+    public AmenityListParksVisitorCentersParams() { }
 
-    public AmenityRetrieveParksPlacesParams(
-        AmenityRetrieveParksPlacesParams amenityRetrieveParksPlacesParams
+    public AmenityListParksVisitorCentersParams(
+        AmenityListParksVisitorCentersParams amenityListParksVisitorCentersParams
     )
-        : base(amenityRetrieveParksPlacesParams) { }
+        : base(amenityListParksVisitorCentersParams) { }
 
-    public AmenityRetrieveParksPlacesParams(
+    public AmenityListParksVisitorCentersParams(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )
@@ -132,7 +132,7 @@ public sealed record class AmenityRetrieveParksPlacesParams : ParamsBase
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    AmenityRetrieveParksPlacesParams(
+    AmenityListParksVisitorCentersParams(
         FrozenDictionary<string, JsonElement> rawHeaderData,
         FrozenDictionary<string, JsonElement> rawQueryData
     )
@@ -143,7 +143,7 @@ public sealed record class AmenityRetrieveParksPlacesParams : ParamsBase
 #pragma warning restore CS8618
 
     /// <inheritdoc cref="IFromRawJson.FromRawUnchecked"/>
-    public static AmenityRetrieveParksPlacesParams FromRawUnchecked(
+    public static AmenityListParksVisitorCentersParams FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )
@@ -156,7 +156,9 @@ public sealed record class AmenityRetrieveParksPlacesParams : ParamsBase
 
     public override Uri Url(ClientOptions options)
     {
-        return new UriBuilder(options.BaseUrl.ToString().TrimEnd('/') + "/amenities/parksplaces")
+        return new UriBuilder(
+            options.BaseUrl.ToString().TrimEnd('/') + "/amenities/parksvisitorcenters"
+        )
         {
             Query = this.QueryString(options),
         }.Uri;

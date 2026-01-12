@@ -4,12 +4,12 @@ using Nps.Models.Amenities;
 
 namespace Nps.Tests.Models.Amenities;
 
-public class AmenityRetrieveParksVisitorCentersParamsTest : TestBase
+public class AmenityListParksVisitorCentersParamsTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var parameters = new AmenityRetrieveParksVisitorCentersParams
+        var parameters = new AmenityListParksVisitorCentersParams
         {
             ID = "id",
             Limit = 0,
@@ -42,7 +42,7 @@ public class AmenityRetrieveParksVisitorCentersParamsTest : TestBase
     [Fact]
     public void OptionalNonNullableParamsUnsetAreNotSet_Works()
     {
-        var parameters = new AmenityRetrieveParksVisitorCentersParams { };
+        var parameters = new AmenityListParksVisitorCentersParams { };
 
         Assert.Null(parameters.ID);
         Assert.False(parameters.RawQueryData.ContainsKey("id"));
@@ -61,7 +61,7 @@ public class AmenityRetrieveParksVisitorCentersParamsTest : TestBase
     [Fact]
     public void OptionalNonNullableParamsSetToNullAreNotSet_Works()
     {
-        var parameters = new AmenityRetrieveParksVisitorCentersParams
+        var parameters = new AmenityListParksVisitorCentersParams
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -89,7 +89,7 @@ public class AmenityRetrieveParksVisitorCentersParamsTest : TestBase
     [Fact]
     public void Url_Works()
     {
-        AmenityRetrieveParksVisitorCentersParams parameters = new()
+        AmenityListParksVisitorCentersParams parameters = new()
         {
             ID = "id",
             Limit = 0,

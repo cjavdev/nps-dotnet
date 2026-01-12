@@ -12,12 +12,9 @@ public class TopicServiceTest : TestBase
     }
 
     [Fact(Skip = "Prism tests are disabled")]
-    public async Task RetrieveParks_Works()
+    public async Task ListParks_Works()
     {
-        var response = await this.client.Topics.RetrieveParks(
-            new(),
-            TestContext.Current.CancellationToken
-        );
-        response.Validate();
+        var page = await this.client.Topics.ListParks(new(), TestContext.Current.CancellationToken);
+        page.Validate();
     }
 }

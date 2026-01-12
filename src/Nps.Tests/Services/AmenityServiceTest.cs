@@ -12,22 +12,22 @@ public class AmenityServiceTest : TestBase
     }
 
     [Fact(Skip = "Prism tests are disabled")]
-    public async Task RetrieveParksPlaces_Works()
+    public async Task ListParksPlaces_Works()
     {
-        var response = await this.client.Amenities.RetrieveParksPlaces(
+        var page = await this.client.Amenities.ListParksPlaces(
             new(),
             TestContext.Current.CancellationToken
         );
-        response.Validate();
+        page.Validate();
     }
 
     [Fact(Skip = "Prism tests are disabled")]
-    public async Task RetrieveParksVisitorCenters_Works()
+    public async Task ListParksVisitorCenters_Works()
     {
-        var response = await this.client.Amenities.RetrieveParksVisitorCenters(
+        var page = await this.client.Amenities.ListParksVisitorCenters(
             new(),
             TestContext.Current.CancellationToken
         );
-        response.Validate();
+        page.Validate();
     }
 }

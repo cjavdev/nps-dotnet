@@ -7,133 +7,14 @@ using Nps.Core;
 
 namespace Nps.Models.Topics;
 
-[JsonConverter(
-    typeof(JsonModelConverter<TopicRetrieveParksResponse, TopicRetrieveParksResponseFromRaw>)
-)]
-public sealed record class TopicRetrieveParksResponse : JsonModel
+[JsonConverter(typeof(JsonModelConverter<TopicListParksResponse, TopicListParksResponseFromRaw>))]
+public sealed record class TopicListParksResponse : JsonModel
 {
-    public IReadOnlyList<TopicRetrieveParksResponseData>? Data
+    public IReadOnlyList<TopicListParksResponseData>? Data
     {
         get
         {
-            return JsonModel.GetNullableClass<List<TopicRetrieveParksResponseData>>(
-                this.RawData,
-                "data"
-            );
-        }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "data", value);
-        }
-    }
-
-    public double? Limit
-    {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "limit", value);
-        }
-    }
-
-    public double? Start
-    {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "start", value);
-        }
-    }
-
-    public double? Total
-    {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "total", value);
-        }
-    }
-
-    /// <inheritdoc/>
-    public override void Validate()
-    {
-        foreach (var item in this.Data ?? [])
-        {
-            item.Validate();
-        }
-        _ = this.Limit;
-        _ = this.Start;
-        _ = this.Total;
-    }
-
-    public TopicRetrieveParksResponse() { }
-
-    public TopicRetrieveParksResponse(TopicRetrieveParksResponse topicRetrieveParksResponse)
-        : base(topicRetrieveParksResponse) { }
-
-    public TopicRetrieveParksResponse(IReadOnlyDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-
-#pragma warning disable CS8618
-    [SetsRequiredMembers]
-    TopicRetrieveParksResponse(FrozenDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-#pragma warning restore CS8618
-
-    /// <inheritdoc cref="TopicRetrieveParksResponseFromRaw.FromRawUnchecked"/>
-    public static TopicRetrieveParksResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
-    {
-        return new(FrozenDictionary.ToFrozenDictionary(rawData));
-    }
-}
-
-class TopicRetrieveParksResponseFromRaw : IFromRawJson<TopicRetrieveParksResponse>
-{
-    /// <inheritdoc/>
-    public TopicRetrieveParksResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    ) => TopicRetrieveParksResponse.FromRawUnchecked(rawData);
-}
-
-[JsonConverter(
-    typeof(JsonModelConverter<
-        TopicRetrieveParksResponseData,
-        TopicRetrieveParksResponseDataFromRaw
-    >)
-)]
-public sealed record class TopicRetrieveParksResponseData : JsonModel
-{
-    public IReadOnlyList<TopicRetrieveParksResponseDataData>? Data
-    {
-        get
-        {
-            return JsonModel.GetNullableClass<List<TopicRetrieveParksResponseDataData>>(
+            return JsonModel.GetNullableClass<List<TopicListParksResponseData>>(
                 this.RawData,
                 "data"
             );
@@ -203,28 +84,26 @@ public sealed record class TopicRetrieveParksResponseData : JsonModel
         _ = this.Total;
     }
 
-    public TopicRetrieveParksResponseData() { }
+    public TopicListParksResponse() { }
 
-    public TopicRetrieveParksResponseData(
-        TopicRetrieveParksResponseData topicRetrieveParksResponseData
-    )
-        : base(topicRetrieveParksResponseData) { }
+    public TopicListParksResponse(TopicListParksResponse topicListParksResponse)
+        : base(topicListParksResponse) { }
 
-    public TopicRetrieveParksResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
+    public TopicListParksResponse(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    TopicRetrieveParksResponseData(FrozenDictionary<string, JsonElement> rawData)
+    TopicListParksResponse(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="TopicRetrieveParksResponseDataFromRaw.FromRawUnchecked"/>
-    public static TopicRetrieveParksResponseData FromRawUnchecked(
+    /// <inheritdoc cref="TopicListParksResponseFromRaw.FromRawUnchecked"/>
+    public static TopicListParksResponse FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -232,21 +111,18 @@ public sealed record class TopicRetrieveParksResponseData : JsonModel
     }
 }
 
-class TopicRetrieveParksResponseDataFromRaw : IFromRawJson<TopicRetrieveParksResponseData>
+class TopicListParksResponseFromRaw : IFromRawJson<TopicListParksResponse>
 {
     /// <inheritdoc/>
-    public TopicRetrieveParksResponseData FromRawUnchecked(
+    public TopicListParksResponse FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => TopicRetrieveParksResponseData.FromRawUnchecked(rawData);
+    ) => TopicListParksResponse.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(
-    typeof(JsonModelConverter<
-        TopicRetrieveParksResponseDataData,
-        TopicRetrieveParksResponseDataDataFromRaw
-    >)
+    typeof(JsonModelConverter<TopicListParksResponseData, TopicListParksResponseDataFromRaw>)
 )]
-public sealed record class TopicRetrieveParksResponseDataData : JsonModel
+public sealed record class TopicListParksResponseData : JsonModel
 {
     /// <summary>
     /// Unique identifier for topic park record
@@ -307,28 +183,26 @@ public sealed record class TopicRetrieveParksResponseDataData : JsonModel
         }
     }
 
-    public TopicRetrieveParksResponseDataData() { }
+    public TopicListParksResponseData() { }
 
-    public TopicRetrieveParksResponseDataData(
-        TopicRetrieveParksResponseDataData topicRetrieveParksResponseDataData
-    )
-        : base(topicRetrieveParksResponseDataData) { }
+    public TopicListParksResponseData(TopicListParksResponseData topicListParksResponseData)
+        : base(topicListParksResponseData) { }
 
-    public TopicRetrieveParksResponseDataData(IReadOnlyDictionary<string, JsonElement> rawData)
+    public TopicListParksResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    TopicRetrieveParksResponseDataData(FrozenDictionary<string, JsonElement> rawData)
+    TopicListParksResponseData(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="TopicRetrieveParksResponseDataDataFromRaw.FromRawUnchecked"/>
-    public static TopicRetrieveParksResponseDataData FromRawUnchecked(
+    /// <inheritdoc cref="TopicListParksResponseDataFromRaw.FromRawUnchecked"/>
+    public static TopicListParksResponseData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -336,12 +210,12 @@ public sealed record class TopicRetrieveParksResponseDataData : JsonModel
     }
 }
 
-class TopicRetrieveParksResponseDataDataFromRaw : IFromRawJson<TopicRetrieveParksResponseDataData>
+class TopicListParksResponseDataFromRaw : IFromRawJson<TopicListParksResponseData>
 {
     /// <inheritdoc/>
-    public TopicRetrieveParksResponseDataData FromRawUnchecked(
+    public TopicListParksResponseData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => TopicRetrieveParksResponseDataData.FromRawUnchecked(rawData);
+    ) => TopicListParksResponseData.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<Park, ParkFromRaw>))]
