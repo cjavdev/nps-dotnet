@@ -46,7 +46,7 @@ public sealed class ActivityService : IActivityService
     }
 
     /// <inheritdoc/>
-    public async Task<ActivityListParksResponse> ListParks(
+    public async Task<ActivityListParksPage> ListParks(
         ActivityListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -105,7 +105,7 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<ActivityListParksResponse>> ListParks(
+    public async Task<HttpResponse<ActivityListParksPage>> ListParks(
         ActivityListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -122,14 +122,14 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
             response,
             async (token) =>
             {
-                var deserializedResponse = await response
-                    .Deserialize<ActivityListParksResponse>(token)
+                var page = await response
+                    .Deserialize<ActivityListParksPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    deserializedResponse.Validate();
+                    page.Validate();
                 }
-                return deserializedResponse;
+                return new ActivityListParksPage(this, parameters, page);
             }
         );
     }

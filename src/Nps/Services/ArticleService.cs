@@ -34,7 +34,7 @@ public sealed class ArticleService : IArticleService
     }
 
     /// <inheritdoc/>
-    public async Task<ArticleListResponse> List(
+    public async Task<ArticleListPage> List(
         ArticleListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class ArticleServiceWithRawResponse : IArticleServiceWithRawRespon
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<ArticleListResponse>> List(
+    public async Task<HttpResponse<ArticleListPage>> List(
         ArticleListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class ArticleServiceWithRawResponse : IArticleServiceWithRawRespon
             response,
             async (token) =>
             {
-                var articles = await response
-                    .Deserialize<ArticleListResponse>(token)
+                var page = await response
+                    .Deserialize<ArticleListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    articles.Validate();
+                    page.Validate();
                 }
-                return articles;
+                return new ArticleListPage(this, parameters, page);
             }
         );
     }

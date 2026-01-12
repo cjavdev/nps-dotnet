@@ -37,7 +37,7 @@ public interface IActivityService
     /// <summary>
     /// Returns activites parks information.
     /// </summary>
-    Task<ActivityListParksResponse> ListParks(
+    Task<ActivityListParksPage> ListParks(
         ActivityListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -69,7 +69,7 @@ public interface IActivityServiceWithRawResponse
     /// Returns a raw HTTP response for `get /activities/parks`, but is otherwise the
     /// same as <see cref="IActivityService.ListParks(ActivityListParksParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<ActivityListParksResponse>> ListParks(
+    Task<HttpResponse<ActivityListParksPage>> ListParks(
         ActivityListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     );

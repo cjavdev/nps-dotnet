@@ -15,69 +15,50 @@ public class ActivityListParksResponseTest : TestBase
             [
                 new()
                 {
-                    Data =
+                    ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
+                    Name = "Arts and Culture",
+                    Parks =
                     [
                         new()
                         {
-                            ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                            Name = "Arts and Culture",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Historical Park",
-                                    FullName =
-                                        "Abraham Lincoln Birthplace National Historical Park",
-                                    Name = "Abraham Lincoln Birthplace",
-                                    ParkCode = "abli",
-                                    States = "KY",
-                                    Url = "https://www.nps.gov/abli/index.htm",
-                                },
-                            ],
+                            Designation = "National Historical Park",
+                            FullName = "Abraham Lincoln Birthplace National Historical Park",
+                            Name = "Abraham Lincoln Birthplace",
+                            ParkCode = "abli",
+                            States = "KY",
+                            Url = "https://www.nps.gov/abli/index.htm",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "2",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "2",
         };
 
         List<ActivityListParksResponseData> expectedData =
         [
             new()
             {
-                Data =
+                ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
+                Name = "Arts and Culture",
+                Parks =
                 [
                     new()
                     {
-                        ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                        Name = "Arts and Culture",
-                        Parks =
-                        [
-                            new()
-                            {
-                                Designation = "National Historical Park",
-                                FullName = "Abraham Lincoln Birthplace National Historical Park",
-                                Name = "Abraham Lincoln Birthplace",
-                                ParkCode = "abli",
-                                States = "KY",
-                                Url = "https://www.nps.gov/abli/index.htm",
-                            },
-                        ],
+                        Designation = "National Historical Park",
+                        FullName = "Abraham Lincoln Birthplace National Historical Park",
+                        Name = "Abraham Lincoln Birthplace",
+                        ParkCode = "abli",
+                        States = "KY",
+                        Url = "https://www.nps.gov/abli/index.htm",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "2",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "2";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -99,35 +80,25 @@ public class ActivityListParksResponseTest : TestBase
             [
                 new()
                 {
-                    Data =
+                    ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
+                    Name = "Arts and Culture",
+                    Parks =
                     [
                         new()
                         {
-                            ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                            Name = "Arts and Culture",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Historical Park",
-                                    FullName =
-                                        "Abraham Lincoln Birthplace National Historical Park",
-                                    Name = "Abraham Lincoln Birthplace",
-                                    ParkCode = "abli",
-                                    States = "KY",
-                                    Url = "https://www.nps.gov/abli/index.htm",
-                                },
-                            ],
+                            Designation = "National Historical Park",
+                            FullName = "Abraham Lincoln Birthplace National Historical Park",
+                            Name = "Abraham Lincoln Birthplace",
+                            ParkCode = "abli",
+                            States = "KY",
+                            Url = "https://www.nps.gov/abli/index.htm",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "2",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "2",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -145,35 +116,25 @@ public class ActivityListParksResponseTest : TestBase
             [
                 new()
                 {
-                    Data =
+                    ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
+                    Name = "Arts and Culture",
+                    Parks =
                     [
                         new()
                         {
-                            ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                            Name = "Arts and Culture",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Historical Park",
-                                    FullName =
-                                        "Abraham Lincoln Birthplace National Historical Park",
-                                    Name = "Abraham Lincoln Birthplace",
-                                    ParkCode = "abli",
-                                    States = "KY",
-                                    Url = "https://www.nps.gov/abli/index.htm",
-                                },
-                            ],
+                            Designation = "National Historical Park",
+                            FullName = "Abraham Lincoln Birthplace National Historical Park",
+                            Name = "Abraham Lincoln Birthplace",
+                            ParkCode = "abli",
+                            States = "KY",
+                            Url = "https://www.nps.gov/abli/index.htm",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "2",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "2",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -184,34 +145,25 @@ public class ActivityListParksResponseTest : TestBase
         [
             new()
             {
-                Data =
+                ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
+                Name = "Arts and Culture",
+                Parks =
                 [
                     new()
                     {
-                        ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                        Name = "Arts and Culture",
-                        Parks =
-                        [
-                            new()
-                            {
-                                Designation = "National Historical Park",
-                                FullName = "Abraham Lincoln Birthplace National Historical Park",
-                                Name = "Abraham Lincoln Birthplace",
-                                ParkCode = "abli",
-                                States = "KY",
-                                Url = "https://www.nps.gov/abli/index.htm",
-                            },
-                        ],
+                        Designation = "National Historical Park",
+                        FullName = "Abraham Lincoln Birthplace National Historical Park",
+                        Name = "Abraham Lincoln Birthplace",
+                        ParkCode = "abli",
+                        States = "KY",
+                        Url = "https://www.nps.gov/abli/index.htm",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "2",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "2";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -233,35 +185,25 @@ public class ActivityListParksResponseTest : TestBase
             [
                 new()
                 {
-                    Data =
+                    ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
+                    Name = "Arts and Culture",
+                    Parks =
                     [
                         new()
                         {
-                            ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                            Name = "Arts and Culture",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Historical Park",
-                                    FullName =
-                                        "Abraham Lincoln Birthplace National Historical Park",
-                                    Name = "Abraham Lincoln Birthplace",
-                                    ParkCode = "abli",
-                                    States = "KY",
-                                    Url = "https://www.nps.gov/abli/index.htm",
-                                },
-                            ],
+                            Designation = "National Historical Park",
+                            FullName = "Abraham Lincoln Birthplace National Historical Park",
+                            Name = "Abraham Lincoln Birthplace",
+                            ParkCode = "abli",
+                            States = "KY",
+                            Url = "https://www.nps.gov/abli/index.htm",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "2",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "2",
         };
 
         model.Validate();
@@ -335,272 +277,6 @@ public class ActivityListParksResponseDataTest : TestBase
     {
         var model = new ActivityListParksResponseData
         {
-            Data =
-            [
-                new()
-                {
-                    ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                    Name = "Arts and Culture",
-                    Parks =
-                    [
-                        new()
-                        {
-                            Designation = "National Historical Park",
-                            FullName = "Abraham Lincoln Birthplace National Historical Park",
-                            Name = "Abraham Lincoln Birthplace",
-                            ParkCode = "abli",
-                            States = "KY",
-                            Url = "https://www.nps.gov/abli/index.htm",
-                        },
-                    ],
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "2",
-        };
-
-        List<ActivityListParksResponseDataData> expectedData =
-        [
-            new()
-            {
-                ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                Name = "Arts and Culture",
-                Parks =
-                [
-                    new()
-                    {
-                        Designation = "National Historical Park",
-                        FullName = "Abraham Lincoln Birthplace National Historical Park",
-                        Name = "Abraham Lincoln Birthplace",
-                        ParkCode = "abli",
-                        States = "KY",
-                        Url = "https://www.nps.gov/abli/index.htm",
-                    },
-                ],
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "2";
-
-        Assert.NotNull(model.Data);
-        Assert.Equal(expectedData.Count, model.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
-        {
-            Assert.Equal(expectedData[i], model.Data[i]);
-        }
-        Assert.Equal(expectedLimit, model.Limit);
-        Assert.Equal(expectedStart, model.Start);
-        Assert.Equal(expectedTotal, model.Total);
-    }
-
-    [Fact]
-    public void SerializationRoundtrip_Works()
-    {
-        var model = new ActivityListParksResponseData
-        {
-            Data =
-            [
-                new()
-                {
-                    ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                    Name = "Arts and Culture",
-                    Parks =
-                    [
-                        new()
-                        {
-                            Designation = "National Historical Park",
-                            FullName = "Abraham Lincoln Birthplace National Historical Park",
-                            Name = "Abraham Lincoln Birthplace",
-                            ParkCode = "abli",
-                            States = "KY",
-                            Url = "https://www.nps.gov/abli/index.htm",
-                        },
-                    ],
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "2",
-        };
-
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<ActivityListParksResponseData>(json);
-
-        Assert.Equal(model, deserialized);
-    }
-
-    [Fact]
-    public void FieldRoundtripThroughSerialization_Works()
-    {
-        var model = new ActivityListParksResponseData
-        {
-            Data =
-            [
-                new()
-                {
-                    ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                    Name = "Arts and Culture",
-                    Parks =
-                    [
-                        new()
-                        {
-                            Designation = "National Historical Park",
-                            FullName = "Abraham Lincoln Birthplace National Historical Park",
-                            Name = "Abraham Lincoln Birthplace",
-                            ParkCode = "abli",
-                            States = "KY",
-                            Url = "https://www.nps.gov/abli/index.htm",
-                        },
-                    ],
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "2",
-        };
-
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<ActivityListParksResponseData>(element);
-        Assert.NotNull(deserialized);
-
-        List<ActivityListParksResponseDataData> expectedData =
-        [
-            new()
-            {
-                ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                Name = "Arts and Culture",
-                Parks =
-                [
-                    new()
-                    {
-                        Designation = "National Historical Park",
-                        FullName = "Abraham Lincoln Birthplace National Historical Park",
-                        Name = "Abraham Lincoln Birthplace",
-                        ParkCode = "abli",
-                        States = "KY",
-                        Url = "https://www.nps.gov/abli/index.htm",
-                    },
-                ],
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "2";
-
-        Assert.NotNull(deserialized.Data);
-        Assert.Equal(expectedData.Count, deserialized.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
-        {
-            Assert.Equal(expectedData[i], deserialized.Data[i]);
-        }
-        Assert.Equal(expectedLimit, deserialized.Limit);
-        Assert.Equal(expectedStart, deserialized.Start);
-        Assert.Equal(expectedTotal, deserialized.Total);
-    }
-
-    [Fact]
-    public void Validation_Works()
-    {
-        var model = new ActivityListParksResponseData
-        {
-            Data =
-            [
-                new()
-                {
-                    ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                    Name = "Arts and Culture",
-                    Parks =
-                    [
-                        new()
-                        {
-                            Designation = "National Historical Park",
-                            FullName = "Abraham Lincoln Birthplace National Historical Park",
-                            Name = "Abraham Lincoln Birthplace",
-                            ParkCode = "abli",
-                            States = "KY",
-                            Url = "https://www.nps.gov/abli/index.htm",
-                        },
-                    ],
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "2",
-        };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
-    {
-        var model = new ActivityListParksResponseData { };
-
-        Assert.Null(model.Data);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetValidation_Works()
-    {
-        var model = new ActivityListParksResponseData { };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
-    {
-        var model = new ActivityListParksResponseData
-        {
-            // Null should be interpreted as omitted for these properties
-            Data = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        Assert.Null(model.Data);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
-    {
-        var model = new ActivityListParksResponseData
-        {
-            // Null should be interpreted as omitted for these properties
-            Data = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        model.Validate();
-    }
-}
-
-public class ActivityListParksResponseDataDataTest : TestBase
-{
-    [Fact]
-    public void FieldRoundtrip_Works()
-    {
-        var model = new ActivityListParksResponseDataData
-        {
             ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
             Name = "Arts and Culture",
             Parks =
@@ -645,7 +321,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new ActivityListParksResponseDataData
+        var model = new ActivityListParksResponseData
         {
             ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
             Name = "Arts and Culture",
@@ -664,7 +340,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<ActivityListParksResponseDataData>(json);
+        var deserialized = JsonSerializer.Deserialize<ActivityListParksResponseData>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -672,7 +348,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new ActivityListParksResponseDataData
+        var model = new ActivityListParksResponseData
         {
             ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
             Name = "Arts and Culture",
@@ -691,7 +367,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<ActivityListParksResponseDataData>(element);
+        var deserialized = JsonSerializer.Deserialize<ActivityListParksResponseData>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "FEDA3DF8-B871-4C1A-BB96-32823860B174";
@@ -722,7 +398,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new ActivityListParksResponseDataData
+        var model = new ActivityListParksResponseData
         {
             ID = "FEDA3DF8-B871-4C1A-BB96-32823860B174",
             Name = "Arts and Culture",
@@ -746,7 +422,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new ActivityListParksResponseDataData { };
+        var model = new ActivityListParksResponseData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -759,7 +435,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new ActivityListParksResponseDataData { };
+        var model = new ActivityListParksResponseData { };
 
         model.Validate();
     }
@@ -767,7 +443,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new ActivityListParksResponseDataData
+        var model = new ActivityListParksResponseData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -786,7 +462,7 @@ public class ActivityListParksResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new ActivityListParksResponseDataData
+        var model = new ActivityListParksResponseData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

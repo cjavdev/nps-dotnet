@@ -118,109 +118,6 @@ class CampgroundListResponseFromRaw : IFromRawJson<CampgroundListResponse>
 [JsonConverter(typeof(JsonModelConverter<Data, DataFromRaw>))]
 public sealed record class Data : JsonModel
 {
-    public IReadOnlyList<DataData>? DataValue
-    {
-        get { return JsonModel.GetNullableClass<List<DataData>>(this.RawData, "data"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "data", value);
-        }
-    }
-
-    public string? Limit
-    {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "limit", value);
-        }
-    }
-
-    public string? Start
-    {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "start", value);
-        }
-    }
-
-    public string? Total
-    {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "total", value);
-        }
-    }
-
-    /// <inheritdoc/>
-    public override void Validate()
-    {
-        foreach (var item in this.DataValue ?? [])
-        {
-            item.Validate();
-        }
-        _ = this.Limit;
-        _ = this.Start;
-        _ = this.Total;
-    }
-
-    public Data() { }
-
-    public Data(Data data)
-        : base(data) { }
-
-    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-
-#pragma warning disable CS8618
-    [SetsRequiredMembers]
-    Data(FrozenDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-#pragma warning restore CS8618
-
-    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
-    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
-    {
-        return new(FrozenDictionary.ToFrozenDictionary(rawData));
-    }
-}
-
-class DataFromRaw : IFromRawJson<Data>
-{
-    /// <inheritdoc/>
-    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
-        Data.FromRawUnchecked(rawData);
-}
-
-[JsonConverter(typeof(JsonModelConverter<DataData, DataDataFromRaw>))]
-public sealed record class DataData : JsonModel
-{
     /// <summary>
     /// Campground identification string
     /// </summary>
@@ -275,9 +172,9 @@ public sealed record class DataData : JsonModel
     /// <summary>
     /// Detailed information about amenities available in the campground.
     /// </summary>
-    public DataDataAmenities? Amenities
+    public DataAmenities? Amenities
     {
-        get { return JsonModel.GetNullableClass<DataDataAmenities>(this.RawData, "amenities"); }
+        get { return JsonModel.GetNullableClass<DataAmenities>(this.RawData, "amenities"); }
         init
         {
             if (value == null)
@@ -488,12 +385,9 @@ public sealed record class DataData : JsonModel
         }
     }
 
-    public IReadOnlyList<DataDataMultimedia>? Multimedia
+    public IReadOnlyList<DataMultimedia>? Multimedia
     {
-        get
-        {
-            return JsonModel.GetNullableClass<List<DataDataMultimedia>>(this.RawData, "multimedia");
-        }
+        get { return JsonModel.GetNullableClass<List<DataMultimedia>>(this.RawData, "multimedia"); }
         init
         {
             if (value == null)
@@ -740,36 +634,36 @@ public sealed record class DataData : JsonModel
         _ = this.Weatheroverview;
     }
 
-    public DataData() { }
+    public Data() { }
 
-    public DataData(DataData dataData)
-        : base(dataData) { }
+    public Data(Data data)
+        : base(data) { }
 
-    public DataData(IReadOnlyDictionary<string, JsonElement> rawData)
+    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    DataData(FrozenDictionary<string, JsonElement> rawData)
+    Data(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="DataDataFromRaw.FromRawUnchecked"/>
-    public static DataData FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
+    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
+    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class DataDataFromRaw : IFromRawJson<DataData>
+class DataFromRaw : IFromRawJson<Data>
 {
     /// <inheritdoc/>
-    public DataData FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
-        DataData.FromRawUnchecked(rawData);
+    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        Data.FromRawUnchecked(rawData);
 }
 
 /// <summary>
@@ -1238,8 +1132,8 @@ sealed class TypeConverter : JsonConverter<global::Nps.Models.Campgrounds.Type>
 /// <summary>
 /// Detailed information about amenities available in the campground.
 /// </summary>
-[JsonConverter(typeof(JsonModelConverter<DataDataAmenities, DataDataAmenitiesFromRaw>))]
-public sealed record class DataDataAmenities : JsonModel
+[JsonConverter(typeof(JsonModelConverter<DataAmenities, DataAmenitiesFromRaw>))]
+public sealed record class DataAmenities : JsonModel
 {
     public string? Amphitheater
     {
@@ -1474,38 +1368,36 @@ public sealed record class DataDataAmenities : JsonModel
         _ = this.Trashrecyclingcollection;
     }
 
-    public DataDataAmenities() { }
+    public DataAmenities() { }
 
-    public DataDataAmenities(DataDataAmenities dataDataAmenities)
-        : base(dataDataAmenities) { }
+    public DataAmenities(DataAmenities dataAmenities)
+        : base(dataAmenities) { }
 
-    public DataDataAmenities(IReadOnlyDictionary<string, JsonElement> rawData)
+    public DataAmenities(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    DataDataAmenities(FrozenDictionary<string, JsonElement> rawData)
+    DataAmenities(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="DataDataAmenitiesFromRaw.FromRawUnchecked"/>
-    public static DataDataAmenities FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
+    /// <inheritdoc cref="DataAmenitiesFromRaw.FromRawUnchecked"/>
+    public static DataAmenities FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class DataDataAmenitiesFromRaw : IFromRawJson<DataDataAmenities>
+class DataAmenitiesFromRaw : IFromRawJson<DataAmenities>
 {
     /// <inheritdoc/>
-    public DataDataAmenities FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
-        DataDataAmenities.FromRawUnchecked(rawData);
+    public DataAmenities FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        DataAmenities.FromRawUnchecked(rawData);
 }
 
 /// <summary>
@@ -1976,8 +1868,8 @@ sealed class PhoneNumberTypeConverter : JsonConverter<PhoneNumberType>
     }
 }
 
-[JsonConverter(typeof(JsonModelConverter<DataDataMultimedia, DataDataMultimediaFromRaw>))]
-public sealed record class DataDataMultimedia : JsonModel
+[JsonConverter(typeof(JsonModelConverter<DataMultimedia, DataMultimediaFromRaw>))]
+public sealed record class DataMultimedia : JsonModel
 {
     /// <summary>
     /// UUID for multimedia asset
@@ -2056,36 +1948,34 @@ public sealed record class DataDataMultimedia : JsonModel
         _ = this.Url;
     }
 
-    public DataDataMultimedia() { }
+    public DataMultimedia() { }
 
-    public DataDataMultimedia(DataDataMultimedia dataDataMultimedia)
-        : base(dataDataMultimedia) { }
+    public DataMultimedia(DataMultimedia dataMultimedia)
+        : base(dataMultimedia) { }
 
-    public DataDataMultimedia(IReadOnlyDictionary<string, JsonElement> rawData)
+    public DataMultimedia(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    DataDataMultimedia(FrozenDictionary<string, JsonElement> rawData)
+    DataMultimedia(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="DataDataMultimediaFromRaw.FromRawUnchecked"/>
-    public static DataDataMultimedia FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
+    /// <inheritdoc cref="DataMultimediaFromRaw.FromRawUnchecked"/>
+    public static DataMultimedia FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class DataDataMultimediaFromRaw : IFromRawJson<DataDataMultimedia>
+class DataMultimediaFromRaw : IFromRawJson<DataMultimedia>
 {
     /// <inheritdoc/>
-    public DataDataMultimedia FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
-        DataDataMultimedia.FromRawUnchecked(rawData);
+    public DataMultimedia FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        DataMultimedia.FromRawUnchecked(rawData);
 }

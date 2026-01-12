@@ -29,7 +29,7 @@ public interface IArticleService
     /// <summary>
     /// Sends a request to <c>get /articles<c/>.
     /// </summary>
-    Task<ArticleListResponse> List(
+    Task<ArticleListPage> List(
         ArticleListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IArticleServiceWithRawResponse
     /// Returns a raw HTTP response for `get /articles`, but is otherwise the
     /// same as <see cref="IArticleService.List(ArticleListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<ArticleListResponse>> List(
+    Task<HttpResponse<ArticleListPage>> List(
         ArticleListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

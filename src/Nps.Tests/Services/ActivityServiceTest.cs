@@ -17,10 +17,10 @@ public class ActivityServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task ListParks_Works()
     {
-        var response = await this.client.Activities.ListParks(
+        var page = await this.client.Activities.ListParks(
             new(),
             TestContext.Current.CancellationToken
         );
-        response.Validate();
+        page.Validate();
     }
 }

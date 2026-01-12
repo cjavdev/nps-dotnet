@@ -29,7 +29,7 @@ public interface IAlertService
     /// <summary>
     /// Sends a request to <c>get /alerts<c/>.
     /// </summary>
-    Task<AlertListResponse> List(
+    Task<AlertListPage> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IAlertServiceWithRawResponse
     /// Returns a raw HTTP response for `get /alerts`, but is otherwise the
     /// same as <see cref="IAlertService.List(AlertListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<AlertListResponse>> List(
+    Task<HttpResponse<AlertListPage>> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

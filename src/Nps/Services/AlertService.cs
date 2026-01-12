@@ -34,7 +34,7 @@ public sealed class AlertService : IAlertService
     }
 
     /// <inheritdoc/>
-    public async Task<AlertListResponse> List(
+    public async Task<AlertListPage> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class AlertServiceWithRawResponse : IAlertServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<AlertListResponse>> List(
+    public async Task<HttpResponse<AlertListPage>> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class AlertServiceWithRawResponse : IAlertServiceWithRawResponse
             response,
             async (token) =>
             {
-                var alerts = await response
-                    .Deserialize<AlertListResponse>(token)
+                var page = await response
+                    .Deserialize<AlertListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    alerts.Validate();
+                    page.Validate();
                 }
-                return alerts;
+                return new AlertListPage(this, parameters, page);
             }
         );
     }

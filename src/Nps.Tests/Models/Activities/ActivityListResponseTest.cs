@@ -28,9 +28,9 @@ public class ActivityListResponseTest : TestBase
                     Total = "2",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = 0,
+            Start = 0,
+            Total = 0,
         };
 
         List<Data> expectedData =
@@ -50,9 +50,9 @@ public class ActivityListResponseTest : TestBase
                 Total = "2",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        double expectedLimit = 0;
+        double expectedStart = 0;
+        double expectedTotal = 0;
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -87,9 +87,9 @@ public class ActivityListResponseTest : TestBase
                     Total = "2",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = 0,
+            Start = 0,
+            Total = 0,
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -120,9 +120,9 @@ public class ActivityListResponseTest : TestBase
                     Total = "2",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = 0,
+            Start = 0,
+            Total = 0,
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -146,9 +146,9 @@ public class ActivityListResponseTest : TestBase
                 Total = "2",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        double expectedLimit = 0;
+        double expectedStart = 0;
+        double expectedTotal = 0;
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -183,9 +183,9 @@ public class ActivityListResponseTest : TestBase
                     Total = "2",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = 0,
+            Start = 0,
+            Total = 0,
         };
 
         model.Validate();

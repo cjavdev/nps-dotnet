@@ -17,74 +17,56 @@ public class AlertListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "id",
+                    Category = Category.Danger,
+                    Description = "description",
+                    LastIndexedDate = "lastIndexedDate",
+                    ParkCode = "parkCode",
+                    RelatedRoadEvents =
                     [
                         new()
                         {
                             ID = "id",
-                            Category = Category.Danger,
-                            Description = "description",
-                            LastIndexedDate = "lastIndexedDate",
-                            ParkCode = "parkCode",
-                            RelatedRoadEvents =
-                            [
-                                new()
-                                {
-                                    ID = "id",
-                                    Title = "title",
-                                    Type = "type",
-                                    Url = "url",
-                                },
-                            ],
                             Title = "title",
+                            Type = "type",
                             Url = "url",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "474",
+                    Title = "title",
+                    Url = "url",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "474",
         };
 
         List<Data> expectedData =
         [
             new()
             {
-                DataValue =
+                ID = "id",
+                Category = Category.Danger,
+                Description = "description",
+                LastIndexedDate = "lastIndexedDate",
+                ParkCode = "parkCode",
+                RelatedRoadEvents =
                 [
                     new()
                     {
                         ID = "id",
-                        Category = Category.Danger,
-                        Description = "description",
-                        LastIndexedDate = "lastIndexedDate",
-                        ParkCode = "parkCode",
-                        RelatedRoadEvents =
-                        [
-                            new()
-                            {
-                                ID = "id",
-                                Title = "title",
-                                Type = "type",
-                                Url = "url",
-                            },
-                        ],
                         Title = "title",
+                        Type = "type",
                         Url = "url",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "474",
+                Title = "title",
+                Url = "url",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "474";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -106,37 +88,28 @@ public class AlertListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "id",
+                    Category = Category.Danger,
+                    Description = "description",
+                    LastIndexedDate = "lastIndexedDate",
+                    ParkCode = "parkCode",
+                    RelatedRoadEvents =
                     [
                         new()
                         {
                             ID = "id",
-                            Category = Category.Danger,
-                            Description = "description",
-                            LastIndexedDate = "lastIndexedDate",
-                            ParkCode = "parkCode",
-                            RelatedRoadEvents =
-                            [
-                                new()
-                                {
-                                    ID = "id",
-                                    Title = "title",
-                                    Type = "type",
-                                    Url = "url",
-                                },
-                            ],
                             Title = "title",
+                            Type = "type",
                             Url = "url",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "474",
+                    Title = "title",
+                    Url = "url",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "474",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -154,37 +127,28 @@ public class AlertListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "id",
+                    Category = Category.Danger,
+                    Description = "description",
+                    LastIndexedDate = "lastIndexedDate",
+                    ParkCode = "parkCode",
+                    RelatedRoadEvents =
                     [
                         new()
                         {
                             ID = "id",
-                            Category = Category.Danger,
-                            Description = "description",
-                            LastIndexedDate = "lastIndexedDate",
-                            ParkCode = "parkCode",
-                            RelatedRoadEvents =
-                            [
-                                new()
-                                {
-                                    ID = "id",
-                                    Title = "title",
-                                    Type = "type",
-                                    Url = "url",
-                                },
-                            ],
                             Title = "title",
+                            Type = "type",
                             Url = "url",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "474",
+                    Title = "title",
+                    Url = "url",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "474",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -195,37 +159,28 @@ public class AlertListResponseTest : TestBase
         [
             new()
             {
-                DataValue =
+                ID = "id",
+                Category = Category.Danger,
+                Description = "description",
+                LastIndexedDate = "lastIndexedDate",
+                ParkCode = "parkCode",
+                RelatedRoadEvents =
                 [
                     new()
                     {
                         ID = "id",
-                        Category = Category.Danger,
-                        Description = "description",
-                        LastIndexedDate = "lastIndexedDate",
-                        ParkCode = "parkCode",
-                        RelatedRoadEvents =
-                        [
-                            new()
-                            {
-                                ID = "id",
-                                Title = "title",
-                                Type = "type",
-                                Url = "url",
-                            },
-                        ],
                         Title = "title",
+                        Type = "type",
                         Url = "url",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "474",
+                Title = "title",
+                Url = "url",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "474";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -247,37 +202,28 @@ public class AlertListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "id",
+                    Category = Category.Danger,
+                    Description = "description",
+                    LastIndexedDate = "lastIndexedDate",
+                    ParkCode = "parkCode",
+                    RelatedRoadEvents =
                     [
                         new()
                         {
                             ID = "id",
-                            Category = Category.Danger,
-                            Description = "description",
-                            LastIndexedDate = "lastIndexedDate",
-                            ParkCode = "parkCode",
-                            RelatedRoadEvents =
-                            [
-                                new()
-                                {
-                                    ID = "id",
-                                    Title = "title",
-                                    Type = "type",
-                                    Url = "url",
-                                },
-                            ],
                             Title = "title",
+                            Type = "type",
                             Url = "url",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "474",
+                    Title = "title",
+                    Url = "url",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "474",
         };
 
         model.Validate();
@@ -351,290 +297,6 @@ public class DataTest : TestBase
     {
         var model = new Data
         {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "id",
-                    Category = Category.Danger,
-                    Description = "description",
-                    LastIndexedDate = "lastIndexedDate",
-                    ParkCode = "parkCode",
-                    RelatedRoadEvents =
-                    [
-                        new()
-                        {
-                            ID = "id",
-                            Title = "title",
-                            Type = "type",
-                            Url = "url",
-                        },
-                    ],
-                    Title = "title",
-                    Url = "url",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "474",
-        };
-
-        List<DataData> expectedDataValue =
-        [
-            new()
-            {
-                ID = "id",
-                Category = Category.Danger,
-                Description = "description",
-                LastIndexedDate = "lastIndexedDate",
-                ParkCode = "parkCode",
-                RelatedRoadEvents =
-                [
-                    new()
-                    {
-                        ID = "id",
-                        Title = "title",
-                        Type = "type",
-                        Url = "url",
-                    },
-                ],
-                Title = "title",
-                Url = "url",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "474";
-
-        Assert.NotNull(model.DataValue);
-        Assert.Equal(expectedDataValue.Count, model.DataValue.Count);
-        for (int i = 0; i < expectedDataValue.Count; i++)
-        {
-            Assert.Equal(expectedDataValue[i], model.DataValue[i]);
-        }
-        Assert.Equal(expectedLimit, model.Limit);
-        Assert.Equal(expectedStart, model.Start);
-        Assert.Equal(expectedTotal, model.Total);
-    }
-
-    [Fact]
-    public void SerializationRoundtrip_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "id",
-                    Category = Category.Danger,
-                    Description = "description",
-                    LastIndexedDate = "lastIndexedDate",
-                    ParkCode = "parkCode",
-                    RelatedRoadEvents =
-                    [
-                        new()
-                        {
-                            ID = "id",
-                            Title = "title",
-                            Type = "type",
-                            Url = "url",
-                        },
-                    ],
-                    Title = "title",
-                    Url = "url",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "474",
-        };
-
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(json);
-
-        Assert.Equal(model, deserialized);
-    }
-
-    [Fact]
-    public void FieldRoundtripThroughSerialization_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "id",
-                    Category = Category.Danger,
-                    Description = "description",
-                    LastIndexedDate = "lastIndexedDate",
-                    ParkCode = "parkCode",
-                    RelatedRoadEvents =
-                    [
-                        new()
-                        {
-                            ID = "id",
-                            Title = "title",
-                            Type = "type",
-                            Url = "url",
-                        },
-                    ],
-                    Title = "title",
-                    Url = "url",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "474",
-        };
-
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(element);
-        Assert.NotNull(deserialized);
-
-        List<DataData> expectedDataValue =
-        [
-            new()
-            {
-                ID = "id",
-                Category = Category.Danger,
-                Description = "description",
-                LastIndexedDate = "lastIndexedDate",
-                ParkCode = "parkCode",
-                RelatedRoadEvents =
-                [
-                    new()
-                    {
-                        ID = "id",
-                        Title = "title",
-                        Type = "type",
-                        Url = "url",
-                    },
-                ],
-                Title = "title",
-                Url = "url",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "474";
-
-        Assert.NotNull(deserialized.DataValue);
-        Assert.Equal(expectedDataValue.Count, deserialized.DataValue.Count);
-        for (int i = 0; i < expectedDataValue.Count; i++)
-        {
-            Assert.Equal(expectedDataValue[i], deserialized.DataValue[i]);
-        }
-        Assert.Equal(expectedLimit, deserialized.Limit);
-        Assert.Equal(expectedStart, deserialized.Start);
-        Assert.Equal(expectedTotal, deserialized.Total);
-    }
-
-    [Fact]
-    public void Validation_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "id",
-                    Category = Category.Danger,
-                    Description = "description",
-                    LastIndexedDate = "lastIndexedDate",
-                    ParkCode = "parkCode",
-                    RelatedRoadEvents =
-                    [
-                        new()
-                        {
-                            ID = "id",
-                            Title = "title",
-                            Type = "type",
-                            Url = "url",
-                        },
-                    ],
-                    Title = "title",
-                    Url = "url",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "474",
-        };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
-    {
-        var model = new Data { };
-
-        Assert.Null(model.DataValue);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetValidation_Works()
-    {
-        var model = new Data { };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
-    {
-        var model = new Data
-        {
-            // Null should be interpreted as omitted for these properties
-            DataValue = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        Assert.Null(model.DataValue);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
-    {
-        var model = new Data
-        {
-            // Null should be interpreted as omitted for these properties
-            DataValue = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        model.Validate();
-    }
-}
-
-public class DataDataTest : TestBase
-{
-    [Fact]
-    public void FieldRoundtrip_Works()
-    {
-        var model = new DataData
-        {
             ID = "id",
             Category = Category.Danger,
             Description = "description",
@@ -690,7 +352,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "id",
             Category = Category.Danger,
@@ -712,7 +374,7 @@ public class DataDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataData>(json);
+        var deserialized = JsonSerializer.Deserialize<Data>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -720,7 +382,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "id",
             Category = Category.Danger,
@@ -742,7 +404,7 @@ public class DataDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataData>(element);
+        var deserialized = JsonSerializer.Deserialize<Data>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "id";
@@ -781,7 +443,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "id",
             Category = Category.Danger,
@@ -808,7 +470,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new DataData { };
+        var model = new Data { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -831,7 +493,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new DataData { };
+        var model = new Data { };
 
         model.Validate();
     }
@@ -839,7 +501,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -873,7 +535,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
