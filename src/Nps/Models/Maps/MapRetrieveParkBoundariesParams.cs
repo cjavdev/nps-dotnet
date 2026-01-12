@@ -17,7 +17,10 @@ public sealed record class MapRetrieveParkBoundariesParams : ParamsBase
     public MapRetrieveParkBoundariesParams(
         MapRetrieveParkBoundariesParams mapRetrieveParkBoundariesParams
     )
-        : base(mapRetrieveParkBoundariesParams) { }
+        : base(mapRetrieveParkBoundariesParams)
+    {
+        this.Sitecode = mapRetrieveParkBoundariesParams.Sitecode;
+    }
 
     public MapRetrieveParkBoundariesParams(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
