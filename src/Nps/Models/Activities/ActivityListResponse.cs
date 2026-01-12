@@ -24,9 +24,9 @@ public sealed record class ActivityListResponse : JsonModel
         }
     }
 
-    public double? Limit
+    public string? Limit
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
         init
         {
             if (value == null)
@@ -38,9 +38,9 @@ public sealed record class ActivityListResponse : JsonModel
         }
     }
 
-    public double? Start
+    public string? Start
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
         init
         {
             if (value == null)
@@ -52,9 +52,9 @@ public sealed record class ActivityListResponse : JsonModel
         }
     }
 
-    public double? Total
+    public string? Total
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
         init
         {
             if (value == null)
@@ -116,109 +116,6 @@ class ActivityListResponseFromRaw : IFromRawJson<ActivityListResponse>
 [JsonConverter(typeof(JsonModelConverter<Data, DataFromRaw>))]
 public sealed record class Data : JsonModel
 {
-    public IReadOnlyList<DataData>? DataValue
-    {
-        get { return JsonModel.GetNullableClass<List<DataData>>(this.RawData, "data"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "data", value);
-        }
-    }
-
-    public string? Limit
-    {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "limit", value);
-        }
-    }
-
-    public string? Start
-    {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "start", value);
-        }
-    }
-
-    public string? Total
-    {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "total", value);
-        }
-    }
-
-    /// <inheritdoc/>
-    public override void Validate()
-    {
-        foreach (var item in this.DataValue ?? [])
-        {
-            item.Validate();
-        }
-        _ = this.Limit;
-        _ = this.Start;
-        _ = this.Total;
-    }
-
-    public Data() { }
-
-    public Data(Data data)
-        : base(data) { }
-
-    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-
-#pragma warning disable CS8618
-    [SetsRequiredMembers]
-    Data(FrozenDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-#pragma warning restore CS8618
-
-    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
-    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
-    {
-        return new(FrozenDictionary.ToFrozenDictionary(rawData));
-    }
-}
-
-class DataFromRaw : IFromRawJson<Data>
-{
-    /// <inheritdoc/>
-    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
-        Data.FromRawUnchecked(rawData);
-}
-
-[JsonConverter(typeof(JsonModelConverter<DataData, DataDataFromRaw>))]
-public sealed record class DataData : JsonModel
-{
     /// <summary>
     /// Unique identifier for an activity record
     /// </summary>
@@ -260,34 +157,34 @@ public sealed record class DataData : JsonModel
         _ = this.Name;
     }
 
-    public DataData() { }
+    public Data() { }
 
-    public DataData(DataData dataData)
-        : base(dataData) { }
+    public Data(Data data)
+        : base(data) { }
 
-    public DataData(IReadOnlyDictionary<string, JsonElement> rawData)
+    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    DataData(FrozenDictionary<string, JsonElement> rawData)
+    Data(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="DataDataFromRaw.FromRawUnchecked"/>
-    public static DataData FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
+    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
+    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class DataDataFromRaw : IFromRawJson<DataData>
+class DataFromRaw : IFromRawJson<Data>
 {
     /// <inheritdoc/>
-    public DataData FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
-        DataData.FromRawUnchecked(rawData);
+    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        Data.FromRawUnchecked(rawData);
 }

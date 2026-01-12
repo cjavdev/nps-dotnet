@@ -80,9 +80,9 @@ public class AlertListPageResponseTest : TestBase
                 Total = "474",
             },
         ];
-        double expectedLimit = 0;
-        double expectedStart = 0;
-        double expectedTotal = 0;
+        long expectedLimit = 0;
+        long expectedStart = 0;
+        long expectedTotal = 0;
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -221,9 +221,9 @@ public class AlertListPageResponseTest : TestBase
                 Total = "474",
             },
         ];
-        double expectedLimit = 0;
-        double expectedStart = 0;
-        double expectedTotal = 0;
+        long expectedLimit = 0;
+        long expectedStart = 0;
+        long expectedTotal = 0;
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);

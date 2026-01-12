@@ -35,9 +35,9 @@ NpsClient client = new();
 
 ActivityListParams parameters = new();
 
-var activities = await client.Activities.List(parameters);
+var page = await client.Activities.List(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(page);
 ```
 
 ## Client configuration
@@ -75,7 +75,7 @@ To temporarily use a modified client configuration, while reusing the same conne
 ```csharp
 using System;
 
-var activities = await client
+var page = await client
     .WithOptions(options =>
         options with
         {
@@ -85,7 +85,7 @@ var activities = await client
     )
     .Activities.List(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(page);
 ```
 
 Using a [`with` expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/with-expression) makes it easy to construct the modified options.
@@ -96,7 +96,7 @@ The `WithOptions` method does not affect the original client or service.
 
 To send a request to the Nps API, build an instance of some `Params` class and pass it to the corresponding client method. When the response is received, it will be deserialized into an instance of a C# class.
 
-For example, `client.Activities.List` should be called with an instance of `ActivityListParams`, and it will return an instance of `Task<ActivityListResponse>`.
+For example, `client.Activities.List` should be called with an instance of `ActivityListParams`, and it will return an instance of `Task<ActivityListPage>`.
 
 ## Raw responses
 
@@ -117,7 +117,7 @@ using System;
 using Nps.Models.Activities;
 
 var response = await client.WithRawResponse.Activities.List();
-ActivityListResponse deserialized = await response.Deserialize();
+ActivityListPage deserialized = await response.Deserialize();
 Console.WriteLine(deserialized);
 ```
 
@@ -159,7 +159,7 @@ To iterate through all results across all pages, use the `Paginate` method, whic
 ```csharp
 using System;
 
-var page = await client.Activities.ListParks(parameters);
+var page = await client.Activities.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
@@ -173,7 +173,7 @@ To access individual page items and manually request the next page, use the `Ite
 ```csharp
 using System;
 
-var page = await client.Activities.ListParks();
+var page = await client.Activities.List();
 while (true)
 {
     foreach (var item in page.Items)
@@ -217,13 +217,13 @@ Or configure a single method call using [`WithOptions`](#modifying-configuration
 ```csharp
 using System;
 
-var activities = await client
+var page = await client
     .WithOptions(options =>
         options with { MaxRetries = 3 }
     )
     .Activities.List(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(page);
 ```
 
 ### Timeouts
@@ -244,13 +244,13 @@ Or configure a single method call using [`WithOptions`](#modifying-configuration
 ```csharp
 using System;
 
-var activities = await client
+var page = await client
     .WithOptions(options =>
         options with { Timeout = TimeSpan.FromSeconds(42) }
     )
     .Activities.List(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(page);
 ```
 
 ## Undocumented API functionality
@@ -266,8 +266,8 @@ By default, the SDK will not throw an exception in this case. It will throw `Nps
 If you would prefer to check that the response is completely well-typed upfront, then either call `Validate`:
 
 ```csharp
-var activities = client.Activities.List();
-activities.Validate();
+var response = client.Amenities.RetrieveParksPlaces();
+response.Validate();
 ```
 
 Or configure the client using the `ResponseValidation` option:
@@ -283,13 +283,13 @@ Or configure a single method call using [`WithOptions`](#modifying-configuration
 ```csharp
 using System;
 
-var activities = await client
+var response = await client
     .WithOptions(options =>
         options with { ResponseValidation = true }
     )
-    .Activities.List(parameters);
+    .Amenities.RetrieveParksPlaces(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(response);
 ```
 
 ## Semantic versioning

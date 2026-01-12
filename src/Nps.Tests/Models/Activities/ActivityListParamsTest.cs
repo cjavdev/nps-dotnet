@@ -11,14 +11,14 @@ public class ActivityListParamsTest : TestBase
         var parameters = new ActivityListParams
         {
             ID = "id",
-            Limit = "limit",
+            Limit = 0,
             Q = "q",
             Sort = "sort",
             Start = 0,
         };
 
         string expectedID = "id";
-        string expectedLimit = "limit";
+        long expectedLimit = 0;
         string expectedQ = "q";
         string expectedSort = "sort";
         long expectedStart = 0;
@@ -78,7 +78,7 @@ public class ActivityListParamsTest : TestBase
         ActivityListParams parameters = new()
         {
             ID = "id",
-            Limit = "limit",
+            Limit = 0,
             Q = "q",
             Sort = "sort",
             Start = 0,
@@ -88,7 +88,7 @@ public class ActivityListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/activities?id=id&limit=limit&q=q&sort=sort&start=0"
+                "https://developer.nps.gov/api/v1/activities?id=id&limit=0&q=q&sort=sort&start=0"
             ),
             url
         );

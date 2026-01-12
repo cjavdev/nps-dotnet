@@ -30,9 +30,9 @@ public sealed record class ActivityListParams : ParamsBase
     /// <summary>
     /// Number of results to return per request. Default is 50.
     /// </summary>
-    public string? Limit
+    public long? Limit
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "limit"); }
+        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "limit"); }
         init
         {
             if (value == null)
