@@ -7,10 +7,7 @@ public class ThingsTodoServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task List_Works()
     {
-        var thingsTodos = await this.client.ThingsTodo.List(
-            new(),
-            TestContext.Current.CancellationToken
-        );
-        thingsTodos.Validate();
+        var page = await this.client.ThingsTodo.List(new(), TestContext.Current.CancellationToken);
+        page.Validate();
     }
 }

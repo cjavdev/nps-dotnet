@@ -34,7 +34,7 @@ public sealed class ThingsTodoService : IThingsTodoService
     }
 
     /// <inheritdoc/>
-    public async Task<ThingsTodoListResponse> List(
+    public async Task<ThingsTodoListPage> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -65,7 +65,7 @@ public sealed class ThingsTodoServiceWithRawResponse : IThingsTodoServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<ThingsTodoListResponse>> List(
+    public async Task<HttpResponse<ThingsTodoListPage>> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +82,14 @@ public sealed class ThingsTodoServiceWithRawResponse : IThingsTodoServiceWithRaw
             response,
             async (token) =>
             {
-                var thingsTodos = await response
-                    .Deserialize<ThingsTodoListResponse>(token)
+                var page = await response
+                    .Deserialize<ThingsTodoListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    thingsTodos.Validate();
+                    page.Validate();
                 }
-                return thingsTodos;
+                return new ThingsTodoListPage(this, parameters, page);
             }
         );
     }

@@ -34,7 +34,7 @@ public sealed class EventService : IEventService
     }
 
     /// <inheritdoc/>
-    public async Task<EventListResponse> List(
+    public async Task<EventListPage> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class EventServiceWithRawResponse : IEventServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<EventListResponse>> List(
+    public async Task<HttpResponse<EventListPage>> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class EventServiceWithRawResponse : IEventServiceWithRawResponse
             response,
             async (token) =>
             {
-                var events = await response
-                    .Deserialize<EventListResponse>(token)
+                var page = await response
+                    .Deserialize<EventListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    events.Validate();
+                    page.Validate();
                 }
-                return events;
+                return new EventListPage(this, parameters, page);
             }
         );
     }

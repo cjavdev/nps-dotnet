@@ -29,7 +29,7 @@ public interface IThingsTodoService
     /// <summary>
     /// Sends a request to <c>get /thingstodo<c/>.
     /// </summary>
-    Task<ThingsTodoListResponse> List(
+    Task<ThingsTodoListPage> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IThingsTodoServiceWithRawResponse
     /// Returns a raw HTTP response for `get /thingstodo`, but is otherwise the
     /// same as <see cref="IThingsTodoService.List(ThingsTodoListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<ThingsTodoListResponse>> List(
+    Task<HttpResponse<ThingsTodoListPage>> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

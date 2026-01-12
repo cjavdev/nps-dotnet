@@ -16,7 +16,7 @@ public class ThingsTodoListParamsTest : TestBase
             ParkCode = "parkCode",
             Q = "q",
             Sort = ["string"],
-            Start = "start",
+            Start = 0,
             StateCode = "stateCode",
         };
 
@@ -25,7 +25,7 @@ public class ThingsTodoListParamsTest : TestBase
         string expectedParkCode = "parkCode";
         string expectedQ = "q";
         List<string> expectedSort = ["string"];
-        string expectedStart = "start";
+        long expectedStart = 0;
         string expectedStateCode = "stateCode";
 
         Assert.Equal(expectedID, parameters.ID);
@@ -104,7 +104,7 @@ public class ThingsTodoListParamsTest : TestBase
             ParkCode = "parkCode",
             Q = "q",
             Sort = ["string"],
-            Start = "start",
+            Start = 0,
             StateCode = "stateCode",
         };
 
@@ -112,7 +112,7 @@ public class ThingsTodoListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/thingstodo?id=id&limit=0&parkCode=parkCode&q=q&sort=string&start=start&stateCode=stateCode"
+                "https://developer.nps.gov/api/v1/thingstodo?id=id&limit=0&parkCode=parkCode&q=q&sort=string&start=0&stateCode=stateCode"
             ),
             url
         );

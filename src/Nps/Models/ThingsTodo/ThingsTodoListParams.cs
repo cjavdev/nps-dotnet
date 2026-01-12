@@ -105,9 +105,9 @@ public sealed record class ThingsTodoListParams : ParamsBase
     /// <summary>
     /// Get the next [limit] results starting with this number. Default is 0.
     /// </summary>
-    public string? Start
+    public long? Start
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "start"); }
+        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "start"); }
         init
         {
             if (value == null)
