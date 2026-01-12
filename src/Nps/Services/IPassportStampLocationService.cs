@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IPassportStampLocationService
     /// <summary>
     /// Sends a request to <c>get /passportstamplocations<c/>.
     /// </summary>
-    Task<List<PassportStampLocationListResponse>> List(
+    Task<PassportStampLocationListResponse> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -55,7 +54,7 @@ public interface IPassportStampLocationServiceWithRawResponse
     /// Returns a raw HTTP response for `get /passportstamplocations`, but is otherwise the
     /// same as <see cref="IPassportStampLocationService.List(PassportStampLocationListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<PassportStampLocationListResponse>>> List(
+    Task<HttpResponse<PassportStampLocationListResponse>> List(
         PassportStampLocationListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

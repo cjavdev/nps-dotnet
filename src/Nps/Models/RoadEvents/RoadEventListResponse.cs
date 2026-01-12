@@ -10,6 +10,112 @@ namespace Nps.Models.RoadEvents;
 [JsonConverter(typeof(JsonModelConverter<RoadEventListResponse, RoadEventListResponseFromRaw>))]
 public sealed record class RoadEventListResponse : JsonModel
 {
+    public IReadOnlyList<Data>? Data
+    {
+        get { return JsonModel.GetNullableClass<List<Data>>(this.RawData, "data"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public string? Limit
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public string? Start
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public string? Total
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.Data ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public RoadEventListResponse() { }
+
+    public RoadEventListResponse(RoadEventListResponse roadEventListResponse)
+        : base(roadEventListResponse) { }
+
+    public RoadEventListResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    RoadEventListResponse(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="RoadEventListResponseFromRaw.FromRawUnchecked"/>
+    public static RoadEventListResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class RoadEventListResponseFromRaw : IFromRawJson<RoadEventListResponse>
+{
+    /// <inheritdoc/>
+    public RoadEventListResponse FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => RoadEventListResponse.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(typeof(JsonModelConverter<Data, DataFromRaw>))]
+public sealed record class Data : JsonModel
+{
     public IReadOnlyList<Feature>? Features
     {
         get { return JsonModel.GetNullableClass<List<Feature>>(this.RawData, "features"); }
@@ -69,39 +175,36 @@ public sealed record class RoadEventListResponse : JsonModel
         _ = this.Type;
     }
 
-    public RoadEventListResponse() { }
+    public Data() { }
 
-    public RoadEventListResponse(RoadEventListResponse roadEventListResponse)
-        : base(roadEventListResponse) { }
+    public Data(Data data)
+        : base(data) { }
 
-    public RoadEventListResponse(IReadOnlyDictionary<string, JsonElement> rawData)
+    public Data(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    RoadEventListResponse(FrozenDictionary<string, JsonElement> rawData)
+    Data(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="RoadEventListResponseFromRaw.FromRawUnchecked"/>
-    public static RoadEventListResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
+    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
+    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class RoadEventListResponseFromRaw : IFromRawJson<RoadEventListResponse>
+class DataFromRaw : IFromRawJson<Data>
 {
     /// <inheritdoc/>
-    public RoadEventListResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    ) => RoadEventListResponse.FromRawUnchecked(rawData);
+    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        Data.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<Feature, FeatureFromRaw>))]

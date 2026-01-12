@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class TourService : ITourService
     }
 
     /// <inheritdoc/>
-    public async Task<List<TourListResponse>> List(
+    public async Task<TourListResponse> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -64,7 +63,7 @@ public sealed class TourServiceWithRawResponse : ITourServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<TourListResponse>>> List(
+    public async Task<HttpResponse<TourListResponse>> List(
         TourListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +81,11 @@ public sealed class TourServiceWithRawResponse : ITourServiceWithRawResponse
             async (token) =>
             {
                 var tours = await response
-                    .Deserialize<List<TourListResponse>>(token)
+                    .Deserialize<TourListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in tours)
-                    {
-                        item.Validate();
-                    }
+                    tours.Validate();
                 }
                 return tours;
             }

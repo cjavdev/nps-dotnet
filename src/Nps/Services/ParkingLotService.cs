@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class ParkingLotService : IParkingLotService
     }
 
     /// <inheritdoc/>
-    public async Task<List<ParkingLotListResponse>> List(
+    public async Task<ParkingLotListResponse> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -66,7 +65,7 @@ public sealed class ParkingLotServiceWithRawResponse : IParkingLotServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<ParkingLotListResponse>>> List(
+    public async Task<HttpResponse<ParkingLotListResponse>> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -84,14 +83,11 @@ public sealed class ParkingLotServiceWithRawResponse : IParkingLotServiceWithRaw
             async (token) =>
             {
                 var parkingLots = await response
-                    .Deserialize<List<ParkingLotListResponse>>(token)
+                    .Deserialize<ParkingLotListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in parkingLots)
-                    {
-                        item.Validate();
-                    }
+                    parkingLots.Validate();
                 }
                 return parkingLots;
             }

@@ -12,9 +12,6 @@ public class MapServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in response)
-        {
-            item.Validate();
-        }
+        response.Validate();
     }
 }

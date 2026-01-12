@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,7 +35,7 @@ public sealed class MapService : IMapService
     }
 
     /// <inheritdoc/>
-    public async Task<List<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
+    public async Task<MapRetrieveParkBoundariesResponse> RetrieveParkBoundaries(
         MapRetrieveParkBoundariesParams parameters,
         CancellationToken cancellationToken = default
     )
@@ -48,7 +47,7 @@ public sealed class MapService : IMapService
     }
 
     /// <inheritdoc/>
-    public Task<List<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
+    public Task<MapRetrieveParkBoundariesResponse> RetrieveParkBoundaries(
         string sitecode,
         MapRetrieveParkBoundariesParams? parameters = null,
         CancellationToken cancellationToken = default
@@ -83,7 +82,7 @@ public sealed class MapServiceWithRawResponse : IMapServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<MapRetrieveParkBoundariesResponse>>> RetrieveParkBoundaries(
+    public async Task<HttpResponse<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         MapRetrieveParkBoundariesParams parameters,
         CancellationToken cancellationToken = default
     )
@@ -104,14 +103,11 @@ public sealed class MapServiceWithRawResponse : IMapServiceWithRawResponse
             async (token) =>
             {
                 var deserializedResponse = await response
-                    .Deserialize<List<MapRetrieveParkBoundariesResponse>>(token)
+                    .Deserialize<MapRetrieveParkBoundariesResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in deserializedResponse)
-                    {
-                        item.Validate();
-                    }
+                    deserializedResponse.Validate();
                 }
                 return deserializedResponse;
             }
@@ -119,7 +115,7 @@ public sealed class MapServiceWithRawResponse : IMapServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public Task<HttpResponse<List<MapRetrieveParkBoundariesResponse>>> RetrieveParkBoundaries(
+    public Task<HttpResponse<MapRetrieveParkBoundariesResponse>> RetrieveParkBoundaries(
         string sitecode,
         MapRetrieveParkBoundariesParams? parameters = null,
         CancellationToken cancellationToken = default

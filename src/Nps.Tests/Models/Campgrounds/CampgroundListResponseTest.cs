@@ -17,6 +17,926 @@ public class CampgroundListResponseTest : TestBase
             [
                 new()
                 {
+                    DataValue =
+                    [
+                        new()
+                        {
+                            ID = "id",
+                            Accessibility = new()
+                            {
+                                Accessroads = ["string"],
+                                Adainfo = "adainfo",
+                                Additionalinfo = "additionalinfo",
+                                Cellphoneinfo = "cellphoneinfo",
+                                Classifications = ["string"],
+                                Firestovepolicy = "firestovepolicy",
+                                Internetinfo = "internetinfo",
+                                Rvallowed = "rvallowed",
+                                Rvinfo = "rvinfo",
+                                Rvmaxlength = "rvmaxlength",
+                                Trailerallowed = "trailerallowed",
+                                Trailermaxlength = "trailermaxlength",
+                                Wheelchairaccess = "wheelchairaccess",
+                            },
+                            Addresses =
+                            [
+                                new()
+                                {
+                                    City = "city",
+                                    CountryCode = "US",
+                                    Line1 = "line1",
+                                    Line2 = "line2",
+                                    Line3 = "line3",
+                                    PostalCode = "postalCode",
+                                    ProvinceTerritoryCode = "NB",
+                                    StateCode = "stateCode",
+                                    Type = Type.Physical,
+                                },
+                            ],
+                            Amenities = new()
+                            {
+                                Amphitheater = "amphitheater",
+                                Ampitheater = "ampitheater",
+                                Campstore = "campstore",
+                                Cellphonereception = "cellphonereception",
+                                Dumpstation = "dumpstation",
+                                Firewoodforsale = "firewoodforsale",
+                                FoodStorageLockers = "foodStorageLockers",
+                                Iceavailableforsale = "iceavailableforsale",
+                                Internetconnectivity = "internetconnectivity",
+                                Laundry = "laundry",
+                                Potablewater = ["string"],
+                                Showers = ["string"],
+                                Stafforvolunteerhostonsite = "stafforvolunteerhostonsite",
+                                Toilets = ["string"],
+                                Trashrecyclingcollection = "trashrecyclingcollection",
+                            },
+                            Campsites = new()
+                            {
+                                Electricalhookups = "electricalhookups",
+                                Group = "group",
+                                Horse = "horse",
+                                Other = "other",
+                                Rvonly = "rvonly",
+                                Tentonly = "tentonly",
+                                Totalsites = "totalsites",
+                                Walkboatto = "walkboatto",
+                            },
+                            Contacts = new()
+                            {
+                                EmailAddresses =
+                                [
+                                    new()
+                                    {
+                                        Description = "description",
+                                        EmailAddressValue = "emailAddress",
+                                    },
+                                ],
+                                PhoneNumbers =
+                                [
+                                    new()
+                                    {
+                                        Description = "description",
+                                        Extension = "extension",
+                                        PhoneNumberValue = "phoneNumber",
+                                        Type = PhoneNumberType.Voice,
+                                    },
+                                ],
+                            },
+                            Description = "description",
+                            Directionsoverview = "directionsoverview",
+                            DirectionsUrl = "directionsUrl",
+                            Fees = ["string"],
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Images = ["string"],
+                            LastIndexedDate = "lastIndexedDate",
+                            Latitude = "63.4574408",
+                            LatLong = "{lat:63.4574408, lng:-150.8612003}",
+                            Longitude = "-150.8612003",
+                            Multimedia =
+                            [
+                                new()
+                                {
+                                    ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                                    Title = "The Worthington Farm",
+                                    Type = "multimedia/videos",
+                                    Url =
+                                        "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883              ",
+                                },
+                            ],
+                            Name = "name",
+                            OperatingHours = ["string"],
+                            ParkCode = "parkCode",
+                            Regulationsoverview = "regulationsoverview",
+                            Regulationsurl = "regulationsurl",
+                            RelevanceScore = 0,
+                            Reservationsdescription = "reservationsdescription",
+                            Reservationssitesfirstcome = "reservationssitesfirstcome",
+                            Reservationssitesreservable = "reservationssitesreservable",
+                            Reservationsurl = "reservationsurl",
+                            Weatheroverview = "weatheroverview",
+                        },
+                    ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "total",
+                },
+            ],
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
+        };
+
+        List<Data> expectedData =
+        [
+            new()
+            {
+                DataValue =
+                [
+                    new()
+                    {
+                        ID = "id",
+                        Accessibility = new()
+                        {
+                            Accessroads = ["string"],
+                            Adainfo = "adainfo",
+                            Additionalinfo = "additionalinfo",
+                            Cellphoneinfo = "cellphoneinfo",
+                            Classifications = ["string"],
+                            Firestovepolicy = "firestovepolicy",
+                            Internetinfo = "internetinfo",
+                            Rvallowed = "rvallowed",
+                            Rvinfo = "rvinfo",
+                            Rvmaxlength = "rvmaxlength",
+                            Trailerallowed = "trailerallowed",
+                            Trailermaxlength = "trailermaxlength",
+                            Wheelchairaccess = "wheelchairaccess",
+                        },
+                        Addresses =
+                        [
+                            new()
+                            {
+                                City = "city",
+                                CountryCode = "US",
+                                Line1 = "line1",
+                                Line2 = "line2",
+                                Line3 = "line3",
+                                PostalCode = "postalCode",
+                                ProvinceTerritoryCode = "NB",
+                                StateCode = "stateCode",
+                                Type = Type.Physical,
+                            },
+                        ],
+                        Amenities = new()
+                        {
+                            Amphitheater = "amphitheater",
+                            Ampitheater = "ampitheater",
+                            Campstore = "campstore",
+                            Cellphonereception = "cellphonereception",
+                            Dumpstation = "dumpstation",
+                            Firewoodforsale = "firewoodforsale",
+                            FoodStorageLockers = "foodStorageLockers",
+                            Iceavailableforsale = "iceavailableforsale",
+                            Internetconnectivity = "internetconnectivity",
+                            Laundry = "laundry",
+                            Potablewater = ["string"],
+                            Showers = ["string"],
+                            Stafforvolunteerhostonsite = "stafforvolunteerhostonsite",
+                            Toilets = ["string"],
+                            Trashrecyclingcollection = "trashrecyclingcollection",
+                        },
+                        Campsites = new()
+                        {
+                            Electricalhookups = "electricalhookups",
+                            Group = "group",
+                            Horse = "horse",
+                            Other = "other",
+                            Rvonly = "rvonly",
+                            Tentonly = "tentonly",
+                            Totalsites = "totalsites",
+                            Walkboatto = "walkboatto",
+                        },
+                        Contacts = new()
+                        {
+                            EmailAddresses =
+                            [
+                                new()
+                                {
+                                    Description = "description",
+                                    EmailAddressValue = "emailAddress",
+                                },
+                            ],
+                            PhoneNumbers =
+                            [
+                                new()
+                                {
+                                    Description = "description",
+                                    Extension = "extension",
+                                    PhoneNumberValue = "phoneNumber",
+                                    Type = PhoneNumberType.Voice,
+                                },
+                            ],
+                        },
+                        Description = "description",
+                        Directionsoverview = "directionsoverview",
+                        DirectionsUrl = "directionsUrl",
+                        Fees = ["string"],
+                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                        Images = ["string"],
+                        LastIndexedDate = "lastIndexedDate",
+                        Latitude = "63.4574408",
+                        LatLong = "{lat:63.4574408, lng:-150.8612003}",
+                        Longitude = "-150.8612003",
+                        Multimedia =
+                        [
+                            new()
+                            {
+                                ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                                Title = "The Worthington Farm",
+                                Type = "multimedia/videos",
+                                Url =
+                                    "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883              ",
+                            },
+                        ],
+                        Name = "name",
+                        OperatingHours = ["string"],
+                        ParkCode = "parkCode",
+                        Regulationsoverview = "regulationsoverview",
+                        Regulationsurl = "regulationsurl",
+                        RelevanceScore = 0,
+                        Reservationsdescription = "reservationsdescription",
+                        Reservationssitesfirstcome = "reservationssitesfirstcome",
+                        Reservationssitesreservable = "reservationssitesreservable",
+                        Reservationsurl = "reservationsurl",
+                        Weatheroverview = "weatheroverview",
+                    },
+                ],
+                Limit = "50",
+                Start = "0",
+                Total = "total",
+            },
+        ];
+        string expectedLimit = "limit";
+        string expectedStart = "start";
+        string expectedTotal = "total";
+
+        Assert.NotNull(model.Data);
+        Assert.Equal(expectedData.Count, model.Data.Count);
+        for (int i = 0; i < expectedData.Count; i++)
+        {
+            Assert.Equal(expectedData[i], model.Data[i]);
+        }
+        Assert.Equal(expectedLimit, model.Limit);
+        Assert.Equal(expectedStart, model.Start);
+        Assert.Equal(expectedTotal, model.Total);
+    }
+
+    [Fact]
+    public void SerializationRoundtrip_Works()
+    {
+        var model = new CampgroundListResponse
+        {
+            Data =
+            [
+                new()
+                {
+                    DataValue =
+                    [
+                        new()
+                        {
+                            ID = "id",
+                            Accessibility = new()
+                            {
+                                Accessroads = ["string"],
+                                Adainfo = "adainfo",
+                                Additionalinfo = "additionalinfo",
+                                Cellphoneinfo = "cellphoneinfo",
+                                Classifications = ["string"],
+                                Firestovepolicy = "firestovepolicy",
+                                Internetinfo = "internetinfo",
+                                Rvallowed = "rvallowed",
+                                Rvinfo = "rvinfo",
+                                Rvmaxlength = "rvmaxlength",
+                                Trailerallowed = "trailerallowed",
+                                Trailermaxlength = "trailermaxlength",
+                                Wheelchairaccess = "wheelchairaccess",
+                            },
+                            Addresses =
+                            [
+                                new()
+                                {
+                                    City = "city",
+                                    CountryCode = "US",
+                                    Line1 = "line1",
+                                    Line2 = "line2",
+                                    Line3 = "line3",
+                                    PostalCode = "postalCode",
+                                    ProvinceTerritoryCode = "NB",
+                                    StateCode = "stateCode",
+                                    Type = Type.Physical,
+                                },
+                            ],
+                            Amenities = new()
+                            {
+                                Amphitheater = "amphitheater",
+                                Ampitheater = "ampitheater",
+                                Campstore = "campstore",
+                                Cellphonereception = "cellphonereception",
+                                Dumpstation = "dumpstation",
+                                Firewoodforsale = "firewoodforsale",
+                                FoodStorageLockers = "foodStorageLockers",
+                                Iceavailableforsale = "iceavailableforsale",
+                                Internetconnectivity = "internetconnectivity",
+                                Laundry = "laundry",
+                                Potablewater = ["string"],
+                                Showers = ["string"],
+                                Stafforvolunteerhostonsite = "stafforvolunteerhostonsite",
+                                Toilets = ["string"],
+                                Trashrecyclingcollection = "trashrecyclingcollection",
+                            },
+                            Campsites = new()
+                            {
+                                Electricalhookups = "electricalhookups",
+                                Group = "group",
+                                Horse = "horse",
+                                Other = "other",
+                                Rvonly = "rvonly",
+                                Tentonly = "tentonly",
+                                Totalsites = "totalsites",
+                                Walkboatto = "walkboatto",
+                            },
+                            Contacts = new()
+                            {
+                                EmailAddresses =
+                                [
+                                    new()
+                                    {
+                                        Description = "description",
+                                        EmailAddressValue = "emailAddress",
+                                    },
+                                ],
+                                PhoneNumbers =
+                                [
+                                    new()
+                                    {
+                                        Description = "description",
+                                        Extension = "extension",
+                                        PhoneNumberValue = "phoneNumber",
+                                        Type = PhoneNumberType.Voice,
+                                    },
+                                ],
+                            },
+                            Description = "description",
+                            Directionsoverview = "directionsoverview",
+                            DirectionsUrl = "directionsUrl",
+                            Fees = ["string"],
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Images = ["string"],
+                            LastIndexedDate = "lastIndexedDate",
+                            Latitude = "63.4574408",
+                            LatLong = "{lat:63.4574408, lng:-150.8612003}",
+                            Longitude = "-150.8612003",
+                            Multimedia =
+                            [
+                                new()
+                                {
+                                    ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                                    Title = "The Worthington Farm",
+                                    Type = "multimedia/videos",
+                                    Url =
+                                        "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883              ",
+                                },
+                            ],
+                            Name = "name",
+                            OperatingHours = ["string"],
+                            ParkCode = "parkCode",
+                            Regulationsoverview = "regulationsoverview",
+                            Regulationsurl = "regulationsurl",
+                            RelevanceScore = 0,
+                            Reservationsdescription = "reservationsdescription",
+                            Reservationssitesfirstcome = "reservationssitesfirstcome",
+                            Reservationssitesreservable = "reservationssitesreservable",
+                            Reservationsurl = "reservationsurl",
+                            Weatheroverview = "weatheroverview",
+                        },
+                    ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "total",
+                },
+            ],
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
+        };
+
+        string json = JsonSerializer.Serialize(model);
+        var deserialized = JsonSerializer.Deserialize<CampgroundListResponse>(json);
+
+        Assert.Equal(model, deserialized);
+    }
+
+    [Fact]
+    public void FieldRoundtripThroughSerialization_Works()
+    {
+        var model = new CampgroundListResponse
+        {
+            Data =
+            [
+                new()
+                {
+                    DataValue =
+                    [
+                        new()
+                        {
+                            ID = "id",
+                            Accessibility = new()
+                            {
+                                Accessroads = ["string"],
+                                Adainfo = "adainfo",
+                                Additionalinfo = "additionalinfo",
+                                Cellphoneinfo = "cellphoneinfo",
+                                Classifications = ["string"],
+                                Firestovepolicy = "firestovepolicy",
+                                Internetinfo = "internetinfo",
+                                Rvallowed = "rvallowed",
+                                Rvinfo = "rvinfo",
+                                Rvmaxlength = "rvmaxlength",
+                                Trailerallowed = "trailerallowed",
+                                Trailermaxlength = "trailermaxlength",
+                                Wheelchairaccess = "wheelchairaccess",
+                            },
+                            Addresses =
+                            [
+                                new()
+                                {
+                                    City = "city",
+                                    CountryCode = "US",
+                                    Line1 = "line1",
+                                    Line2 = "line2",
+                                    Line3 = "line3",
+                                    PostalCode = "postalCode",
+                                    ProvinceTerritoryCode = "NB",
+                                    StateCode = "stateCode",
+                                    Type = Type.Physical,
+                                },
+                            ],
+                            Amenities = new()
+                            {
+                                Amphitheater = "amphitheater",
+                                Ampitheater = "ampitheater",
+                                Campstore = "campstore",
+                                Cellphonereception = "cellphonereception",
+                                Dumpstation = "dumpstation",
+                                Firewoodforsale = "firewoodforsale",
+                                FoodStorageLockers = "foodStorageLockers",
+                                Iceavailableforsale = "iceavailableforsale",
+                                Internetconnectivity = "internetconnectivity",
+                                Laundry = "laundry",
+                                Potablewater = ["string"],
+                                Showers = ["string"],
+                                Stafforvolunteerhostonsite = "stafforvolunteerhostonsite",
+                                Toilets = ["string"],
+                                Trashrecyclingcollection = "trashrecyclingcollection",
+                            },
+                            Campsites = new()
+                            {
+                                Electricalhookups = "electricalhookups",
+                                Group = "group",
+                                Horse = "horse",
+                                Other = "other",
+                                Rvonly = "rvonly",
+                                Tentonly = "tentonly",
+                                Totalsites = "totalsites",
+                                Walkboatto = "walkboatto",
+                            },
+                            Contacts = new()
+                            {
+                                EmailAddresses =
+                                [
+                                    new()
+                                    {
+                                        Description = "description",
+                                        EmailAddressValue = "emailAddress",
+                                    },
+                                ],
+                                PhoneNumbers =
+                                [
+                                    new()
+                                    {
+                                        Description = "description",
+                                        Extension = "extension",
+                                        PhoneNumberValue = "phoneNumber",
+                                        Type = PhoneNumberType.Voice,
+                                    },
+                                ],
+                            },
+                            Description = "description",
+                            Directionsoverview = "directionsoverview",
+                            DirectionsUrl = "directionsUrl",
+                            Fees = ["string"],
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Images = ["string"],
+                            LastIndexedDate = "lastIndexedDate",
+                            Latitude = "63.4574408",
+                            LatLong = "{lat:63.4574408, lng:-150.8612003}",
+                            Longitude = "-150.8612003",
+                            Multimedia =
+                            [
+                                new()
+                                {
+                                    ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                                    Title = "The Worthington Farm",
+                                    Type = "multimedia/videos",
+                                    Url =
+                                        "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883              ",
+                                },
+                            ],
+                            Name = "name",
+                            OperatingHours = ["string"],
+                            ParkCode = "parkCode",
+                            Regulationsoverview = "regulationsoverview",
+                            Regulationsurl = "regulationsurl",
+                            RelevanceScore = 0,
+                            Reservationsdescription = "reservationsdescription",
+                            Reservationssitesfirstcome = "reservationssitesfirstcome",
+                            Reservationssitesreservable = "reservationssitesreservable",
+                            Reservationsurl = "reservationsurl",
+                            Weatheroverview = "weatheroverview",
+                        },
+                    ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "total",
+                },
+            ],
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
+        };
+
+        string element = JsonSerializer.Serialize(model);
+        var deserialized = JsonSerializer.Deserialize<CampgroundListResponse>(element);
+        Assert.NotNull(deserialized);
+
+        List<Data> expectedData =
+        [
+            new()
+            {
+                DataValue =
+                [
+                    new()
+                    {
+                        ID = "id",
+                        Accessibility = new()
+                        {
+                            Accessroads = ["string"],
+                            Adainfo = "adainfo",
+                            Additionalinfo = "additionalinfo",
+                            Cellphoneinfo = "cellphoneinfo",
+                            Classifications = ["string"],
+                            Firestovepolicy = "firestovepolicy",
+                            Internetinfo = "internetinfo",
+                            Rvallowed = "rvallowed",
+                            Rvinfo = "rvinfo",
+                            Rvmaxlength = "rvmaxlength",
+                            Trailerallowed = "trailerallowed",
+                            Trailermaxlength = "trailermaxlength",
+                            Wheelchairaccess = "wheelchairaccess",
+                        },
+                        Addresses =
+                        [
+                            new()
+                            {
+                                City = "city",
+                                CountryCode = "US",
+                                Line1 = "line1",
+                                Line2 = "line2",
+                                Line3 = "line3",
+                                PostalCode = "postalCode",
+                                ProvinceTerritoryCode = "NB",
+                                StateCode = "stateCode",
+                                Type = Type.Physical,
+                            },
+                        ],
+                        Amenities = new()
+                        {
+                            Amphitheater = "amphitheater",
+                            Ampitheater = "ampitheater",
+                            Campstore = "campstore",
+                            Cellphonereception = "cellphonereception",
+                            Dumpstation = "dumpstation",
+                            Firewoodforsale = "firewoodforsale",
+                            FoodStorageLockers = "foodStorageLockers",
+                            Iceavailableforsale = "iceavailableforsale",
+                            Internetconnectivity = "internetconnectivity",
+                            Laundry = "laundry",
+                            Potablewater = ["string"],
+                            Showers = ["string"],
+                            Stafforvolunteerhostonsite = "stafforvolunteerhostonsite",
+                            Toilets = ["string"],
+                            Trashrecyclingcollection = "trashrecyclingcollection",
+                        },
+                        Campsites = new()
+                        {
+                            Electricalhookups = "electricalhookups",
+                            Group = "group",
+                            Horse = "horse",
+                            Other = "other",
+                            Rvonly = "rvonly",
+                            Tentonly = "tentonly",
+                            Totalsites = "totalsites",
+                            Walkboatto = "walkboatto",
+                        },
+                        Contacts = new()
+                        {
+                            EmailAddresses =
+                            [
+                                new()
+                                {
+                                    Description = "description",
+                                    EmailAddressValue = "emailAddress",
+                                },
+                            ],
+                            PhoneNumbers =
+                            [
+                                new()
+                                {
+                                    Description = "description",
+                                    Extension = "extension",
+                                    PhoneNumberValue = "phoneNumber",
+                                    Type = PhoneNumberType.Voice,
+                                },
+                            ],
+                        },
+                        Description = "description",
+                        Directionsoverview = "directionsoverview",
+                        DirectionsUrl = "directionsUrl",
+                        Fees = ["string"],
+                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                        Images = ["string"],
+                        LastIndexedDate = "lastIndexedDate",
+                        Latitude = "63.4574408",
+                        LatLong = "{lat:63.4574408, lng:-150.8612003}",
+                        Longitude = "-150.8612003",
+                        Multimedia =
+                        [
+                            new()
+                            {
+                                ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                                Title = "The Worthington Farm",
+                                Type = "multimedia/videos",
+                                Url =
+                                    "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883              ",
+                            },
+                        ],
+                        Name = "name",
+                        OperatingHours = ["string"],
+                        ParkCode = "parkCode",
+                        Regulationsoverview = "regulationsoverview",
+                        Regulationsurl = "regulationsurl",
+                        RelevanceScore = 0,
+                        Reservationsdescription = "reservationsdescription",
+                        Reservationssitesfirstcome = "reservationssitesfirstcome",
+                        Reservationssitesreservable = "reservationssitesreservable",
+                        Reservationsurl = "reservationsurl",
+                        Weatheroverview = "weatheroverview",
+                    },
+                ],
+                Limit = "50",
+                Start = "0",
+                Total = "total",
+            },
+        ];
+        string expectedLimit = "limit";
+        string expectedStart = "start";
+        string expectedTotal = "total";
+
+        Assert.NotNull(deserialized.Data);
+        Assert.Equal(expectedData.Count, deserialized.Data.Count);
+        for (int i = 0; i < expectedData.Count; i++)
+        {
+            Assert.Equal(expectedData[i], deserialized.Data[i]);
+        }
+        Assert.Equal(expectedLimit, deserialized.Limit);
+        Assert.Equal(expectedStart, deserialized.Start);
+        Assert.Equal(expectedTotal, deserialized.Total);
+    }
+
+    [Fact]
+    public void Validation_Works()
+    {
+        var model = new CampgroundListResponse
+        {
+            Data =
+            [
+                new()
+                {
+                    DataValue =
+                    [
+                        new()
+                        {
+                            ID = "id",
+                            Accessibility = new()
+                            {
+                                Accessroads = ["string"],
+                                Adainfo = "adainfo",
+                                Additionalinfo = "additionalinfo",
+                                Cellphoneinfo = "cellphoneinfo",
+                                Classifications = ["string"],
+                                Firestovepolicy = "firestovepolicy",
+                                Internetinfo = "internetinfo",
+                                Rvallowed = "rvallowed",
+                                Rvinfo = "rvinfo",
+                                Rvmaxlength = "rvmaxlength",
+                                Trailerallowed = "trailerallowed",
+                                Trailermaxlength = "trailermaxlength",
+                                Wheelchairaccess = "wheelchairaccess",
+                            },
+                            Addresses =
+                            [
+                                new()
+                                {
+                                    City = "city",
+                                    CountryCode = "US",
+                                    Line1 = "line1",
+                                    Line2 = "line2",
+                                    Line3 = "line3",
+                                    PostalCode = "postalCode",
+                                    ProvinceTerritoryCode = "NB",
+                                    StateCode = "stateCode",
+                                    Type = Type.Physical,
+                                },
+                            ],
+                            Amenities = new()
+                            {
+                                Amphitheater = "amphitheater",
+                                Ampitheater = "ampitheater",
+                                Campstore = "campstore",
+                                Cellphonereception = "cellphonereception",
+                                Dumpstation = "dumpstation",
+                                Firewoodforsale = "firewoodforsale",
+                                FoodStorageLockers = "foodStorageLockers",
+                                Iceavailableforsale = "iceavailableforsale",
+                                Internetconnectivity = "internetconnectivity",
+                                Laundry = "laundry",
+                                Potablewater = ["string"],
+                                Showers = ["string"],
+                                Stafforvolunteerhostonsite = "stafforvolunteerhostonsite",
+                                Toilets = ["string"],
+                                Trashrecyclingcollection = "trashrecyclingcollection",
+                            },
+                            Campsites = new()
+                            {
+                                Electricalhookups = "electricalhookups",
+                                Group = "group",
+                                Horse = "horse",
+                                Other = "other",
+                                Rvonly = "rvonly",
+                                Tentonly = "tentonly",
+                                Totalsites = "totalsites",
+                                Walkboatto = "walkboatto",
+                            },
+                            Contacts = new()
+                            {
+                                EmailAddresses =
+                                [
+                                    new()
+                                    {
+                                        Description = "description",
+                                        EmailAddressValue = "emailAddress",
+                                    },
+                                ],
+                                PhoneNumbers =
+                                [
+                                    new()
+                                    {
+                                        Description = "description",
+                                        Extension = "extension",
+                                        PhoneNumberValue = "phoneNumber",
+                                        Type = PhoneNumberType.Voice,
+                                    },
+                                ],
+                            },
+                            Description = "description",
+                            Directionsoverview = "directionsoverview",
+                            DirectionsUrl = "directionsUrl",
+                            Fees = ["string"],
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Images = ["string"],
+                            LastIndexedDate = "lastIndexedDate",
+                            Latitude = "63.4574408",
+                            LatLong = "{lat:63.4574408, lng:-150.8612003}",
+                            Longitude = "-150.8612003",
+                            Multimedia =
+                            [
+                                new()
+                                {
+                                    ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                                    Title = "The Worthington Farm",
+                                    Type = "multimedia/videos",
+                                    Url =
+                                        "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883              ",
+                                },
+                            ],
+                            Name = "name",
+                            OperatingHours = ["string"],
+                            ParkCode = "parkCode",
+                            Regulationsoverview = "regulationsoverview",
+                            Regulationsurl = "regulationsurl",
+                            RelevanceScore = 0,
+                            Reservationsdescription = "reservationsdescription",
+                            Reservationssitesfirstcome = "reservationssitesfirstcome",
+                            Reservationssitesreservable = "reservationssitesreservable",
+                            Reservationsurl = "reservationsurl",
+                            Weatheroverview = "weatheroverview",
+                        },
+                    ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "total",
+                },
+            ],
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
+        };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
+    {
+        var model = new CampgroundListResponse { };
+
+        Assert.Null(model.Data);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetValidation_Works()
+    {
+        var model = new CampgroundListResponse { };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
+    {
+        var model = new CampgroundListResponse
+        {
+            // Null should be interpreted as omitted for these properties
+            Data = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        Assert.Null(model.Data);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
+    {
+        var model = new CampgroundListResponse
+        {
+            // Null should be interpreted as omitted for these properties
+            Data = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        model.Validate();
+    }
+}
+
+public class DataTest : TestBase
+{
+    [Fact]
+    public void FieldRoundtrip_Works()
+    {
+        var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
                     ID = "id",
                     Accessibility = new()
                     {
@@ -138,7 +1058,7 @@ public class CampgroundListResponseTest : TestBase
             Total = "total",
         };
 
-        List<Data> expectedData =
+        List<DataData> expectedDataValue =
         [
             new()
             {
@@ -258,11 +1178,11 @@ public class CampgroundListResponseTest : TestBase
         string expectedStart = "0";
         string expectedTotal = "total";
 
-        Assert.NotNull(model.Data);
-        Assert.Equal(expectedData.Count, model.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
+        Assert.NotNull(model.DataValue);
+        Assert.Equal(expectedDataValue.Count, model.DataValue.Count);
+        for (int i = 0; i < expectedDataValue.Count; i++)
         {
-            Assert.Equal(expectedData[i], model.Data[i]);
+            Assert.Equal(expectedDataValue[i], model.DataValue[i]);
         }
         Assert.Equal(expectedLimit, model.Limit);
         Assert.Equal(expectedStart, model.Start);
@@ -272,9 +1192,9 @@ public class CampgroundListResponseTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new CampgroundListResponse
+        var model = new Data
         {
-            Data =
+            DataValue =
             [
                 new()
                 {
@@ -400,7 +1320,7 @@ public class CampgroundListResponseTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<CampgroundListResponse>(json);
+        var deserialized = JsonSerializer.Deserialize<Data>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -408,9 +1328,9 @@ public class CampgroundListResponseTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new CampgroundListResponse
+        var model = new Data
         {
-            Data =
+            DataValue =
             [
                 new()
                 {
@@ -536,10 +1456,10 @@ public class CampgroundListResponseTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<CampgroundListResponse>(element);
+        var deserialized = JsonSerializer.Deserialize<Data>(element);
         Assert.NotNull(deserialized);
 
-        List<Data> expectedData =
+        List<DataData> expectedDataValue =
         [
             new()
             {
@@ -659,11 +1579,11 @@ public class CampgroundListResponseTest : TestBase
         string expectedStart = "0";
         string expectedTotal = "total";
 
-        Assert.NotNull(deserialized.Data);
-        Assert.Equal(expectedData.Count, deserialized.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
+        Assert.NotNull(deserialized.DataValue);
+        Assert.Equal(expectedDataValue.Count, deserialized.DataValue.Count);
+        for (int i = 0; i < expectedDataValue.Count; i++)
         {
-            Assert.Equal(expectedData[i], deserialized.Data[i]);
+            Assert.Equal(expectedDataValue[i], deserialized.DataValue[i]);
         }
         Assert.Equal(expectedLimit, deserialized.Limit);
         Assert.Equal(expectedStart, deserialized.Start);
@@ -673,9 +1593,9 @@ public class CampgroundListResponseTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new CampgroundListResponse
+        var model = new Data
         {
-            Data =
+            DataValue =
             [
                 new()
                 {
@@ -806,9 +1726,9 @@ public class CampgroundListResponseTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new CampgroundListResponse { };
+        var model = new Data { };
 
-        Assert.Null(model.Data);
+        Assert.Null(model.DataValue);
         Assert.False(model.RawData.ContainsKey("data"));
         Assert.Null(model.Limit);
         Assert.False(model.RawData.ContainsKey("limit"));
@@ -821,7 +1741,7 @@ public class CampgroundListResponseTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new CampgroundListResponse { };
+        var model = new Data { };
 
         model.Validate();
     }
@@ -829,16 +1749,16 @@ public class CampgroundListResponseTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new CampgroundListResponse
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
-            Data = null,
+            DataValue = null,
             Limit = null,
             Start = null,
             Total = null,
         };
 
-        Assert.Null(model.Data);
+        Assert.Null(model.DataValue);
         Assert.False(model.RawData.ContainsKey("data"));
         Assert.Null(model.Limit);
         Assert.False(model.RawData.ContainsKey("limit"));
@@ -851,10 +1771,10 @@ public class CampgroundListResponseTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new CampgroundListResponse
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
-            Data = null,
+            DataValue = null,
             Limit = null,
             Start = null,
             Total = null,
@@ -864,12 +1784,12 @@ public class CampgroundListResponseTest : TestBase
     }
 }
 
-public class DataTest : TestBase
+public class DataDataTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "id",
             Accessibility = new()
@@ -1015,7 +1935,7 @@ public class DataTest : TestBase
                 Type = Type.Physical,
             },
         ];
-        DataAmenities expectedAmenities = new()
+        DataDataAmenities expectedAmenities = new()
         {
             Amphitheater = "amphitheater",
             Ampitheater = "ampitheater",
@@ -1071,7 +1991,7 @@ public class DataTest : TestBase
         string expectedLatitude = "63.4574408";
         string expectedLatLong = "{lat:63.4574408, lng:-150.8612003}";
         string expectedLongitude = "-150.8612003";
-        List<DataMultimedia> expectedMultimedia =
+        List<DataDataMultimedia> expectedMultimedia =
         [
             new()
             {
@@ -1152,7 +2072,7 @@ public class DataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "id",
             Accessibility = new()
@@ -1267,7 +2187,7 @@ public class DataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(json);
+        var deserialized = JsonSerializer.Deserialize<DataData>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -1275,7 +2195,7 @@ public class DataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "id",
             Accessibility = new()
@@ -1390,7 +2310,7 @@ public class DataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(element);
+        var deserialized = JsonSerializer.Deserialize<DataData>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "id";
@@ -1425,7 +2345,7 @@ public class DataTest : TestBase
                 Type = Type.Physical,
             },
         ];
-        DataAmenities expectedAmenities = new()
+        DataDataAmenities expectedAmenities = new()
         {
             Amphitheater = "amphitheater",
             Ampitheater = "ampitheater",
@@ -1481,7 +2401,7 @@ public class DataTest : TestBase
         string expectedLatitude = "63.4574408";
         string expectedLatLong = "{lat:63.4574408, lng:-150.8612003}";
         string expectedLongitude = "-150.8612003";
-        List<DataMultimedia> expectedMultimedia =
+        List<DataDataMultimedia> expectedMultimedia =
         [
             new()
             {
@@ -1562,7 +2482,7 @@ public class DataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "id",
             Accessibility = new()
@@ -1682,7 +2602,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new Data { };
+        var model = new DataData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -1745,7 +2665,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new Data { };
+        var model = new DataData { };
 
         model.Validate();
     }
@@ -1753,7 +2673,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -1847,7 +2767,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -2442,12 +3362,12 @@ public class TypeTest : TestBase
     }
 }
 
-public class DataAmenitiesTest : TestBase
+public class DataDataAmenitiesTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new DataAmenities
+        var model = new DataDataAmenities
         {
             Amphitheater = "amphitheater",
             Ampitheater = "ampitheater",
@@ -2517,7 +3437,7 @@ public class DataAmenitiesTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new DataAmenities
+        var model = new DataDataAmenities
         {
             Amphitheater = "amphitheater",
             Ampitheater = "ampitheater",
@@ -2537,7 +3457,7 @@ public class DataAmenitiesTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataAmenities>(json);
+        var deserialized = JsonSerializer.Deserialize<DataDataAmenities>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -2545,7 +3465,7 @@ public class DataAmenitiesTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new DataAmenities
+        var model = new DataDataAmenities
         {
             Amphitheater = "amphitheater",
             Ampitheater = "ampitheater",
@@ -2565,7 +3485,7 @@ public class DataAmenitiesTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataAmenities>(element);
+        var deserialized = JsonSerializer.Deserialize<DataDataAmenities>(element);
         Assert.NotNull(deserialized);
 
         string expectedAmphitheater = "amphitheater";
@@ -2619,7 +3539,7 @@ public class DataAmenitiesTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new DataAmenities
+        var model = new DataDataAmenities
         {
             Amphitheater = "amphitheater",
             Ampitheater = "ampitheater",
@@ -2644,7 +3564,7 @@ public class DataAmenitiesTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new DataAmenities { };
+        var model = new DataDataAmenities { };
 
         Assert.Null(model.Amphitheater);
         Assert.False(model.RawData.ContainsKey("amphitheater"));
@@ -2681,7 +3601,7 @@ public class DataAmenitiesTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new DataAmenities { };
+        var model = new DataDataAmenities { };
 
         model.Validate();
     }
@@ -2689,7 +3609,7 @@ public class DataAmenitiesTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new DataAmenities
+        var model = new DataDataAmenities
         {
             // Null should be interpreted as omitted for these properties
             Amphitheater = null,
@@ -2744,7 +3664,7 @@ public class DataAmenitiesTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new DataAmenities
+        var model = new DataDataAmenities
         {
             // Null should be interpreted as omitted for these properties
             Amphitheater = null,
@@ -3488,12 +4408,12 @@ public class PhoneNumberTypeTest : TestBase
     }
 }
 
-public class DataMultimediaTest : TestBase
+public class DataDataMultimediaTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new DataMultimedia
+        var model = new DataDataMultimedia
         {
             ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
             Title = "The Worthington Farm",
@@ -3517,7 +4437,7 @@ public class DataMultimediaTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new DataMultimedia
+        var model = new DataDataMultimedia
         {
             ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
             Title = "The Worthington Farm",
@@ -3527,7 +4447,7 @@ public class DataMultimediaTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataMultimedia>(json);
+        var deserialized = JsonSerializer.Deserialize<DataDataMultimedia>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -3535,7 +4455,7 @@ public class DataMultimediaTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new DataMultimedia
+        var model = new DataDataMultimedia
         {
             ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
             Title = "The Worthington Farm",
@@ -3545,7 +4465,7 @@ public class DataMultimediaTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataMultimedia>(element);
+        var deserialized = JsonSerializer.Deserialize<DataDataMultimedia>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883";
@@ -3563,7 +4483,7 @@ public class DataMultimediaTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new DataMultimedia
+        var model = new DataDataMultimedia
         {
             ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
             Title = "The Worthington Farm",
@@ -3578,7 +4498,7 @@ public class DataMultimediaTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new DataMultimedia { };
+        var model = new DataDataMultimedia { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -3593,7 +4513,7 @@ public class DataMultimediaTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new DataMultimedia { };
+        var model = new DataDataMultimedia { };
 
         model.Validate();
     }
@@ -3601,7 +4521,7 @@ public class DataMultimediaTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new DataMultimedia
+        var model = new DataDataMultimedia
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -3623,7 +4543,7 @@ public class DataMultimediaTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new DataMultimedia
+        var model = new DataDataMultimedia
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

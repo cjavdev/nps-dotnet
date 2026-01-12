@@ -96,7 +96,7 @@ The `WithOptions` method does not affect the original client or service.
 
 To send a request to the Nps API, build an instance of some `Params` class and pass it to the corresponding client method. When the response is received, it will be deserialized into an instance of a C# class.
 
-For example, `client.Activities.List` should be called with an instance of `ActivityListParams`, and it will return an instance of `Task<List<ActivityListResponse>>`.
+For example, `client.Activities.List` should be called with an instance of `ActivityListParams`, and it will return an instance of `Task<ActivityListResponse>`.
 
 ## Raw responses
 
@@ -114,11 +114,10 @@ For non-streaming responses, you can deserialize the response into an instance o
 
 ```csharp
 using System;
-using System.Collections.Generic;
 using Nps.Models.Activities;
 
 var response = await client.WithRawResponse.Activities.List();
-List<ActivityListResponse> deserialized = await response.Deserialize();
+ActivityListResponse deserialized = await response.Deserialize();
 Console.WriteLine(deserialized);
 ```
 

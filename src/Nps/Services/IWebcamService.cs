@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IWebcamService
     /// <summary>
     /// Sends a request to <c>get /webcams<c/>.
     /// </summary>
-    Task<List<WebcamListResponse>> List(
+    Task<WebcamListResponse> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IWebcamServiceWithRawResponse
     /// Returns a raw HTTP response for `get /webcams`, but is otherwise the
     /// same as <see cref="IWebcamService.List(WebcamListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<WebcamListResponse>>> List(
+    Task<HttpResponse<WebcamListResponse>> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

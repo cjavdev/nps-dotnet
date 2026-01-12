@@ -129,6 +129,125 @@ class MultimediaListVideosResponseFromRaw : IFromRawJson<MultimediaListVideosRes
 )]
 public sealed record class MultimediaListVideosResponseData : JsonModel
 {
+    public IReadOnlyList<MultimediaListVideosResponseDataData>? Data
+    {
+        get
+        {
+            return JsonModel.GetNullableClass<List<MultimediaListVideosResponseDataData>>(
+                this.RawData,
+                "data"
+            );
+        }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public string? Limit
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public string? Start
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public string? Total
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.Data ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public MultimediaListVideosResponseData() { }
+
+    public MultimediaListVideosResponseData(
+        MultimediaListVideosResponseData multimediaListVideosResponseData
+    )
+        : base(multimediaListVideosResponseData) { }
+
+    public MultimediaListVideosResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    MultimediaListVideosResponseData(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="MultimediaListVideosResponseDataFromRaw.FromRawUnchecked"/>
+    public static MultimediaListVideosResponseData FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class MultimediaListVideosResponseDataFromRaw : IFromRawJson<MultimediaListVideosResponseData>
+{
+    /// <inheritdoc/>
+    public MultimediaListVideosResponseData FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => MultimediaListVideosResponseData.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(
+    typeof(JsonModelConverter<
+        MultimediaListVideosResponseDataData,
+        MultimediaListVideosResponseDataDataFromRaw
+    >)
+)]
+public sealed record class MultimediaListVideosResponseDataData : JsonModel
+{
     public string? ID
     {
         get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
@@ -395,14 +514,13 @@ public sealed record class MultimediaListVideosResponseData : JsonModel
         }
     }
 
-    public IReadOnlyList<MultimediaListVideosResponseDataRelatedPark>? RelatedParks
+    public IReadOnlyList<MultimediaListVideosResponseDataDataRelatedPark>? RelatedParks
     {
         get
         {
-            return JsonModel.GetNullableClass<List<MultimediaListVideosResponseDataRelatedPark>>(
-                this.RawData,
-                "relatedParks"
-            );
+            return JsonModel.GetNullableClass<
+                List<MultimediaListVideosResponseDataDataRelatedPark>
+            >(this.RawData, "relatedParks");
         }
         init
         {
@@ -415,11 +533,11 @@ public sealed record class MultimediaListVideosResponseData : JsonModel
         }
     }
 
-    public MultimediaListVideosResponseDataSplashImage? SplashImage
+    public MultimediaListVideosResponseDataDataSplashImage? SplashImage
     {
         get
         {
-            return JsonModel.GetNullableClass<MultimediaListVideosResponseDataSplashImage>(
+            return JsonModel.GetNullableClass<MultimediaListVideosResponseDataDataSplashImage>(
                 this.RawData,
                 "splashImage"
             );
@@ -530,28 +648,28 @@ public sealed record class MultimediaListVideosResponseData : JsonModel
         }
     }
 
-    public MultimediaListVideosResponseData() { }
+    public MultimediaListVideosResponseDataData() { }
 
-    public MultimediaListVideosResponseData(
-        MultimediaListVideosResponseData multimediaListVideosResponseData
+    public MultimediaListVideosResponseDataData(
+        MultimediaListVideosResponseDataData multimediaListVideosResponseDataData
     )
-        : base(multimediaListVideosResponseData) { }
+        : base(multimediaListVideosResponseDataData) { }
 
-    public MultimediaListVideosResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
+    public MultimediaListVideosResponseDataData(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    MultimediaListVideosResponseData(FrozenDictionary<string, JsonElement> rawData)
+    MultimediaListVideosResponseDataData(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="MultimediaListVideosResponseDataFromRaw.FromRawUnchecked"/>
-    public static MultimediaListVideosResponseData FromRawUnchecked(
+    /// <inheritdoc cref="MultimediaListVideosResponseDataDataFromRaw.FromRawUnchecked"/>
+    public static MultimediaListVideosResponseDataData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -559,12 +677,13 @@ public sealed record class MultimediaListVideosResponseData : JsonModel
     }
 }
 
-class MultimediaListVideosResponseDataFromRaw : IFromRawJson<MultimediaListVideosResponseData>
+class MultimediaListVideosResponseDataDataFromRaw
+    : IFromRawJson<MultimediaListVideosResponseDataData>
 {
     /// <inheritdoc/>
-    public MultimediaListVideosResponseData FromRawUnchecked(
+    public MultimediaListVideosResponseDataData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => MultimediaListVideosResponseData.FromRawUnchecked(rawData);
+    ) => MultimediaListVideosResponseDataData.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<CaptionFile, CaptionFileFromRaw>))]
@@ -654,11 +773,11 @@ class CaptionFileFromRaw : IFromRawJson<CaptionFile>
 
 [JsonConverter(
     typeof(JsonModelConverter<
-        MultimediaListVideosResponseDataRelatedPark,
-        MultimediaListVideosResponseDataRelatedParkFromRaw
+        MultimediaListVideosResponseDataDataRelatedPark,
+        MultimediaListVideosResponseDataDataRelatedParkFromRaw
     >)
 )]
-public sealed record class MultimediaListVideosResponseDataRelatedPark : JsonModel
+public sealed record class MultimediaListVideosResponseDataDataRelatedPark : JsonModel
 {
     public string? Designation
     {
@@ -755,14 +874,14 @@ public sealed record class MultimediaListVideosResponseDataRelatedPark : JsonMod
         _ = this.Url;
     }
 
-    public MultimediaListVideosResponseDataRelatedPark() { }
+    public MultimediaListVideosResponseDataDataRelatedPark() { }
 
-    public MultimediaListVideosResponseDataRelatedPark(
-        MultimediaListVideosResponseDataRelatedPark multimediaListVideosResponseDataRelatedPark
+    public MultimediaListVideosResponseDataDataRelatedPark(
+        MultimediaListVideosResponseDataDataRelatedPark multimediaListVideosResponseDataDataRelatedPark
     )
-        : base(multimediaListVideosResponseDataRelatedPark) { }
+        : base(multimediaListVideosResponseDataDataRelatedPark) { }
 
-    public MultimediaListVideosResponseDataRelatedPark(
+    public MultimediaListVideosResponseDataDataRelatedPark(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -771,14 +890,14 @@ public sealed record class MultimediaListVideosResponseDataRelatedPark : JsonMod
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    MultimediaListVideosResponseDataRelatedPark(FrozenDictionary<string, JsonElement> rawData)
+    MultimediaListVideosResponseDataDataRelatedPark(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="MultimediaListVideosResponseDataRelatedParkFromRaw.FromRawUnchecked"/>
-    public static MultimediaListVideosResponseDataRelatedPark FromRawUnchecked(
+    /// <inheritdoc cref="MultimediaListVideosResponseDataDataRelatedParkFromRaw.FromRawUnchecked"/>
+    public static MultimediaListVideosResponseDataDataRelatedPark FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -786,22 +905,22 @@ public sealed record class MultimediaListVideosResponseDataRelatedPark : JsonMod
     }
 }
 
-class MultimediaListVideosResponseDataRelatedParkFromRaw
-    : IFromRawJson<MultimediaListVideosResponseDataRelatedPark>
+class MultimediaListVideosResponseDataDataRelatedParkFromRaw
+    : IFromRawJson<MultimediaListVideosResponseDataDataRelatedPark>
 {
     /// <inheritdoc/>
-    public MultimediaListVideosResponseDataRelatedPark FromRawUnchecked(
+    public MultimediaListVideosResponseDataDataRelatedPark FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => MultimediaListVideosResponseDataRelatedPark.FromRawUnchecked(rawData);
+    ) => MultimediaListVideosResponseDataDataRelatedPark.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(
     typeof(JsonModelConverter<
-        MultimediaListVideosResponseDataSplashImage,
-        MultimediaListVideosResponseDataSplashImageFromRaw
+        MultimediaListVideosResponseDataDataSplashImage,
+        MultimediaListVideosResponseDataDataSplashImageFromRaw
     >)
 )]
-public sealed record class MultimediaListVideosResponseDataSplashImage : JsonModel
+public sealed record class MultimediaListVideosResponseDataDataSplashImage : JsonModel
 {
     public string? Url
     {
@@ -823,14 +942,14 @@ public sealed record class MultimediaListVideosResponseDataSplashImage : JsonMod
         _ = this.Url;
     }
 
-    public MultimediaListVideosResponseDataSplashImage() { }
+    public MultimediaListVideosResponseDataDataSplashImage() { }
 
-    public MultimediaListVideosResponseDataSplashImage(
-        MultimediaListVideosResponseDataSplashImage multimediaListVideosResponseDataSplashImage
+    public MultimediaListVideosResponseDataDataSplashImage(
+        MultimediaListVideosResponseDataDataSplashImage multimediaListVideosResponseDataDataSplashImage
     )
-        : base(multimediaListVideosResponseDataSplashImage) { }
+        : base(multimediaListVideosResponseDataDataSplashImage) { }
 
-    public MultimediaListVideosResponseDataSplashImage(
+    public MultimediaListVideosResponseDataDataSplashImage(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -839,14 +958,14 @@ public sealed record class MultimediaListVideosResponseDataSplashImage : JsonMod
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    MultimediaListVideosResponseDataSplashImage(FrozenDictionary<string, JsonElement> rawData)
+    MultimediaListVideosResponseDataDataSplashImage(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="MultimediaListVideosResponseDataSplashImageFromRaw.FromRawUnchecked"/>
-    public static MultimediaListVideosResponseDataSplashImage FromRawUnchecked(
+    /// <inheritdoc cref="MultimediaListVideosResponseDataDataSplashImageFromRaw.FromRawUnchecked"/>
+    public static MultimediaListVideosResponseDataDataSplashImage FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -854,13 +973,13 @@ public sealed record class MultimediaListVideosResponseDataSplashImage : JsonMod
     }
 }
 
-class MultimediaListVideosResponseDataSplashImageFromRaw
-    : IFromRawJson<MultimediaListVideosResponseDataSplashImage>
+class MultimediaListVideosResponseDataDataSplashImageFromRaw
+    : IFromRawJson<MultimediaListVideosResponseDataDataSplashImage>
 {
     /// <inheritdoc/>
-    public MultimediaListVideosResponseDataSplashImage FromRawUnchecked(
+    public MultimediaListVideosResponseDataDataSplashImage FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => MultimediaListVideosResponseDataSplashImage.FromRawUnchecked(rawData);
+    ) => MultimediaListVideosResponseDataDataSplashImage.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<Version, VersionFromRaw>))]

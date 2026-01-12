@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,7 +36,7 @@ public sealed class VisitorCenterService : IVisitorCenterService
     }
 
     /// <inheritdoc/>
-    public async Task<List<VisitorCenterListResponse>> List(
+    public async Task<VisitorCenterListResponse> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -68,7 +67,7 @@ public sealed class VisitorCenterServiceWithRawResponse : IVisitorCenterServiceW
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<VisitorCenterListResponse>>> List(
+    public async Task<HttpResponse<VisitorCenterListResponse>> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -86,14 +85,11 @@ public sealed class VisitorCenterServiceWithRawResponse : IVisitorCenterServiceW
             async (token) =>
             {
                 var visitorCenters = await response
-                    .Deserialize<List<VisitorCenterListResponse>>(token)
+                    .Deserialize<VisitorCenterListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in visitorCenters)
-                    {
-                        item.Validate();
-                    }
+                    visitorCenters.Validate();
                 }
                 return visitorCenters;
             }

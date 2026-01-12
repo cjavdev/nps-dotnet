@@ -137,47 +137,13 @@ class AmenityRetrieveParksVisitorCentersResponseFromRaw
 )]
 public sealed record class AmenityRetrieveParksVisitorCentersResponseData : JsonModel
 {
-    /// <summary>
-    /// Unique identifier for this amenity
-    /// </summary>
-    public string? ID
-    {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "id", value);
-        }
-    }
-
-    /// <summary>
-    /// The name for this amenity
-    /// </summary>
-    public string? Name
-    {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "name"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "name", value);
-        }
-    }
-
-    public IReadOnlyList<AmenityRetrieveParksVisitorCentersResponseDataPark>? Parks
+    public IReadOnlyList<AmenityRetrieveParksVisitorCentersResponseDataData>? Data
     {
         get
         {
             return JsonModel.GetNullableClass<
-                List<AmenityRetrieveParksVisitorCentersResponseDataPark>
-            >(this.RawData, "parks");
+                List<AmenityRetrieveParksVisitorCentersResponseDataData>
+            >(this.RawData, "data");
         }
         init
         {
@@ -186,19 +152,62 @@ public sealed record class AmenityRetrieveParksVisitorCentersResponseData : Json
                 return;
             }
 
-            JsonModel.Set(this._rawData, "parks", value);
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public string? Limit
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public string? Start
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public string? Total
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
         }
     }
 
     /// <inheritdoc/>
     public override void Validate()
     {
-        _ = this.ID;
-        _ = this.Name;
-        foreach (var item in this.Parks ?? [])
+        foreach (var item in this.Data ?? [])
         {
             item.Validate();
         }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
     }
 
     public AmenityRetrieveParksVisitorCentersResponseData() { }
@@ -243,11 +252,125 @@ class AmenityRetrieveParksVisitorCentersResponseDataFromRaw
 
 [JsonConverter(
     typeof(JsonModelConverter<
-        AmenityRetrieveParksVisitorCentersResponseDataPark,
-        AmenityRetrieveParksVisitorCentersResponseDataParkFromRaw
+        AmenityRetrieveParksVisitorCentersResponseDataData,
+        AmenityRetrieveParksVisitorCentersResponseDataDataFromRaw
     >)
 )]
-public sealed record class AmenityRetrieveParksVisitorCentersResponseDataPark : JsonModel
+public sealed record class AmenityRetrieveParksVisitorCentersResponseDataData : JsonModel
+{
+    /// <summary>
+    /// Unique identifier for this amenity
+    /// </summary>
+    public string? ID
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "id", value);
+        }
+    }
+
+    /// <summary>
+    /// The name for this amenity
+    /// </summary>
+    public string? Name
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "name"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "name", value);
+        }
+    }
+
+    public IReadOnlyList<AmenityRetrieveParksVisitorCentersResponseDataDataPark>? Parks
+    {
+        get
+        {
+            return JsonModel.GetNullableClass<
+                List<AmenityRetrieveParksVisitorCentersResponseDataDataPark>
+            >(this.RawData, "parks");
+        }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "parks", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        _ = this.ID;
+        _ = this.Name;
+        foreach (var item in this.Parks ?? [])
+        {
+            item.Validate();
+        }
+    }
+
+    public AmenityRetrieveParksVisitorCentersResponseDataData() { }
+
+    public AmenityRetrieveParksVisitorCentersResponseDataData(
+        AmenityRetrieveParksVisitorCentersResponseDataData amenityRetrieveParksVisitorCentersResponseDataData
+    )
+        : base(amenityRetrieveParksVisitorCentersResponseDataData) { }
+
+    public AmenityRetrieveParksVisitorCentersResponseDataData(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    AmenityRetrieveParksVisitorCentersResponseDataData(
+        FrozenDictionary<string, JsonElement> rawData
+    )
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="AmenityRetrieveParksVisitorCentersResponseDataDataFromRaw.FromRawUnchecked"/>
+    public static AmenityRetrieveParksVisitorCentersResponseDataData FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class AmenityRetrieveParksVisitorCentersResponseDataDataFromRaw
+    : IFromRawJson<AmenityRetrieveParksVisitorCentersResponseDataData>
+{
+    /// <inheritdoc/>
+    public AmenityRetrieveParksVisitorCentersResponseDataData FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => AmenityRetrieveParksVisitorCentersResponseDataData.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(
+    typeof(JsonModelConverter<
+        AmenityRetrieveParksVisitorCentersResponseDataDataPark,
+        AmenityRetrieveParksVisitorCentersResponseDataDataParkFromRaw
+    >)
+)]
+public sealed record class AmenityRetrieveParksVisitorCentersResponseDataDataPark : JsonModel
 {
     public string? Designation
     {
@@ -371,14 +494,14 @@ public sealed record class AmenityRetrieveParksVisitorCentersResponseDataPark : 
         }
     }
 
-    public AmenityRetrieveParksVisitorCentersResponseDataPark() { }
+    public AmenityRetrieveParksVisitorCentersResponseDataDataPark() { }
 
-    public AmenityRetrieveParksVisitorCentersResponseDataPark(
-        AmenityRetrieveParksVisitorCentersResponseDataPark amenityRetrieveParksVisitorCentersResponseDataPark
+    public AmenityRetrieveParksVisitorCentersResponseDataDataPark(
+        AmenityRetrieveParksVisitorCentersResponseDataDataPark amenityRetrieveParksVisitorCentersResponseDataDataPark
     )
-        : base(amenityRetrieveParksVisitorCentersResponseDataPark) { }
+        : base(amenityRetrieveParksVisitorCentersResponseDataDataPark) { }
 
-    public AmenityRetrieveParksVisitorCentersResponseDataPark(
+    public AmenityRetrieveParksVisitorCentersResponseDataDataPark(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -387,7 +510,7 @@ public sealed record class AmenityRetrieveParksVisitorCentersResponseDataPark : 
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    AmenityRetrieveParksVisitorCentersResponseDataPark(
+    AmenityRetrieveParksVisitorCentersResponseDataDataPark(
         FrozenDictionary<string, JsonElement> rawData
     )
     {
@@ -395,8 +518,8 @@ public sealed record class AmenityRetrieveParksVisitorCentersResponseDataPark : 
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="AmenityRetrieveParksVisitorCentersResponseDataParkFromRaw.FromRawUnchecked"/>
-    public static AmenityRetrieveParksVisitorCentersResponseDataPark FromRawUnchecked(
+    /// <inheritdoc cref="AmenityRetrieveParksVisitorCentersResponseDataDataParkFromRaw.FromRawUnchecked"/>
+    public static AmenityRetrieveParksVisitorCentersResponseDataDataPark FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -404,13 +527,13 @@ public sealed record class AmenityRetrieveParksVisitorCentersResponseDataPark : 
     }
 }
 
-class AmenityRetrieveParksVisitorCentersResponseDataParkFromRaw
-    : IFromRawJson<AmenityRetrieveParksVisitorCentersResponseDataPark>
+class AmenityRetrieveParksVisitorCentersResponseDataDataParkFromRaw
+    : IFromRawJson<AmenityRetrieveParksVisitorCentersResponseDataDataPark>
 {
     /// <inheritdoc/>
-    public AmenityRetrieveParksVisitorCentersResponseDataPark FromRawUnchecked(
+    public AmenityRetrieveParksVisitorCentersResponseDataDataPark FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => AmenityRetrieveParksVisitorCentersResponseDataPark.FromRawUnchecked(rawData);
+    ) => AmenityRetrieveParksVisitorCentersResponseDataDataPark.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<Visitorcenter, VisitorcenterFromRaw>))]

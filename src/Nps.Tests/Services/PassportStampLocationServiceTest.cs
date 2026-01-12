@@ -11,9 +11,6 @@ public class PassportStampLocationServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in passportStampLocations)
-        {
-            item.Validate();
-        }
+        passportStampLocations.Validate();
     }
 }

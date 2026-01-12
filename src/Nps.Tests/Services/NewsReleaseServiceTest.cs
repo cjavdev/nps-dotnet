@@ -11,9 +11,6 @@ public class NewsReleaseServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in newsReleases)
-        {
-            item.Validate();
-        }
+        newsReleases.Validate();
     }
 }

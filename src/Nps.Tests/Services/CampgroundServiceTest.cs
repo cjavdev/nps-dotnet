@@ -11,9 +11,6 @@ public class CampgroundServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in campgrounds)
-        {
-            item.Validate();
-        }
+        campgrounds.Validate();
     }
 }

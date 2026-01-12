@@ -15,42 +15,51 @@ public class ArticleListResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Latitude = 38.8994750976563,
-                    LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
-                    ListingDescription =
-                        "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
-                    ListingImage = new()
-                    {
-                        AltText = "Historic town homes in front of modern brick building",
-                        Caption = "",
-                        Credit = "",
-                        Description = "",
-                        Title = "",
-                        Url =
-                            "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
-                    },
-                    Longitude = -77.0365524291992,
-                    RelatedParks =
+                    DataValue =
                     [
                         new()
                         {
-                            Designation = "",
-                            FullName = "President's Park (White House)",
-                            Name = "President's Park (White House)",
-                            ParkCode = "whho",
-                            States = "DC",
-                            Url = "https://www.nps.gov/whho",
+                            ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Latitude = 38.8994750976563,
+                            LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                            ListingDescription =
+                                "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                            ListingImage = new()
+                            {
+                                AltText = "Historic town homes in front of modern brick building",
+                                Caption = "",
+                                Credit = "",
+                                Description = "",
+                                Title = "",
+                                Url =
+                                    "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                            },
+                            Longitude = -77.0365524291992,
+                            RelatedParks =
+                            [
+                                new()
+                                {
+                                    Designation = "",
+                                    FullName = "President's Park (White House)",
+                                    Name = "President's Park (White House)",
+                                    ParkCode = "whho",
+                                    States = "DC",
+                                    Url = "https://www.nps.gov/whho",
+                                },
+                            ],
+                            Title =
+                                "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                            Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
                         },
                     ],
-                    Title =
-                        "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
-                    Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                    Limit = "1",
+                    Start = "0",
+                    Total = "total",
                 },
             ],
-            Limit = "1",
-            Start = "0",
+            Limit = "limit",
+            Start = "start",
             Total = "total",
         };
 
@@ -58,41 +67,51 @@ public class ArticleListResponseTest : TestBase
         [
             new()
             {
-                ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
-                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                Latitude = 38.8994750976563,
-                LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
-                ListingDescription =
-                    "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
-                ListingImage = new()
-                {
-                    AltText = "Historic town homes in front of modern brick building",
-                    Caption = "",
-                    Credit = "",
-                    Description = "",
-                    Title = "",
-                    Url =
-                        "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
-                },
-                Longitude = -77.0365524291992,
-                RelatedParks =
+                DataValue =
                 [
                     new()
                     {
-                        Designation = "",
-                        FullName = "President's Park (White House)",
-                        Name = "President's Park (White House)",
-                        ParkCode = "whho",
-                        States = "DC",
-                        Url = "https://www.nps.gov/whho",
+                        ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                        Latitude = 38.8994750976563,
+                        LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                        ListingDescription =
+                            "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                        ListingImage = new()
+                        {
+                            AltText = "Historic town homes in front of modern brick building",
+                            Caption = "",
+                            Credit = "",
+                            Description = "",
+                            Title = "",
+                            Url =
+                                "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                        },
+                        Longitude = -77.0365524291992,
+                        RelatedParks =
+                        [
+                            new()
+                            {
+                                Designation = "",
+                                FullName = "President's Park (White House)",
+                                Name = "President's Park (White House)",
+                                ParkCode = "whho",
+                                States = "DC",
+                                Url = "https://www.nps.gov/whho",
+                            },
+                        ],
+                        Title =
+                            "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                        Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
                     },
                 ],
-                Title = "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
-                Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                Limit = "1",
+                Start = "0",
+                Total = "total",
             },
         ];
-        string expectedLimit = "1";
-        string expectedStart = "0";
+        string expectedLimit = "limit";
+        string expectedStart = "start";
         string expectedTotal = "total";
 
         Assert.NotNull(model.Data);
@@ -115,42 +134,51 @@ public class ArticleListResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Latitude = 38.8994750976563,
-                    LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
-                    ListingDescription =
-                        "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
-                    ListingImage = new()
-                    {
-                        AltText = "Historic town homes in front of modern brick building",
-                        Caption = "",
-                        Credit = "",
-                        Description = "",
-                        Title = "",
-                        Url =
-                            "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
-                    },
-                    Longitude = -77.0365524291992,
-                    RelatedParks =
+                    DataValue =
                     [
                         new()
                         {
-                            Designation = "",
-                            FullName = "President's Park (White House)",
-                            Name = "President's Park (White House)",
-                            ParkCode = "whho",
-                            States = "DC",
-                            Url = "https://www.nps.gov/whho",
+                            ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Latitude = 38.8994750976563,
+                            LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                            ListingDescription =
+                                "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                            ListingImage = new()
+                            {
+                                AltText = "Historic town homes in front of modern brick building",
+                                Caption = "",
+                                Credit = "",
+                                Description = "",
+                                Title = "",
+                                Url =
+                                    "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                            },
+                            Longitude = -77.0365524291992,
+                            RelatedParks =
+                            [
+                                new()
+                                {
+                                    Designation = "",
+                                    FullName = "President's Park (White House)",
+                                    Name = "President's Park (White House)",
+                                    ParkCode = "whho",
+                                    States = "DC",
+                                    Url = "https://www.nps.gov/whho",
+                                },
+                            ],
+                            Title =
+                                "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                            Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
                         },
                     ],
-                    Title =
-                        "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
-                    Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                    Limit = "1",
+                    Start = "0",
+                    Total = "total",
                 },
             ],
-            Limit = "1",
-            Start = "0",
+            Limit = "limit",
+            Start = "start",
             Total = "total",
         };
 
@@ -169,42 +197,51 @@ public class ArticleListResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Latitude = 38.8994750976563,
-                    LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
-                    ListingDescription =
-                        "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
-                    ListingImage = new()
-                    {
-                        AltText = "Historic town homes in front of modern brick building",
-                        Caption = "",
-                        Credit = "",
-                        Description = "",
-                        Title = "",
-                        Url =
-                            "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
-                    },
-                    Longitude = -77.0365524291992,
-                    RelatedParks =
+                    DataValue =
                     [
                         new()
                         {
-                            Designation = "",
-                            FullName = "President's Park (White House)",
-                            Name = "President's Park (White House)",
-                            ParkCode = "whho",
-                            States = "DC",
-                            Url = "https://www.nps.gov/whho",
+                            ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Latitude = 38.8994750976563,
+                            LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                            ListingDescription =
+                                "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                            ListingImage = new()
+                            {
+                                AltText = "Historic town homes in front of modern brick building",
+                                Caption = "",
+                                Credit = "",
+                                Description = "",
+                                Title = "",
+                                Url =
+                                    "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                            },
+                            Longitude = -77.0365524291992,
+                            RelatedParks =
+                            [
+                                new()
+                                {
+                                    Designation = "",
+                                    FullName = "President's Park (White House)",
+                                    Name = "President's Park (White House)",
+                                    ParkCode = "whho",
+                                    States = "DC",
+                                    Url = "https://www.nps.gov/whho",
+                                },
+                            ],
+                            Title =
+                                "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                            Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
                         },
                     ],
-                    Title =
-                        "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
-                    Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                    Limit = "1",
+                    Start = "0",
+                    Total = "total",
                 },
             ],
-            Limit = "1",
-            Start = "0",
+            Limit = "limit",
+            Start = "start",
             Total = "total",
         };
 
@@ -216,41 +253,51 @@ public class ArticleListResponseTest : TestBase
         [
             new()
             {
-                ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
-                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                Latitude = 38.8994750976563,
-                LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
-                ListingDescription =
-                    "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
-                ListingImage = new()
-                {
-                    AltText = "Historic town homes in front of modern brick building",
-                    Caption = "",
-                    Credit = "",
-                    Description = "",
-                    Title = "",
-                    Url =
-                        "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
-                },
-                Longitude = -77.0365524291992,
-                RelatedParks =
+                DataValue =
                 [
                     new()
                     {
-                        Designation = "",
-                        FullName = "President's Park (White House)",
-                        Name = "President's Park (White House)",
-                        ParkCode = "whho",
-                        States = "DC",
-                        Url = "https://www.nps.gov/whho",
+                        ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                        Latitude = 38.8994750976563,
+                        LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                        ListingDescription =
+                            "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                        ListingImage = new()
+                        {
+                            AltText = "Historic town homes in front of modern brick building",
+                            Caption = "",
+                            Credit = "",
+                            Description = "",
+                            Title = "",
+                            Url =
+                                "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                        },
+                        Longitude = -77.0365524291992,
+                        RelatedParks =
+                        [
+                            new()
+                            {
+                                Designation = "",
+                                FullName = "President's Park (White House)",
+                                Name = "President's Park (White House)",
+                                ParkCode = "whho",
+                                States = "DC",
+                                Url = "https://www.nps.gov/whho",
+                            },
+                        ],
+                        Title =
+                            "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                        Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
                     },
                 ],
-                Title = "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
-                Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                Limit = "1",
+                Start = "0",
+                Total = "total",
             },
         ];
-        string expectedLimit = "1";
-        string expectedStart = "0";
+        string expectedLimit = "limit";
+        string expectedStart = "start";
         string expectedTotal = "total";
 
         Assert.NotNull(deserialized.Data);
@@ -273,42 +320,51 @@ public class ArticleListResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Latitude = 38.8994750976563,
-                    LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
-                    ListingDescription =
-                        "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
-                    ListingImage = new()
-                    {
-                        AltText = "Historic town homes in front of modern brick building",
-                        Caption = "",
-                        Credit = "",
-                        Description = "",
-                        Title = "",
-                        Url =
-                            "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
-                    },
-                    Longitude = -77.0365524291992,
-                    RelatedParks =
+                    DataValue =
                     [
                         new()
                         {
-                            Designation = "",
-                            FullName = "President's Park (White House)",
-                            Name = "President's Park (White House)",
-                            ParkCode = "whho",
-                            States = "DC",
-                            Url = "https://www.nps.gov/whho",
+                            ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                            Latitude = 38.8994750976563,
+                            LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                            ListingDescription =
+                                "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                            ListingImage = new()
+                            {
+                                AltText = "Historic town homes in front of modern brick building",
+                                Caption = "",
+                                Credit = "",
+                                Description = "",
+                                Title = "",
+                                Url =
+                                    "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                            },
+                            Longitude = -77.0365524291992,
+                            RelatedParks =
+                            [
+                                new()
+                                {
+                                    Designation = "",
+                                    FullName = "President's Park (White House)",
+                                    Name = "President's Park (White House)",
+                                    ParkCode = "whho",
+                                    States = "DC",
+                                    Url = "https://www.nps.gov/whho",
+                                },
+                            ],
+                            Title =
+                                "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                            Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
                         },
                     ],
-                    Title =
-                        "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
-                    Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                    Limit = "1",
+                    Start = "0",
+                    Total = "total",
                 },
             ],
-            Limit = "1",
-            Start = "0",
+            Limit = "limit",
+            Start = "start",
             Total = "total",
         };
 
@@ -382,6 +438,378 @@ public class DataTest : TestBase
     public void FieldRoundtrip_Works()
     {
         var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
+                    ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Latitude = 38.8994750976563,
+                    LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                    ListingDescription =
+                        "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                    ListingImage = new()
+                    {
+                        AltText = "Historic town homes in front of modern brick building",
+                        Caption = "",
+                        Credit = "",
+                        Description = "",
+                        Title = "",
+                        Url =
+                            "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                    },
+                    Longitude = -77.0365524291992,
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "",
+                            FullName = "President's Park (White House)",
+                            Name = "President's Park (White House)",
+                            ParkCode = "whho",
+                            States = "DC",
+                            Url = "https://www.nps.gov/whho",
+                        },
+                    ],
+                    Title =
+                        "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                    Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                },
+            ],
+            Limit = "1",
+            Start = "0",
+            Total = "total",
+        };
+
+        List<DataData> expectedDataValue =
+        [
+            new()
+            {
+                ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                Latitude = 38.8994750976563,
+                LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                ListingDescription =
+                    "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                ListingImage = new()
+                {
+                    AltText = "Historic town homes in front of modern brick building",
+                    Caption = "",
+                    Credit = "",
+                    Description = "",
+                    Title = "",
+                    Url =
+                        "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                },
+                Longitude = -77.0365524291992,
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "",
+                        FullName = "President's Park (White House)",
+                        Name = "President's Park (White House)",
+                        ParkCode = "whho",
+                        States = "DC",
+                        Url = "https://www.nps.gov/whho",
+                    },
+                ],
+                Title = "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+            },
+        ];
+        string expectedLimit = "1";
+        string expectedStart = "0";
+        string expectedTotal = "total";
+
+        Assert.NotNull(model.DataValue);
+        Assert.Equal(expectedDataValue.Count, model.DataValue.Count);
+        for (int i = 0; i < expectedDataValue.Count; i++)
+        {
+            Assert.Equal(expectedDataValue[i], model.DataValue[i]);
+        }
+        Assert.Equal(expectedLimit, model.Limit);
+        Assert.Equal(expectedStart, model.Start);
+        Assert.Equal(expectedTotal, model.Total);
+    }
+
+    [Fact]
+    public void SerializationRoundtrip_Works()
+    {
+        var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
+                    ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Latitude = 38.8994750976563,
+                    LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                    ListingDescription =
+                        "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                    ListingImage = new()
+                    {
+                        AltText = "Historic town homes in front of modern brick building",
+                        Caption = "",
+                        Credit = "",
+                        Description = "",
+                        Title = "",
+                        Url =
+                            "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                    },
+                    Longitude = -77.0365524291992,
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "",
+                            FullName = "President's Park (White House)",
+                            Name = "President's Park (White House)",
+                            ParkCode = "whho",
+                            States = "DC",
+                            Url = "https://www.nps.gov/whho",
+                        },
+                    ],
+                    Title =
+                        "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                    Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                },
+            ],
+            Limit = "1",
+            Start = "0",
+            Total = "total",
+        };
+
+        string json = JsonSerializer.Serialize(model);
+        var deserialized = JsonSerializer.Deserialize<Data>(json);
+
+        Assert.Equal(model, deserialized);
+    }
+
+    [Fact]
+    public void FieldRoundtripThroughSerialization_Works()
+    {
+        var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
+                    ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Latitude = 38.8994750976563,
+                    LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                    ListingDescription =
+                        "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                    ListingImage = new()
+                    {
+                        AltText = "Historic town homes in front of modern brick building",
+                        Caption = "",
+                        Credit = "",
+                        Description = "",
+                        Title = "",
+                        Url =
+                            "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                    },
+                    Longitude = -77.0365524291992,
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "",
+                            FullName = "President's Park (White House)",
+                            Name = "President's Park (White House)",
+                            ParkCode = "whho",
+                            States = "DC",
+                            Url = "https://www.nps.gov/whho",
+                        },
+                    ],
+                    Title =
+                        "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                    Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                },
+            ],
+            Limit = "1",
+            Start = "0",
+            Total = "total",
+        };
+
+        string element = JsonSerializer.Serialize(model);
+        var deserialized = JsonSerializer.Deserialize<Data>(element);
+        Assert.NotNull(deserialized);
+
+        List<DataData> expectedDataValue =
+        [
+            new()
+            {
+                ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                Latitude = 38.8994750976563,
+                LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                ListingDescription =
+                    "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                ListingImage = new()
+                {
+                    AltText = "Historic town homes in front of modern brick building",
+                    Caption = "",
+                    Credit = "",
+                    Description = "",
+                    Title = "",
+                    Url =
+                        "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                },
+                Longitude = -77.0365524291992,
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "",
+                        FullName = "President's Park (White House)",
+                        Name = "President's Park (White House)",
+                        ParkCode = "whho",
+                        States = "DC",
+                        Url = "https://www.nps.gov/whho",
+                    },
+                ],
+                Title = "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+            },
+        ];
+        string expectedLimit = "1";
+        string expectedStart = "0";
+        string expectedTotal = "total";
+
+        Assert.NotNull(deserialized.DataValue);
+        Assert.Equal(expectedDataValue.Count, deserialized.DataValue.Count);
+        for (int i = 0; i < expectedDataValue.Count; i++)
+        {
+            Assert.Equal(expectedDataValue[i], deserialized.DataValue[i]);
+        }
+        Assert.Equal(expectedLimit, deserialized.Limit);
+        Assert.Equal(expectedStart, deserialized.Start);
+        Assert.Equal(expectedTotal, deserialized.Total);
+    }
+
+    [Fact]
+    public void Validation_Works()
+    {
+        var model = new Data
+        {
+            DataValue =
+            [
+                new()
+                {
+                    ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Latitude = 38.8994750976563,
+                    LatLong = "{lat:38.89947509765625, long:-77.03655242919922}",
+                    ListingDescription =
+                        "Presidents from Franklin D. Roosevelt to Lyndon B. Johnson, as well as two first ladies, were instrumental in preserving the 19th century historic character of Lafayette Square. Their advocacy influenced not only the White House's closest national historic district, but the development of national historic preservation law.",
+                    ListingImage = new()
+                    {
+                        AltText = "Historic town homes in front of modern brick building",
+                        Caption = "",
+                        Credit = "",
+                        Description = "",
+                        Title = "",
+                        Url =
+                            "https://www.nps.gov/common/uploads/articles/images/nri/20170118/articles/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85/F6AD3834-1DD8-B71B-0BA8516D0F8C4D85.jpg",
+                    },
+                    Longitude = -77.0365524291992,
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "",
+                            FullName = "President's Park (White House)",
+                            Name = "President's Park (White House)",
+                            ParkCode = "whho",
+                            States = "DC",
+                            Url = "https://www.nps.gov/whho",
+                        },
+                    ],
+                    Title =
+                        "The “First Neighborhood”: Presidents and Preservation in Lafayette Park",
+                    Url = "https://www.nps.gov/articles/lafayette-square-preservation.htm",
+                },
+            ],
+            Limit = "1",
+            Start = "0",
+            Total = "total",
+        };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
+    {
+        var model = new Data { };
+
+        Assert.Null(model.DataValue);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetValidation_Works()
+    {
+        var model = new Data { };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
+    {
+        var model = new Data
+        {
+            // Null should be interpreted as omitted for these properties
+            DataValue = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        Assert.Null(model.DataValue);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
+    {
+        var model = new Data
+        {
+            // Null should be interpreted as omitted for these properties
+            DataValue = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        model.Validate();
+    }
+}
+
+public class DataDataTest : TestBase
+{
+    [Fact]
+    public void FieldRoundtrip_Works()
+    {
+        var model = new DataData
         {
             ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
             GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
@@ -469,7 +897,7 @@ public class DataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
             GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
@@ -505,7 +933,7 @@ public class DataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(json);
+        var deserialized = JsonSerializer.Deserialize<DataData>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -513,7 +941,7 @@ public class DataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
             GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
@@ -549,7 +977,7 @@ public class DataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(element);
+        var deserialized = JsonSerializer.Deserialize<DataData>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "FB939FC8-04B4-42F7-BC97-5557890D33F8";
@@ -605,7 +1033,7 @@ public class DataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             ID = "FB939FC8-04B4-42F7-BC97-5557890D33F8",
             GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
@@ -646,7 +1074,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new Data { };
+        var model = new DataData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -673,7 +1101,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new Data { };
+        var model = new DataData { };
 
         model.Validate();
     }
@@ -681,7 +1109,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -721,7 +1149,7 @@ public class DataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new Data
+        var model = new DataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

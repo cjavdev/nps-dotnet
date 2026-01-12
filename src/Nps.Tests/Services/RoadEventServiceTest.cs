@@ -11,9 +11,6 @@ public class RoadEventServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in roadEvents)
-        {
-            item.Validate();
-        }
+        roadEvents.Validate();
     }
 }

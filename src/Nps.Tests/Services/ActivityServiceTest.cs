@@ -11,10 +11,7 @@ public class ActivityServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in activities)
-        {
-            item.Validate();
-        }
+        activities.Validate();
     }
 
     [Fact(Skip = "Prism tests are disabled")]
@@ -24,9 +21,6 @@ public class ActivityServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in response)
-        {
-            item.Validate();
-        }
+        response.Validate();
     }
 }

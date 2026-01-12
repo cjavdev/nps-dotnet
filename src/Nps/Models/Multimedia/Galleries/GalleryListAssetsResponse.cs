@@ -126,6 +126,125 @@ class GalleryListAssetsResponseFromRaw : IFromRawJson<GalleryListAssetsResponse>
 )]
 public sealed record class GalleryListAssetsResponseData : JsonModel
 {
+    public IReadOnlyList<GalleryListAssetsResponseDataData>? Data
+    {
+        get
+        {
+            return JsonModel.GetNullableClass<List<GalleryListAssetsResponseDataData>>(
+                this.RawData,
+                "data"
+            );
+        }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public string? Limit
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public string? Start
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public string? Total
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.Data ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public GalleryListAssetsResponseData() { }
+
+    public GalleryListAssetsResponseData(
+        GalleryListAssetsResponseData galleryListAssetsResponseData
+    )
+        : base(galleryListAssetsResponseData) { }
+
+    public GalleryListAssetsResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    GalleryListAssetsResponseData(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="GalleryListAssetsResponseDataFromRaw.FromRawUnchecked"/>
+    public static GalleryListAssetsResponseData FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class GalleryListAssetsResponseDataFromRaw : IFromRawJson<GalleryListAssetsResponseData>
+{
+    /// <inheritdoc/>
+    public GalleryListAssetsResponseData FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => GalleryListAssetsResponseData.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(
+    typeof(JsonModelConverter<
+        GalleryListAssetsResponseDataData,
+        GalleryListAssetsResponseDataDataFromRaw
+    >)
+)]
+public sealed record class GalleryListAssetsResponseDataData : JsonModel
+{
     public string? ID
     {
         get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
@@ -154,11 +273,11 @@ public sealed record class GalleryListAssetsResponseData : JsonModel
         }
     }
 
-    public GalleryListAssetsResponseDataConstraintsInfo? ConstraintsInfo
+    public GalleryListAssetsResponseDataDataConstraintsInfo? ConstraintsInfo
     {
         get
         {
-            return JsonModel.GetNullableClass<GalleryListAssetsResponseDataConstraintsInfo>(
+            return JsonModel.GetNullableClass<GalleryListAssetsResponseDataDataConstraintsInfo>(
                 this.RawData,
                 "constraintsInfo"
             );
@@ -258,11 +377,11 @@ public sealed record class GalleryListAssetsResponseData : JsonModel
         }
     }
 
-    public IReadOnlyList<GalleryListAssetsResponseDataRelatedPark>? RelatedParks
+    public IReadOnlyList<GalleryListAssetsResponseDataDataRelatedPark>? RelatedParks
     {
         get
         {
-            return JsonModel.GetNullableClass<List<GalleryListAssetsResponseDataRelatedPark>>(
+            return JsonModel.GetNullableClass<List<GalleryListAssetsResponseDataDataRelatedPark>>(
                 this.RawData,
                 "relatedParks"
             );
@@ -326,28 +445,28 @@ public sealed record class GalleryListAssetsResponseData : JsonModel
         _ = this.Title;
     }
 
-    public GalleryListAssetsResponseData() { }
+    public GalleryListAssetsResponseDataData() { }
 
-    public GalleryListAssetsResponseData(
-        GalleryListAssetsResponseData galleryListAssetsResponseData
+    public GalleryListAssetsResponseDataData(
+        GalleryListAssetsResponseDataData galleryListAssetsResponseDataData
     )
-        : base(galleryListAssetsResponseData) { }
+        : base(galleryListAssetsResponseDataData) { }
 
-    public GalleryListAssetsResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
+    public GalleryListAssetsResponseDataData(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    GalleryListAssetsResponseData(FrozenDictionary<string, JsonElement> rawData)
+    GalleryListAssetsResponseDataData(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="GalleryListAssetsResponseDataFromRaw.FromRawUnchecked"/>
-    public static GalleryListAssetsResponseData FromRawUnchecked(
+    /// <inheritdoc cref="GalleryListAssetsResponseDataDataFromRaw.FromRawUnchecked"/>
+    public static GalleryListAssetsResponseDataData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -355,21 +474,21 @@ public sealed record class GalleryListAssetsResponseData : JsonModel
     }
 }
 
-class GalleryListAssetsResponseDataFromRaw : IFromRawJson<GalleryListAssetsResponseData>
+class GalleryListAssetsResponseDataDataFromRaw : IFromRawJson<GalleryListAssetsResponseDataData>
 {
     /// <inheritdoc/>
-    public GalleryListAssetsResponseData FromRawUnchecked(
+    public GalleryListAssetsResponseDataData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => GalleryListAssetsResponseData.FromRawUnchecked(rawData);
+    ) => GalleryListAssetsResponseDataData.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(
     typeof(JsonModelConverter<
-        GalleryListAssetsResponseDataConstraintsInfo,
-        GalleryListAssetsResponseDataConstraintsInfoFromRaw
+        GalleryListAssetsResponseDataDataConstraintsInfo,
+        GalleryListAssetsResponseDataDataConstraintsInfoFromRaw
     >)
 )]
-public sealed record class GalleryListAssetsResponseDataConstraintsInfo : JsonModel
+public sealed record class GalleryListAssetsResponseDataDataConstraintsInfo : JsonModel
 {
     public string? Constraint
     {
@@ -406,14 +525,14 @@ public sealed record class GalleryListAssetsResponseDataConstraintsInfo : JsonMo
         _ = this.GrantingRights;
     }
 
-    public GalleryListAssetsResponseDataConstraintsInfo() { }
+    public GalleryListAssetsResponseDataDataConstraintsInfo() { }
 
-    public GalleryListAssetsResponseDataConstraintsInfo(
-        GalleryListAssetsResponseDataConstraintsInfo galleryListAssetsResponseDataConstraintsInfo
+    public GalleryListAssetsResponseDataDataConstraintsInfo(
+        GalleryListAssetsResponseDataDataConstraintsInfo galleryListAssetsResponseDataDataConstraintsInfo
     )
-        : base(galleryListAssetsResponseDataConstraintsInfo) { }
+        : base(galleryListAssetsResponseDataDataConstraintsInfo) { }
 
-    public GalleryListAssetsResponseDataConstraintsInfo(
+    public GalleryListAssetsResponseDataDataConstraintsInfo(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -422,14 +541,14 @@ public sealed record class GalleryListAssetsResponseDataConstraintsInfo : JsonMo
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    GalleryListAssetsResponseDataConstraintsInfo(FrozenDictionary<string, JsonElement> rawData)
+    GalleryListAssetsResponseDataDataConstraintsInfo(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="GalleryListAssetsResponseDataConstraintsInfoFromRaw.FromRawUnchecked"/>
-    public static GalleryListAssetsResponseDataConstraintsInfo FromRawUnchecked(
+    /// <inheritdoc cref="GalleryListAssetsResponseDataDataConstraintsInfoFromRaw.FromRawUnchecked"/>
+    public static GalleryListAssetsResponseDataDataConstraintsInfo FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -437,13 +556,13 @@ public sealed record class GalleryListAssetsResponseDataConstraintsInfo : JsonMo
     }
 }
 
-class GalleryListAssetsResponseDataConstraintsInfoFromRaw
-    : IFromRawJson<GalleryListAssetsResponseDataConstraintsInfo>
+class GalleryListAssetsResponseDataDataConstraintsInfoFromRaw
+    : IFromRawJson<GalleryListAssetsResponseDataDataConstraintsInfo>
 {
     /// <inheritdoc/>
-    public GalleryListAssetsResponseDataConstraintsInfo FromRawUnchecked(
+    public GalleryListAssetsResponseDataDataConstraintsInfo FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => GalleryListAssetsResponseDataConstraintsInfo.FromRawUnchecked(rawData);
+    ) => GalleryListAssetsResponseDataDataConstraintsInfo.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<FileInfo, FileInfoFromRaw>))]
@@ -563,11 +682,11 @@ class FileInfoFromRaw : IFromRawJson<FileInfo>
 
 [JsonConverter(
     typeof(JsonModelConverter<
-        GalleryListAssetsResponseDataRelatedPark,
-        GalleryListAssetsResponseDataRelatedParkFromRaw
+        GalleryListAssetsResponseDataDataRelatedPark,
+        GalleryListAssetsResponseDataDataRelatedParkFromRaw
     >)
 )]
-public sealed record class GalleryListAssetsResponseDataRelatedPark : JsonModel
+public sealed record class GalleryListAssetsResponseDataDataRelatedPark : JsonModel
 {
     public string? Designation
     {
@@ -664,14 +783,14 @@ public sealed record class GalleryListAssetsResponseDataRelatedPark : JsonModel
         _ = this.Url;
     }
 
-    public GalleryListAssetsResponseDataRelatedPark() { }
+    public GalleryListAssetsResponseDataDataRelatedPark() { }
 
-    public GalleryListAssetsResponseDataRelatedPark(
-        GalleryListAssetsResponseDataRelatedPark galleryListAssetsResponseDataRelatedPark
+    public GalleryListAssetsResponseDataDataRelatedPark(
+        GalleryListAssetsResponseDataDataRelatedPark galleryListAssetsResponseDataDataRelatedPark
     )
-        : base(galleryListAssetsResponseDataRelatedPark) { }
+        : base(galleryListAssetsResponseDataDataRelatedPark) { }
 
-    public GalleryListAssetsResponseDataRelatedPark(
+    public GalleryListAssetsResponseDataDataRelatedPark(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -680,14 +799,14 @@ public sealed record class GalleryListAssetsResponseDataRelatedPark : JsonModel
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    GalleryListAssetsResponseDataRelatedPark(FrozenDictionary<string, JsonElement> rawData)
+    GalleryListAssetsResponseDataDataRelatedPark(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="GalleryListAssetsResponseDataRelatedParkFromRaw.FromRawUnchecked"/>
-    public static GalleryListAssetsResponseDataRelatedPark FromRawUnchecked(
+    /// <inheritdoc cref="GalleryListAssetsResponseDataDataRelatedParkFromRaw.FromRawUnchecked"/>
+    public static GalleryListAssetsResponseDataDataRelatedPark FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -695,11 +814,11 @@ public sealed record class GalleryListAssetsResponseDataRelatedPark : JsonModel
     }
 }
 
-class GalleryListAssetsResponseDataRelatedParkFromRaw
-    : IFromRawJson<GalleryListAssetsResponseDataRelatedPark>
+class GalleryListAssetsResponseDataDataRelatedParkFromRaw
+    : IFromRawJson<GalleryListAssetsResponseDataDataRelatedPark>
 {
     /// <inheritdoc/>
-    public GalleryListAssetsResponseDataRelatedPark FromRawUnchecked(
+    public GalleryListAssetsResponseDataDataRelatedPark FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => GalleryListAssetsResponseDataRelatedPark.FromRawUnchecked(rawData);
+    ) => GalleryListAssetsResponseDataDataRelatedPark.FromRawUnchecked(rawData);
 }

@@ -11,9 +11,6 @@ public class FeespassServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in feespasses)
-        {
-            item.Validate();
-        }
+        feespasses.Validate();
     }
 }

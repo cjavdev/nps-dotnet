@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IThingsTodoService
     /// <summary>
     /// Sends a request to <c>get /thingstodo<c/>.
     /// </summary>
-    Task<List<ThingsTodoListResponse>> List(
+    Task<ThingsTodoListResponse> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IThingsTodoServiceWithRawResponse
     /// Returns a raw HTTP response for `get /thingstodo`, but is otherwise the
     /// same as <see cref="IThingsTodoService.List(ThingsTodoListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<ThingsTodoListResponse>>> List(
+    Task<HttpResponse<ThingsTodoListResponse>> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

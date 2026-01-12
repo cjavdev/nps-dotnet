@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IGalleryService
     /// <summary>
     /// Sends a request to <c>get /multimedia/galleries<c/>.
     /// </summary>
-    Task<List<GalleryListResponse>> List(
+    Task<GalleryListResponse> List(
         GalleryListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -38,7 +37,7 @@ public interface IGalleryService
     /// <summary>
     /// Sends a request to <c>get /multimedia/galleries/assets<c/>.
     /// </summary>
-    Task<List<GalleryListAssetsResponse>> ListAssets(
+    Task<GalleryListAssetsResponse> ListAssets(
         GalleryListAssetsParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -61,7 +60,7 @@ public interface IGalleryServiceWithRawResponse
     /// Returns a raw HTTP response for `get /multimedia/galleries`, but is otherwise the
     /// same as <see cref="IGalleryService.List(GalleryListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<GalleryListResponse>>> List(
+    Task<HttpResponse<GalleryListResponse>> List(
         GalleryListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -70,7 +69,7 @@ public interface IGalleryServiceWithRawResponse
     /// Returns a raw HTTP response for `get /multimedia/galleries/assets`, but is otherwise the
     /// same as <see cref="IGalleryService.ListAssets(GalleryListAssetsParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<GalleryListAssetsResponse>>> ListAssets(
+    Task<HttpResponse<GalleryListAssetsResponse>> ListAssets(
         GalleryListAssetsParams? parameters = null,
         CancellationToken cancellationToken = default
     );

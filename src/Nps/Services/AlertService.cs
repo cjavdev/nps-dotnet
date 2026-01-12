@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class AlertService : IAlertService
     }
 
     /// <inheritdoc/>
-    public async Task<List<AlertListResponse>> List(
+    public async Task<AlertListResponse> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -64,7 +63,7 @@ public sealed class AlertServiceWithRawResponse : IAlertServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<AlertListResponse>>> List(
+    public async Task<HttpResponse<AlertListResponse>> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +81,11 @@ public sealed class AlertServiceWithRawResponse : IAlertServiceWithRawResponse
             async (token) =>
             {
                 var alerts = await response
-                    .Deserialize<List<AlertListResponse>>(token)
+                    .Deserialize<AlertListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in alerts)
-                    {
-                        item.Validate();
-                    }
+                    alerts.Validate();
                 }
                 return alerts;
             }

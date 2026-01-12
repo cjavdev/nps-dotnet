@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface ILessonplanService
     /// <summary>
     /// Sends a request to <c>get /lessonplans<c/>.
     /// </summary>
-    Task<List<LessonplanListResponse>> List(
+    Task<LessonplanListResponse> List(
         LessonplanListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface ILessonplanServiceWithRawResponse
     /// Returns a raw HTTP response for `get /lessonplans`, but is otherwise the
     /// same as <see cref="ILessonplanService.List(LessonplanListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<LessonplanListResponse>>> List(
+    Task<HttpResponse<LessonplanListResponse>> List(
         LessonplanListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

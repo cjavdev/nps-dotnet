@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IAmenityService
     /// <summary>
     /// Sends a request to <c>get /amenities<c/>.
     /// </summary>
-    Task<List<AmenityListResponse>> List(
+    Task<AmenityListResponse> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -38,7 +37,7 @@ public interface IAmenityService
     /// <summary>
     /// Sends a request to <c>get /amenities/parksplaces<c/>.
     /// </summary>
-    Task<List<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
+    Task<AmenityRetrieveParksPlacesResponse> RetrieveParksPlaces(
         AmenityRetrieveParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -46,7 +45,7 @@ public interface IAmenityService
     /// <summary>
     /// Sends a request to <c>get /amenities/parksvisitorcenters<c/>.
     /// </summary>
-    Task<List<AmenityRetrieveParksVisitorCentersResponse>> RetrieveParksVisitorCenters(
+    Task<AmenityRetrieveParksVisitorCentersResponse> RetrieveParksVisitorCenters(
         AmenityRetrieveParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -69,7 +68,7 @@ public interface IAmenityServiceWithRawResponse
     /// Returns a raw HTTP response for `get /amenities`, but is otherwise the
     /// same as <see cref="IAmenityService.List(AmenityListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<AmenityListResponse>>> List(
+    Task<HttpResponse<AmenityListResponse>> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -78,7 +77,7 @@ public interface IAmenityServiceWithRawResponse
     /// Returns a raw HTTP response for `get /amenities/parksplaces`, but is otherwise the
     /// same as <see cref="IAmenityService.RetrieveParksPlaces(AmenityRetrieveParksPlacesParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<AmenityRetrieveParksPlacesResponse>>> RetrieveParksPlaces(
+    Task<HttpResponse<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
         AmenityRetrieveParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -87,9 +86,7 @@ public interface IAmenityServiceWithRawResponse
     /// Returns a raw HTTP response for `get /amenities/parksvisitorcenters`, but is otherwise the
     /// same as <see cref="IAmenityService.RetrieveParksVisitorCenters(AmenityRetrieveParksVisitorCentersParams?, CancellationToken)"/>.
     /// </summary>
-    Task<
-        HttpResponse<List<AmenityRetrieveParksVisitorCentersResponse>>
-    > RetrieveParksVisitorCenters(
+    Task<HttpResponse<AmenityRetrieveParksVisitorCentersResponse>> RetrieveParksVisitorCenters(
         AmenityRetrieveParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default
     );

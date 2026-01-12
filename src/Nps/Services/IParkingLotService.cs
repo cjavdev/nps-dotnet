@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IParkingLotService
     /// <summary>
     /// Sends a request to <c>get /parkinglots<c/>.
     /// </summary>
-    Task<List<ParkingLotListResponse>> List(
+    Task<ParkingLotListResponse> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IParkingLotServiceWithRawResponse
     /// Returns a raw HTTP response for `get /parkinglots`, but is otherwise the
     /// same as <see cref="IParkingLotService.List(ParkingLotListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<ParkingLotListResponse>>> List(
+    Task<HttpResponse<ParkingLotListResponse>> List(
         ParkingLotListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

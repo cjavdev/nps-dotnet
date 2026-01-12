@@ -129,6 +129,125 @@ class TopicRetrieveParksResponseFromRaw : IFromRawJson<TopicRetrieveParksRespons
 )]
 public sealed record class TopicRetrieveParksResponseData : JsonModel
 {
+    public IReadOnlyList<TopicRetrieveParksResponseDataData>? Data
+    {
+        get
+        {
+            return JsonModel.GetNullableClass<List<TopicRetrieveParksResponseDataData>>(
+                this.RawData,
+                "data"
+            );
+        }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "data", value);
+        }
+    }
+
+    public string? Limit
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "limit", value);
+        }
+    }
+
+    public string? Start
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "start", value);
+        }
+    }
+
+    public string? Total
+    {
+        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawData, "total", value);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Validate()
+    {
+        foreach (var item in this.Data ?? [])
+        {
+            item.Validate();
+        }
+        _ = this.Limit;
+        _ = this.Start;
+        _ = this.Total;
+    }
+
+    public TopicRetrieveParksResponseData() { }
+
+    public TopicRetrieveParksResponseData(
+        TopicRetrieveParksResponseData topicRetrieveParksResponseData
+    )
+        : base(topicRetrieveParksResponseData) { }
+
+    public TopicRetrieveParksResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
+    TopicRetrieveParksResponseData(FrozenDictionary<string, JsonElement> rawData)
+    {
+        this._rawData = [.. rawData];
+    }
+#pragma warning restore CS8618
+
+    /// <inheritdoc cref="TopicRetrieveParksResponseDataFromRaw.FromRawUnchecked"/>
+    public static TopicRetrieveParksResponseData FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    )
+    {
+        return new(FrozenDictionary.ToFrozenDictionary(rawData));
+    }
+}
+
+class TopicRetrieveParksResponseDataFromRaw : IFromRawJson<TopicRetrieveParksResponseData>
+{
+    /// <inheritdoc/>
+    public TopicRetrieveParksResponseData FromRawUnchecked(
+        IReadOnlyDictionary<string, JsonElement> rawData
+    ) => TopicRetrieveParksResponseData.FromRawUnchecked(rawData);
+}
+
+[JsonConverter(
+    typeof(JsonModelConverter<
+        TopicRetrieveParksResponseDataData,
+        TopicRetrieveParksResponseDataDataFromRaw
+    >)
+)]
+public sealed record class TopicRetrieveParksResponseDataData : JsonModel
+{
     /// <summary>
     /// Unique identifier for topic park record
     /// </summary>
@@ -188,28 +307,28 @@ public sealed record class TopicRetrieveParksResponseData : JsonModel
         }
     }
 
-    public TopicRetrieveParksResponseData() { }
+    public TopicRetrieveParksResponseDataData() { }
 
-    public TopicRetrieveParksResponseData(
-        TopicRetrieveParksResponseData topicRetrieveParksResponseData
+    public TopicRetrieveParksResponseDataData(
+        TopicRetrieveParksResponseDataData topicRetrieveParksResponseDataData
     )
-        : base(topicRetrieveParksResponseData) { }
+        : base(topicRetrieveParksResponseDataData) { }
 
-    public TopicRetrieveParksResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
+    public TopicRetrieveParksResponseDataData(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    TopicRetrieveParksResponseData(FrozenDictionary<string, JsonElement> rawData)
+    TopicRetrieveParksResponseDataData(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="TopicRetrieveParksResponseDataFromRaw.FromRawUnchecked"/>
-    public static TopicRetrieveParksResponseData FromRawUnchecked(
+    /// <inheritdoc cref="TopicRetrieveParksResponseDataDataFromRaw.FromRawUnchecked"/>
+    public static TopicRetrieveParksResponseDataData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -217,12 +336,12 @@ public sealed record class TopicRetrieveParksResponseData : JsonModel
     }
 }
 
-class TopicRetrieveParksResponseDataFromRaw : IFromRawJson<TopicRetrieveParksResponseData>
+class TopicRetrieveParksResponseDataDataFromRaw : IFromRawJson<TopicRetrieveParksResponseDataData>
 {
     /// <inheritdoc/>
-    public TopicRetrieveParksResponseData FromRawUnchecked(
+    public TopicRetrieveParksResponseDataData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => TopicRetrieveParksResponseData.FromRawUnchecked(rawData);
+    ) => TopicRetrieveParksResponseDataData.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<Park, ParkFromRaw>))]

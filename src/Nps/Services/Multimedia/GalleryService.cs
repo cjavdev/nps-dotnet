@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class GalleryService : IGalleryService
     }
 
     /// <inheritdoc/>
-    public async Task<List<GalleryListResponse>> List(
+    public async Task<GalleryListResponse> List(
         GalleryListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -47,7 +46,7 @@ public sealed class GalleryService : IGalleryService
     }
 
     /// <inheritdoc/>
-    public async Task<List<GalleryListAssetsResponse>> ListAssets(
+    public async Task<GalleryListAssetsResponse> ListAssets(
         GalleryListAssetsParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -76,7 +75,7 @@ public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawRespon
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<GalleryListResponse>>> List(
+    public async Task<HttpResponse<GalleryListResponse>> List(
         GalleryListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -94,14 +93,11 @@ public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawRespon
             async (token) =>
             {
                 var galleries = await response
-                    .Deserialize<List<GalleryListResponse>>(token)
+                    .Deserialize<GalleryListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in galleries)
-                    {
-                        item.Validate();
-                    }
+                    galleries.Validate();
                 }
                 return galleries;
             }
@@ -109,7 +105,7 @@ public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawRespon
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<GalleryListAssetsResponse>>> ListAssets(
+    public async Task<HttpResponse<GalleryListAssetsResponse>> ListAssets(
         GalleryListAssetsParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -127,14 +123,11 @@ public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawRespon
             async (token) =>
             {
                 var deserializedResponse = await response
-                    .Deserialize<List<GalleryListAssetsResponse>>(token)
+                    .Deserialize<GalleryListAssetsResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in deserializedResponse)
-                    {
-                        item.Validate();
-                    }
+                    deserializedResponse.Validate();
                 }
                 return deserializedResponse;
             }

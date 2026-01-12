@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class FeespassService : IFeespassService
     }
 
     /// <inheritdoc/>
-    public async Task<List<FeespassListResponse>> List(
+    public async Task<FeespassListResponse> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -64,7 +63,7 @@ public sealed class FeespassServiceWithRawResponse : IFeespassServiceWithRawResp
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<FeespassListResponse>>> List(
+    public async Task<HttpResponse<FeespassListResponse>> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +81,11 @@ public sealed class FeespassServiceWithRawResponse : IFeespassServiceWithRawResp
             async (token) =>
             {
                 var feespasses = await response
-                    .Deserialize<List<FeespassListResponse>>(token)
+                    .Deserialize<FeespassListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in feespasses)
-                    {
-                        item.Validate();
-                    }
+                    feespasses.Validate();
                 }
                 return feespasses;
             }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class LessonplanService : ILessonplanService
     }
 
     /// <inheritdoc/>
-    public async Task<List<LessonplanListResponse>> List(
+    public async Task<LessonplanListResponse> List(
         LessonplanListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -66,7 +65,7 @@ public sealed class LessonplanServiceWithRawResponse : ILessonplanServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<LessonplanListResponse>>> List(
+    public async Task<HttpResponse<LessonplanListResponse>> List(
         LessonplanListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -84,14 +83,11 @@ public sealed class LessonplanServiceWithRawResponse : ILessonplanServiceWithRaw
             async (token) =>
             {
                 var lessonplans = await response
-                    .Deserialize<List<LessonplanListResponse>>(token)
+                    .Deserialize<LessonplanListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in lessonplans)
-                    {
-                        item.Validate();
-                    }
+                    lessonplans.Validate();
                 }
                 return lessonplans;
             }

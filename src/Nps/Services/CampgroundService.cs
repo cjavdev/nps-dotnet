@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class CampgroundService : ICampgroundService
     }
 
     /// <inheritdoc/>
-    public async Task<List<CampgroundListResponse>> List(
+    public async Task<CampgroundListResponse> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -66,7 +65,7 @@ public sealed class CampgroundServiceWithRawResponse : ICampgroundServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<CampgroundListResponse>>> List(
+    public async Task<HttpResponse<CampgroundListResponse>> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -84,14 +83,11 @@ public sealed class CampgroundServiceWithRawResponse : ICampgroundServiceWithRaw
             async (token) =>
             {
                 var campgrounds = await response
-                    .Deserialize<List<CampgroundListResponse>>(token)
+                    .Deserialize<CampgroundListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in campgrounds)
-                    {
-                        item.Validate();
-                    }
+                    campgrounds.Validate();
                 }
                 return campgrounds;
             }

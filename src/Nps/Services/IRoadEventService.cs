@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IRoadEventService
     /// <summary>
     /// Sends a request to <c>get /roadevents<c/>.
     /// </summary>
-    Task<List<RoadEventListResponse>> List(
+    Task<RoadEventListResponse> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IRoadEventServiceWithRawResponse
     /// Returns a raw HTTP response for `get /roadevents`, but is otherwise the
     /// same as <see cref="IRoadEventService.List(RoadEventListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<RoadEventListResponse>>> List(
+    Task<HttpResponse<RoadEventListResponse>> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

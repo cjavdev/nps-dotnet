@@ -15,68 +15,86 @@ public class AmenityRetrieveParksPlacesResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                    Name = "Accessibility - Accessible Restroom",
-                    Parks =
+                    Data =
                     [
                         new()
                         {
-                            Designation = "Parkway",
-                            FullName = "Blue Ridge Parkway",
-                            Name = "Blue Ridge",
-                            ParkCode = "blri",
-                            Places =
+                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                            Name = "Accessibility - Accessible Restroom",
+                            Parks =
                             [
                                 new()
                                 {
-                                    ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                    Title = "Mabry Mill",
-                                    Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                    Designation = "Parkway",
+                                    FullName = "Blue Ridge Parkway",
+                                    Name = "Blue Ridge",
+                                    ParkCode = "blri",
+                                    Places =
+                                    [
+                                        new()
+                                        {
+                                            ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                            Title = "Mabry Mill",
+                                            Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                        },
+                                    ],
+                                    States = "NC,VA",
+                                    Url = "https://www.nps.gov/blri/index.htm",
                                 },
                             ],
-                            States = "NC,VA",
-                            Url = "https://www.nps.gov/blri/index.htm",
                         },
                     ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "53",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "53",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         List<AmenityRetrieveParksPlacesResponseData> expectedData =
         [
             new()
             {
-                ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                Name = "Accessibility - Accessible Restroom",
-                Parks =
+                Data =
                 [
                     new()
                     {
-                        Designation = "Parkway",
-                        FullName = "Blue Ridge Parkway",
-                        Name = "Blue Ridge",
-                        ParkCode = "blri",
-                        Places =
+                        ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                        Name = "Accessibility - Accessible Restroom",
+                        Parks =
                         [
                             new()
                             {
-                                ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                Title = "Mabry Mill",
-                                Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                Designation = "Parkway",
+                                FullName = "Blue Ridge Parkway",
+                                Name = "Blue Ridge",
+                                ParkCode = "blri",
+                                Places =
+                                [
+                                    new()
+                                    {
+                                        ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                        Title = "Mabry Mill",
+                                        Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                    },
+                                ],
+                                States = "NC,VA",
+                                Url = "https://www.nps.gov/blri/index.htm",
                             },
                         ],
-                        States = "NC,VA",
-                        Url = "https://www.nps.gov/blri/index.htm",
                     },
                 ],
+                Limit = "50",
+                Start = "0",
+                Total = "53",
             },
         ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "53";
+        string expectedLimit = "limit";
+        string expectedStart = "start";
+        string expectedTotal = "total";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -98,34 +116,43 @@ public class AmenityRetrieveParksPlacesResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                    Name = "Accessibility - Accessible Restroom",
-                    Parks =
+                    Data =
                     [
                         new()
                         {
-                            Designation = "Parkway",
-                            FullName = "Blue Ridge Parkway",
-                            Name = "Blue Ridge",
-                            ParkCode = "blri",
-                            Places =
+                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                            Name = "Accessibility - Accessible Restroom",
+                            Parks =
                             [
                                 new()
                                 {
-                                    ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                    Title = "Mabry Mill",
-                                    Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                    Designation = "Parkway",
+                                    FullName = "Blue Ridge Parkway",
+                                    Name = "Blue Ridge",
+                                    ParkCode = "blri",
+                                    Places =
+                                    [
+                                        new()
+                                        {
+                                            ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                            Title = "Mabry Mill",
+                                            Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                        },
+                                    ],
+                                    States = "NC,VA",
+                                    Url = "https://www.nps.gov/blri/index.htm",
                                 },
                             ],
-                            States = "NC,VA",
-                            Url = "https://www.nps.gov/blri/index.htm",
                         },
                     ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "53",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "53",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -143,34 +170,43 @@ public class AmenityRetrieveParksPlacesResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                    Name = "Accessibility - Accessible Restroom",
-                    Parks =
+                    Data =
                     [
                         new()
                         {
-                            Designation = "Parkway",
-                            FullName = "Blue Ridge Parkway",
-                            Name = "Blue Ridge",
-                            ParkCode = "blri",
-                            Places =
+                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                            Name = "Accessibility - Accessible Restroom",
+                            Parks =
                             [
                                 new()
                                 {
-                                    ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                    Title = "Mabry Mill",
-                                    Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                    Designation = "Parkway",
+                                    FullName = "Blue Ridge Parkway",
+                                    Name = "Blue Ridge",
+                                    ParkCode = "blri",
+                                    Places =
+                                    [
+                                        new()
+                                        {
+                                            ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                            Title = "Mabry Mill",
+                                            Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                        },
+                                    ],
+                                    States = "NC,VA",
+                                    Url = "https://www.nps.gov/blri/index.htm",
                                 },
                             ],
-                            States = "NC,VA",
-                            Url = "https://www.nps.gov/blri/index.htm",
                         },
                     ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "53",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "53",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -181,34 +217,43 @@ public class AmenityRetrieveParksPlacesResponseTest : TestBase
         [
             new()
             {
-                ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                Name = "Accessibility - Accessible Restroom",
-                Parks =
+                Data =
                 [
                     new()
                     {
-                        Designation = "Parkway",
-                        FullName = "Blue Ridge Parkway",
-                        Name = "Blue Ridge",
-                        ParkCode = "blri",
-                        Places =
+                        ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                        Name = "Accessibility - Accessible Restroom",
+                        Parks =
                         [
                             new()
                             {
-                                ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                Title = "Mabry Mill",
-                                Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                Designation = "Parkway",
+                                FullName = "Blue Ridge Parkway",
+                                Name = "Blue Ridge",
+                                ParkCode = "blri",
+                                Places =
+                                [
+                                    new()
+                                    {
+                                        ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                        Title = "Mabry Mill",
+                                        Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                    },
+                                ],
+                                States = "NC,VA",
+                                Url = "https://www.nps.gov/blri/index.htm",
                             },
                         ],
-                        States = "NC,VA",
-                        Url = "https://www.nps.gov/blri/index.htm",
                     },
                 ],
+                Limit = "50",
+                Start = "0",
+                Total = "53",
             },
         ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "53";
+        string expectedLimit = "limit";
+        string expectedStart = "start";
+        string expectedTotal = "total";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -230,34 +275,43 @@ public class AmenityRetrieveParksPlacesResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                    Name = "Accessibility - Accessible Restroom",
-                    Parks =
+                    Data =
                     [
                         new()
                         {
-                            Designation = "Parkway",
-                            FullName = "Blue Ridge Parkway",
-                            Name = "Blue Ridge",
-                            ParkCode = "blri",
-                            Places =
+                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                            Name = "Accessibility - Accessible Restroom",
+                            Parks =
                             [
                                 new()
                                 {
-                                    ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                    Title = "Mabry Mill",
-                                    Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                    Designation = "Parkway",
+                                    FullName = "Blue Ridge Parkway",
+                                    Name = "Blue Ridge",
+                                    ParkCode = "blri",
+                                    Places =
+                                    [
+                                        new()
+                                        {
+                                            ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                            Title = "Mabry Mill",
+                                            Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                        },
+                                    ],
+                                    States = "NC,VA",
+                                    Url = "https://www.nps.gov/blri/index.htm",
                                 },
                             ],
-                            States = "NC,VA",
-                            Url = "https://www.nps.gov/blri/index.htm",
                         },
                     ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "53",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "53",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         model.Validate();
@@ -331,6 +385,328 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     {
         var model = new AmenityRetrieveParksPlacesResponseData
         {
+            Data =
+            [
+                new()
+                {
+                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                    Name = "Accessibility - Accessible Restroom",
+                    Parks =
+                    [
+                        new()
+                        {
+                            Designation = "Parkway",
+                            FullName = "Blue Ridge Parkway",
+                            Name = "Blue Ridge",
+                            ParkCode = "blri",
+                            Places =
+                            [
+                                new()
+                                {
+                                    ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                    Title = "Mabry Mill",
+                                    Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                },
+                            ],
+                            States = "NC,VA",
+                            Url = "https://www.nps.gov/blri/index.htm",
+                        },
+                    ],
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "53",
+        };
+
+        List<AmenityRetrieveParksPlacesResponseDataData> expectedData =
+        [
+            new()
+            {
+                ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                Name = "Accessibility - Accessible Restroom",
+                Parks =
+                [
+                    new()
+                    {
+                        Designation = "Parkway",
+                        FullName = "Blue Ridge Parkway",
+                        Name = "Blue Ridge",
+                        ParkCode = "blri",
+                        Places =
+                        [
+                            new()
+                            {
+                                ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                Title = "Mabry Mill",
+                                Url = "https://www.nps.gov/places/mabry-mill.htm",
+                            },
+                        ],
+                        States = "NC,VA",
+                        Url = "https://www.nps.gov/blri/index.htm",
+                    },
+                ],
+            },
+        ];
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "53";
+
+        Assert.NotNull(model.Data);
+        Assert.Equal(expectedData.Count, model.Data.Count);
+        for (int i = 0; i < expectedData.Count; i++)
+        {
+            Assert.Equal(expectedData[i], model.Data[i]);
+        }
+        Assert.Equal(expectedLimit, model.Limit);
+        Assert.Equal(expectedStart, model.Start);
+        Assert.Equal(expectedTotal, model.Total);
+    }
+
+    [Fact]
+    public void SerializationRoundtrip_Works()
+    {
+        var model = new AmenityRetrieveParksPlacesResponseData
+        {
+            Data =
+            [
+                new()
+                {
+                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                    Name = "Accessibility - Accessible Restroom",
+                    Parks =
+                    [
+                        new()
+                        {
+                            Designation = "Parkway",
+                            FullName = "Blue Ridge Parkway",
+                            Name = "Blue Ridge",
+                            ParkCode = "blri",
+                            Places =
+                            [
+                                new()
+                                {
+                                    ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                    Title = "Mabry Mill",
+                                    Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                },
+                            ],
+                            States = "NC,VA",
+                            Url = "https://www.nps.gov/blri/index.htm",
+                        },
+                    ],
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "53",
+        };
+
+        string json = JsonSerializer.Serialize(model);
+        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseData>(json);
+
+        Assert.Equal(model, deserialized);
+    }
+
+    [Fact]
+    public void FieldRoundtripThroughSerialization_Works()
+    {
+        var model = new AmenityRetrieveParksPlacesResponseData
+        {
+            Data =
+            [
+                new()
+                {
+                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                    Name = "Accessibility - Accessible Restroom",
+                    Parks =
+                    [
+                        new()
+                        {
+                            Designation = "Parkway",
+                            FullName = "Blue Ridge Parkway",
+                            Name = "Blue Ridge",
+                            ParkCode = "blri",
+                            Places =
+                            [
+                                new()
+                                {
+                                    ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                    Title = "Mabry Mill",
+                                    Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                },
+                            ],
+                            States = "NC,VA",
+                            Url = "https://www.nps.gov/blri/index.htm",
+                        },
+                    ],
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "53",
+        };
+
+        string element = JsonSerializer.Serialize(model);
+        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseData>(
+            element
+        );
+        Assert.NotNull(deserialized);
+
+        List<AmenityRetrieveParksPlacesResponseDataData> expectedData =
+        [
+            new()
+            {
+                ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                Name = "Accessibility - Accessible Restroom",
+                Parks =
+                [
+                    new()
+                    {
+                        Designation = "Parkway",
+                        FullName = "Blue Ridge Parkway",
+                        Name = "Blue Ridge",
+                        ParkCode = "blri",
+                        Places =
+                        [
+                            new()
+                            {
+                                ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                Title = "Mabry Mill",
+                                Url = "https://www.nps.gov/places/mabry-mill.htm",
+                            },
+                        ],
+                        States = "NC,VA",
+                        Url = "https://www.nps.gov/blri/index.htm",
+                    },
+                ],
+            },
+        ];
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "53";
+
+        Assert.NotNull(deserialized.Data);
+        Assert.Equal(expectedData.Count, deserialized.Data.Count);
+        for (int i = 0; i < expectedData.Count; i++)
+        {
+            Assert.Equal(expectedData[i], deserialized.Data[i]);
+        }
+        Assert.Equal(expectedLimit, deserialized.Limit);
+        Assert.Equal(expectedStart, deserialized.Start);
+        Assert.Equal(expectedTotal, deserialized.Total);
+    }
+
+    [Fact]
+    public void Validation_Works()
+    {
+        var model = new AmenityRetrieveParksPlacesResponseData
+        {
+            Data =
+            [
+                new()
+                {
+                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                    Name = "Accessibility - Accessible Restroom",
+                    Parks =
+                    [
+                        new()
+                        {
+                            Designation = "Parkway",
+                            FullName = "Blue Ridge Parkway",
+                            Name = "Blue Ridge",
+                            ParkCode = "blri",
+                            Places =
+                            [
+                                new()
+                                {
+                                    ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
+                                    Title = "Mabry Mill",
+                                    Url = "https://www.nps.gov/places/mabry-mill.htm",
+                                },
+                            ],
+                            States = "NC,VA",
+                            Url = "https://www.nps.gov/blri/index.htm",
+                        },
+                    ],
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "53",
+        };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
+    {
+        var model = new AmenityRetrieveParksPlacesResponseData { };
+
+        Assert.Null(model.Data);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetValidation_Works()
+    {
+        var model = new AmenityRetrieveParksPlacesResponseData { };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
+    {
+        var model = new AmenityRetrieveParksPlacesResponseData
+        {
+            // Null should be interpreted as omitted for these properties
+            Data = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        Assert.Null(model.Data);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
+    {
+        var model = new AmenityRetrieveParksPlacesResponseData
+        {
+            // Null should be interpreted as omitted for these properties
+            Data = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        model.Validate();
+    }
+}
+
+public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
+{
+    [Fact]
+    public void FieldRoundtrip_Works()
+    {
+        var model = new AmenityRetrieveParksPlacesResponseDataData
+        {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
             Parks =
@@ -393,7 +769,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityRetrieveParksPlacesResponseDataData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -421,7 +797,9 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseData>(json);
+        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseDataData>(
+            json
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -429,7 +807,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityRetrieveParksPlacesResponseDataData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -457,7 +835,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseData>(
+        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseDataData>(
             element
         );
         Assert.NotNull(deserialized);
@@ -499,7 +877,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityRetrieveParksPlacesResponseDataData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -532,7 +910,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData { };
+        var model = new AmenityRetrieveParksPlacesResponseDataData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -545,7 +923,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData { };
+        var model = new AmenityRetrieveParksPlacesResponseDataData { };
 
         model.Validate();
     }
@@ -553,7 +931,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityRetrieveParksPlacesResponseDataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -572,7 +950,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityRetrieveParksPlacesResponseDataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

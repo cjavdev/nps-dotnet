@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IAlertService
     /// <summary>
     /// Sends a request to <c>get /alerts<c/>.
     /// </summary>
-    Task<List<AlertListResponse>> List(
+    Task<AlertListResponse> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IAlertServiceWithRawResponse
     /// Returns a raw HTTP response for `get /alerts`, but is otherwise the
     /// same as <see cref="IAlertService.List(AlertListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<AlertListResponse>>> List(
+    Task<HttpResponse<AlertListResponse>> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

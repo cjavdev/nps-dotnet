@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IPlaceService
     /// <summary>
     /// Sends a request to <c>get /places<c/>.
     /// </summary>
-    Task<List<PlaceListResponse>> List(
+    Task<PlaceListResponse> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -53,7 +52,7 @@ public interface IPlaceServiceWithRawResponse
     /// Returns a raw HTTP response for `get /places`, but is otherwise the
     /// same as <see cref="IPlaceService.List(PlaceListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<PlaceListResponse>>> List(
+    Task<HttpResponse<PlaceListResponse>> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

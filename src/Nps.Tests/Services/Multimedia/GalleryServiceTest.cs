@@ -11,10 +11,7 @@ public class GalleryServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in galleries)
-        {
-            item.Validate();
-        }
+        galleries.Validate();
     }
 
     [Fact(Skip = "Prism tests are disabled")]
@@ -24,9 +21,6 @@ public class GalleryServiceTest : TestBase
             new(),
             TestContext.Current.CancellationToken
         );
-        foreach (var item in response)
-        {
-            item.Validate();
-        }
+        response.Validate();
     }
 }

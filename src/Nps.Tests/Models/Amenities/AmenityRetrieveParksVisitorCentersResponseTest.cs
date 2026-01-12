@@ -15,68 +15,88 @@ public class AmenityRetrieveParksVisitorCentersResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                    Name = "Accessibility - Accessible Restroom",
-                    Parks =
+                    Data =
                     [
                         new()
                         {
-                            Designation = "National Memorial",
-                            FullName = "",
-                            Name = "Mount Rushmore",
-                            ParkCode = "moru",
-                            States = "SD",
-                            Url = "https://www.nps.gov/moru/index.htm",
-                            Visitorcenters =
+                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                            Name = "Accessibility - Accessible Restroom",
+                            Parks =
                             [
                                 new()
                                 {
-                                    ID = "AB856735-B829-4053-8BB2-9A27BC193084",
-                                    Name = "Lincoln Borglum Visitor Center",
-                                    Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                    Designation = "National Memorial",
+                                    FullName = "",
+                                    Name = "Mount Rushmore",
+                                    ParkCode = "moru",
+                                    States = "SD",
+                                    Url = "https://www.nps.gov/moru/index.htm",
+                                    Visitorcenters =
+                                    [
+                                        new()
+                                        {
+                                            ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                            Name = "Lincoln Borglum Visitor Center",
+                                            Url =
+                                                "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                        },
+                                    ],
                                 },
                             ],
                         },
                     ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "53",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "53",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         List<AmenityRetrieveParksVisitorCentersResponseData> expectedData =
         [
             new()
             {
-                ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                Name = "Accessibility - Accessible Restroom",
-                Parks =
+                Data =
                 [
                     new()
                     {
-                        Designation = "National Memorial",
-                        FullName = "",
-                        Name = "Mount Rushmore",
-                        ParkCode = "moru",
-                        States = "SD",
-                        Url = "https://www.nps.gov/moru/index.htm",
-                        Visitorcenters =
+                        ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                        Name = "Accessibility - Accessible Restroom",
+                        Parks =
                         [
                             new()
                             {
-                                ID = "AB856735-B829-4053-8BB2-9A27BC193084",
-                                Name = "Lincoln Borglum Visitor Center",
-                                Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                Designation = "National Memorial",
+                                FullName = "",
+                                Name = "Mount Rushmore",
+                                ParkCode = "moru",
+                                States = "SD",
+                                Url = "https://www.nps.gov/moru/index.htm",
+                                Visitorcenters =
+                                [
+                                    new()
+                                    {
+                                        ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                        Name = "Lincoln Borglum Visitor Center",
+                                        Url =
+                                            "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                    },
+                                ],
                             },
                         ],
                     },
                 ],
+                Limit = "50",
+                Start = "0",
+                Total = "53",
             },
         ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "53";
+        string expectedLimit = "limit";
+        string expectedStart = "start";
+        string expectedTotal = "total";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -98,34 +118,44 @@ public class AmenityRetrieveParksVisitorCentersResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                    Name = "Accessibility - Accessible Restroom",
-                    Parks =
+                    Data =
                     [
                         new()
                         {
-                            Designation = "National Memorial",
-                            FullName = "",
-                            Name = "Mount Rushmore",
-                            ParkCode = "moru",
-                            States = "SD",
-                            Url = "https://www.nps.gov/moru/index.htm",
-                            Visitorcenters =
+                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                            Name = "Accessibility - Accessible Restroom",
+                            Parks =
                             [
                                 new()
                                 {
-                                    ID = "AB856735-B829-4053-8BB2-9A27BC193084",
-                                    Name = "Lincoln Borglum Visitor Center",
-                                    Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                    Designation = "National Memorial",
+                                    FullName = "",
+                                    Name = "Mount Rushmore",
+                                    ParkCode = "moru",
+                                    States = "SD",
+                                    Url = "https://www.nps.gov/moru/index.htm",
+                                    Visitorcenters =
+                                    [
+                                        new()
+                                        {
+                                            ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                            Name = "Lincoln Borglum Visitor Center",
+                                            Url =
+                                                "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                        },
+                                    ],
                                 },
                             ],
                         },
                     ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "53",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "53",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -145,34 +175,44 @@ public class AmenityRetrieveParksVisitorCentersResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                    Name = "Accessibility - Accessible Restroom",
-                    Parks =
+                    Data =
                     [
                         new()
                         {
-                            Designation = "National Memorial",
-                            FullName = "",
-                            Name = "Mount Rushmore",
-                            ParkCode = "moru",
-                            States = "SD",
-                            Url = "https://www.nps.gov/moru/index.htm",
-                            Visitorcenters =
+                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                            Name = "Accessibility - Accessible Restroom",
+                            Parks =
                             [
                                 new()
                                 {
-                                    ID = "AB856735-B829-4053-8BB2-9A27BC193084",
-                                    Name = "Lincoln Borglum Visitor Center",
-                                    Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                    Designation = "National Memorial",
+                                    FullName = "",
+                                    Name = "Mount Rushmore",
+                                    ParkCode = "moru",
+                                    States = "SD",
+                                    Url = "https://www.nps.gov/moru/index.htm",
+                                    Visitorcenters =
+                                    [
+                                        new()
+                                        {
+                                            ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                            Name = "Lincoln Borglum Visitor Center",
+                                            Url =
+                                                "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                        },
+                                    ],
                                 },
                             ],
                         },
                     ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "53",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "53",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -185,34 +225,44 @@ public class AmenityRetrieveParksVisitorCentersResponseTest : TestBase
         [
             new()
             {
-                ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                Name = "Accessibility - Accessible Restroom",
-                Parks =
+                Data =
                 [
                     new()
                     {
-                        Designation = "National Memorial",
-                        FullName = "",
-                        Name = "Mount Rushmore",
-                        ParkCode = "moru",
-                        States = "SD",
-                        Url = "https://www.nps.gov/moru/index.htm",
-                        Visitorcenters =
+                        ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                        Name = "Accessibility - Accessible Restroom",
+                        Parks =
                         [
                             new()
                             {
-                                ID = "AB856735-B829-4053-8BB2-9A27BC193084",
-                                Name = "Lincoln Borglum Visitor Center",
-                                Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                Designation = "National Memorial",
+                                FullName = "",
+                                Name = "Mount Rushmore",
+                                ParkCode = "moru",
+                                States = "SD",
+                                Url = "https://www.nps.gov/moru/index.htm",
+                                Visitorcenters =
+                                [
+                                    new()
+                                    {
+                                        ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                        Name = "Lincoln Borglum Visitor Center",
+                                        Url =
+                                            "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                    },
+                                ],
                             },
                         ],
                     },
                 ],
+                Limit = "50",
+                Start = "0",
+                Total = "53",
             },
         ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "53";
+        string expectedLimit = "limit";
+        string expectedStart = "start";
+        string expectedTotal = "total";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -234,34 +284,44 @@ public class AmenityRetrieveParksVisitorCentersResponseTest : TestBase
             [
                 new()
                 {
-                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                    Name = "Accessibility - Accessible Restroom",
-                    Parks =
+                    Data =
                     [
                         new()
                         {
-                            Designation = "National Memorial",
-                            FullName = "",
-                            Name = "Mount Rushmore",
-                            ParkCode = "moru",
-                            States = "SD",
-                            Url = "https://www.nps.gov/moru/index.htm",
-                            Visitorcenters =
+                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                            Name = "Accessibility - Accessible Restroom",
+                            Parks =
                             [
                                 new()
                                 {
-                                    ID = "AB856735-B829-4053-8BB2-9A27BC193084",
-                                    Name = "Lincoln Borglum Visitor Center",
-                                    Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                    Designation = "National Memorial",
+                                    FullName = "",
+                                    Name = "Mount Rushmore",
+                                    ParkCode = "moru",
+                                    States = "SD",
+                                    Url = "https://www.nps.gov/moru/index.htm",
+                                    Visitorcenters =
+                                    [
+                                        new()
+                                        {
+                                            ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                            Name = "Lincoln Borglum Visitor Center",
+                                            Url =
+                                                "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                        },
+                                    ],
                                 },
                             ],
                         },
                     ],
+                    Limit = "50",
+                    Start = "0",
+                    Total = "53",
                 },
             ],
-            Limit = "50",
-            Start = "0",
-            Total = "53",
+            Limit = "limit",
+            Start = "start",
+            Total = "total",
         };
 
         model.Validate();
@@ -335,6 +395,328 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     {
         var model = new AmenityRetrieveParksVisitorCentersResponseData
         {
+            Data =
+            [
+                new()
+                {
+                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                    Name = "Accessibility - Accessible Restroom",
+                    Parks =
+                    [
+                        new()
+                        {
+                            Designation = "National Memorial",
+                            FullName = "",
+                            Name = "Mount Rushmore",
+                            ParkCode = "moru",
+                            States = "SD",
+                            Url = "https://www.nps.gov/moru/index.htm",
+                            Visitorcenters =
+                            [
+                                new()
+                                {
+                                    ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                    Name = "Lincoln Borglum Visitor Center",
+                                    Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "53",
+        };
+
+        List<AmenityRetrieveParksVisitorCentersResponseDataData> expectedData =
+        [
+            new()
+            {
+                ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                Name = "Accessibility - Accessible Restroom",
+                Parks =
+                [
+                    new()
+                    {
+                        Designation = "National Memorial",
+                        FullName = "",
+                        Name = "Mount Rushmore",
+                        ParkCode = "moru",
+                        States = "SD",
+                        Url = "https://www.nps.gov/moru/index.htm",
+                        Visitorcenters =
+                        [
+                            new()
+                            {
+                                ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                Name = "Lincoln Borglum Visitor Center",
+                                Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                            },
+                        ],
+                    },
+                ],
+            },
+        ];
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "53";
+
+        Assert.NotNull(model.Data);
+        Assert.Equal(expectedData.Count, model.Data.Count);
+        for (int i = 0; i < expectedData.Count; i++)
+        {
+            Assert.Equal(expectedData[i], model.Data[i]);
+        }
+        Assert.Equal(expectedLimit, model.Limit);
+        Assert.Equal(expectedStart, model.Start);
+        Assert.Equal(expectedTotal, model.Total);
+    }
+
+    [Fact]
+    public void SerializationRoundtrip_Works()
+    {
+        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        {
+            Data =
+            [
+                new()
+                {
+                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                    Name = "Accessibility - Accessible Restroom",
+                    Parks =
+                    [
+                        new()
+                        {
+                            Designation = "National Memorial",
+                            FullName = "",
+                            Name = "Mount Rushmore",
+                            ParkCode = "moru",
+                            States = "SD",
+                            Url = "https://www.nps.gov/moru/index.htm",
+                            Visitorcenters =
+                            [
+                                new()
+                                {
+                                    ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                    Name = "Lincoln Borglum Visitor Center",
+                                    Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "53",
+        };
+
+        string json = JsonSerializer.Serialize(model);
+        var deserialized =
+            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseData>(json);
+
+        Assert.Equal(model, deserialized);
+    }
+
+    [Fact]
+    public void FieldRoundtripThroughSerialization_Works()
+    {
+        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        {
+            Data =
+            [
+                new()
+                {
+                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                    Name = "Accessibility - Accessible Restroom",
+                    Parks =
+                    [
+                        new()
+                        {
+                            Designation = "National Memorial",
+                            FullName = "",
+                            Name = "Mount Rushmore",
+                            ParkCode = "moru",
+                            States = "SD",
+                            Url = "https://www.nps.gov/moru/index.htm",
+                            Visitorcenters =
+                            [
+                                new()
+                                {
+                                    ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                    Name = "Lincoln Borglum Visitor Center",
+                                    Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "53",
+        };
+
+        string element = JsonSerializer.Serialize(model);
+        var deserialized =
+            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseData>(element);
+        Assert.NotNull(deserialized);
+
+        List<AmenityRetrieveParksVisitorCentersResponseDataData> expectedData =
+        [
+            new()
+            {
+                ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                Name = "Accessibility - Accessible Restroom",
+                Parks =
+                [
+                    new()
+                    {
+                        Designation = "National Memorial",
+                        FullName = "",
+                        Name = "Mount Rushmore",
+                        ParkCode = "moru",
+                        States = "SD",
+                        Url = "https://www.nps.gov/moru/index.htm",
+                        Visitorcenters =
+                        [
+                            new()
+                            {
+                                ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                Name = "Lincoln Borglum Visitor Center",
+                                Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                            },
+                        ],
+                    },
+                ],
+            },
+        ];
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "53";
+
+        Assert.NotNull(deserialized.Data);
+        Assert.Equal(expectedData.Count, deserialized.Data.Count);
+        for (int i = 0; i < expectedData.Count; i++)
+        {
+            Assert.Equal(expectedData[i], deserialized.Data[i]);
+        }
+        Assert.Equal(expectedLimit, deserialized.Limit);
+        Assert.Equal(expectedStart, deserialized.Start);
+        Assert.Equal(expectedTotal, deserialized.Total);
+    }
+
+    [Fact]
+    public void Validation_Works()
+    {
+        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        {
+            Data =
+            [
+                new()
+                {
+                    ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
+                    Name = "Accessibility - Accessible Restroom",
+                    Parks =
+                    [
+                        new()
+                        {
+                            Designation = "National Memorial",
+                            FullName = "",
+                            Name = "Mount Rushmore",
+                            ParkCode = "moru",
+                            States = "SD",
+                            Url = "https://www.nps.gov/moru/index.htm",
+                            Visitorcenters =
+                            [
+                                new()
+                                {
+                                    ID = "AB856735-B829-4053-8BB2-9A27BC193084",
+                                    Name = "Lincoln Borglum Visitor Center",
+                                    Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            Limit = "50",
+            Start = "0",
+            Total = "53",
+        };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
+    {
+        var model = new AmenityRetrieveParksVisitorCentersResponseData { };
+
+        Assert.Null(model.Data);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesUnsetValidation_Works()
+    {
+        var model = new AmenityRetrieveParksVisitorCentersResponseData { };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
+    {
+        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        {
+            // Null should be interpreted as omitted for these properties
+            Data = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        Assert.Null(model.Data);
+        Assert.False(model.RawData.ContainsKey("data"));
+        Assert.Null(model.Limit);
+        Assert.False(model.RawData.ContainsKey("limit"));
+        Assert.Null(model.Start);
+        Assert.False(model.RawData.ContainsKey("start"));
+        Assert.Null(model.Total);
+        Assert.False(model.RawData.ContainsKey("total"));
+    }
+
+    [Fact]
+    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
+    {
+        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        {
+            // Null should be interpreted as omitted for these properties
+            Data = null,
+            Limit = null,
+            Start = null,
+            Total = null,
+        };
+
+        model.Validate();
+    }
+}
+
+public class AmenityRetrieveParksVisitorCentersResponseDataDataTest : TestBase
+{
+    [Fact]
+    public void FieldRoundtrip_Works()
+    {
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataData
+        {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
             Parks =
@@ -362,7 +744,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
 
         string expectedID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F";
         string expectedName = "Accessibility - Accessible Restroom";
-        List<AmenityRetrieveParksVisitorCentersResponseDataPark> expectedParks =
+        List<AmenityRetrieveParksVisitorCentersResponseDataDataPark> expectedParks =
         [
             new()
             {
@@ -397,7 +779,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -426,7 +808,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
 
         string json = JsonSerializer.Serialize(model);
         var deserialized =
-            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseData>(json);
+            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseDataData>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -434,7 +816,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -463,12 +845,12 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
 
         string element = JsonSerializer.Serialize(model);
         var deserialized =
-            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseData>(element);
+            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseDataData>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F";
         string expectedName = "Accessibility - Accessible Restroom";
-        List<AmenityRetrieveParksVisitorCentersResponseDataPark> expectedParks =
+        List<AmenityRetrieveParksVisitorCentersResponseDataDataPark> expectedParks =
         [
             new()
             {
@@ -503,7 +885,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -536,7 +918,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseData { };
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -549,7 +931,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseData { };
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataData { };
 
         model.Validate();
     }
@@ -557,7 +939,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -576,7 +958,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseData
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -588,12 +970,12 @@ public class AmenityRetrieveParksVisitorCentersResponseDataTest : TestBase
     }
 }
 
-public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
+public class AmenityRetrieveParksVisitorCentersResponseDataDataParkTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseDataPark
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataDataPark
         {
             Designation = "National Memorial",
             FullName = "",
@@ -645,7 +1027,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseDataPark
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataDataPark
         {
             Designation = "National Memorial",
             FullName = "",
@@ -666,7 +1048,9 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
 
         string json = JsonSerializer.Serialize(model);
         var deserialized =
-            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseDataPark>(json);
+            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseDataDataPark>(
+                json
+            );
 
         Assert.Equal(model, deserialized);
     }
@@ -674,7 +1058,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseDataPark
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataDataPark
         {
             Designation = "National Memorial",
             FullName = "",
@@ -695,7 +1079,9 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
 
         string element = JsonSerializer.Serialize(model);
         var deserialized =
-            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseDataPark>(element);
+            JsonSerializer.Deserialize<AmenityRetrieveParksVisitorCentersResponseDataDataPark>(
+                element
+            );
         Assert.NotNull(deserialized);
 
         string expectedDesignation = "National Memorial";
@@ -731,7 +1117,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseDataPark
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataDataPark
         {
             Designation = "National Memorial",
             FullName = "",
@@ -756,7 +1142,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseDataPark { };
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataDataPark { };
 
         Assert.Null(model.Designation);
         Assert.False(model.RawData.ContainsKey("designation"));
@@ -777,7 +1163,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseDataPark { };
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataDataPark { };
 
         model.Validate();
     }
@@ -785,7 +1171,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseDataPark
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataDataPark
         {
             // Null should be interpreted as omitted for these properties
             Designation = null,
@@ -816,7 +1202,7 @@ public class AmenityRetrieveParksVisitorCentersResponseDataParkTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new AmenityRetrieveParksVisitorCentersResponseDataPark
+        var model = new AmenityRetrieveParksVisitorCentersResponseDataDataPark
         {
             // Null should be interpreted as omitted for these properties
             Designation = null,

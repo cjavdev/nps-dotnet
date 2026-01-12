@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ public sealed class TopicService : ITopicService
     }
 
     /// <inheritdoc/>
-    public async Task<List<TopicListResponse>> List(
+    public async Task<TopicListResponse> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -47,7 +46,7 @@ public sealed class TopicService : ITopicService
     }
 
     /// <inheritdoc/>
-    public async Task<List<TopicRetrieveParksResponse>> RetrieveParks(
+    public async Task<TopicRetrieveParksResponse> RetrieveParks(
         TopicRetrieveParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -76,7 +75,7 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<TopicListResponse>>> List(
+    public async Task<HttpResponse<TopicListResponse>> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -94,14 +93,11 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
             async (token) =>
             {
                 var topics = await response
-                    .Deserialize<List<TopicListResponse>>(token)
+                    .Deserialize<TopicListResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in topics)
-                    {
-                        item.Validate();
-                    }
+                    topics.Validate();
                 }
                 return topics;
             }
@@ -109,7 +105,7 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<List<TopicRetrieveParksResponse>>> RetrieveParks(
+    public async Task<HttpResponse<TopicRetrieveParksResponse>> RetrieveParks(
         TopicRetrieveParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -127,14 +123,11 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
             async (token) =>
             {
                 var deserializedResponse = await response
-                    .Deserialize<List<TopicRetrieveParksResponse>>(token)
+                    .Deserialize<TopicRetrieveParksResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    foreach (var item in deserializedResponse)
-                    {
-                        item.Validate();
-                    }
+                    deserializedResponse.Validate();
                 }
                 return deserializedResponse;
             }
