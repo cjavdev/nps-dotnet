@@ -27,6 +27,9 @@ public interface IPersonService
     /// </summary>
     IPersonService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /people<c/>.
+    /// </summary>
     Task<List<PersonListResponse>> List(
         PersonListParams? parameters = null,
         CancellationToken cancellationToken = default

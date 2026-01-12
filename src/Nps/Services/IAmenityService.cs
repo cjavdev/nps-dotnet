@@ -27,16 +27,25 @@ public interface IAmenityService
     /// </summary>
     IAmenityService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /amenities<c/>.
+    /// </summary>
     Task<List<AmenityListResponse>> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Sends a request to <c>get /amenities/parksplaces<c/>.
+    /// </summary>
     Task<List<AmenityRetrieveParksPlacesResponse>> RetrieveParksPlaces(
         AmenityRetrieveParksPlacesParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Sends a request to <c>get /amenities/parksvisitorcenters<c/>.
+    /// </summary>
     Task<List<AmenityRetrieveParksVisitorCentersResponse>> RetrieveParksVisitorCenters(
         AmenityRetrieveParksVisitorCentersParams? parameters = null,
         CancellationToken cancellationToken = default

@@ -27,6 +27,9 @@ public interface IAlertService
     /// </summary>
     IAlertService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /alerts<c/>.
+    /// </summary>
     Task<List<AlertListResponse>> List(
         AlertListParams? parameters = null,
         CancellationToken cancellationToken = default

@@ -27,11 +27,17 @@ public interface ITopicService
     /// </summary>
     ITopicService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /topics<c/>.
+    /// </summary>
     Task<List<TopicListResponse>> List(
         TopicListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Sends a request to <c>get /topics/parks<c/>.
+    /// </summary>
     Task<List<TopicRetrieveParksResponse>> RetrieveParks(
         TopicRetrieveParksParams? parameters = null,
         CancellationToken cancellationToken = default

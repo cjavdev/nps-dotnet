@@ -27,6 +27,9 @@ public interface ICampgroundService
     /// </summary>
     ICampgroundService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /campgrounds<c/>.
+    /// </summary>
     Task<List<CampgroundListResponse>> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default

@@ -30,11 +30,17 @@ public interface IMultimediaService
 
     IGalleryService Galleries { get; }
 
+    /// <summary>
+    /// Sends a request to <c>get /multimedia/audio<c/>.
+    /// </summary>
     Task<List<MultimediaListAudioResponse>> ListAudio(
         MultimediaListAudioParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Sends a request to <c>get /multimedia/videos<c/>.
+    /// </summary>
     Task<List<MultimediaListVideosResponse>> ListVideos(
         MultimediaListVideosParams? parameters = null,
         CancellationToken cancellationToken = default

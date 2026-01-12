@@ -27,6 +27,9 @@ public interface IWebcamService
     /// </summary>
     IWebcamService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /webcams<c/>.
+    /// </summary>
     Task<List<WebcamListResponse>> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default

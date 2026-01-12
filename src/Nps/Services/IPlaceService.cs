@@ -27,6 +27,9 @@ public interface IPlaceService
     /// </summary>
     IPlaceService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /places<c/>.
+    /// </summary>
     Task<List<PlaceListResponse>> List(
         PlaceListParams? parameters = null,
         CancellationToken cancellationToken = default

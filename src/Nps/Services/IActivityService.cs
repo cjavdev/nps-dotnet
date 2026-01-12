@@ -27,6 +27,9 @@ public interface IActivityService
     /// </summary>
     IActivityService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /activities<c/>.
+    /// </summary>
     Task<List<ActivityListResponse>> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default

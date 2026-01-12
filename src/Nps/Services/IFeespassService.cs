@@ -27,6 +27,9 @@ public interface IFeespassService
     /// </summary>
     IFeespassService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /feespasses<c/>.
+    /// </summary>
     Task<List<FeespassListResponse>> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default

@@ -27,6 +27,9 @@ public interface IThingsTodoService
     /// </summary>
     IThingsTodoService WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
+    /// <summary>
+    /// Sends a request to <c>get /thingstodo<c/>.
+    /// </summary>
     Task<List<ThingsTodoListResponse>> List(
         ThingsTodoListParams? parameters = null,
         CancellationToken cancellationToken = default
