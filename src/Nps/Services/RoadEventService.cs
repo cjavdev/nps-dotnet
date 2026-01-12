@@ -34,7 +34,7 @@ public sealed class RoadEventService : IRoadEventService
     }
 
     /// <inheritdoc/>
-    public async Task<RoadEventListResponse> List(
+    public async Task<RoadEventListPage> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class RoadEventServiceWithRawResponse : IRoadEventServiceWithRawRe
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<RoadEventListResponse>> List(
+    public async Task<HttpResponse<RoadEventListPage>> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class RoadEventServiceWithRawResponse : IRoadEventServiceWithRawRe
             response,
             async (token) =>
             {
-                var roadEvents = await response
-                    .Deserialize<RoadEventListResponse>(token)
+                var page = await response
+                    .Deserialize<RoadEventListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    roadEvents.Validate();
+                    page.Validate();
                 }
-                return roadEvents;
+                return new RoadEventListPage(this, parameters, page);
             }
         );
     }

@@ -29,7 +29,7 @@ public interface IRoadEventService
     /// <summary>
     /// Sends a request to <c>get /roadevents<c/>.
     /// </summary>
-    Task<RoadEventListResponse> List(
+    Task<RoadEventListPage> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IRoadEventServiceWithRawResponse
     /// Returns a raw HTTP response for `get /roadevents`, but is otherwise the
     /// same as <see cref="IRoadEventService.List(RoadEventListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<RoadEventListResponse>> List(
+    Task<HttpResponse<RoadEventListPage>> List(
         RoadEventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

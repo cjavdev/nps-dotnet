@@ -16,12 +16,14 @@ public class EventListParamsTest : TestBase
             DateStart = "dateStart",
             EventType = ["string"],
             ExpandRecurring = true,
+            Limit = 0,
             Organization = ["string"],
             PageNumber = 0,
             PageSize = 0,
             ParkCode = ["string"],
             Portal = ["string"],
             Q = "q",
+            Start = 0,
             StateCode = ["string"],
             Subject = ["string"],
             TagsAll = ["string"],
@@ -34,12 +36,14 @@ public class EventListParamsTest : TestBase
         string expectedDateStart = "dateStart";
         List<string> expectedEventType = ["string"];
         bool expectedExpandRecurring = true;
+        long expectedLimit = 0;
         List<string> expectedOrganization = ["string"];
         long expectedPageNumber = 0;
         long expectedPageSize = 0;
         List<string> expectedParkCode = ["string"];
         List<string> expectedPortal = ["string"];
         string expectedQ = "q";
+        long expectedStart = 0;
         List<string> expectedStateCode = ["string"];
         List<string> expectedSubject = ["string"];
         List<string> expectedTagsAll = ["string"];
@@ -56,6 +60,7 @@ public class EventListParamsTest : TestBase
             Assert.Equal(expectedEventType[i], parameters.EventType[i]);
         }
         Assert.Equal(expectedExpandRecurring, parameters.ExpandRecurring);
+        Assert.Equal(expectedLimit, parameters.Limit);
         Assert.NotNull(parameters.Organization);
         Assert.Equal(expectedOrganization.Count, parameters.Organization.Count);
         for (int i = 0; i < expectedOrganization.Count; i++)
@@ -77,6 +82,7 @@ public class EventListParamsTest : TestBase
             Assert.Equal(expectedPortal[i], parameters.Portal[i]);
         }
         Assert.Equal(expectedQ, parameters.Q);
+        Assert.Equal(expectedStart, parameters.Start);
         Assert.NotNull(parameters.StateCode);
         Assert.Equal(expectedStateCode.Count, parameters.StateCode.Count);
         for (int i = 0; i < expectedStateCode.Count; i++)
@@ -124,6 +130,8 @@ public class EventListParamsTest : TestBase
         Assert.False(parameters.RawQueryData.ContainsKey("eventType"));
         Assert.Null(parameters.ExpandRecurring);
         Assert.False(parameters.RawQueryData.ContainsKey("expandRecurring"));
+        Assert.Null(parameters.Limit);
+        Assert.False(parameters.RawQueryData.ContainsKey("limit"));
         Assert.Null(parameters.Organization);
         Assert.False(parameters.RawQueryData.ContainsKey("organization"));
         Assert.Null(parameters.PageNumber);
@@ -136,6 +144,8 @@ public class EventListParamsTest : TestBase
         Assert.False(parameters.RawQueryData.ContainsKey("portal"));
         Assert.Null(parameters.Q);
         Assert.False(parameters.RawQueryData.ContainsKey("q"));
+        Assert.Null(parameters.Start);
+        Assert.False(parameters.RawQueryData.ContainsKey("start"));
         Assert.Null(parameters.StateCode);
         Assert.False(parameters.RawQueryData.ContainsKey("stateCode"));
         Assert.Null(parameters.Subject);
@@ -159,12 +169,14 @@ public class EventListParamsTest : TestBase
             DateStart = null,
             EventType = null,
             ExpandRecurring = null,
+            Limit = null,
             Organization = null,
             PageNumber = null,
             PageSize = null,
             ParkCode = null,
             Portal = null,
             Q = null,
+            Start = null,
             StateCode = null,
             Subject = null,
             TagsAll = null,
@@ -182,6 +194,8 @@ public class EventListParamsTest : TestBase
         Assert.False(parameters.RawQueryData.ContainsKey("eventType"));
         Assert.Null(parameters.ExpandRecurring);
         Assert.False(parameters.RawQueryData.ContainsKey("expandRecurring"));
+        Assert.Null(parameters.Limit);
+        Assert.False(parameters.RawQueryData.ContainsKey("limit"));
         Assert.Null(parameters.Organization);
         Assert.False(parameters.RawQueryData.ContainsKey("organization"));
         Assert.Null(parameters.PageNumber);
@@ -194,6 +208,8 @@ public class EventListParamsTest : TestBase
         Assert.False(parameters.RawQueryData.ContainsKey("portal"));
         Assert.Null(parameters.Q);
         Assert.False(parameters.RawQueryData.ContainsKey("q"));
+        Assert.Null(parameters.Start);
+        Assert.False(parameters.RawQueryData.ContainsKey("start"));
         Assert.Null(parameters.StateCode);
         Assert.False(parameters.RawQueryData.ContainsKey("stateCode"));
         Assert.Null(parameters.Subject);
@@ -216,12 +232,14 @@ public class EventListParamsTest : TestBase
             DateStart = "dateStart",
             EventType = ["string"],
             ExpandRecurring = true,
+            Limit = 0,
             Organization = ["string"],
             PageNumber = 0,
             PageSize = 0,
             ParkCode = ["string"],
             Portal = ["string"],
             Q = "q",
+            Start = 0,
             StateCode = ["string"],
             Subject = ["string"],
             TagsAll = ["string"],
@@ -233,7 +251,7 @@ public class EventListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/events?id=id&dateEnd=dateEnd&dateStart=dateStart&eventType=string&expandRecurring=true&organization=string&pageNumber=0&pageSize=0&parkCode=string&portal=string&q=q&stateCode=string&subject=string&tagsAll=string&tagsNone=string&tagsOne=string"
+                "https://developer.nps.gov/api/v1/events?id=id&dateEnd=dateEnd&dateStart=dateStart&eventType=string&expandRecurring=true&limit=0&organization=string&pageNumber=0&pageSize=0&parkCode=string&portal=string&q=q&start=0&stateCode=string&subject=string&tagsAll=string&tagsNone=string&tagsOne=string"
             ),
             url
         );

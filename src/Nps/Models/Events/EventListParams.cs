@@ -97,6 +97,23 @@ public sealed record class EventListParams : ParamsBase
     }
 
     /// <summary>
+    /// Number of results to return per request. Default is 50.
+    /// </summary>
+    public long? Limit
+    {
+        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawQueryData, "limit", value);
+        }
+    }
+
+    /// <summary>
     /// A comma delimited list of organization site codes.
     /// </summary>
     public IReadOnlyList<string>? Organization
@@ -195,6 +212,23 @@ public sealed record class EventListParams : ParamsBase
             }
 
             JsonModel.Set(this._rawQueryData, "q", value);
+        }
+    }
+
+    /// <summary>
+    /// Number of results to return per request. Default is 50.
+    /// </summary>
+    public long? Start
+    {
+        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawQueryData, "start", value);
         }
     }
 

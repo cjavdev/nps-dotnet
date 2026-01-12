@@ -29,7 +29,7 @@ public interface IEventService
     /// <summary>
     /// Sends a request to <c>get /events<c/>.
     /// </summary>
-    Task<EventListResponse> List(
+    Task<EventListPage> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IEventServiceWithRawResponse
     /// Returns a raw HTTP response for `get /events`, but is otherwise the
     /// same as <see cref="IEventService.List(EventListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<EventListResponse>> List(
+    Task<HttpResponse<EventListPage>> List(
         EventListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

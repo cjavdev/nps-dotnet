@@ -11,6 +11,23 @@ namespace Nps.Models.RoadEvents;
 public sealed record class RoadEventListParams : ParamsBase
 {
     /// <summary>
+    /// Number of results to return per request. Default is 50.
+    /// </summary>
+    public long? Limit
+    {
+        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "limit"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawQueryData, "limit", value);
+        }
+    }
+
+    /// <summary>
     /// A comma delimited list of 4 character park codes.
     /// </summary>
     public string? ParkCode
@@ -24,6 +41,23 @@ public sealed record class RoadEventListParams : ParamsBase
             }
 
             JsonModel.Set(this._rawQueryData, "parkCode", value);
+        }
+    }
+
+    /// <summary>
+    /// Number of results to return per request. Default is 50.
+    /// </summary>
+    public long? Start
+    {
+        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "start"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawQueryData, "start", value);
         }
     }
 
