@@ -34,7 +34,7 @@ public sealed class FeespassService : IFeespassService
     }
 
     /// <inheritdoc/>
-    public async Task<FeespassListResponse> List(
+    public async Task<FeespassListPage> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class FeespassServiceWithRawResponse : IFeespassServiceWithRawResp
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<FeespassListResponse>> List(
+    public async Task<HttpResponse<FeespassListPage>> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class FeespassServiceWithRawResponse : IFeespassServiceWithRawResp
             response,
             async (token) =>
             {
-                var feespasses = await response
-                    .Deserialize<FeespassListResponse>(token)
+                var page = await response
+                    .Deserialize<FeespassListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    feespasses.Validate();
+                    page.Validate();
                 }
-                return feespasses;
+                return new FeespassListPage(this, parameters, page);
             }
         );
     }

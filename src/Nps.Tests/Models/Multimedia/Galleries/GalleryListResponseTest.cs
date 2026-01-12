@@ -15,114 +15,96 @@ public class GalleryListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
+                    AssetCount = "assetCount",
+                    ConstraintsInfo = new()
+                    {
+                        Constraint = "Public domain",
+                        GrantingRights = "unknown",
+                    },
+                    Copyright =
+                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                    Description = "",
+                    Images =
                     [
                         new()
                         {
-                            ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                            AssetCount = "assetCount",
-                            ConstraintsInfo = new()
-                            {
-                                Constraint = "Public domain",
-                                GrantingRights = "unknown",
-                            },
-                            Copyright =
-                                "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                            Description = "",
-                            Images =
-                            [
-                                new()
-                                {
-                                    AltText = "1st place: 6th – 8th grade category",
-                                    Description = "1st place: 6th – 8th grade category",
-                                    Title = "1st place: 6th – 8th grade category",
-                                    Url =
-                                        "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                                },
-                            ],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Glacier National Park",
-                                    Name = "Glacier",
-                                    ParkCode = "glac",
-                                    States = "MT",
-                                    Url = "https://www.nps.gov/glac/index.htm",
-                                },
-                            ],
-                            Tags = ["bark ranger"],
-                            Title = "2008 Postcard Contest Winners",
+                            AltText = "1st place: 6th – 8th grade category",
+                            Description = "1st place: 6th – 8th grade category",
+                            Title = "1st place: 6th – 8th grade category",
                             Url =
-                                "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "29",
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National Park",
+                            FullName = "Glacier National Park",
+                            Name = "Glacier",
+                            ParkCode = "glac",
+                            States = "MT",
+                            Url = "https://www.nps.gov/glac/index.htm",
+                        },
+                    ],
+                    Tags = ["bark ranger"],
+                    Title = "2008 Postcard Contest Winners",
+                    Url =
+                        "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "29",
         };
 
         List<Data> expectedData =
         [
             new()
             {
-                DataValue =
+                ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
+                AssetCount = "assetCount",
+                ConstraintsInfo = new()
+                {
+                    Constraint = "Public domain",
+                    GrantingRights = "unknown",
+                },
+                Copyright =
+                    "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                Description = "",
+                Images =
                 [
                     new()
                     {
-                        ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                        AssetCount = "assetCount",
-                        ConstraintsInfo = new()
-                        {
-                            Constraint = "Public domain",
-                            GrantingRights = "unknown",
-                        },
-                        Copyright =
-                            "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                        Description = "",
-                        Images =
-                        [
-                            new()
-                            {
-                                AltText = "1st place: 6th – 8th grade category",
-                                Description = "1st place: 6th – 8th grade category",
-                                Title = "1st place: 6th – 8th grade category",
-                                Url =
-                                    "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                            },
-                        ],
-                        RelatedParks =
-                        [
-                            new()
-                            {
-                                Designation = "National Park",
-                                FullName = "Glacier National Park",
-                                Name = "Glacier",
-                                ParkCode = "glac",
-                                States = "MT",
-                                Url = "https://www.nps.gov/glac/index.htm",
-                            },
-                        ],
-                        Tags = ["bark ranger"],
-                        Title = "2008 Postcard Contest Winners",
+                        AltText = "1st place: 6th – 8th grade category",
+                        Description = "1st place: 6th – 8th grade category",
+                        Title = "1st place: 6th – 8th grade category",
                         Url =
-                            "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "29",
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "National Park",
+                        FullName = "Glacier National Park",
+                        Name = "Glacier",
+                        ParkCode = "glac",
+                        States = "MT",
+                        Url = "https://www.nps.gov/glac/index.htm",
+                    },
+                ],
+                Tags = ["bark ranger"],
+                Title = "2008 Postcard Contest Winners",
+                Url =
+                    "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "29";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -144,57 +126,48 @@ public class GalleryListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
+                    AssetCount = "assetCount",
+                    ConstraintsInfo = new()
+                    {
+                        Constraint = "Public domain",
+                        GrantingRights = "unknown",
+                    },
+                    Copyright =
+                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                    Description = "",
+                    Images =
                     [
                         new()
                         {
-                            ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                            AssetCount = "assetCount",
-                            ConstraintsInfo = new()
-                            {
-                                Constraint = "Public domain",
-                                GrantingRights = "unknown",
-                            },
-                            Copyright =
-                                "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                            Description = "",
-                            Images =
-                            [
-                                new()
-                                {
-                                    AltText = "1st place: 6th – 8th grade category",
-                                    Description = "1st place: 6th – 8th grade category",
-                                    Title = "1st place: 6th – 8th grade category",
-                                    Url =
-                                        "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                                },
-                            ],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Glacier National Park",
-                                    Name = "Glacier",
-                                    ParkCode = "glac",
-                                    States = "MT",
-                                    Url = "https://www.nps.gov/glac/index.htm",
-                                },
-                            ],
-                            Tags = ["bark ranger"],
-                            Title = "2008 Postcard Contest Winners",
+                            AltText = "1st place: 6th – 8th grade category",
+                            Description = "1st place: 6th – 8th grade category",
+                            Title = "1st place: 6th – 8th grade category",
                             Url =
-                                "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "29",
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National Park",
+                            FullName = "Glacier National Park",
+                            Name = "Glacier",
+                            ParkCode = "glac",
+                            States = "MT",
+                            Url = "https://www.nps.gov/glac/index.htm",
+                        },
+                    ],
+                    Tags = ["bark ranger"],
+                    Title = "2008 Postcard Contest Winners",
+                    Url =
+                        "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "29",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -212,57 +185,48 @@ public class GalleryListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
+                    AssetCount = "assetCount",
+                    ConstraintsInfo = new()
+                    {
+                        Constraint = "Public domain",
+                        GrantingRights = "unknown",
+                    },
+                    Copyright =
+                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                    Description = "",
+                    Images =
                     [
                         new()
                         {
-                            ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                            AssetCount = "assetCount",
-                            ConstraintsInfo = new()
-                            {
-                                Constraint = "Public domain",
-                                GrantingRights = "unknown",
-                            },
-                            Copyright =
-                                "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                            Description = "",
-                            Images =
-                            [
-                                new()
-                                {
-                                    AltText = "1st place: 6th – 8th grade category",
-                                    Description = "1st place: 6th – 8th grade category",
-                                    Title = "1st place: 6th – 8th grade category",
-                                    Url =
-                                        "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                                },
-                            ],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Glacier National Park",
-                                    Name = "Glacier",
-                                    ParkCode = "glac",
-                                    States = "MT",
-                                    Url = "https://www.nps.gov/glac/index.htm",
-                                },
-                            ],
-                            Tags = ["bark ranger"],
-                            Title = "2008 Postcard Contest Winners",
+                            AltText = "1st place: 6th – 8th grade category",
+                            Description = "1st place: 6th – 8th grade category",
+                            Title = "1st place: 6th – 8th grade category",
                             Url =
-                                "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "29",
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National Park",
+                            FullName = "Glacier National Park",
+                            Name = "Glacier",
+                            ParkCode = "glac",
+                            States = "MT",
+                            Url = "https://www.nps.gov/glac/index.htm",
+                        },
+                    ],
+                    Tags = ["bark ranger"],
+                    Title = "2008 Postcard Contest Winners",
+                    Url =
+                        "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "29",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -273,57 +237,48 @@ public class GalleryListResponseTest : TestBase
         [
             new()
             {
-                DataValue =
+                ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
+                AssetCount = "assetCount",
+                ConstraintsInfo = new()
+                {
+                    Constraint = "Public domain",
+                    GrantingRights = "unknown",
+                },
+                Copyright =
+                    "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                Description = "",
+                Images =
                 [
                     new()
                     {
-                        ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                        AssetCount = "assetCount",
-                        ConstraintsInfo = new()
-                        {
-                            Constraint = "Public domain",
-                            GrantingRights = "unknown",
-                        },
-                        Copyright =
-                            "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                        Description = "",
-                        Images =
-                        [
-                            new()
-                            {
-                                AltText = "1st place: 6th – 8th grade category",
-                                Description = "1st place: 6th – 8th grade category",
-                                Title = "1st place: 6th – 8th grade category",
-                                Url =
-                                    "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                            },
-                        ],
-                        RelatedParks =
-                        [
-                            new()
-                            {
-                                Designation = "National Park",
-                                FullName = "Glacier National Park",
-                                Name = "Glacier",
-                                ParkCode = "glac",
-                                States = "MT",
-                                Url = "https://www.nps.gov/glac/index.htm",
-                            },
-                        ],
-                        Tags = ["bark ranger"],
-                        Title = "2008 Postcard Contest Winners",
+                        AltText = "1st place: 6th – 8th grade category",
+                        Description = "1st place: 6th – 8th grade category",
+                        Title = "1st place: 6th – 8th grade category",
                         Url =
-                            "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "29",
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "National Park",
+                        FullName = "Glacier National Park",
+                        Name = "Glacier",
+                        ParkCode = "glac",
+                        States = "MT",
+                        Url = "https://www.nps.gov/glac/index.htm",
+                    },
+                ],
+                Tags = ["bark ranger"],
+                Title = "2008 Postcard Contest Winners",
+                Url =
+                    "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "29";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -345,57 +300,48 @@ public class GalleryListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
+                    AssetCount = "assetCount",
+                    ConstraintsInfo = new()
+                    {
+                        Constraint = "Public domain",
+                        GrantingRights = "unknown",
+                    },
+                    Copyright =
+                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
+                    Description = "",
+                    Images =
                     [
                         new()
                         {
-                            ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                            AssetCount = "assetCount",
-                            ConstraintsInfo = new()
-                            {
-                                Constraint = "Public domain",
-                                GrantingRights = "unknown",
-                            },
-                            Copyright =
-                                "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                            Description = "",
-                            Images =
-                            [
-                                new()
-                                {
-                                    AltText = "1st place: 6th – 8th grade category",
-                                    Description = "1st place: 6th – 8th grade category",
-                                    Title = "1st place: 6th – 8th grade category",
-                                    Url =
-                                        "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                                },
-                            ],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Glacier National Park",
-                                    Name = "Glacier",
-                                    ParkCode = "glac",
-                                    States = "MT",
-                                    Url = "https://www.nps.gov/glac/index.htm",
-                                },
-                            ],
-                            Tags = ["bark ranger"],
-                            Title = "2008 Postcard Contest Winners",
+                            AltText = "1st place: 6th – 8th grade category",
+                            Description = "1st place: 6th – 8th grade category",
+                            Title = "1st place: 6th – 8th grade category",
                             Url =
-                                "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
+                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "29",
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National Park",
+                            FullName = "Glacier National Park",
+                            Name = "Glacier",
+                            ParkCode = "glac",
+                            States = "MT",
+                            Url = "https://www.nps.gov/glac/index.htm",
+                        },
+                    ],
+                    Tags = ["bark ranger"],
+                    Title = "2008 Postcard Contest Winners",
+                    Url =
+                        "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "29",
         };
 
         model.Validate();
@@ -468,410 +414,6 @@ public class DataTest : TestBase
     public void FieldRoundtrip_Works()
     {
         var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                    AssetCount = "assetCount",
-                    ConstraintsInfo = new()
-                    {
-                        Constraint = "Public domain",
-                        GrantingRights = "unknown",
-                    },
-                    Copyright =
-                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                    Description = "",
-                    Images =
-                    [
-                        new()
-                        {
-                            AltText = "1st place: 6th – 8th grade category",
-                            Description = "1st place: 6th – 8th grade category",
-                            Title = "1st place: 6th – 8th grade category",
-                            Url =
-                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                        },
-                    ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Glacier National Park",
-                            Name = "Glacier",
-                            ParkCode = "glac",
-                            States = "MT",
-                            Url = "https://www.nps.gov/glac/index.htm",
-                        },
-                    ],
-                    Tags = ["bark ranger"],
-                    Title = "2008 Postcard Contest Winners",
-                    Url =
-                        "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "29",
-        };
-
-        List<DataData> expectedDataValue =
-        [
-            new()
-            {
-                ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                AssetCount = "assetCount",
-                ConstraintsInfo = new()
-                {
-                    Constraint = "Public domain",
-                    GrantingRights = "unknown",
-                },
-                Copyright =
-                    "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                Description = "",
-                Images =
-                [
-                    new()
-                    {
-                        AltText = "1st place: 6th – 8th grade category",
-                        Description = "1st place: 6th – 8th grade category",
-                        Title = "1st place: 6th – 8th grade category",
-                        Url =
-                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                    },
-                ],
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National Park",
-                        FullName = "Glacier National Park",
-                        Name = "Glacier",
-                        ParkCode = "glac",
-                        States = "MT",
-                        Url = "https://www.nps.gov/glac/index.htm",
-                    },
-                ],
-                Tags = ["bark ranger"],
-                Title = "2008 Postcard Contest Winners",
-                Url =
-                    "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "29";
-
-        Assert.NotNull(model.DataValue);
-        Assert.Equal(expectedDataValue.Count, model.DataValue.Count);
-        for (int i = 0; i < expectedDataValue.Count; i++)
-        {
-            Assert.Equal(expectedDataValue[i], model.DataValue[i]);
-        }
-        Assert.Equal(expectedLimit, model.Limit);
-        Assert.Equal(expectedStart, model.Start);
-        Assert.Equal(expectedTotal, model.Total);
-    }
-
-    [Fact]
-    public void SerializationRoundtrip_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                    AssetCount = "assetCount",
-                    ConstraintsInfo = new()
-                    {
-                        Constraint = "Public domain",
-                        GrantingRights = "unknown",
-                    },
-                    Copyright =
-                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                    Description = "",
-                    Images =
-                    [
-                        new()
-                        {
-                            AltText = "1st place: 6th – 8th grade category",
-                            Description = "1st place: 6th – 8th grade category",
-                            Title = "1st place: 6th – 8th grade category",
-                            Url =
-                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                        },
-                    ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Glacier National Park",
-                            Name = "Glacier",
-                            ParkCode = "glac",
-                            States = "MT",
-                            Url = "https://www.nps.gov/glac/index.htm",
-                        },
-                    ],
-                    Tags = ["bark ranger"],
-                    Title = "2008 Postcard Contest Winners",
-                    Url =
-                        "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "29",
-        };
-
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(json);
-
-        Assert.Equal(model, deserialized);
-    }
-
-    [Fact]
-    public void FieldRoundtripThroughSerialization_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                    AssetCount = "assetCount",
-                    ConstraintsInfo = new()
-                    {
-                        Constraint = "Public domain",
-                        GrantingRights = "unknown",
-                    },
-                    Copyright =
-                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                    Description = "",
-                    Images =
-                    [
-                        new()
-                        {
-                            AltText = "1st place: 6th – 8th grade category",
-                            Description = "1st place: 6th – 8th grade category",
-                            Title = "1st place: 6th – 8th grade category",
-                            Url =
-                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                        },
-                    ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Glacier National Park",
-                            Name = "Glacier",
-                            ParkCode = "glac",
-                            States = "MT",
-                            Url = "https://www.nps.gov/glac/index.htm",
-                        },
-                    ],
-                    Tags = ["bark ranger"],
-                    Title = "2008 Postcard Contest Winners",
-                    Url =
-                        "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "29",
-        };
-
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(element);
-        Assert.NotNull(deserialized);
-
-        List<DataData> expectedDataValue =
-        [
-            new()
-            {
-                ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                AssetCount = "assetCount",
-                ConstraintsInfo = new()
-                {
-                    Constraint = "Public domain",
-                    GrantingRights = "unknown",
-                },
-                Copyright =
-                    "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                Description = "",
-                Images =
-                [
-                    new()
-                    {
-                        AltText = "1st place: 6th – 8th grade category",
-                        Description = "1st place: 6th – 8th grade category",
-                        Title = "1st place: 6th – 8th grade category",
-                        Url =
-                            "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                    },
-                ],
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National Park",
-                        FullName = "Glacier National Park",
-                        Name = "Glacier",
-                        ParkCode = "glac",
-                        States = "MT",
-                        Url = "https://www.nps.gov/glac/index.htm",
-                    },
-                ],
-                Tags = ["bark ranger"],
-                Title = "2008 Postcard Contest Winners",
-                Url =
-                    "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "29";
-
-        Assert.NotNull(deserialized.DataValue);
-        Assert.Equal(expectedDataValue.Count, deserialized.DataValue.Count);
-        for (int i = 0; i < expectedDataValue.Count; i++)
-        {
-            Assert.Equal(expectedDataValue[i], deserialized.DataValue[i]);
-        }
-        Assert.Equal(expectedLimit, deserialized.Limit);
-        Assert.Equal(expectedStart, deserialized.Start);
-        Assert.Equal(expectedTotal, deserialized.Total);
-    }
-
-    [Fact]
-    public void Validation_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
-                    AssetCount = "assetCount",
-                    ConstraintsInfo = new()
-                    {
-                        Constraint = "Public domain",
-                        GrantingRights = "unknown",
-                    },
-                    Copyright =
-                        "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain.",
-                    Description = "",
-                    Images =
-                    [
-                        new()
-                        {
-                            AltText = "1st place: 6th – 8th grade category",
-                            Description = "1st place: 6th – 8th grade category",
-                            Title = "1st place: 6th – 8th grade category",
-                            Url =
-                                "https://www.nps.gov/npgallery/GetAsset/F2D0A915-155D-451F-67EA-767489860884",
-                        },
-                    ],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Glacier National Park",
-                            Name = "Glacier",
-                            ParkCode = "glac",
-                            States = "MT",
-                            Url = "https://www.nps.gov/glac/index.htm",
-                        },
-                    ],
-                    Tags = ["bark ranger"],
-                    Title = "2008 Postcard Contest Winners",
-                    Url =
-                        "https://www.nps.gov/media/photo/gallery.htm?id=F2D0A8A2-155D-451F-67A9-A67E74025286",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "29",
-        };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
-    {
-        var model = new Data { };
-
-        Assert.Null(model.DataValue);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetValidation_Works()
-    {
-        var model = new Data { };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
-    {
-        var model = new Data
-        {
-            // Null should be interpreted as omitted for these properties
-            DataValue = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        Assert.Null(model.DataValue);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
-    {
-        var model = new Data
-        {
-            // Null should be interpreted as omitted for these properties
-            DataValue = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        model.Validate();
-    }
-}
-
-public class DataDataTest : TestBase
-{
-    [Fact]
-    public void FieldRoundtrip_Works()
-    {
-        var model = new DataData
         {
             ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
             AssetCount = "assetCount",
@@ -975,7 +517,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
             AssetCount = "assetCount",
@@ -1013,7 +555,7 @@ public class DataDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataData>(json);
+        var deserialized = JsonSerializer.Deserialize<Data>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -1021,7 +563,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
             AssetCount = "assetCount",
@@ -1059,7 +601,7 @@ public class DataDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataData>(element);
+        var deserialized = JsonSerializer.Deserialize<Data>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "F2D0A8A2-155D-451F-67A9-A67E74025286";
@@ -1129,7 +671,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "F2D0A8A2-155D-451F-67A9-A67E74025286",
             AssetCount = "assetCount",
@@ -1172,7 +714,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new DataData { };
+        var model = new Data { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -1199,7 +741,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new DataData { };
+        var model = new Data { };
 
         model.Validate();
     }
@@ -1207,7 +749,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -1247,7 +789,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

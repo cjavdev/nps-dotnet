@@ -29,7 +29,7 @@ public interface IPersonService
     /// <summary>
     /// Sends a request to <c>get /people<c/>.
     /// </summary>
-    Task<PersonListResponse> List(
+    Task<PersonListPage> List(
         PersonListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IPersonServiceWithRawResponse
     /// Returns a raw HTTP response for `get /people`, but is otherwise the
     /// same as <see cref="IPersonService.List(PersonListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<PersonListResponse>> List(
+    Task<HttpResponse<PersonListPage>> List(
         PersonListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

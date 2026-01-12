@@ -34,7 +34,7 @@ public sealed class PersonService : IPersonService
     }
 
     /// <inheritdoc/>
-    public async Task<PersonListResponse> List(
+    public async Task<PersonListPage> List(
         PersonListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class PersonServiceWithRawResponse : IPersonServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<PersonListResponse>> List(
+    public async Task<HttpResponse<PersonListPage>> List(
         PersonListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class PersonServiceWithRawResponse : IPersonServiceWithRawResponse
             response,
             async (token) =>
             {
-                var people = await response
-                    .Deserialize<PersonListResponse>(token)
+                var page = await response
+                    .Deserialize<PersonListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    people.Validate();
+                    page.Validate();
                 }
-                return people;
+                return new PersonListPage(this, parameters, page);
             }
         );
     }

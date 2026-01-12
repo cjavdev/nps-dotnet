@@ -34,7 +34,7 @@ public sealed class ParkService : IParkService
     }
 
     /// <inheritdoc/>
-    public async Task<ParkListResponse> List(
+    public async Task<ParkListPage> List(
         ParkListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class ParkServiceWithRawResponse : IParkServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<ParkListResponse>> List(
+    public async Task<HttpResponse<ParkListPage>> List(
         ParkListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class ParkServiceWithRawResponse : IParkServiceWithRawResponse
             response,
             async (token) =>
             {
-                var parks = await response
-                    .Deserialize<ParkListResponse>(token)
+                var page = await response
+                    .Deserialize<ParkListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    parks.Validate();
+                    page.Validate();
                 }
-                return parks;
+                return new ParkListPage(this, parameters, page);
             }
         );
     }

@@ -15,129 +15,108 @@ public class PlaceListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
+                    Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
+                    AudioDescription = "audioDescription",
+                    BodyText = "bodyText",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Images = ["string"],
+                    IsManagedByNps = "1",
+                    IsOpenToPublic = "1",
+                    Latitude = "38.871843",
+                    LatLong = "38.871843,-78.203699",
+                    ListingDescription = "listingDescription",
+                    Longitude = "-78.203699",
+                    ManagedByOrg = "",
+                    ManagedByUrl = "",
+                    Multimedia =
                     [
                         new()
                         {
-                            ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                            Amenities =
-                            [
-                                "\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\"",
-                            ],
-                            AudioDescription = "audioDescription",
-                            BodyText = "bodyText",
-                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                            Images = ["string"],
-                            IsManagedByNps = "1",
-                            IsOpenToPublic = "1",
-                            Latitude = "38.871843",
-                            LatLong = "38.871843,-78.203699",
-                            ListingDescription = "listingDescription",
-                            Longitude = "-78.203699",
-                            ManagedByOrg = "",
-                            ManagedByUrl = "",
-                            Multimedia =
-                            [
-                                new()
-                                {
-                                    ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                    Title = "The Worthington Farm",
-                                    Type = "multimedia/videos",
-                                    Url =
-                                        "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                },
-                            ],
-                            NpmapID = "npmapId",
-                            QuickFacts = "",
-                            RelatedOrganizations = ["string"],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Shenandoah National Park",
-                                    Name = "Shenandoah",
-                                    ParkCode = "shen",
-                                    States = "VA",
-                                    Url = "https://www.nps.gov/shen/index.htm",
-                                },
-                            ],
-                            Tags = ["string"],
-                            Title = "title",
-                            Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
+                            ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                            Title = "The Worthington Farm",
+                            Type = "multimedia/videos",
+                            Url =
+                                "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "950",
+                    NpmapID = "npmapId",
+                    QuickFacts = "",
+                    RelatedOrganizations = ["string"],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National Park",
+                            FullName = "Shenandoah National Park",
+                            Name = "Shenandoah",
+                            ParkCode = "shen",
+                            States = "VA",
+                            Url = "https://www.nps.gov/shen/index.htm",
+                        },
+                    ],
+                    Tags = ["string"],
+                    Title = "title",
+                    Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "950",
         };
 
         List<Data> expectedData =
         [
             new()
             {
-                DataValue =
+                ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
+                Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
+                AudioDescription = "audioDescription",
+                BodyText = "bodyText",
+                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                Images = ["string"],
+                IsManagedByNps = "1",
+                IsOpenToPublic = "1",
+                Latitude = "38.871843",
+                LatLong = "38.871843,-78.203699",
+                ListingDescription = "listingDescription",
+                Longitude = "-78.203699",
+                ManagedByOrg = "",
+                ManagedByUrl = "",
+                Multimedia =
                 [
                     new()
                     {
-                        ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                        Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
-                        AudioDescription = "audioDescription",
-                        BodyText = "bodyText",
-                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                        Images = ["string"],
-                        IsManagedByNps = "1",
-                        IsOpenToPublic = "1",
-                        Latitude = "38.871843",
-                        LatLong = "38.871843,-78.203699",
-                        ListingDescription = "listingDescription",
-                        Longitude = "-78.203699",
-                        ManagedByOrg = "",
-                        ManagedByUrl = "",
-                        Multimedia =
-                        [
-                            new()
-                            {
-                                ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                Title = "The Worthington Farm",
-                                Type = "multimedia/videos",
-                                Url =
-                                    "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                            },
-                        ],
-                        NpmapID = "npmapId",
-                        QuickFacts = "",
-                        RelatedOrganizations = ["string"],
-                        RelatedParks =
-                        [
-                            new()
-                            {
-                                Designation = "National Park",
-                                FullName = "Shenandoah National Park",
-                                Name = "Shenandoah",
-                                ParkCode = "shen",
-                                States = "VA",
-                                Url = "https://www.nps.gov/shen/index.htm",
-                            },
-                        ],
-                        Tags = ["string"],
-                        Title = "title",
-                        Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
+                        ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                        Title = "The Worthington Farm",
+                        Type = "multimedia/videos",
+                        Url =
+                            "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "950",
+                NpmapID = "npmapId",
+                QuickFacts = "",
+                RelatedOrganizations = ["string"],
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "National Park",
+                        FullName = "Shenandoah National Park",
+                        Name = "Shenandoah",
+                        ParkCode = "shen",
+                        States = "VA",
+                        Url = "https://www.nps.gov/shen/index.htm",
+                    },
+                ],
+                Tags = ["string"],
+                Title = "title",
+                Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "950";
 
         Assert.NotNull(model.Data);
         Assert.Equal(expectedData.Count, model.Data.Count);
@@ -159,66 +138,54 @@ public class PlaceListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
+                    Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
+                    AudioDescription = "audioDescription",
+                    BodyText = "bodyText",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Images = ["string"],
+                    IsManagedByNps = "1",
+                    IsOpenToPublic = "1",
+                    Latitude = "38.871843",
+                    LatLong = "38.871843,-78.203699",
+                    ListingDescription = "listingDescription",
+                    Longitude = "-78.203699",
+                    ManagedByOrg = "",
+                    ManagedByUrl = "",
+                    Multimedia =
                     [
                         new()
                         {
-                            ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                            Amenities =
-                            [
-                                "\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\"",
-                            ],
-                            AudioDescription = "audioDescription",
-                            BodyText = "bodyText",
-                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                            Images = ["string"],
-                            IsManagedByNps = "1",
-                            IsOpenToPublic = "1",
-                            Latitude = "38.871843",
-                            LatLong = "38.871843,-78.203699",
-                            ListingDescription = "listingDescription",
-                            Longitude = "-78.203699",
-                            ManagedByOrg = "",
-                            ManagedByUrl = "",
-                            Multimedia =
-                            [
-                                new()
-                                {
-                                    ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                    Title = "The Worthington Farm",
-                                    Type = "multimedia/videos",
-                                    Url =
-                                        "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                },
-                            ],
-                            NpmapID = "npmapId",
-                            QuickFacts = "",
-                            RelatedOrganizations = ["string"],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Shenandoah National Park",
-                                    Name = "Shenandoah",
-                                    ParkCode = "shen",
-                                    States = "VA",
-                                    Url = "https://www.nps.gov/shen/index.htm",
-                                },
-                            ],
-                            Tags = ["string"],
-                            Title = "title",
-                            Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
+                            ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                            Title = "The Worthington Farm",
+                            Type = "multimedia/videos",
+                            Url =
+                                "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "950",
+                    NpmapID = "npmapId",
+                    QuickFacts = "",
+                    RelatedOrganizations = ["string"],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National Park",
+                            FullName = "Shenandoah National Park",
+                            Name = "Shenandoah",
+                            ParkCode = "shen",
+                            States = "VA",
+                            Url = "https://www.nps.gov/shen/index.htm",
+                        },
+                    ],
+                    Tags = ["string"],
+                    Title = "title",
+                    Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "950",
         };
 
         string json = JsonSerializer.Serialize(model);
@@ -236,66 +203,54 @@ public class PlaceListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
+                    Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
+                    AudioDescription = "audioDescription",
+                    BodyText = "bodyText",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Images = ["string"],
+                    IsManagedByNps = "1",
+                    IsOpenToPublic = "1",
+                    Latitude = "38.871843",
+                    LatLong = "38.871843,-78.203699",
+                    ListingDescription = "listingDescription",
+                    Longitude = "-78.203699",
+                    ManagedByOrg = "",
+                    ManagedByUrl = "",
+                    Multimedia =
                     [
                         new()
                         {
-                            ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                            Amenities =
-                            [
-                                "\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\"",
-                            ],
-                            AudioDescription = "audioDescription",
-                            BodyText = "bodyText",
-                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                            Images = ["string"],
-                            IsManagedByNps = "1",
-                            IsOpenToPublic = "1",
-                            Latitude = "38.871843",
-                            LatLong = "38.871843,-78.203699",
-                            ListingDescription = "listingDescription",
-                            Longitude = "-78.203699",
-                            ManagedByOrg = "",
-                            ManagedByUrl = "",
-                            Multimedia =
-                            [
-                                new()
-                                {
-                                    ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                    Title = "The Worthington Farm",
-                                    Type = "multimedia/videos",
-                                    Url =
-                                        "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                },
-                            ],
-                            NpmapID = "npmapId",
-                            QuickFacts = "",
-                            RelatedOrganizations = ["string"],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Shenandoah National Park",
-                                    Name = "Shenandoah",
-                                    ParkCode = "shen",
-                                    States = "VA",
-                                    Url = "https://www.nps.gov/shen/index.htm",
-                                },
-                            ],
-                            Tags = ["string"],
-                            Title = "title",
-                            Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
+                            ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                            Title = "The Worthington Farm",
+                            Type = "multimedia/videos",
+                            Url =
+                                "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "950",
+                    NpmapID = "npmapId",
+                    QuickFacts = "",
+                    RelatedOrganizations = ["string"],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National Park",
+                            FullName = "Shenandoah National Park",
+                            Name = "Shenandoah",
+                            ParkCode = "shen",
+                            States = "VA",
+                            Url = "https://www.nps.gov/shen/index.htm",
+                        },
+                    ],
+                    Tags = ["string"],
+                    Title = "title",
+                    Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "950",
         };
 
         string element = JsonSerializer.Serialize(model);
@@ -306,63 +261,54 @@ public class PlaceListResponseTest : TestBase
         [
             new()
             {
-                DataValue =
+                ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
+                Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
+                AudioDescription = "audioDescription",
+                BodyText = "bodyText",
+                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                Images = ["string"],
+                IsManagedByNps = "1",
+                IsOpenToPublic = "1",
+                Latitude = "38.871843",
+                LatLong = "38.871843,-78.203699",
+                ListingDescription = "listingDescription",
+                Longitude = "-78.203699",
+                ManagedByOrg = "",
+                ManagedByUrl = "",
+                Multimedia =
                 [
                     new()
                     {
-                        ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                        Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
-                        AudioDescription = "audioDescription",
-                        BodyText = "bodyText",
-                        GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                        Images = ["string"],
-                        IsManagedByNps = "1",
-                        IsOpenToPublic = "1",
-                        Latitude = "38.871843",
-                        LatLong = "38.871843,-78.203699",
-                        ListingDescription = "listingDescription",
-                        Longitude = "-78.203699",
-                        ManagedByOrg = "",
-                        ManagedByUrl = "",
-                        Multimedia =
-                        [
-                            new()
-                            {
-                                ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                Title = "The Worthington Farm",
-                                Type = "multimedia/videos",
-                                Url =
-                                    "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                            },
-                        ],
-                        NpmapID = "npmapId",
-                        QuickFacts = "",
-                        RelatedOrganizations = ["string"],
-                        RelatedParks =
-                        [
-                            new()
-                            {
-                                Designation = "National Park",
-                                FullName = "Shenandoah National Park",
-                                Name = "Shenandoah",
-                                ParkCode = "shen",
-                                States = "VA",
-                                Url = "https://www.nps.gov/shen/index.htm",
-                            },
-                        ],
-                        Tags = ["string"],
-                        Title = "title",
-                        Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
+                        ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                        Title = "The Worthington Farm",
+                        Type = "multimedia/videos",
+                        Url =
+                            "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
                     },
                 ],
-                Limit = "50",
-                Start = "0",
-                Total = "950",
+                NpmapID = "npmapId",
+                QuickFacts = "",
+                RelatedOrganizations = ["string"],
+                RelatedParks =
+                [
+                    new()
+                    {
+                        Designation = "National Park",
+                        FullName = "Shenandoah National Park",
+                        Name = "Shenandoah",
+                        ParkCode = "shen",
+                        States = "VA",
+                        Url = "https://www.nps.gov/shen/index.htm",
+                    },
+                ],
+                Tags = ["string"],
+                Title = "title",
+                Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
             },
         ];
-        string expectedLimit = "limit";
-        string expectedStart = "start";
-        string expectedTotal = "total";
+        string expectedLimit = "50";
+        string expectedStart = "0";
+        string expectedTotal = "950";
 
         Assert.NotNull(deserialized.Data);
         Assert.Equal(expectedData.Count, deserialized.Data.Count);
@@ -384,66 +330,54 @@ public class PlaceListResponseTest : TestBase
             [
                 new()
                 {
-                    DataValue =
+                    ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
+                    Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
+                    AudioDescription = "audioDescription",
+                    BodyText = "bodyText",
+                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
+                    Images = ["string"],
+                    IsManagedByNps = "1",
+                    IsOpenToPublic = "1",
+                    Latitude = "38.871843",
+                    LatLong = "38.871843,-78.203699",
+                    ListingDescription = "listingDescription",
+                    Longitude = "-78.203699",
+                    ManagedByOrg = "",
+                    ManagedByUrl = "",
+                    Multimedia =
                     [
                         new()
                         {
-                            ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                            Amenities =
-                            [
-                                "\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\"",
-                            ],
-                            AudioDescription = "audioDescription",
-                            BodyText = "bodyText",
-                            GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                            Images = ["string"],
-                            IsManagedByNps = "1",
-                            IsOpenToPublic = "1",
-                            Latitude = "38.871843",
-                            LatLong = "38.871843,-78.203699",
-                            ListingDescription = "listingDescription",
-                            Longitude = "-78.203699",
-                            ManagedByOrg = "",
-                            ManagedByUrl = "",
-                            Multimedia =
-                            [
-                                new()
-                                {
-                                    ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                    Title = "The Worthington Farm",
-                                    Type = "multimedia/videos",
-                                    Url =
-                                        "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                                },
-                            ],
-                            NpmapID = "npmapId",
-                            QuickFacts = "",
-                            RelatedOrganizations = ["string"],
-                            RelatedParks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Park",
-                                    FullName = "Shenandoah National Park",
-                                    Name = "Shenandoah",
-                                    ParkCode = "shen",
-                                    States = "VA",
-                                    Url = "https://www.nps.gov/shen/index.htm",
-                                },
-                            ],
-                            Tags = ["string"],
-                            Title = "title",
-                            Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
+                            ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                            Title = "The Worthington Farm",
+                            Type = "multimedia/videos",
+                            Url =
+                                "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
                         },
                     ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "950",
+                    NpmapID = "npmapId",
+                    QuickFacts = "",
+                    RelatedOrganizations = ["string"],
+                    RelatedParks =
+                    [
+                        new()
+                        {
+                            Designation = "National Park",
+                            FullName = "Shenandoah National Park",
+                            Name = "Shenandoah",
+                            ParkCode = "shen",
+                            States = "VA",
+                            Url = "https://www.nps.gov/shen/index.htm",
+                        },
+                    ],
+                    Tags = ["string"],
+                    Title = "title",
+                    Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
                 },
             ],
-            Limit = "limit",
-            Start = "start",
-            Total = "total",
+            Limit = "50",
+            Start = "0",
+            Total = "950",
         };
 
         model.Validate();
@@ -517,446 +451,6 @@ public class DataTest : TestBase
     {
         var model = new Data
         {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                    Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
-                    AudioDescription = "audioDescription",
-                    BodyText = "bodyText",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Images = ["string"],
-                    IsManagedByNps = "1",
-                    IsOpenToPublic = "1",
-                    Latitude = "38.871843",
-                    LatLong = "38.871843,-78.203699",
-                    ListingDescription = "listingDescription",
-                    Longitude = "-78.203699",
-                    ManagedByOrg = "",
-                    ManagedByUrl = "",
-                    Multimedia =
-                    [
-                        new()
-                        {
-                            ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                            Title = "The Worthington Farm",
-                            Type = "multimedia/videos",
-                            Url =
-                                "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                        },
-                    ],
-                    NpmapID = "npmapId",
-                    QuickFacts = "",
-                    RelatedOrganizations = ["string"],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Shenandoah National Park",
-                            Name = "Shenandoah",
-                            ParkCode = "shen",
-                            States = "VA",
-                            Url = "https://www.nps.gov/shen/index.htm",
-                        },
-                    ],
-                    Tags = ["string"],
-                    Title = "title",
-                    Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "950",
-        };
-
-        List<DataData> expectedDataValue =
-        [
-            new()
-            {
-                ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
-                AudioDescription = "audioDescription",
-                BodyText = "bodyText",
-                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                Images = ["string"],
-                IsManagedByNps = "1",
-                IsOpenToPublic = "1",
-                Latitude = "38.871843",
-                LatLong = "38.871843,-78.203699",
-                ListingDescription = "listingDescription",
-                Longitude = "-78.203699",
-                ManagedByOrg = "",
-                ManagedByUrl = "",
-                Multimedia =
-                [
-                    new()
-                    {
-                        ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                        Title = "The Worthington Farm",
-                        Type = "multimedia/videos",
-                        Url =
-                            "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                    },
-                ],
-                NpmapID = "npmapId",
-                QuickFacts = "",
-                RelatedOrganizations = ["string"],
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National Park",
-                        FullName = "Shenandoah National Park",
-                        Name = "Shenandoah",
-                        ParkCode = "shen",
-                        States = "VA",
-                        Url = "https://www.nps.gov/shen/index.htm",
-                    },
-                ],
-                Tags = ["string"],
-                Title = "title",
-                Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "950";
-
-        Assert.NotNull(model.DataValue);
-        Assert.Equal(expectedDataValue.Count, model.DataValue.Count);
-        for (int i = 0; i < expectedDataValue.Count; i++)
-        {
-            Assert.Equal(expectedDataValue[i], model.DataValue[i]);
-        }
-        Assert.Equal(expectedLimit, model.Limit);
-        Assert.Equal(expectedStart, model.Start);
-        Assert.Equal(expectedTotal, model.Total);
-    }
-
-    [Fact]
-    public void SerializationRoundtrip_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                    Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
-                    AudioDescription = "audioDescription",
-                    BodyText = "bodyText",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Images = ["string"],
-                    IsManagedByNps = "1",
-                    IsOpenToPublic = "1",
-                    Latitude = "38.871843",
-                    LatLong = "38.871843,-78.203699",
-                    ListingDescription = "listingDescription",
-                    Longitude = "-78.203699",
-                    ManagedByOrg = "",
-                    ManagedByUrl = "",
-                    Multimedia =
-                    [
-                        new()
-                        {
-                            ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                            Title = "The Worthington Farm",
-                            Type = "multimedia/videos",
-                            Url =
-                                "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                        },
-                    ],
-                    NpmapID = "npmapId",
-                    QuickFacts = "",
-                    RelatedOrganizations = ["string"],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Shenandoah National Park",
-                            Name = "Shenandoah",
-                            ParkCode = "shen",
-                            States = "VA",
-                            Url = "https://www.nps.gov/shen/index.htm",
-                        },
-                    ],
-                    Tags = ["string"],
-                    Title = "title",
-                    Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "950",
-        };
-
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(json);
-
-        Assert.Equal(model, deserialized);
-    }
-
-    [Fact]
-    public void FieldRoundtripThroughSerialization_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                    Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
-                    AudioDescription = "audioDescription",
-                    BodyText = "bodyText",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Images = ["string"],
-                    IsManagedByNps = "1",
-                    IsOpenToPublic = "1",
-                    Latitude = "38.871843",
-                    LatLong = "38.871843,-78.203699",
-                    ListingDescription = "listingDescription",
-                    Longitude = "-78.203699",
-                    ManagedByOrg = "",
-                    ManagedByUrl = "",
-                    Multimedia =
-                    [
-                        new()
-                        {
-                            ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                            Title = "The Worthington Farm",
-                            Type = "multimedia/videos",
-                            Url =
-                                "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                        },
-                    ],
-                    NpmapID = "npmapId",
-                    QuickFacts = "",
-                    RelatedOrganizations = ["string"],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Shenandoah National Park",
-                            Name = "Shenandoah",
-                            ParkCode = "shen",
-                            States = "VA",
-                            Url = "https://www.nps.gov/shen/index.htm",
-                        },
-                    ],
-                    Tags = ["string"],
-                    Title = "title",
-                    Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "950",
-        };
-
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(element);
-        Assert.NotNull(deserialized);
-
-        List<DataData> expectedDataValue =
-        [
-            new()
-            {
-                ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
-                AudioDescription = "audioDescription",
-                BodyText = "bodyText",
-                GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                Images = ["string"],
-                IsManagedByNps = "1",
-                IsOpenToPublic = "1",
-                Latitude = "38.871843",
-                LatLong = "38.871843,-78.203699",
-                ListingDescription = "listingDescription",
-                Longitude = "-78.203699",
-                ManagedByOrg = "",
-                ManagedByUrl = "",
-                Multimedia =
-                [
-                    new()
-                    {
-                        ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                        Title = "The Worthington Farm",
-                        Type = "multimedia/videos",
-                        Url =
-                            "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                    },
-                ],
-                NpmapID = "npmapId",
-                QuickFacts = "",
-                RelatedOrganizations = ["string"],
-                RelatedParks =
-                [
-                    new()
-                    {
-                        Designation = "National Park",
-                        FullName = "Shenandoah National Park",
-                        Name = "Shenandoah",
-                        ParkCode = "shen",
-                        States = "VA",
-                        Url = "https://www.nps.gov/shen/index.htm",
-                    },
-                ],
-                Tags = ["string"],
-                Title = "title",
-                Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
-            },
-        ];
-        string expectedLimit = "50";
-        string expectedStart = "0";
-        string expectedTotal = "950";
-
-        Assert.NotNull(deserialized.DataValue);
-        Assert.Equal(expectedDataValue.Count, deserialized.DataValue.Count);
-        for (int i = 0; i < expectedDataValue.Count; i++)
-        {
-            Assert.Equal(expectedDataValue[i], deserialized.DataValue[i]);
-        }
-        Assert.Equal(expectedLimit, deserialized.Limit);
-        Assert.Equal(expectedStart, deserialized.Start);
-        Assert.Equal(expectedTotal, deserialized.Total);
-    }
-
-    [Fact]
-    public void Validation_Works()
-    {
-        var model = new Data
-        {
-            DataValue =
-            [
-                new()
-                {
-                    ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
-                    Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
-                    AudioDescription = "audioDescription",
-                    BodyText = "bodyText",
-                    GeometryPoiID = "8793be28-0d54-493f-8556-877e7ecbe937",
-                    Images = ["string"],
-                    IsManagedByNps = "1",
-                    IsOpenToPublic = "1",
-                    Latitude = "38.871843",
-                    LatLong = "38.871843,-78.203699",
-                    ListingDescription = "listingDescription",
-                    Longitude = "-78.203699",
-                    ManagedByOrg = "",
-                    ManagedByUrl = "",
-                    Multimedia =
-                    [
-                        new()
-                        {
-                            ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                            Title = "The Worthington Farm",
-                            Type = "multimedia/videos",
-                            Url =
-                                "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                        },
-                    ],
-                    NpmapID = "npmapId",
-                    QuickFacts = "",
-                    RelatedOrganizations = ["string"],
-                    RelatedParks =
-                    [
-                        new()
-                        {
-                            Designation = "National Park",
-                            FullName = "Shenandoah National Park",
-                            Name = "Shenandoah",
-                            ParkCode = "shen",
-                            States = "VA",
-                            Url = "https://www.nps.gov/shen/index.htm",
-                        },
-                    ],
-                    Tags = ["string"],
-                    Title = "title",
-                    Url = "https://www.nps.gov/places/fox-hollow-trailhead.htm",
-                },
-            ],
-            Limit = "50",
-            Start = "0",
-            Total = "950",
-        };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
-    {
-        var model = new Data { };
-
-        Assert.Null(model.DataValue);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetValidation_Works()
-    {
-        var model = new Data { };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
-    {
-        var model = new Data
-        {
-            // Null should be interpreted as omitted for these properties
-            DataValue = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        Assert.Null(model.DataValue);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
-    {
-        var model = new Data
-        {
-            // Null should be interpreted as omitted for these properties
-            DataValue = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        model.Validate();
-    }
-}
-
-public class DataDataTest : TestBase
-{
-    [Fact]
-    public void FieldRoundtrip_Works()
-    {
-        var model = new DataData
-        {
             ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
             Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
             AudioDescription = "audioDescription",
@@ -1019,7 +513,7 @@ public class DataDataTest : TestBase
         string expectedLongitude = "-78.203699";
         string expectedManagedByOrg = "";
         string expectedManagedByUrl = "";
-        List<DataDataMultimedia> expectedMultimedia =
+        List<DataMultimedia> expectedMultimedia =
         [
             new()
             {
@@ -1106,7 +600,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
             Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
@@ -1154,7 +648,7 @@ public class DataDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataData>(json);
+        var deserialized = JsonSerializer.Deserialize<Data>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -1162,7 +656,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
             Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
@@ -1210,7 +704,7 @@ public class DataDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataData>(element);
+        var deserialized = JsonSerializer.Deserialize<Data>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "770F90DA-DE86-4C87-8F65-00369A398BC9";
@@ -1230,7 +724,7 @@ public class DataDataTest : TestBase
         string expectedLongitude = "-78.203699";
         string expectedManagedByOrg = "";
         string expectedManagedByUrl = "";
-        List<DataDataMultimedia> expectedMultimedia =
+        List<DataMultimedia> expectedMultimedia =
         [
             new()
             {
@@ -1317,7 +811,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             ID = "770F90DA-DE86-4C87-8F65-00369A398BC9",
             Amenities = ["\"Beach/Water Access\", \"ORV Access\", \"Parking - Auto\""],
@@ -1370,7 +864,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new DataData { };
+        var model = new Data { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -1421,7 +915,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new DataData { };
+        var model = new Data { };
 
         model.Validate();
     }
@@ -1429,7 +923,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -1505,7 +999,7 @@ public class DataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new DataData
+        var model = new Data
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -1536,12 +1030,12 @@ public class DataDataTest : TestBase
     }
 }
 
-public class DataDataMultimediaTest : TestBase
+public class DataMultimediaTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new DataDataMultimedia
+        var model = new DataMultimedia
         {
             ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
             Title = "The Worthington Farm",
@@ -1565,7 +1059,7 @@ public class DataDataMultimediaTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new DataDataMultimedia
+        var model = new DataMultimedia
         {
             ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
             Title = "The Worthington Farm",
@@ -1575,7 +1069,7 @@ public class DataDataMultimediaTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataDataMultimedia>(json);
+        var deserialized = JsonSerializer.Deserialize<DataMultimedia>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -1583,7 +1077,7 @@ public class DataDataMultimediaTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new DataDataMultimedia
+        var model = new DataMultimedia
         {
             ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
             Title = "The Worthington Farm",
@@ -1593,7 +1087,7 @@ public class DataDataMultimediaTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<DataDataMultimedia>(element);
+        var deserialized = JsonSerializer.Deserialize<DataMultimedia>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883";
@@ -1611,7 +1105,7 @@ public class DataDataMultimediaTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new DataDataMultimedia
+        var model = new DataMultimedia
         {
             ID = "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
             Title = "The Worthington Farm",
@@ -1626,7 +1120,7 @@ public class DataDataMultimediaTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new DataDataMultimedia { };
+        var model = new DataMultimedia { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -1641,7 +1135,7 @@ public class DataDataMultimediaTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new DataDataMultimedia { };
+        var model = new DataMultimedia { };
 
         model.Validate();
     }
@@ -1649,7 +1143,7 @@ public class DataDataMultimediaTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new DataDataMultimedia
+        var model = new DataMultimedia
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -1671,7 +1165,7 @@ public class DataDataMultimediaTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new DataDataMultimedia
+        var model = new DataMultimedia
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

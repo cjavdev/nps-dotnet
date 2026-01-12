@@ -34,7 +34,7 @@ public sealed class NewsReleaseService : INewsReleaseService
     }
 
     /// <inheritdoc/>
-    public async Task<NewsReleaseListResponse> List(
+    public async Task<NewsReleaseListPage> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -65,7 +65,7 @@ public sealed class NewsReleaseServiceWithRawResponse : INewsReleaseServiceWithR
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<NewsReleaseListResponse>> List(
+    public async Task<HttpResponse<NewsReleaseListPage>> List(
         NewsReleaseListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +82,14 @@ public sealed class NewsReleaseServiceWithRawResponse : INewsReleaseServiceWithR
             response,
             async (token) =>
             {
-                var newsReleases = await response
-                    .Deserialize<NewsReleaseListResponse>(token)
+                var page = await response
+                    .Deserialize<NewsReleaseListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    newsReleases.Validate();
+                    page.Validate();
                 }
-                return newsReleases;
+                return new NewsReleaseListPage(this, parameters, page);
             }
         );
     }

@@ -34,7 +34,7 @@ public sealed class WebcamService : IWebcamService
     }
 
     /// <inheritdoc/>
-    public async Task<WebcamListResponse> List(
+    public async Task<WebcamListPage> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -63,7 +63,7 @@ public sealed class WebcamServiceWithRawResponse : IWebcamServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<WebcamListResponse>> List(
+    public async Task<HttpResponse<WebcamListPage>> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -80,14 +80,14 @@ public sealed class WebcamServiceWithRawResponse : IWebcamServiceWithRawResponse
             response,
             async (token) =>
             {
-                var webcams = await response
-                    .Deserialize<WebcamListResponse>(token)
+                var page = await response
+                    .Deserialize<WebcamListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    webcams.Validate();
+                    page.Validate();
                 }
-                return webcams;
+                return new WebcamListPage(this, parameters, page);
             }
         );
     }

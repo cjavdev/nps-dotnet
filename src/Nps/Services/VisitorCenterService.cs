@@ -36,7 +36,7 @@ public sealed class VisitorCenterService : IVisitorCenterService
     }
 
     /// <inheritdoc/>
-    public async Task<VisitorCenterListResponse> List(
+    public async Task<VisitorCenterListPage> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -67,7 +67,7 @@ public sealed class VisitorCenterServiceWithRawResponse : IVisitorCenterServiceW
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<VisitorCenterListResponse>> List(
+    public async Task<HttpResponse<VisitorCenterListPage>> List(
         VisitorCenterListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -84,14 +84,14 @@ public sealed class VisitorCenterServiceWithRawResponse : IVisitorCenterServiceW
             response,
             async (token) =>
             {
-                var visitorCenters = await response
-                    .Deserialize<VisitorCenterListResponse>(token)
+                var page = await response
+                    .Deserialize<VisitorCenterListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    visitorCenters.Validate();
+                    page.Validate();
                 }
-                return visitorCenters;
+                return new VisitorCenterListPage(this, parameters, page);
             }
         );
     }

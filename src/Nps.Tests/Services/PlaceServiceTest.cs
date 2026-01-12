@@ -7,7 +7,7 @@ public class PlaceServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task List_Works()
     {
-        var places = await this.client.Places.List(new(), TestContext.Current.CancellationToken);
-        places.Validate();
+        var page = await this.client.Places.List(new(), TestContext.Current.CancellationToken);
+        page.Validate();
     }
 }

@@ -7,10 +7,10 @@ public class VisitorCenterServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task List_Works()
     {
-        var visitorCenters = await this.client.VisitorCenters.List(
+        var page = await this.client.VisitorCenters.List(
             new(),
             TestContext.Current.CancellationToken
         );
-        visitorCenters.Validate();
+        page.Validate();
     }
 }

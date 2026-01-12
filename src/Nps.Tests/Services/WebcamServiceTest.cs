@@ -7,7 +7,7 @@ public class WebcamServiceTest : TestBase
     [Fact(Skip = "Prism tests are disabled")]
     public async Task List_Works()
     {
-        var webcams = await this.client.Webcams.List(new(), TestContext.Current.CancellationToken);
-        webcams.Validate();
+        var page = await this.client.Webcams.List(new(), TestContext.Current.CancellationToken);
+        page.Validate();
     }
 }

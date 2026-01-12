@@ -29,7 +29,7 @@ public interface IFeespassService
     /// <summary>
     /// Sends a request to <c>get /feespasses<c/>.
     /// </summary>
-    Task<FeespassListResponse> List(
+    Task<FeespassListPage> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IFeespassServiceWithRawResponse
     /// Returns a raw HTTP response for `get /feespasses`, but is otherwise the
     /// same as <see cref="IFeespassService.List(FeespassListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<FeespassListResponse>> List(
+    Task<HttpResponse<FeespassListPage>> List(
         FeespassListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

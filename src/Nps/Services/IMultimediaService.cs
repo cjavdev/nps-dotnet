@@ -32,7 +32,7 @@ public interface IMultimediaService
     /// <summary>
     /// Sends a request to <c>get /multimedia/audio<c/>.
     /// </summary>
-    Task<MultimediaListAudioResponse> ListAudio(
+    Task<MultimediaListAudioPage> ListAudio(
         MultimediaListAudioParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -40,7 +40,7 @@ public interface IMultimediaService
     /// <summary>
     /// Sends a request to <c>get /multimedia/videos<c/>.
     /// </summary>
-    Task<MultimediaListVideosResponse> ListVideos(
+    Task<MultimediaListVideosPage> ListVideos(
         MultimediaListVideosParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -65,7 +65,7 @@ public interface IMultimediaServiceWithRawResponse
     /// Returns a raw HTTP response for `get /multimedia/audio`, but is otherwise the
     /// same as <see cref="IMultimediaService.ListAudio(MultimediaListAudioParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<MultimediaListAudioResponse>> ListAudio(
+    Task<HttpResponse<MultimediaListAudioPage>> ListAudio(
         MultimediaListAudioParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -74,7 +74,7 @@ public interface IMultimediaServiceWithRawResponse
     /// Returns a raw HTTP response for `get /multimedia/videos`, but is otherwise the
     /// same as <see cref="IMultimediaService.ListVideos(MultimediaListVideosParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<MultimediaListVideosResponse>> ListVideos(
+    Task<HttpResponse<MultimediaListVideosPage>> ListVideos(
         MultimediaListVideosParams? parameters = null,
         CancellationToken cancellationToken = default
     );

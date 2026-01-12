@@ -29,7 +29,7 @@ public interface IWebcamService
     /// <summary>
     /// Sends a request to <c>get /webcams<c/>.
     /// </summary>
-    Task<WebcamListResponse> List(
+    Task<WebcamListPage> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface IWebcamServiceWithRawResponse
     /// Returns a raw HTTP response for `get /webcams`, but is otherwise the
     /// same as <see cref="IWebcamService.List(WebcamListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<WebcamListResponse>> List(
+    Task<HttpResponse<WebcamListPage>> List(
         WebcamListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
