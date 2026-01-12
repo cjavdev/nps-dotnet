@@ -266,8 +266,8 @@ By default, the SDK will not throw an exception in this case. It will throw `Nps
 If you would prefer to check that the response is completely well-typed upfront, then either call `Validate`:
 
 ```csharp
-var response = client.Amenities.RetrieveParksPlaces();
-response.Validate();
+var events = client.Events.List();
+events.Validate();
 ```
 
 Or configure the client using the `ResponseValidation` option:
@@ -283,13 +283,13 @@ Or configure a single method call using [`WithOptions`](#modifying-configuration
 ```csharp
 using System;
 
-var response = await client
+var events = await client
     .WithOptions(options =>
         options with { ResponseValidation = true }
     )
-    .Amenities.RetrieveParksPlaces(parameters);
+    .Events.List(parameters);
 
-Console.WriteLine(response);
+Console.WriteLine(events);
 ```
 
 ## Semantic versioning

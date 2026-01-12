@@ -1,18 +1,19 @@
 using System;
 using System.Collections.Generic;
-using Nps.Models.Topics;
+using Nps.Models.Amenities;
 
-namespace Nps.Tests.Models.Topics;
+namespace Nps.Tests.Models.Amenities;
 
-public class TopicRetrieveParksParamsTest : TestBase
+public class AmenityListParksPlacesParamsTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var parameters = new TopicRetrieveParksParams
+        var parameters = new AmenityListParksPlacesParams
         {
             ID = ["string"],
             Limit = 0,
+            ParkCode = ["string"],
             Q = "q",
             Sort = "sort",
             Start = 0,
@@ -20,6 +21,7 @@ public class TopicRetrieveParksParamsTest : TestBase
 
         List<string> expectedID = ["string"];
         long expectedLimit = 0;
+        List<string> expectedParkCode = ["string"];
         string expectedQ = "q";
         string expectedSort = "sort";
         long expectedStart = 0;
@@ -31,6 +33,12 @@ public class TopicRetrieveParksParamsTest : TestBase
             Assert.Equal(expectedID[i], parameters.ID[i]);
         }
         Assert.Equal(expectedLimit, parameters.Limit);
+        Assert.NotNull(parameters.ParkCode);
+        Assert.Equal(expectedParkCode.Count, parameters.ParkCode.Count);
+        for (int i = 0; i < expectedParkCode.Count; i++)
+        {
+            Assert.Equal(expectedParkCode[i], parameters.ParkCode[i]);
+        }
         Assert.Equal(expectedQ, parameters.Q);
         Assert.Equal(expectedSort, parameters.Sort);
         Assert.Equal(expectedStart, parameters.Start);
@@ -39,12 +47,14 @@ public class TopicRetrieveParksParamsTest : TestBase
     [Fact]
     public void OptionalNonNullableParamsUnsetAreNotSet_Works()
     {
-        var parameters = new TopicRetrieveParksParams { };
+        var parameters = new AmenityListParksPlacesParams { };
 
         Assert.Null(parameters.ID);
         Assert.False(parameters.RawQueryData.ContainsKey("id"));
         Assert.Null(parameters.Limit);
         Assert.False(parameters.RawQueryData.ContainsKey("limit"));
+        Assert.Null(parameters.ParkCode);
+        Assert.False(parameters.RawQueryData.ContainsKey("parkCode"));
         Assert.Null(parameters.Q);
         Assert.False(parameters.RawQueryData.ContainsKey("q"));
         Assert.Null(parameters.Sort);
@@ -56,11 +66,12 @@ public class TopicRetrieveParksParamsTest : TestBase
     [Fact]
     public void OptionalNonNullableParamsSetToNullAreNotSet_Works()
     {
-        var parameters = new TopicRetrieveParksParams
+        var parameters = new AmenityListParksPlacesParams
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
             Limit = null,
+            ParkCode = null,
             Q = null,
             Sort = null,
             Start = null,
@@ -70,6 +81,8 @@ public class TopicRetrieveParksParamsTest : TestBase
         Assert.False(parameters.RawQueryData.ContainsKey("id"));
         Assert.Null(parameters.Limit);
         Assert.False(parameters.RawQueryData.ContainsKey("limit"));
+        Assert.Null(parameters.ParkCode);
+        Assert.False(parameters.RawQueryData.ContainsKey("parkCode"));
         Assert.Null(parameters.Q);
         Assert.False(parameters.RawQueryData.ContainsKey("q"));
         Assert.Null(parameters.Sort);
@@ -81,10 +94,11 @@ public class TopicRetrieveParksParamsTest : TestBase
     [Fact]
     public void Url_Works()
     {
-        TopicRetrieveParksParams parameters = new()
+        AmenityListParksPlacesParams parameters = new()
         {
             ID = ["string"],
             Limit = 0,
+            ParkCode = ["string"],
             Q = "q",
             Sort = "sort",
             Start = 0,
@@ -94,7 +108,7 @@ public class TopicRetrieveParksParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/topics/parks?id=string&limit=0&q=q&sort=sort&start=0"
+                "https://developer.nps.gov/api/v1/amenities/parksplaces?id=string&limit=0&parkCode=string&q=q&sort=sort&start=0"
             ),
             url
         );

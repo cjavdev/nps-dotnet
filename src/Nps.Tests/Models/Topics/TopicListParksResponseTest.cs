@@ -4,332 +4,12 @@ using Nps.Models.Topics;
 
 namespace Nps.Tests.Models.Topics;
 
-public class TopicRetrieveParksResponseTest : TestBase
+public class TopicListParksResponseTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new TopicRetrieveParksResponse
-        {
-            Data =
-            [
-                new()
-                {
-                    Data =
-                    [
-                        new()
-                        {
-                            ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
-                            Name = "animals",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Heritage Area",
-                                    FullName = "Arabia Mountain National Heritage Area",
-                                    Name = "Arabia Mountain",
-                                    ParkCode = "armo",
-                                    States = "GA",
-                                    Url = "https://www.nps.gov/armo/index.htm",
-                                },
-                            ],
-                        },
-                    ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "3",
-                },
-            ],
-            Limit = 0,
-            Start = 0,
-            Total = 0,
-        };
-
-        List<TopicRetrieveParksResponseData> expectedData =
-        [
-            new()
-            {
-                Data =
-                [
-                    new()
-                    {
-                        ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
-                        Name = "animals",
-                        Parks =
-                        [
-                            new()
-                            {
-                                Designation = "National Heritage Area",
-                                FullName = "Arabia Mountain National Heritage Area",
-                                Name = "Arabia Mountain",
-                                ParkCode = "armo",
-                                States = "GA",
-                                Url = "https://www.nps.gov/armo/index.htm",
-                            },
-                        ],
-                    },
-                ],
-                Limit = "50",
-                Start = "0",
-                Total = "3",
-            },
-        ];
-        double expectedLimit = 0;
-        double expectedStart = 0;
-        double expectedTotal = 0;
-
-        Assert.NotNull(model.Data);
-        Assert.Equal(expectedData.Count, model.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
-        {
-            Assert.Equal(expectedData[i], model.Data[i]);
-        }
-        Assert.Equal(expectedLimit, model.Limit);
-        Assert.Equal(expectedStart, model.Start);
-        Assert.Equal(expectedTotal, model.Total);
-    }
-
-    [Fact]
-    public void SerializationRoundtrip_Works()
-    {
-        var model = new TopicRetrieveParksResponse
-        {
-            Data =
-            [
-                new()
-                {
-                    Data =
-                    [
-                        new()
-                        {
-                            ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
-                            Name = "animals",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Heritage Area",
-                                    FullName = "Arabia Mountain National Heritage Area",
-                                    Name = "Arabia Mountain",
-                                    ParkCode = "armo",
-                                    States = "GA",
-                                    Url = "https://www.nps.gov/armo/index.htm",
-                                },
-                            ],
-                        },
-                    ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "3",
-                },
-            ],
-            Limit = 0,
-            Start = 0,
-            Total = 0,
-        };
-
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<TopicRetrieveParksResponse>(json);
-
-        Assert.Equal(model, deserialized);
-    }
-
-    [Fact]
-    public void FieldRoundtripThroughSerialization_Works()
-    {
-        var model = new TopicRetrieveParksResponse
-        {
-            Data =
-            [
-                new()
-                {
-                    Data =
-                    [
-                        new()
-                        {
-                            ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
-                            Name = "animals",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Heritage Area",
-                                    FullName = "Arabia Mountain National Heritage Area",
-                                    Name = "Arabia Mountain",
-                                    ParkCode = "armo",
-                                    States = "GA",
-                                    Url = "https://www.nps.gov/armo/index.htm",
-                                },
-                            ],
-                        },
-                    ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "3",
-                },
-            ],
-            Limit = 0,
-            Start = 0,
-            Total = 0,
-        };
-
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<TopicRetrieveParksResponse>(element);
-        Assert.NotNull(deserialized);
-
-        List<TopicRetrieveParksResponseData> expectedData =
-        [
-            new()
-            {
-                Data =
-                [
-                    new()
-                    {
-                        ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
-                        Name = "animals",
-                        Parks =
-                        [
-                            new()
-                            {
-                                Designation = "National Heritage Area",
-                                FullName = "Arabia Mountain National Heritage Area",
-                                Name = "Arabia Mountain",
-                                ParkCode = "armo",
-                                States = "GA",
-                                Url = "https://www.nps.gov/armo/index.htm",
-                            },
-                        ],
-                    },
-                ],
-                Limit = "50",
-                Start = "0",
-                Total = "3",
-            },
-        ];
-        double expectedLimit = 0;
-        double expectedStart = 0;
-        double expectedTotal = 0;
-
-        Assert.NotNull(deserialized.Data);
-        Assert.Equal(expectedData.Count, deserialized.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
-        {
-            Assert.Equal(expectedData[i], deserialized.Data[i]);
-        }
-        Assert.Equal(expectedLimit, deserialized.Limit);
-        Assert.Equal(expectedStart, deserialized.Start);
-        Assert.Equal(expectedTotal, deserialized.Total);
-    }
-
-    [Fact]
-    public void Validation_Works()
-    {
-        var model = new TopicRetrieveParksResponse
-        {
-            Data =
-            [
-                new()
-                {
-                    Data =
-                    [
-                        new()
-                        {
-                            ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
-                            Name = "animals",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "National Heritage Area",
-                                    FullName = "Arabia Mountain National Heritage Area",
-                                    Name = "Arabia Mountain",
-                                    ParkCode = "armo",
-                                    States = "GA",
-                                    Url = "https://www.nps.gov/armo/index.htm",
-                                },
-                            ],
-                        },
-                    ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "3",
-                },
-            ],
-            Limit = 0,
-            Start = 0,
-            Total = 0,
-        };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
-    {
-        var model = new TopicRetrieveParksResponse { };
-
-        Assert.Null(model.Data);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetValidation_Works()
-    {
-        var model = new TopicRetrieveParksResponse { };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
-    {
-        var model = new TopicRetrieveParksResponse
-        {
-            // Null should be interpreted as omitted for these properties
-            Data = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        Assert.Null(model.Data);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
-    {
-        var model = new TopicRetrieveParksResponse
-        {
-            // Null should be interpreted as omitted for these properties
-            Data = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        model.Validate();
-    }
-}
-
-public class TopicRetrieveParksResponseDataTest : TestBase
-{
-    [Fact]
-    public void FieldRoundtrip_Works()
-    {
-        var model = new TopicRetrieveParksResponseData
+        var model = new TopicListParksResponse
         {
             Data =
             [
@@ -356,7 +36,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
             Total = "3",
         };
 
-        List<TopicRetrieveParksResponseDataData> expectedData =
+        List<TopicListParksResponseData> expectedData =
         [
             new()
             {
@@ -394,7 +74,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new TopicRetrieveParksResponseData
+        var model = new TopicListParksResponse
         {
             Data =
             [
@@ -422,7 +102,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<TopicRetrieveParksResponseData>(json);
+        var deserialized = JsonSerializer.Deserialize<TopicListParksResponse>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -430,7 +110,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new TopicRetrieveParksResponseData
+        var model = new TopicListParksResponse
         {
             Data =
             [
@@ -458,10 +138,10 @@ public class TopicRetrieveParksResponseDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<TopicRetrieveParksResponseData>(element);
+        var deserialized = JsonSerializer.Deserialize<TopicListParksResponse>(element);
         Assert.NotNull(deserialized);
 
-        List<TopicRetrieveParksResponseDataData> expectedData =
+        List<TopicListParksResponseData> expectedData =
         [
             new()
             {
@@ -499,7 +179,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new TopicRetrieveParksResponseData
+        var model = new TopicListParksResponse
         {
             Data =
             [
@@ -532,7 +212,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new TopicRetrieveParksResponseData { };
+        var model = new TopicListParksResponse { };
 
         Assert.Null(model.Data);
         Assert.False(model.RawData.ContainsKey("data"));
@@ -547,7 +227,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new TopicRetrieveParksResponseData { };
+        var model = new TopicListParksResponse { };
 
         model.Validate();
     }
@@ -555,7 +235,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new TopicRetrieveParksResponseData
+        var model = new TopicListParksResponse
         {
             // Null should be interpreted as omitted for these properties
             Data = null,
@@ -577,7 +257,7 @@ public class TopicRetrieveParksResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new TopicRetrieveParksResponseData
+        var model = new TopicListParksResponse
         {
             // Null should be interpreted as omitted for these properties
             Data = null,
@@ -590,12 +270,12 @@ public class TopicRetrieveParksResponseDataTest : TestBase
     }
 }
 
-public class TopicRetrieveParksResponseDataDataTest : TestBase
+public class TopicListParksResponseDataTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new TopicRetrieveParksResponseDataData
+        var model = new TopicListParksResponseData
         {
             ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
             Name = "animals",
@@ -641,7 +321,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new TopicRetrieveParksResponseDataData
+        var model = new TopicListParksResponseData
         {
             ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
             Name = "animals",
@@ -660,7 +340,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<TopicRetrieveParksResponseDataData>(json);
+        var deserialized = JsonSerializer.Deserialize<TopicListParksResponseData>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -668,7 +348,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new TopicRetrieveParksResponseDataData
+        var model = new TopicListParksResponseData
         {
             ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
             Name = "animals",
@@ -687,7 +367,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<TopicRetrieveParksResponseDataData>(element);
+        var deserialized = JsonSerializer.Deserialize<TopicListParksResponseData>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C";
@@ -718,7 +398,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new TopicRetrieveParksResponseDataData
+        var model = new TopicListParksResponseData
         {
             ID = "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
             Name = "animals",
@@ -742,7 +422,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new TopicRetrieveParksResponseDataData { };
+        var model = new TopicListParksResponseData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -755,7 +435,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new TopicRetrieveParksResponseDataData { };
+        var model = new TopicListParksResponseData { };
 
         model.Validate();
     }
@@ -763,7 +443,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new TopicRetrieveParksResponseDataData
+        var model = new TopicListParksResponseData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -782,7 +462,7 @@ public class TopicRetrieveParksResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new TopicRetrieveParksResponseDataData
+        var model = new TopicListParksResponseData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

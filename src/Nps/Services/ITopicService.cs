@@ -37,8 +37,8 @@ public interface ITopicService
     /// <summary>
     /// Sends a request to <c>get /topics/parks<c/>.
     /// </summary>
-    Task<TopicRetrieveParksResponse> RetrieveParks(
-        TopicRetrieveParksParams? parameters = null,
+    Task<TopicListParksPage> ListParks(
+        TopicListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 }
@@ -67,10 +67,10 @@ public interface ITopicServiceWithRawResponse
 
     /// <summary>
     /// Returns a raw HTTP response for `get /topics/parks`, but is otherwise the
-    /// same as <see cref="ITopicService.RetrieveParks(TopicRetrieveParksParams?, CancellationToken)"/>.
+    /// same as <see cref="ITopicService.ListParks(TopicListParksParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<TopicRetrieveParksResponse>> RetrieveParks(
-        TopicRetrieveParksParams? parameters = null,
+    Task<HttpResponse<TopicListParksPage>> ListParks(
+        TopicListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     );
 }

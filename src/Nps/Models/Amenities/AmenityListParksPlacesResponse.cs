@@ -9,136 +9,17 @@ namespace Nps.Models.Amenities;
 
 [JsonConverter(
     typeof(JsonModelConverter<
-        AmenityRetrieveParksPlacesResponse,
-        AmenityRetrieveParksPlacesResponseFromRaw
+        AmenityListParksPlacesResponse,
+        AmenityListParksPlacesResponseFromRaw
     >)
 )]
-public sealed record class AmenityRetrieveParksPlacesResponse : JsonModel
+public sealed record class AmenityListParksPlacesResponse : JsonModel
 {
-    public IReadOnlyList<AmenityRetrieveParksPlacesResponseData>? Data
+    public IReadOnlyList<AmenityListParksPlacesResponseData>? Data
     {
         get
         {
-            return JsonModel.GetNullableClass<List<AmenityRetrieveParksPlacesResponseData>>(
-                this.RawData,
-                "data"
-            );
-        }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "data", value);
-        }
-    }
-
-    public double? Limit
-    {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "limit", value);
-        }
-    }
-
-    public double? Start
-    {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "start", value);
-        }
-    }
-
-    public double? Total
-    {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
-        init
-        {
-            if (value == null)
-            {
-                return;
-            }
-
-            JsonModel.Set(this._rawData, "total", value);
-        }
-    }
-
-    /// <inheritdoc/>
-    public override void Validate()
-    {
-        foreach (var item in this.Data ?? [])
-        {
-            item.Validate();
-        }
-        _ = this.Limit;
-        _ = this.Start;
-        _ = this.Total;
-    }
-
-    public AmenityRetrieveParksPlacesResponse() { }
-
-    public AmenityRetrieveParksPlacesResponse(
-        AmenityRetrieveParksPlacesResponse amenityRetrieveParksPlacesResponse
-    )
-        : base(amenityRetrieveParksPlacesResponse) { }
-
-    public AmenityRetrieveParksPlacesResponse(IReadOnlyDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-
-#pragma warning disable CS8618
-    [SetsRequiredMembers]
-    AmenityRetrieveParksPlacesResponse(FrozenDictionary<string, JsonElement> rawData)
-    {
-        this._rawData = [.. rawData];
-    }
-#pragma warning restore CS8618
-
-    /// <inheritdoc cref="AmenityRetrieveParksPlacesResponseFromRaw.FromRawUnchecked"/>
-    public static AmenityRetrieveParksPlacesResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
-    {
-        return new(FrozenDictionary.ToFrozenDictionary(rawData));
-    }
-}
-
-class AmenityRetrieveParksPlacesResponseFromRaw : IFromRawJson<AmenityRetrieveParksPlacesResponse>
-{
-    /// <inheritdoc/>
-    public AmenityRetrieveParksPlacesResponse FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    ) => AmenityRetrieveParksPlacesResponse.FromRawUnchecked(rawData);
-}
-
-[JsonConverter(
-    typeof(JsonModelConverter<
-        AmenityRetrieveParksPlacesResponseData,
-        AmenityRetrieveParksPlacesResponseDataFromRaw
-    >)
-)]
-public sealed record class AmenityRetrieveParksPlacesResponseData : JsonModel
-{
-    public IReadOnlyList<AmenityRetrieveParksPlacesResponseDataData>? Data
-    {
-        get
-        {
-            return JsonModel.GetNullableClass<List<AmenityRetrieveParksPlacesResponseDataData>>(
+            return JsonModel.GetNullableClass<List<AmenityListParksPlacesResponseData>>(
                 this.RawData,
                 "data"
             );
@@ -208,28 +89,28 @@ public sealed record class AmenityRetrieveParksPlacesResponseData : JsonModel
         _ = this.Total;
     }
 
-    public AmenityRetrieveParksPlacesResponseData() { }
+    public AmenityListParksPlacesResponse() { }
 
-    public AmenityRetrieveParksPlacesResponseData(
-        AmenityRetrieveParksPlacesResponseData amenityRetrieveParksPlacesResponseData
+    public AmenityListParksPlacesResponse(
+        AmenityListParksPlacesResponse amenityListParksPlacesResponse
     )
-        : base(amenityRetrieveParksPlacesResponseData) { }
+        : base(amenityListParksPlacesResponse) { }
 
-    public AmenityRetrieveParksPlacesResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
+    public AmenityListParksPlacesResponse(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    AmenityRetrieveParksPlacesResponseData(FrozenDictionary<string, JsonElement> rawData)
+    AmenityListParksPlacesResponse(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="AmenityRetrieveParksPlacesResponseDataFromRaw.FromRawUnchecked"/>
-    public static AmenityRetrieveParksPlacesResponseData FromRawUnchecked(
+    /// <inheritdoc cref="AmenityListParksPlacesResponseFromRaw.FromRawUnchecked"/>
+    public static AmenityListParksPlacesResponse FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -237,22 +118,21 @@ public sealed record class AmenityRetrieveParksPlacesResponseData : JsonModel
     }
 }
 
-class AmenityRetrieveParksPlacesResponseDataFromRaw
-    : IFromRawJson<AmenityRetrieveParksPlacesResponseData>
+class AmenityListParksPlacesResponseFromRaw : IFromRawJson<AmenityListParksPlacesResponse>
 {
     /// <inheritdoc/>
-    public AmenityRetrieveParksPlacesResponseData FromRawUnchecked(
+    public AmenityListParksPlacesResponse FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => AmenityRetrieveParksPlacesResponseData.FromRawUnchecked(rawData);
+    ) => AmenityListParksPlacesResponse.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(
     typeof(JsonModelConverter<
-        AmenityRetrieveParksPlacesResponseDataData,
-        AmenityRetrieveParksPlacesResponseDataDataFromRaw
+        AmenityListParksPlacesResponseData,
+        AmenityListParksPlacesResponseDataFromRaw
     >)
 )]
-public sealed record class AmenityRetrieveParksPlacesResponseDataData : JsonModel
+public sealed record class AmenityListParksPlacesResponseData : JsonModel
 {
     /// <summary>
     /// Unique identifier for this amenity
@@ -313,30 +193,28 @@ public sealed record class AmenityRetrieveParksPlacesResponseDataData : JsonMode
         }
     }
 
-    public AmenityRetrieveParksPlacesResponseDataData() { }
+    public AmenityListParksPlacesResponseData() { }
 
-    public AmenityRetrieveParksPlacesResponseDataData(
-        AmenityRetrieveParksPlacesResponseDataData amenityRetrieveParksPlacesResponseDataData
+    public AmenityListParksPlacesResponseData(
+        AmenityListParksPlacesResponseData amenityListParksPlacesResponseData
     )
-        : base(amenityRetrieveParksPlacesResponseDataData) { }
+        : base(amenityListParksPlacesResponseData) { }
 
-    public AmenityRetrieveParksPlacesResponseDataData(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
+    public AmenityListParksPlacesResponseData(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    AmenityRetrieveParksPlacesResponseDataData(FrozenDictionary<string, JsonElement> rawData)
+    AmenityListParksPlacesResponseData(FrozenDictionary<string, JsonElement> rawData)
     {
         this._rawData = [.. rawData];
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="AmenityRetrieveParksPlacesResponseDataDataFromRaw.FromRawUnchecked"/>
-    public static AmenityRetrieveParksPlacesResponseDataData FromRawUnchecked(
+    /// <inheritdoc cref="AmenityListParksPlacesResponseDataFromRaw.FromRawUnchecked"/>
+    public static AmenityListParksPlacesResponseData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
     )
     {
@@ -344,13 +222,12 @@ public sealed record class AmenityRetrieveParksPlacesResponseDataData : JsonMode
     }
 }
 
-class AmenityRetrieveParksPlacesResponseDataDataFromRaw
-    : IFromRawJson<AmenityRetrieveParksPlacesResponseDataData>
+class AmenityListParksPlacesResponseDataFromRaw : IFromRawJson<AmenityListParksPlacesResponseData>
 {
     /// <inheritdoc/>
-    public AmenityRetrieveParksPlacesResponseDataData FromRawUnchecked(
+    public AmenityListParksPlacesResponseData FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawData
-    ) => AmenityRetrieveParksPlacesResponseDataData.FromRawUnchecked(rawData);
+    ) => AmenityListParksPlacesResponseData.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<Park, ParkFromRaw>))]

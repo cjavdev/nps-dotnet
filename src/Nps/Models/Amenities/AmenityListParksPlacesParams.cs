@@ -6,12 +6,12 @@ using System.Net.Http;
 using System.Text.Json;
 using Nps.Core;
 
-namespace Nps.Models.Topics;
+namespace Nps.Models.Amenities;
 
-public sealed record class TopicRetrieveParksParams : ParamsBase
+public sealed record class AmenityListParksPlacesParams : ParamsBase
 {
     /// <summary>
-    /// A comma delimited list of topic IDs.
+    /// A comma delimited list of amenity IDs.
     /// </summary>
     public IReadOnlyList<string>? ID
     {
@@ -45,6 +45,23 @@ public sealed record class TopicRetrieveParksParams : ParamsBase
     }
 
     /// <summary>
+    /// A comma delimited list of 4 character park codes.
+    /// </summary>
+    public IReadOnlyList<string>? ParkCode
+    {
+        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "parkCode"); }
+        init
+        {
+            if (value == null)
+            {
+                return;
+            }
+
+            JsonModel.Set(this._rawQueryData, "parkCode", value);
+        }
+    }
+
+    /// <summary>
     /// A string to search for.
     /// </summary>
     public string? Q
@@ -64,7 +81,7 @@ public sealed record class TopicRetrieveParksParams : ParamsBase
     /// <summary>
     /// A comma delimited list of fields to sort the results by. Ascending order is
     /// assumed for each field unless the field name is prefixed with the unary negative
-    /// which implies descending order.
+    ///       which implies descending order.
     /// </summary>
     public string? Sort
     {
@@ -97,12 +114,12 @@ public sealed record class TopicRetrieveParksParams : ParamsBase
         }
     }
 
-    public TopicRetrieveParksParams() { }
+    public AmenityListParksPlacesParams() { }
 
-    public TopicRetrieveParksParams(TopicRetrieveParksParams topicRetrieveParksParams)
-        : base(topicRetrieveParksParams) { }
+    public AmenityListParksPlacesParams(AmenityListParksPlacesParams amenityListParksPlacesParams)
+        : base(amenityListParksPlacesParams) { }
 
-    public TopicRetrieveParksParams(
+    public AmenityListParksPlacesParams(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )
@@ -113,7 +130,7 @@ public sealed record class TopicRetrieveParksParams : ParamsBase
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
-    TopicRetrieveParksParams(
+    AmenityListParksPlacesParams(
         FrozenDictionary<string, JsonElement> rawHeaderData,
         FrozenDictionary<string, JsonElement> rawQueryData
     )
@@ -124,7 +141,7 @@ public sealed record class TopicRetrieveParksParams : ParamsBase
 #pragma warning restore CS8618
 
     /// <inheritdoc cref="IFromRawJson.FromRawUnchecked"/>
-    public static TopicRetrieveParksParams FromRawUnchecked(
+    public static AmenityListParksPlacesParams FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )
@@ -137,7 +154,7 @@ public sealed record class TopicRetrieveParksParams : ParamsBase
 
     public override Uri Url(ClientOptions options)
     {
-        return new UriBuilder(options.BaseUrl.ToString().TrimEnd('/') + "/topics/parks")
+        return new UriBuilder(options.BaseUrl.ToString().TrimEnd('/') + "/amenities/parksplaces")
         {
             Query = this.QueryString(options),
         }.Uri;

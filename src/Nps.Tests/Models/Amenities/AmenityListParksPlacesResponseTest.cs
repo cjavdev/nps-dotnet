@@ -4,386 +4,12 @@ using Nps.Models.Amenities;
 
 namespace Nps.Tests.Models.Amenities;
 
-public class AmenityRetrieveParksPlacesResponseTest : TestBase
+public class AmenityListParksPlacesResponseTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponse
-        {
-            Data =
-            [
-                new()
-                {
-                    Data =
-                    [
-                        new()
-                        {
-                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                            Name = "Accessibility - Accessible Restroom",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "Parkway",
-                                    FullName = "Blue Ridge Parkway",
-                                    Name = "Blue Ridge",
-                                    ParkCode = "blri",
-                                    Places =
-                                    [
-                                        new()
-                                        {
-                                            ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                            Title = "Mabry Mill",
-                                            Url = "https://www.nps.gov/places/mabry-mill.htm",
-                                        },
-                                    ],
-                                    States = "NC,VA",
-                                    Url = "https://www.nps.gov/blri/index.htm",
-                                },
-                            ],
-                        },
-                    ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "53",
-                },
-            ],
-            Limit = 0,
-            Start = 0,
-            Total = 0,
-        };
-
-        List<AmenityRetrieveParksPlacesResponseData> expectedData =
-        [
-            new()
-            {
-                Data =
-                [
-                    new()
-                    {
-                        ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                        Name = "Accessibility - Accessible Restroom",
-                        Parks =
-                        [
-                            new()
-                            {
-                                Designation = "Parkway",
-                                FullName = "Blue Ridge Parkway",
-                                Name = "Blue Ridge",
-                                ParkCode = "blri",
-                                Places =
-                                [
-                                    new()
-                                    {
-                                        ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                        Title = "Mabry Mill",
-                                        Url = "https://www.nps.gov/places/mabry-mill.htm",
-                                    },
-                                ],
-                                States = "NC,VA",
-                                Url = "https://www.nps.gov/blri/index.htm",
-                            },
-                        ],
-                    },
-                ],
-                Limit = "50",
-                Start = "0",
-                Total = "53",
-            },
-        ];
-        double expectedLimit = 0;
-        double expectedStart = 0;
-        double expectedTotal = 0;
-
-        Assert.NotNull(model.Data);
-        Assert.Equal(expectedData.Count, model.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
-        {
-            Assert.Equal(expectedData[i], model.Data[i]);
-        }
-        Assert.Equal(expectedLimit, model.Limit);
-        Assert.Equal(expectedStart, model.Start);
-        Assert.Equal(expectedTotal, model.Total);
-    }
-
-    [Fact]
-    public void SerializationRoundtrip_Works()
-    {
-        var model = new AmenityRetrieveParksPlacesResponse
-        {
-            Data =
-            [
-                new()
-                {
-                    Data =
-                    [
-                        new()
-                        {
-                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                            Name = "Accessibility - Accessible Restroom",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "Parkway",
-                                    FullName = "Blue Ridge Parkway",
-                                    Name = "Blue Ridge",
-                                    ParkCode = "blri",
-                                    Places =
-                                    [
-                                        new()
-                                        {
-                                            ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                            Title = "Mabry Mill",
-                                            Url = "https://www.nps.gov/places/mabry-mill.htm",
-                                        },
-                                    ],
-                                    States = "NC,VA",
-                                    Url = "https://www.nps.gov/blri/index.htm",
-                                },
-                            ],
-                        },
-                    ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "53",
-                },
-            ],
-            Limit = 0,
-            Start = 0,
-            Total = 0,
-        };
-
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponse>(json);
-
-        Assert.Equal(model, deserialized);
-    }
-
-    [Fact]
-    public void FieldRoundtripThroughSerialization_Works()
-    {
-        var model = new AmenityRetrieveParksPlacesResponse
-        {
-            Data =
-            [
-                new()
-                {
-                    Data =
-                    [
-                        new()
-                        {
-                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                            Name = "Accessibility - Accessible Restroom",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "Parkway",
-                                    FullName = "Blue Ridge Parkway",
-                                    Name = "Blue Ridge",
-                                    ParkCode = "blri",
-                                    Places =
-                                    [
-                                        new()
-                                        {
-                                            ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                            Title = "Mabry Mill",
-                                            Url = "https://www.nps.gov/places/mabry-mill.htm",
-                                        },
-                                    ],
-                                    States = "NC,VA",
-                                    Url = "https://www.nps.gov/blri/index.htm",
-                                },
-                            ],
-                        },
-                    ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "53",
-                },
-            ],
-            Limit = 0,
-            Start = 0,
-            Total = 0,
-        };
-
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponse>(element);
-        Assert.NotNull(deserialized);
-
-        List<AmenityRetrieveParksPlacesResponseData> expectedData =
-        [
-            new()
-            {
-                Data =
-                [
-                    new()
-                    {
-                        ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                        Name = "Accessibility - Accessible Restroom",
-                        Parks =
-                        [
-                            new()
-                            {
-                                Designation = "Parkway",
-                                FullName = "Blue Ridge Parkway",
-                                Name = "Blue Ridge",
-                                ParkCode = "blri",
-                                Places =
-                                [
-                                    new()
-                                    {
-                                        ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                        Title = "Mabry Mill",
-                                        Url = "https://www.nps.gov/places/mabry-mill.htm",
-                                    },
-                                ],
-                                States = "NC,VA",
-                                Url = "https://www.nps.gov/blri/index.htm",
-                            },
-                        ],
-                    },
-                ],
-                Limit = "50",
-                Start = "0",
-                Total = "53",
-            },
-        ];
-        double expectedLimit = 0;
-        double expectedStart = 0;
-        double expectedTotal = 0;
-
-        Assert.NotNull(deserialized.Data);
-        Assert.Equal(expectedData.Count, deserialized.Data.Count);
-        for (int i = 0; i < expectedData.Count; i++)
-        {
-            Assert.Equal(expectedData[i], deserialized.Data[i]);
-        }
-        Assert.Equal(expectedLimit, deserialized.Limit);
-        Assert.Equal(expectedStart, deserialized.Start);
-        Assert.Equal(expectedTotal, deserialized.Total);
-    }
-
-    [Fact]
-    public void Validation_Works()
-    {
-        var model = new AmenityRetrieveParksPlacesResponse
-        {
-            Data =
-            [
-                new()
-                {
-                    Data =
-                    [
-                        new()
-                        {
-                            ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
-                            Name = "Accessibility - Accessible Restroom",
-                            Parks =
-                            [
-                                new()
-                                {
-                                    Designation = "Parkway",
-                                    FullName = "Blue Ridge Parkway",
-                                    Name = "Blue Ridge",
-                                    ParkCode = "blri",
-                                    Places =
-                                    [
-                                        new()
-                                        {
-                                            ID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3",
-                                            Title = "Mabry Mill",
-                                            Url = "https://www.nps.gov/places/mabry-mill.htm",
-                                        },
-                                    ],
-                                    States = "NC,VA",
-                                    Url = "https://www.nps.gov/blri/index.htm",
-                                },
-                            ],
-                        },
-                    ],
-                    Limit = "50",
-                    Start = "0",
-                    Total = "53",
-                },
-            ],
-            Limit = 0,
-            Start = 0,
-            Total = 0,
-        };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
-    {
-        var model = new AmenityRetrieveParksPlacesResponse { };
-
-        Assert.Null(model.Data);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesUnsetValidation_Works()
-    {
-        var model = new AmenityRetrieveParksPlacesResponse { };
-
-        model.Validate();
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
-    {
-        var model = new AmenityRetrieveParksPlacesResponse
-        {
-            // Null should be interpreted as omitted for these properties
-            Data = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        Assert.Null(model.Data);
-        Assert.False(model.RawData.ContainsKey("data"));
-        Assert.Null(model.Limit);
-        Assert.False(model.RawData.ContainsKey("limit"));
-        Assert.Null(model.Start);
-        Assert.False(model.RawData.ContainsKey("start"));
-        Assert.Null(model.Total);
-        Assert.False(model.RawData.ContainsKey("total"));
-    }
-
-    [Fact]
-    public void OptionalNonNullablePropertiesSetToNullValidation_Works()
-    {
-        var model = new AmenityRetrieveParksPlacesResponse
-        {
-            // Null should be interpreted as omitted for these properties
-            Data = null,
-            Limit = null,
-            Start = null,
-            Total = null,
-        };
-
-        model.Validate();
-    }
-}
-
-public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
-{
-    [Fact]
-    public void FieldRoundtrip_Works()
-    {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityListParksPlacesResponse
         {
             Data =
             [
@@ -419,7 +45,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
             Total = "53",
         };
 
-        List<AmenityRetrieveParksPlacesResponseDataData> expectedData =
+        List<AmenityListParksPlacesResponseData> expectedData =
         [
             new()
             {
@@ -466,7 +92,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityListParksPlacesResponse
         {
             Data =
             [
@@ -503,7 +129,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseData>(json);
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponse>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -511,7 +137,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityListParksPlacesResponse
         {
             Data =
             [
@@ -548,12 +174,10 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseData>(
-            element
-        );
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponse>(element);
         Assert.NotNull(deserialized);
 
-        List<AmenityRetrieveParksPlacesResponseDataData> expectedData =
+        List<AmenityListParksPlacesResponseData> expectedData =
         [
             new()
             {
@@ -600,7 +224,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityListParksPlacesResponse
         {
             Data =
             [
@@ -642,7 +266,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData { };
+        var model = new AmenityListParksPlacesResponse { };
 
         Assert.Null(model.Data);
         Assert.False(model.RawData.ContainsKey("data"));
@@ -657,7 +281,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData { };
+        var model = new AmenityListParksPlacesResponse { };
 
         model.Validate();
     }
@@ -665,7 +289,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityListParksPlacesResponse
         {
             // Null should be interpreted as omitted for these properties
             Data = null,
@@ -687,7 +311,7 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseData
+        var model = new AmenityListParksPlacesResponse
         {
             // Null should be interpreted as omitted for these properties
             Data = null,
@@ -700,12 +324,12 @@ public class AmenityRetrieveParksPlacesResponseDataTest : TestBase
     }
 }
 
-public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
+public class AmenityListParksPlacesResponseDataTest : TestBase
 {
     [Fact]
     public void FieldRoundtrip_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseDataData
+        var model = new AmenityListParksPlacesResponseData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -769,7 +393,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
     [Fact]
     public void SerializationRoundtrip_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseDataData
+        var model = new AmenityListParksPlacesResponseData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -797,9 +421,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
         };
 
         string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseDataData>(
-            json
-        );
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponseData>(json);
 
         Assert.Equal(model, deserialized);
     }
@@ -807,7 +429,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
     [Fact]
     public void FieldRoundtripThroughSerialization_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseDataData
+        var model = new AmenityListParksPlacesResponseData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -835,9 +457,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
         };
 
         string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityRetrieveParksPlacesResponseDataData>(
-            element
-        );
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponseData>(element);
         Assert.NotNull(deserialized);
 
         string expectedID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F";
@@ -877,7 +497,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
     [Fact]
     public void Validation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseDataData
+        var model = new AmenityListParksPlacesResponseData
         {
             ID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F",
             Name = "Accessibility - Accessible Restroom",
@@ -910,7 +530,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseDataData { };
+        var model = new AmenityListParksPlacesResponseData { };
 
         Assert.Null(model.ID);
         Assert.False(model.RawData.ContainsKey("id"));
@@ -923,7 +543,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesUnsetValidation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseDataData { };
+        var model = new AmenityListParksPlacesResponseData { };
 
         model.Validate();
     }
@@ -931,7 +551,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullAreNotSet_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseDataData
+        var model = new AmenityListParksPlacesResponseData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,
@@ -950,7 +570,7 @@ public class AmenityRetrieveParksPlacesResponseDataDataTest : TestBase
     [Fact]
     public void OptionalNonNullablePropertiesSetToNullValidation_Works()
     {
-        var model = new AmenityRetrieveParksPlacesResponseDataData
+        var model = new AmenityListParksPlacesResponseData
         {
             // Null should be interpreted as omitted for these properties
             ID = null,

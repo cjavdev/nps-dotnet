@@ -46,13 +46,13 @@ public sealed class TopicService : ITopicService
     }
 
     /// <inheritdoc/>
-    public async Task<TopicRetrieveParksResponse> RetrieveParks(
-        TopicRetrieveParksParams? parameters = null,
+    public async Task<TopicListParksPage> ListParks(
+        TopicListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
     {
         using var response = await this
-            .WithRawResponse.RetrieveParks(parameters, cancellationToken)
+            .WithRawResponse.ListParks(parameters, cancellationToken)
             .ConfigureAwait(false);
         return await response.Deserialize(cancellationToken).ConfigureAwait(false);
     }
@@ -105,14 +105,14 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<TopicRetrieveParksResponse>> RetrieveParks(
-        TopicRetrieveParksParams? parameters = null,
+    public async Task<HttpResponse<TopicListParksPage>> ListParks(
+        TopicListParksParams? parameters = null,
         CancellationToken cancellationToken = default
     )
     {
         parameters ??= new();
 
-        HttpRequest<TopicRetrieveParksParams> request = new()
+        HttpRequest<TopicListParksParams> request = new()
         {
             Method = HttpMethod.Get,
             Params = parameters,
@@ -122,14 +122,14 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
             response,
             async (token) =>
             {
-                var deserializedResponse = await response
-                    .Deserialize<TopicRetrieveParksResponse>(token)
+                var page = await response
+                    .Deserialize<TopicListParksPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    deserializedResponse.Validate();
+                    page.Validate();
                 }
-                return deserializedResponse;
+                return new TopicListParksPage(this, parameters, page);
             }
         );
     }
