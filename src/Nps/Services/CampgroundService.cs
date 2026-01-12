@@ -34,7 +34,7 @@ public sealed class CampgroundService : ICampgroundService
     }
 
     /// <inheritdoc/>
-    public async Task<CampgroundListResponse> List(
+    public async Task<CampgroundListPage> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -65,7 +65,7 @@ public sealed class CampgroundServiceWithRawResponse : ICampgroundServiceWithRaw
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<CampgroundListResponse>> List(
+    public async Task<HttpResponse<CampgroundListPage>> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -82,14 +82,14 @@ public sealed class CampgroundServiceWithRawResponse : ICampgroundServiceWithRaw
             response,
             async (token) =>
             {
-                var campgrounds = await response
-                    .Deserialize<CampgroundListResponse>(token)
+                var page = await response
+                    .Deserialize<CampgroundListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    campgrounds.Validate();
+                    page.Validate();
                 }
-                return campgrounds;
+                return new CampgroundListPage(this, parameters, page);
             }
         );
     }

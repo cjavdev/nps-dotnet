@@ -34,7 +34,7 @@ public sealed class AmenityService : IAmenityService
     }
 
     /// <inheritdoc/>
-    public async Task<AmenityListResponse> List(
+    public async Task<AmenityListPage> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -87,7 +87,7 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<AmenityListResponse>> List(
+    public async Task<HttpResponse<AmenityListPage>> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -104,14 +104,14 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
             response,
             async (token) =>
             {
-                var amenities = await response
-                    .Deserialize<AmenityListResponse>(token)
+                var page = await response
+                    .Deserialize<AmenityListPageResponse>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    amenities.Validate();
+                    page.Validate();
                 }
-                return amenities;
+                return new AmenityListPage(this, parameters, page);
             }
         );
     }

@@ -24,9 +24,9 @@ public sealed record class ActivityListResponse : JsonModel
         }
     }
 
-    public string? Limit
+    public double? Limit
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
         init
         {
             if (value == null)
@@ -38,9 +38,9 @@ public sealed record class ActivityListResponse : JsonModel
         }
     }
 
-    public string? Start
+    public double? Start
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
         init
         {
             if (value == null)
@@ -52,9 +52,9 @@ public sealed record class ActivityListResponse : JsonModel
         }
     }
 
-    public string? Total
+    public double? Total
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
         init
         {
             if (value == null)

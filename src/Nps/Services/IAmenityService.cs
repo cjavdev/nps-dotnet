@@ -29,7 +29,7 @@ public interface IAmenityService
     /// <summary>
     /// Sends a request to <c>get /amenities<c/>.
     /// </summary>
-    Task<AmenityListResponse> List(
+    Task<AmenityListPage> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -68,7 +68,7 @@ public interface IAmenityServiceWithRawResponse
     /// Returns a raw HTTP response for `get /amenities`, but is otherwise the
     /// same as <see cref="IAmenityService.List(AmenityListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<AmenityListResponse>> List(
+    Task<HttpResponse<AmenityListPage>> List(
         AmenityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );

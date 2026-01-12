@@ -29,7 +29,7 @@ public interface ICampgroundService
     /// <summary>
     /// Sends a request to <c>get /campgrounds<c/>.
     /// </summary>
-    Task<CampgroundListResponse> List(
+    Task<CampgroundListPage> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -52,7 +52,7 @@ public interface ICampgroundServiceWithRawResponse
     /// Returns a raw HTTP response for `get /campgrounds`, but is otherwise the
     /// same as <see cref="ICampgroundService.List(CampgroundListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<CampgroundListResponse>> List(
+    Task<HttpResponse<CampgroundListPage>> List(
         CampgroundListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
