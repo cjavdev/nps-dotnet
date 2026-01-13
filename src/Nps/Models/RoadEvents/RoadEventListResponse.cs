@@ -213,8 +213,13 @@ public sealed record class Geometry : JsonModel
     {
         get
         {
-            return this._rawData.GetNullableStruct<ImmutableArray<ImmutableArray<double>>>(
-                "coordinates"
+            return ImmutableArray.ToImmutableArray(
+                Enumerable.Select(
+                    this._rawData.GetNullableStruct<ImmutableArray<ImmutableArray<double>>>(
+                        "coordinates"
+                    ),
+                    (item) => (IReadOnlyList<double>)item
+                )
             );
         }
         init

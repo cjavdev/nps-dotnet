@@ -232,9 +232,28 @@ public sealed record class Geometry : JsonModel
     {
         get
         {
-            return this._rawData.GetNullableStruct<
-                ImmutableArray<ImmutableArray<ImmutableArray<ImmutableArray<double>>>>
-            >("coordinates");
+            return ImmutableArray.ToImmutableArray(
+                Enumerable.Select(
+                    this._rawData.GetNullableStruct<
+                        ImmutableArray<ImmutableArray<ImmutableArray<ImmutableArray<double>>>>
+                    >("coordinates"),
+                    (item) =>
+                        (IReadOnlyList<IReadOnlyList<IReadOnlyList<double>>>)
+                            ImmutableArray.ToImmutableArray(
+                                Enumerable.Select(
+                                    item,
+                                    (item1) =>
+                                        (IReadOnlyList<IReadOnlyList<double>>)
+                                            ImmutableArray.ToImmutableArray(
+                                                Enumerable.Select(
+                                                    item1,
+                                                    (item2) => (IReadOnlyList<double>)item2
+                                                )
+                                            )
+                                )
+                            )
+                )
+            );
         }
         init
         {
