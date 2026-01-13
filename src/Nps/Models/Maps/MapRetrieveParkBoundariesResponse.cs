@@ -19,7 +19,11 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
 {
     public IReadOnlyList<Data>? Data
     {
-        get { return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data");
+        }
         init
         {
             if (value == null)
@@ -36,7 +40,11 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
 
     public double? Limit
     {
-        get { return this._rawData.GetNullableStruct<double>("limit"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<double>("limit");
+        }
         init
         {
             if (value == null)
@@ -50,7 +58,11 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
 
     public double? Start
     {
-        get { return this._rawData.GetNullableStruct<double>("start"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<double>("start");
+        }
         init
         {
             if (value == null)
@@ -64,7 +76,11 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
 
     public double? Total
     {
-        get { return this._rawData.GetNullableStruct<double>("total"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<double>("total");
+        }
         init
         {
             if (value == null)
@@ -130,7 +146,11 @@ public sealed record class Data : JsonModel
 {
     public string? ID
     {
-        get { return this._rawData.GetNullableClass<string>("id"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("id");
+        }
         init
         {
             if (value == null)
@@ -144,7 +164,11 @@ public sealed record class Data : JsonModel
 
     public Geometry? Geometry
     {
-        get { return this._rawData.GetNullableClass<Geometry>("geometry"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<Geometry>("geometry");
+        }
         init
         {
             if (value == null)
@@ -158,7 +182,11 @@ public sealed record class Data : JsonModel
 
     public Properties? Properties
     {
-        get { return this._rawData.GetNullableClass<Properties>("properties"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<Properties>("properties");
+        }
         init
         {
             if (value == null)
@@ -172,7 +200,11 @@ public sealed record class Data : JsonModel
 
     public string? Type
     {
-        get { return this._rawData.GetNullableClass<string>("type"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("type");
+        }
         init
         {
             if (value == null)
@@ -232,6 +264,7 @@ public sealed record class Geometry : JsonModel
     {
         get
         {
+            this._rawData.Freeze();
             return ImmutableArray.ToImmutableArray(
                 Enumerable.Select(
                     this._rawData.GetNullableStruct<
@@ -293,7 +326,11 @@ public sealed record class Geometry : JsonModel
 
     public string? Type
     {
-        get { return this._rawData.GetNullableClass<string>("type"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("type");
+        }
         init
         {
             if (value == null)
@@ -349,7 +386,11 @@ public sealed record class Properties : JsonModel
 {
     public string? ParkClass
     {
-        get { return this._rawData.GetNullableClass<string>("parkClass"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("parkClass");
+        }
         init
         {
             if (value == null)

@@ -17,6 +17,7 @@ public sealed record class RoadEventListPageResponse : JsonModel
     {
         get
         {
+            this._rawData.Freeze();
             return this._rawData.GetNullableStruct<ImmutableArray<RoadEventListResponse>>("data");
         }
         init
@@ -35,7 +36,11 @@ public sealed record class RoadEventListPageResponse : JsonModel
 
     public double? Limit
     {
-        get { return this._rawData.GetNullableStruct<double>("limit"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<double>("limit");
+        }
         init
         {
             if (value == null)
@@ -49,7 +54,11 @@ public sealed record class RoadEventListPageResponse : JsonModel
 
     public double? Start
     {
-        get { return this._rawData.GetNullableStruct<double>("start"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<double>("start");
+        }
         init
         {
             if (value == null)
@@ -63,7 +72,11 @@ public sealed record class RoadEventListPageResponse : JsonModel
 
     public double? Total
     {
-        get { return this._rawData.GetNullableStruct<double>("total"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<double>("total");
+        }
         init
         {
             if (value == null)

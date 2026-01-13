@@ -13,7 +13,11 @@ public sealed record class TopicListResponse : JsonModel
 {
     public IReadOnlyList<Data>? Data
     {
-        get { return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data");
+        }
         init
         {
             if (value == null)
@@ -30,7 +34,11 @@ public sealed record class TopicListResponse : JsonModel
 
     public string? Limit
     {
-        get { return this._rawData.GetNullableClass<string>("limit"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("limit");
+        }
         init
         {
             if (value == null)
@@ -44,7 +52,11 @@ public sealed record class TopicListResponse : JsonModel
 
     public string? Start
     {
-        get { return this._rawData.GetNullableClass<string>("start"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("start");
+        }
         init
         {
             if (value == null)
@@ -58,7 +70,11 @@ public sealed record class TopicListResponse : JsonModel
 
     public string? Total
     {
-        get { return this._rawData.GetNullableClass<string>("total"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("total");
+        }
         init
         {
             if (value == null)
@@ -124,7 +140,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? ID
     {
-        get { return this._rawData.GetNullableClass<string>("id"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("id");
+        }
         init
         {
             if (value == null)
@@ -141,7 +161,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? Name
     {
-        get { return this._rawData.GetNullableClass<string>("name"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("name");
+        }
         init
         {
             if (value == null)

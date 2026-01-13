@@ -15,7 +15,11 @@ public sealed record class AlertListResponse : JsonModel
 {
     public IReadOnlyList<Data>? Data
     {
-        get { return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data");
+        }
         init
         {
             if (value == null)
@@ -32,7 +36,11 @@ public sealed record class AlertListResponse : JsonModel
 
     public string? Limit
     {
-        get { return this._rawData.GetNullableClass<string>("limit"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("limit");
+        }
         init
         {
             if (value == null)
@@ -46,7 +54,11 @@ public sealed record class AlertListResponse : JsonModel
 
     public string? Start
     {
-        get { return this._rawData.GetNullableClass<string>("start"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("start");
+        }
         init
         {
             if (value == null)
@@ -60,7 +72,11 @@ public sealed record class AlertListResponse : JsonModel
 
     public string? Total
     {
-        get { return this._rawData.GetNullableClass<string>("total"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("total");
+        }
         init
         {
             if (value == null)
@@ -126,7 +142,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? ID
     {
-        get { return this._rawData.GetNullableClass<string>("id"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("id");
+        }
         init
         {
             if (value == null)
@@ -143,7 +163,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public ApiEnum<string, Category>? Category
     {
-        get { return this._rawData.GetNullableClass<ApiEnum<string, Category>>("category"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<ApiEnum<string, Category>>("category");
+        }
         init
         {
             if (value == null)
@@ -160,7 +184,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? Description
     {
-        get { return this._rawData.GetNullableClass<string>("description"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("description");
+        }
         init
         {
             if (value == null)
@@ -177,7 +205,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? LastIndexedDate
     {
-        get { return this._rawData.GetNullableClass<string>("lastIndexedDate"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("lastIndexedDate");
+        }
         init
         {
             if (value == null)
@@ -194,7 +226,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? ParkCode
     {
-        get { return this._rawData.GetNullableClass<string>("parkCode"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("parkCode");
+        }
         init
         {
             if (value == null)
@@ -213,6 +249,7 @@ public sealed record class Data : JsonModel
     {
         get
         {
+            this._rawData.Freeze();
             return this._rawData.GetNullableStruct<ImmutableArray<RelatedRoadEvent>>(
                 "relatedRoadEvents"
             );
@@ -236,7 +273,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? Title
     {
-        get { return this._rawData.GetNullableClass<string>("title"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("title");
+        }
         init
         {
             if (value == null)
@@ -253,7 +294,11 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? Url
     {
-        get { return this._rawData.GetNullableClass<string>("url"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("url");
+        }
         init
         {
             if (value == null)
@@ -370,7 +415,11 @@ public sealed record class RelatedRoadEvent : JsonModel
     /// </summary>
     public string? ID
     {
-        get { return this._rawData.GetNullableClass<string>("id"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("id");
+        }
         init
         {
             if (value == null)
@@ -387,7 +436,11 @@ public sealed record class RelatedRoadEvent : JsonModel
     /// </summary>
     public string? Title
     {
-        get { return this._rawData.GetNullableClass<string>("title"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("title");
+        }
         init
         {
             if (value == null)
@@ -404,7 +457,11 @@ public sealed record class RelatedRoadEvent : JsonModel
     /// </summary>
     public string? Type
     {
-        get { return this._rawData.GetNullableClass<string>("type"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("type");
+        }
         init
         {
             if (value == null)
@@ -421,7 +478,11 @@ public sealed record class RelatedRoadEvent : JsonModel
     /// </summary>
     public string? Url
     {
-        get { return this._rawData.GetNullableClass<string>("url"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("url");
+        }
         init
         {
             if (value == null)
