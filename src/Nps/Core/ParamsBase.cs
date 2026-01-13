@@ -30,14 +30,14 @@ public abstract record class ParamsBase
         };
     }
 
-    private protected FreezableDictionary<string, JsonElement> _rawQueryData = [];
+    private protected JsonDictionary _rawQueryData = new();
 
-    private protected FreezableDictionary<string, JsonElement> _rawHeaderData = [];
+    private protected JsonDictionary _rawHeaderData = new();
 
     protected ParamsBase(ParamsBase paramsBase)
     {
-        this._rawHeaderData = [.. paramsBase._rawHeaderData];
-        this._rawQueryData = [.. paramsBase._rawQueryData];
+        this._rawHeaderData = new(paramsBase._rawHeaderData);
+        this._rawQueryData = new(paramsBase._rawQueryData);
     }
 
     public IReadOnlyDictionary<string, JsonElement> RawQueryData
@@ -158,7 +158,11 @@ public abstract record class ParamsBase
 
     protected string QueryString(ClientOptions options)
     {
-        NameValueCollection collection = new();
+        NameValueCollection collection = [];
+        if (options.ApiKey != null)
+        {
+            collection.Add("api_key", options.ApiKey);
+        }
         foreach (var item in this.RawQueryData)
         {
             ParamsBase.AddQueryElementToCollection(collection, item.Key, item.Value);

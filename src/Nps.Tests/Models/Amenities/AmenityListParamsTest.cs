@@ -84,7 +84,9 @@ public class AmenityListParamsTest : TestBase
         var url = parameters.Url(new() { ApiKey = "My API Key" });
 
         Assert.Equal(
-            new Uri("https://developer.nps.gov/api/v1/amenities?id=string&limit=0&q=q&start=0"),
+            new Uri(
+                "https://developer.nps.gov/api/v1/amenities?id=string&limit=0&q=q&start=0&api_key=My+API+Key"
+            ),
             url
         );
     }

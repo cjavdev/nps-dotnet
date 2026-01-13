@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Frozen;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Text.Json;
@@ -15,7 +16,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public string? ID
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "id"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("id");
+        }
         init
         {
             if (value == null)
@@ -23,7 +28,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "id", value);
+            this._rawQueryData.Set("id", value);
         }
     }
 
@@ -32,7 +37,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public string? DateEnd
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "dateEnd"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("dateEnd");
+        }
         init
         {
             if (value == null)
@@ -40,7 +49,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "dateEnd", value);
+            this._rawQueryData.Set("dateEnd", value);
         }
     }
 
@@ -49,7 +58,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public string? DateStart
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "dateStart"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("dateStart");
+        }
         init
         {
             if (value == null)
@@ -57,7 +70,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "dateStart", value);
+            this._rawQueryData.Set("dateStart", value);
         }
     }
 
@@ -66,7 +79,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? EventType
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "eventType"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("eventType");
+        }
         init
         {
             if (value == null)
@@ -74,7 +91,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "eventType", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "eventType",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -84,7 +104,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public bool? ExpandRecurring
     {
-        get { return JsonModel.GetNullableStruct<bool>(this.RawQueryData, "expandRecurring"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<bool>("expandRecurring");
+        }
         init
         {
             if (value == null)
@@ -92,7 +116,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "expandRecurring", value);
+            this._rawQueryData.Set("expandRecurring", value);
         }
     }
 
@@ -101,7 +125,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public long? Limit
     {
-        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "limit"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("limit");
+        }
         init
         {
             if (value == null)
@@ -109,7 +137,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "limit", value);
+            this._rawQueryData.Set("limit", value);
         }
     }
 
@@ -118,7 +146,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? Organization
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "organization"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("organization");
+        }
         init
         {
             if (value == null)
@@ -126,7 +158,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "organization", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "organization",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -135,7 +170,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public long? PageNumber
     {
-        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "pageNumber"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("pageNumber");
+        }
         init
         {
             if (value == null)
@@ -143,7 +182,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "pageNumber", value);
+            this._rawQueryData.Set("pageNumber", value);
         }
     }
 
@@ -152,7 +191,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public long? PageSize
     {
-        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "pageSize"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("pageSize");
+        }
         init
         {
             if (value == null)
@@ -160,7 +203,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "pageSize", value);
+            this._rawQueryData.Set("pageSize", value);
         }
     }
 
@@ -169,7 +212,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? ParkCode
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "parkCode"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("parkCode");
+        }
         init
         {
             if (value == null)
@@ -177,7 +224,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "parkCode", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "parkCode",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -186,7 +236,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? Portal
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "portal"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("portal");
+        }
         init
         {
             if (value == null)
@@ -194,7 +248,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "portal", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "portal",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -203,7 +260,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public string? Q
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "q"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("q");
+        }
         init
         {
             if (value == null)
@@ -211,7 +272,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "q", value);
+            this._rawQueryData.Set("q", value);
         }
     }
 
@@ -220,7 +281,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public long? Start
     {
-        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "start"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("start");
+        }
         init
         {
             if (value == null)
@@ -228,7 +293,7 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "start", value);
+            this._rawQueryData.Set("start", value);
         }
     }
 
@@ -237,7 +302,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? StateCode
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "stateCode"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("stateCode");
+        }
         init
         {
             if (value == null)
@@ -245,7 +314,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "stateCode", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "stateCode",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -254,7 +326,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? Subject
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "subject"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("subject");
+        }
         init
         {
             if (value == null)
@@ -262,7 +338,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "subject", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "subject",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -271,7 +350,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? TagsAll
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "tagsAll"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsAll");
+        }
         init
         {
             if (value == null)
@@ -279,7 +362,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "tagsAll", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "tagsAll",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -288,7 +374,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? TagsNone
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "tagsNone"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsNone");
+        }
         init
         {
             if (value == null)
@@ -296,7 +386,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "tagsNone", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "tagsNone",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -305,7 +398,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? TagsOne
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "tagsOne"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsOne");
+        }
         init
         {
             if (value == null)
@@ -313,7 +410,10 @@ public sealed record class EventListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "tagsOne", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "tagsOne",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -327,8 +427,8 @@ public sealed record class EventListParams : ParamsBase
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )
     {
-        this._rawHeaderData = [.. rawHeaderData];
-        this._rawQueryData = [.. rawQueryData];
+        this._rawHeaderData = new(rawHeaderData);
+        this._rawQueryData = new(rawQueryData);
     }
 
 #pragma warning disable CS8618
@@ -338,8 +438,8 @@ public sealed record class EventListParams : ParamsBase
         FrozenDictionary<string, JsonElement> rawQueryData
     )
     {
-        this._rawHeaderData = [.. rawHeaderData];
-        this._rawQueryData = [.. rawQueryData];
+        this._rawHeaderData = new(rawHeaderData);
+        this._rawQueryData = new(rawQueryData);
     }
 #pragma warning restore CS8618
 

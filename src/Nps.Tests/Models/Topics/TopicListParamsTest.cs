@@ -87,7 +87,9 @@ public class TopicListParamsTest : TestBase
         var url = parameters.Url(new() { ApiKey = "My API Key" });
 
         Assert.Equal(
-            new Uri("https://developer.nps.gov/api/v1/topics?id=id&limit=0&q=q&sort=sort&start=0"),
+            new Uri(
+                "https://developer.nps.gov/api/v1/topics?id=id&limit=0&q=q&sort=sort&start=0&api_key=My+API+Key"
+            ),
             url
         );
     }

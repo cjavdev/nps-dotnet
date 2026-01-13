@@ -94,7 +94,7 @@ public class TopicListParksParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/topics/parks?id=string&limit=0&q=q&sort=sort&start=0"
+                "https://developer.nps.gov/api/v1/topics/parks?id=string&limit=0&q=q&sort=sort&start=0&api_key=My+API+Key"
             ),
             url
         );

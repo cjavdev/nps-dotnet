@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Frozen;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Text.Json;
@@ -15,7 +16,11 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? ID
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "id"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("id");
+        }
         init
         {
             if (value == null)
@@ -23,7 +28,10 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "id", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "id",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -32,7 +40,11 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
     /// </summary>
     public long? Limit
     {
-        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "limit"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("limit");
+        }
         init
         {
             if (value == null)
@@ -40,7 +52,7 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "limit", value);
+            this._rawQueryData.Set("limit", value);
         }
     }
 
@@ -49,7 +61,11 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? ParkCode
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawQueryData, "parkCode"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("parkCode");
+        }
         init
         {
             if (value == null)
@@ -57,7 +73,10 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "parkCode", value);
+            this._rawQueryData.Set<ImmutableArray<string>?>(
+                "parkCode",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -66,7 +85,11 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
     /// </summary>
     public string? Q
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "q"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("q");
+        }
         init
         {
             if (value == null)
@@ -74,7 +97,7 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "q", value);
+            this._rawQueryData.Set("q", value);
         }
     }
 
@@ -85,7 +108,11 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
     /// </summary>
     public string? Sort
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "sort"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("sort");
+        }
         init
         {
             if (value == null)
@@ -93,7 +120,7 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "sort", value);
+            this._rawQueryData.Set("sort", value);
         }
     }
 
@@ -102,7 +129,11 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
     /// </summary>
     public long? Start
     {
-        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "start"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("start");
+        }
         init
         {
             if (value == null)
@@ -110,7 +141,7 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "start", value);
+            this._rawQueryData.Set("start", value);
         }
     }
 
@@ -124,8 +155,8 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )
     {
-        this._rawHeaderData = [.. rawHeaderData];
-        this._rawQueryData = [.. rawQueryData];
+        this._rawHeaderData = new(rawHeaderData);
+        this._rawQueryData = new(rawQueryData);
     }
 
 #pragma warning disable CS8618
@@ -135,8 +166,8 @@ public sealed record class AmenityListParksPlacesParams : ParamsBase
         FrozenDictionary<string, JsonElement> rawQueryData
     )
     {
-        this._rawHeaderData = [.. rawHeaderData];
-        this._rawQueryData = [.. rawQueryData];
+        this._rawHeaderData = new(rawHeaderData);
+        this._rawQueryData = new(rawQueryData);
     }
 #pragma warning restore CS8618
 
