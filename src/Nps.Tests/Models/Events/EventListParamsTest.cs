@@ -251,7 +251,7 @@ public class EventListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/events?id=id&dateEnd=dateEnd&dateStart=dateStart&eventType=string&expandRecurring=true&limit=0&organization=string&pageNumber=0&pageSize=0&parkCode=string&portal=string&q=q&start=0&stateCode=string&subject=string&tagsAll=string&tagsNone=string&tagsOne=string"
+                "https://developer.nps.gov/api/v1/events?id=id&dateEnd=dateEnd&dateStart=dateStart&eventType=string&expandRecurring=true&limit=0&organization=string&pageNumber=0&pageSize=0&parkCode=string&portal=string&q=q&start=0&stateCode=string&subject=string&tagsAll=string&tagsNone=string&tagsOne=string&api_key=My+API+Key"
             ),
             url
         );

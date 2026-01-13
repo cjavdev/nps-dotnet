@@ -103,7 +103,7 @@ public class AmenityListParksVisitorCentersParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/amenities/parksvisitorcenters?id=id&limit=0&parkCode=parkCode&q=q&sort=string&start=0"
+                "https://developer.nps.gov/api/v1/amenities/parksvisitorcenters?id=id&limit=0&parkCode=parkCode&q=q&sort=string&start=0&api_key=My+API+Key"
             ),
             url
         );

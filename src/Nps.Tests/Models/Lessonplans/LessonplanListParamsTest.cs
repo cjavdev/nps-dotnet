@@ -113,7 +113,7 @@ public class LessonplanListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/lessonplans?limit=0&parkCode=string&q=q&sort=string&start=0&stateCode=string"
+                "https://developer.nps.gov/api/v1/lessonplans?limit=0&parkCode=string&q=q&sort=string&start=0&stateCode=string&api_key=My+API+Key"
             ),
             url
         );

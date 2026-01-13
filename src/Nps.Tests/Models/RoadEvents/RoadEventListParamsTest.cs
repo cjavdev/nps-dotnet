@@ -79,7 +79,7 @@ public class RoadEventListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/roadevents?limit=0&parkCode=parkCode&start=0&type=type"
+                "https://developer.nps.gov/api/v1/roadevents?limit=0&parkCode=parkCode&start=0&type=type&api_key=My+API+Key"
             ),
             url
         );
