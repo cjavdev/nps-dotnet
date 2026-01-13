@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -16,7 +17,7 @@ public sealed record class ThingsTodoListPageResponse : JsonModel
     {
         get
         {
-            return JsonModel.GetNullableClass<List<ThingsTodoListResponse>>(this.RawData, "data");
+            return this._rawData.GetNullableStruct<ImmutableArray<ThingsTodoListResponse>>("data");
         }
         init
         {
@@ -25,13 +26,16 @@ public sealed record class ThingsTodoListPageResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "data", value);
+            this._rawData.Set<ImmutableArray<ThingsTodoListResponse>?>(
+                "data",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
     public double? Limit
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
+        get { return this._rawData.GetNullableStruct<double>("limit"); }
         init
         {
             if (value == null)
@@ -39,13 +43,13 @@ public sealed record class ThingsTodoListPageResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "limit", value);
+            this._rawData.Set("limit", value);
         }
     }
 
     public double? Start
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
+        get { return this._rawData.GetNullableStruct<double>("start"); }
         init
         {
             if (value == null)
@@ -53,13 +57,13 @@ public sealed record class ThingsTodoListPageResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "start", value);
+            this._rawData.Set("start", value);
         }
     }
 
     public double? Total
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
+        get { return this._rawData.GetNullableStruct<double>("total"); }
         init
         {
             if (value == null)
@@ -67,7 +71,7 @@ public sealed record class ThingsTodoListPageResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "total", value);
+            this._rawData.Set("total", value);
         }
     }
 
@@ -90,14 +94,14 @@ public sealed record class ThingsTodoListPageResponse : JsonModel
 
     public ThingsTodoListPageResponse(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     ThingsTodoListPageResponse(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 

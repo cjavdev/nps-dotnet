@@ -25,6 +25,7 @@ public abstract record class ModelBase
     {
         Converters =
         {
+            new FrozenDictionaryConverterFactory(),
             new ApiEnumConverter<string, Category>(),
             new ApiEnumConverter<string, Type>(),
             new ApiEnumConverter<string, PhoneNumberType>(),
