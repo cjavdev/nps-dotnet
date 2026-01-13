@@ -265,11 +265,17 @@ public sealed record class Geometry : JsonModel
         get
         {
             this._rawData.Freeze();
+            var value = this._rawData.GetNullableStruct<
+                ImmutableArray<ImmutableArray<ImmutableArray<ImmutableArray<double>>>>
+            >("coordinates");
+            if (value == null)
+            {
+                return null;
+            }
+
             return ImmutableArray.ToImmutableArray(
                 Enumerable.Select(
-                    this._rawData.GetNullableStruct<
-                        ImmutableArray<ImmutableArray<ImmutableArray<ImmutableArray<double>>>>
-                    >("coordinates"),
+                    value,
                     (item) =>
                         (IReadOnlyList<IReadOnlyList<IReadOnlyList<double>>>)
                             ImmutableArray.ToImmutableArray(
