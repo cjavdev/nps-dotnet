@@ -113,7 +113,7 @@ public class FeespassListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/feespasses?limit=0&parkCode=string&q=q&sort=string&start=0&statecode=string"
+                "https://developer.nps.gov/api/v1/feespasses?limit=0&parkCode=string&q=q&sort=string&start=0&statecode=string&api_key=My+API+Key"
             ),
             url
         );

@@ -23,7 +23,9 @@ public class MapRetrieveParkBoundariesParamsTest : TestBase
         var url = parameters.Url(new() { ApiKey = "My API Key" });
 
         Assert.Equal(
-            new Uri("https://developer.nps.gov/api/v1/mapdata/parkboundaries/sitecode"),
+            new Uri(
+                "https://developer.nps.gov/api/v1/mapdata/parkboundaries/sitecode?api_key=My+API+Key"
+            ),
             url
         );
     }

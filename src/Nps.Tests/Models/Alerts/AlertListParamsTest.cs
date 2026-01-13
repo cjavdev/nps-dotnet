@@ -99,7 +99,7 @@ public class AlertListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/alerts?limit=0&parkCode=string&q=q&start=0&stateCode=string"
+                "https://developer.nps.gov/api/v1/alerts?limit=0&parkCode=string&q=q&start=0&stateCode=string&api_key=My+API+Key"
             ),
             url
         );

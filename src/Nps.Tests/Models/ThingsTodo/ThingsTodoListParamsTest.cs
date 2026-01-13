@@ -112,7 +112,7 @@ public class ThingsTodoListParamsTest : TestBase
 
         Assert.Equal(
             new Uri(
-                "https://developer.nps.gov/api/v1/thingstodo?id=id&limit=0&parkCode=parkCode&q=q&sort=string&start=0&stateCode=stateCode"
+                "https://developer.nps.gov/api/v1/thingstodo?id=id&limit=0&parkCode=parkCode&q=q&sort=string&start=0&stateCode=stateCode&api_key=My+API+Key"
             ),
             url
         );

@@ -158,7 +158,11 @@ public abstract record class ParamsBase
 
     protected string QueryString(ClientOptions options)
     {
-        NameValueCollection collection = new();
+        NameValueCollection collection = [];
+        if (options.ApiKey != null)
+        {
+            collection.Add("api_key", options.ApiKey);
+        }
         foreach (var item in this.RawQueryData)
         {
             ParamsBase.AddQueryElementToCollection(collection, item.Key, item.Value);
