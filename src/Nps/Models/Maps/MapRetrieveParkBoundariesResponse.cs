@@ -1,6 +1,8 @@
 using System.Collections.Frozen;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Nps.Core;
@@ -17,7 +19,7 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
 {
     public IReadOnlyList<Data>? Data
     {
-        get { return JsonModel.GetNullableClass<List<Data>>(this.RawData, "data"); }
+        get { return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data"); }
         init
         {
             if (value == null)
@@ -25,13 +27,16 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "data", value);
+            this._rawData.Set<ImmutableArray<Data>?>(
+                "data",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
     public double? Limit
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "limit"); }
+        get { return this._rawData.GetNullableStruct<double>("limit"); }
         init
         {
             if (value == null)
@@ -39,13 +44,13 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "limit", value);
+            this._rawData.Set("limit", value);
         }
     }
 
     public double? Start
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "start"); }
+        get { return this._rawData.GetNullableStruct<double>("start"); }
         init
         {
             if (value == null)
@@ -53,13 +58,13 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "start", value);
+            this._rawData.Set("start", value);
         }
     }
 
     public double? Total
     {
-        get { return JsonModel.GetNullableStruct<double>(this.RawData, "total"); }
+        get { return this._rawData.GetNullableStruct<double>("total"); }
         init
         {
             if (value == null)
@@ -67,7 +72,7 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "total", value);
+            this._rawData.Set("total", value);
         }
     }
 
@@ -92,14 +97,14 @@ public sealed record class MapRetrieveParkBoundariesResponse : JsonModel
 
     public MapRetrieveParkBoundariesResponse(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     MapRetrieveParkBoundariesResponse(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
@@ -125,7 +130,7 @@ public sealed record class Data : JsonModel
 {
     public string? ID
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
+        get { return this._rawData.GetNullableClass<string>("id"); }
         init
         {
             if (value == null)
@@ -133,13 +138,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "id", value);
+            this._rawData.Set("id", value);
         }
     }
 
     public Geometry? Geometry
     {
-        get { return JsonModel.GetNullableClass<Geometry>(this.RawData, "geometry"); }
+        get { return this._rawData.GetNullableClass<Geometry>("geometry"); }
         init
         {
             if (value == null)
@@ -147,13 +152,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "geometry", value);
+            this._rawData.Set("geometry", value);
         }
     }
 
     public Properties? Properties
     {
-        get { return JsonModel.GetNullableClass<Properties>(this.RawData, "properties"); }
+        get { return this._rawData.GetNullableClass<Properties>("properties"); }
         init
         {
             if (value == null)
@@ -161,13 +166,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "properties", value);
+            this._rawData.Set("properties", value);
         }
     }
 
     public string? Type
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "type"); }
+        get { return this._rawData.GetNullableClass<string>("type"); }
         init
         {
             if (value == null)
@@ -175,7 +180,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "type", value);
+            this._rawData.Set("type", value);
         }
     }
 
@@ -195,14 +200,14 @@ public sealed record class Data : JsonModel
 
     public Data(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     Data(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
@@ -223,14 +228,13 @@ class DataFromRaw : IFromRawJson<Data>
 [JsonConverter(typeof(JsonModelConverter<Geometry, GeometryFromRaw>))]
 public sealed record class Geometry : JsonModel
 {
-    public IReadOnlyList<List<List<List<double>>>>? Coordinates
+    public IReadOnlyList<IReadOnlyList<IReadOnlyList<IReadOnlyList<double>>>>? Coordinates
     {
         get
         {
-            return JsonModel.GetNullableClass<List<List<List<List<double>>>>>(
-                this.RawData,
-                "coordinates"
-            );
+            return this._rawData.GetNullableStruct<
+                ImmutableArray<ImmutableArray<ImmutableArray<ImmutableArray<double>>>>
+            >("coordinates");
         }
         init
         {
@@ -239,13 +243,38 @@ public sealed record class Geometry : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "coordinates", value);
+            this._rawData.Set<ImmutableArray<
+                ImmutableArray<ImmutableArray<ImmutableArray<double>>>
+            >?>(
+                "coordinates",
+                value == null
+                    ? null
+                    : ImmutableArray.ToImmutableArray(
+                        Enumerable.Select(
+                            value,
+                            (item) =>
+                                ImmutableArray.ToImmutableArray(
+                                    Enumerable.Select(
+                                        item,
+                                        (item1) =>
+                                            ImmutableArray.ToImmutableArray(
+                                                Enumerable.Select(
+                                                    item1,
+                                                    (item2) =>
+                                                        ImmutableArray.ToImmutableArray(value)
+                                                )
+                                            )
+                                    )
+                                )
+                        )
+                    )
+            );
         }
     }
 
     public string? Type
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "type"); }
+        get { return this._rawData.GetNullableClass<string>("type"); }
         init
         {
             if (value == null)
@@ -253,7 +282,7 @@ public sealed record class Geometry : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "type", value);
+            this._rawData.Set("type", value);
         }
     }
 
@@ -271,14 +300,14 @@ public sealed record class Geometry : JsonModel
 
     public Geometry(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     Geometry(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
@@ -301,7 +330,7 @@ public sealed record class Properties : JsonModel
 {
     public string? ParkClass
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "parkClass"); }
+        get { return this._rawData.GetNullableClass<string>("parkClass"); }
         init
         {
             if (value == null)
@@ -309,7 +338,7 @@ public sealed record class Properties : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "parkClass", value);
+            this._rawData.Set("parkClass", value);
         }
     }
 
@@ -326,14 +355,14 @@ public sealed record class Properties : JsonModel
 
     public Properties(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     Properties(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 

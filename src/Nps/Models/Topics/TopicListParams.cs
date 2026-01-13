@@ -15,7 +15,7 @@ public sealed record class TopicListParams : ParamsBase
     /// </summary>
     public string? ID
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "id"); }
+        get { return this._rawQueryData.GetNullableClass<string>("id"); }
         init
         {
             if (value == null)
@@ -23,7 +23,7 @@ public sealed record class TopicListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "id", value);
+            this._rawQueryData.Set("id", value);
         }
     }
 
@@ -32,7 +32,7 @@ public sealed record class TopicListParams : ParamsBase
     /// </summary>
     public long? Limit
     {
-        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "limit"); }
+        get { return this._rawQueryData.GetNullableStruct<long>("limit"); }
         init
         {
             if (value == null)
@@ -40,7 +40,7 @@ public sealed record class TopicListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "limit", value);
+            this._rawQueryData.Set("limit", value);
         }
     }
 
@@ -49,7 +49,7 @@ public sealed record class TopicListParams : ParamsBase
     /// </summary>
     public string? Q
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "q"); }
+        get { return this._rawQueryData.GetNullableClass<string>("q"); }
         init
         {
             if (value == null)
@@ -57,7 +57,7 @@ public sealed record class TopicListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "q", value);
+            this._rawQueryData.Set("q", value);
         }
     }
 
@@ -68,7 +68,7 @@ public sealed record class TopicListParams : ParamsBase
     /// </summary>
     public string? Sort
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawQueryData, "sort"); }
+        get { return this._rawQueryData.GetNullableClass<string>("sort"); }
         init
         {
             if (value == null)
@@ -76,7 +76,7 @@ public sealed record class TopicListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "sort", value);
+            this._rawQueryData.Set("sort", value);
         }
     }
 
@@ -85,7 +85,7 @@ public sealed record class TopicListParams : ParamsBase
     /// </summary>
     public long? Start
     {
-        get { return JsonModel.GetNullableStruct<long>(this.RawQueryData, "start"); }
+        get { return this._rawQueryData.GetNullableStruct<long>("start"); }
         init
         {
             if (value == null)
@@ -93,7 +93,7 @@ public sealed record class TopicListParams : ParamsBase
                 return;
             }
 
-            JsonModel.Set(this._rawQueryData, "start", value);
+            this._rawQueryData.Set("start", value);
         }
     }
 
@@ -107,8 +107,8 @@ public sealed record class TopicListParams : ParamsBase
         IReadOnlyDictionary<string, JsonElement> rawQueryData
     )
     {
-        this._rawHeaderData = [.. rawHeaderData];
-        this._rawQueryData = [.. rawQueryData];
+        this._rawHeaderData = new(rawHeaderData);
+        this._rawQueryData = new(rawQueryData);
     }
 
 #pragma warning disable CS8618
@@ -118,8 +118,8 @@ public sealed record class TopicListParams : ParamsBase
         FrozenDictionary<string, JsonElement> rawQueryData
     )
     {
-        this._rawHeaderData = [.. rawHeaderData];
-        this._rawQueryData = [.. rawQueryData];
+        this._rawHeaderData = new(rawHeaderData);
+        this._rawQueryData = new(rawQueryData);
     }
 #pragma warning restore CS8618
 

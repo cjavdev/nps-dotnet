@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -12,7 +13,7 @@ public sealed record class TopicListResponse : JsonModel
 {
     public IReadOnlyList<Data>? Data
     {
-        get { return JsonModel.GetNullableClass<List<Data>>(this.RawData, "data"); }
+        get { return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data"); }
         init
         {
             if (value == null)
@@ -20,13 +21,16 @@ public sealed record class TopicListResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "data", value);
+            this._rawData.Set<ImmutableArray<Data>?>(
+                "data",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
     public string? Limit
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        get { return this._rawData.GetNullableClass<string>("limit"); }
         init
         {
             if (value == null)
@@ -34,13 +38,13 @@ public sealed record class TopicListResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "limit", value);
+            this._rawData.Set("limit", value);
         }
     }
 
     public string? Start
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        get { return this._rawData.GetNullableClass<string>("start"); }
         init
         {
             if (value == null)
@@ -48,13 +52,13 @@ public sealed record class TopicListResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "start", value);
+            this._rawData.Set("start", value);
         }
     }
 
     public string? Total
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        get { return this._rawData.GetNullableClass<string>("total"); }
         init
         {
             if (value == null)
@@ -62,7 +66,7 @@ public sealed record class TopicListResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "total", value);
+            this._rawData.Set("total", value);
         }
     }
 
@@ -85,14 +89,14 @@ public sealed record class TopicListResponse : JsonModel
 
     public TopicListResponse(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     TopicListResponse(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
@@ -120,7 +124,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? ID
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
+        get { return this._rawData.GetNullableClass<string>("id"); }
         init
         {
             if (value == null)
@@ -128,7 +132,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "id", value);
+            this._rawData.Set("id", value);
         }
     }
 
@@ -137,7 +141,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? Name
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "name"); }
+        get { return this._rawData.GetNullableClass<string>("name"); }
         init
         {
             if (value == null)
@@ -145,7 +149,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "name", value);
+            this._rawData.Set("name", value);
         }
     }
 
@@ -163,14 +167,14 @@ public sealed record class Data : JsonModel
 
     public Data(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     Data(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 

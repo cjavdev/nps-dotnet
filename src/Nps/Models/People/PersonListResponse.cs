@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -12,7 +13,7 @@ public sealed record class PersonListResponse : JsonModel
 {
     public IReadOnlyList<Data>? Data
     {
-        get { return JsonModel.GetNullableClass<List<Data>>(this.RawData, "data"); }
+        get { return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data"); }
         init
         {
             if (value == null)
@@ -20,13 +21,16 @@ public sealed record class PersonListResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "data", value);
+            this._rawData.Set<ImmutableArray<Data>?>(
+                "data",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
     public string? Limit
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "limit"); }
+        get { return this._rawData.GetNullableClass<string>("limit"); }
         init
         {
             if (value == null)
@@ -34,13 +38,13 @@ public sealed record class PersonListResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "limit", value);
+            this._rawData.Set("limit", value);
         }
     }
 
     public string? Start
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "start"); }
+        get { return this._rawData.GetNullableClass<string>("start"); }
         init
         {
             if (value == null)
@@ -48,13 +52,13 @@ public sealed record class PersonListResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "start", value);
+            this._rawData.Set("start", value);
         }
     }
 
     public string? Total
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "total"); }
+        get { return this._rawData.GetNullableClass<string>("total"); }
         init
         {
             if (value == null)
@@ -62,7 +66,7 @@ public sealed record class PersonListResponse : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "total", value);
+            this._rawData.Set("total", value);
         }
     }
 
@@ -85,14 +89,14 @@ public sealed record class PersonListResponse : JsonModel
 
     public PersonListResponse(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     PersonListResponse(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
@@ -120,7 +124,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? ID
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
+        get { return this._rawData.GetNullableClass<string>("id"); }
         init
         {
             if (value == null)
@@ -128,13 +132,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "id", value);
+            this._rawData.Set("id", value);
         }
     }
 
     public string? BodyText
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "bodyText"); }
+        get { return this._rawData.GetNullableClass<string>("bodyText"); }
         init
         {
             if (value == null)
@@ -142,13 +146,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "bodyText", value);
+            this._rawData.Set("bodyText", value);
         }
     }
 
     public string? FirstName
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "firstName"); }
+        get { return this._rawData.GetNullableClass<string>("firstName"); }
         init
         {
             if (value == null)
@@ -156,7 +160,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "firstName", value);
+            this._rawData.Set("firstName", value);
         }
     }
 
@@ -165,7 +169,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? GeometryPoiID
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "geometryPoiId"); }
+        get { return this._rawData.GetNullableClass<string>("geometryPoiId"); }
         init
         {
             if (value == null)
@@ -173,13 +177,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "geometryPoiId", value);
+            this._rawData.Set("geometryPoiId", value);
         }
     }
 
     public IReadOnlyList<Image>? Images
     {
-        get { return JsonModel.GetNullableClass<List<Image>>(this.RawData, "images"); }
+        get { return this._rawData.GetNullableStruct<ImmutableArray<Image>>("images"); }
         init
         {
             if (value == null)
@@ -187,13 +191,16 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "images", value);
+            this._rawData.Set<ImmutableArray<Image>?>(
+                "images",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
     public string? LastName
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "lastName"); }
+        get { return this._rawData.GetNullableClass<string>("lastName"); }
         init
         {
             if (value == null)
@@ -201,13 +208,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "lastName", value);
+            this._rawData.Set("lastName", value);
         }
     }
 
     public string? Latitude
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "latitude"); }
+        get { return this._rawData.GetNullableClass<string>("latitude"); }
         init
         {
             if (value == null)
@@ -215,7 +222,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "latitude", value);
+            this._rawData.Set("latitude", value);
         }
     }
 
@@ -224,7 +231,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? LatLong
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "latLong"); }
+        get { return this._rawData.GetNullableClass<string>("latLong"); }
         init
         {
             if (value == null)
@@ -232,7 +239,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "latLong", value);
+            this._rawData.Set("latLong", value);
         }
     }
 
@@ -241,7 +248,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? ListingDescription
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "listingDescription"); }
+        get { return this._rawData.GetNullableClass<string>("listingDescription"); }
         init
         {
             if (value == null)
@@ -249,13 +256,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "listingDescription", value);
+            this._rawData.Set("listingDescription", value);
         }
     }
 
     public string? Longitude
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "longitude"); }
+        get { return this._rawData.GetNullableClass<string>("longitude"); }
         init
         {
             if (value == null)
@@ -263,13 +270,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "longitude", value);
+            this._rawData.Set("longitude", value);
         }
     }
 
     public string? MiddleName
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "middleName"); }
+        get { return this._rawData.GetNullableClass<string>("middleName"); }
         init
         {
             if (value == null)
@@ -277,13 +284,13 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "middleName", value);
+            this._rawData.Set("middleName", value);
         }
     }
 
     public IReadOnlyList<QuickFact>? QuickFacts
     {
-        get { return JsonModel.GetNullableClass<List<QuickFact>>(this.RawData, "quickFacts"); }
+        get { return this._rawData.GetNullableStruct<ImmutableArray<QuickFact>>("quickFacts"); }
         init
         {
             if (value == null)
@@ -291,7 +298,10 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "quickFacts", value);
+            this._rawData.Set<ImmutableArray<QuickFact>?>(
+                "quickFacts",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -299,8 +309,7 @@ public sealed record class Data : JsonModel
     {
         get
         {
-            return JsonModel.GetNullableClass<List<JsonElement>>(
-                this.RawData,
+            return this._rawData.GetNullableStruct<ImmutableArray<JsonElement>>(
                 "relatedOrganizations"
             );
         }
@@ -311,7 +320,10 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "relatedOrganizations", value);
+            this._rawData.Set<ImmutableArray<JsonElement>?>(
+                "relatedOrganizations",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -320,7 +332,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public IReadOnlyList<RelatedPark>? RelatedParks
     {
-        get { return JsonModel.GetNullableClass<List<RelatedPark>>(this.RawData, "relatedParks"); }
+        get { return this._rawData.GetNullableStruct<ImmutableArray<RelatedPark>>("relatedParks"); }
         init
         {
             if (value == null)
@@ -328,7 +340,10 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "relatedParks", value);
+            this._rawData.Set<ImmutableArray<RelatedPark>?>(
+                "relatedParks",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
@@ -337,7 +352,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? Title
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "title"); }
+        get { return this._rawData.GetNullableClass<string>("title"); }
         init
         {
             if (value == null)
@@ -345,7 +360,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "title", value);
+            this._rawData.Set("title", value);
         }
     }
 
@@ -354,7 +369,7 @@ public sealed record class Data : JsonModel
     /// </summary>
     public string? Url
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "url"); }
+        get { return this._rawData.GetNullableClass<string>("url"); }
         init
         {
             if (value == null)
@@ -362,7 +377,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "url", value);
+            this._rawData.Set("url", value);
         }
     }
 
@@ -403,14 +418,14 @@ public sealed record class Data : JsonModel
 
     public Data(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     Data(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
@@ -433,7 +448,7 @@ public sealed record class Image : JsonModel
 {
     public string? AltText
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "altText"); }
+        get { return this._rawData.GetNullableClass<string>("altText"); }
         init
         {
             if (value == null)
@@ -441,13 +456,13 @@ public sealed record class Image : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "altText", value);
+            this._rawData.Set("altText", value);
         }
     }
 
     public string? Caption
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "caption"); }
+        get { return this._rawData.GetNullableClass<string>("caption"); }
         init
         {
             if (value == null)
@@ -455,13 +470,13 @@ public sealed record class Image : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "caption", value);
+            this._rawData.Set("caption", value);
         }
     }
 
     public string? Credit
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "credit"); }
+        get { return this._rawData.GetNullableClass<string>("credit"); }
         init
         {
             if (value == null)
@@ -469,13 +484,13 @@ public sealed record class Image : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "credit", value);
+            this._rawData.Set("credit", value);
         }
     }
 
     public IReadOnlyList<string>? Crops
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawData, "crops"); }
+        get { return this._rawData.GetNullableStruct<ImmutableArray<string>>("crops"); }
         init
         {
             if (value == null)
@@ -483,13 +498,16 @@ public sealed record class Image : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "crops", value);
+            this._rawData.Set<ImmutableArray<string>?>(
+                "crops",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
     public string? Title
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "title"); }
+        get { return this._rawData.GetNullableClass<string>("title"); }
         init
         {
             if (value == null)
@@ -497,13 +515,13 @@ public sealed record class Image : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "title", value);
+            this._rawData.Set("title", value);
         }
     }
 
     public string? Url
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "url"); }
+        get { return this._rawData.GetNullableClass<string>("url"); }
         init
         {
             if (value == null)
@@ -511,7 +529,7 @@ public sealed record class Image : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "url", value);
+            this._rawData.Set("url", value);
         }
     }
 
@@ -533,14 +551,14 @@ public sealed record class Image : JsonModel
 
     public Image(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     Image(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
@@ -563,7 +581,7 @@ public sealed record class QuickFact : JsonModel
 {
     public string? ID
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "id"); }
+        get { return this._rawData.GetNullableClass<string>("id"); }
         init
         {
             if (value == null)
@@ -571,13 +589,13 @@ public sealed record class QuickFact : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "id", value);
+            this._rawData.Set("id", value);
         }
     }
 
     public string? Name
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "name"); }
+        get { return this._rawData.GetNullableClass<string>("name"); }
         init
         {
             if (value == null)
@@ -585,13 +603,13 @@ public sealed record class QuickFact : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "name", value);
+            this._rawData.Set("name", value);
         }
     }
 
     public string? Value
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "value"); }
+        get { return this._rawData.GetNullableClass<string>("value"); }
         init
         {
             if (value == null)
@@ -599,7 +617,7 @@ public sealed record class QuickFact : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "value", value);
+            this._rawData.Set("value", value);
         }
     }
 
@@ -618,14 +636,14 @@ public sealed record class QuickFact : JsonModel
 
     public QuickFact(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     QuickFact(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
@@ -648,7 +666,7 @@ public sealed record class RelatedPark : JsonModel
 {
     public string? Designation
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "designation"); }
+        get { return this._rawData.GetNullableClass<string>("designation"); }
         init
         {
             if (value == null)
@@ -656,13 +674,13 @@ public sealed record class RelatedPark : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "designation", value);
+            this._rawData.Set("designation", value);
         }
     }
 
     public string? FullName
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "fullName"); }
+        get { return this._rawData.GetNullableClass<string>("fullName"); }
         init
         {
             if (value == null)
@@ -670,13 +688,13 @@ public sealed record class RelatedPark : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "fullName", value);
+            this._rawData.Set("fullName", value);
         }
     }
 
     public string? Name
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "name"); }
+        get { return this._rawData.GetNullableClass<string>("name"); }
         init
         {
             if (value == null)
@@ -684,13 +702,13 @@ public sealed record class RelatedPark : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "name", value);
+            this._rawData.Set("name", value);
         }
     }
 
     public string? ParkCode
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "parkCode"); }
+        get { return this._rawData.GetNullableClass<string>("parkCode"); }
         init
         {
             if (value == null)
@@ -698,13 +716,13 @@ public sealed record class RelatedPark : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "parkCode", value);
+            this._rawData.Set("parkCode", value);
         }
     }
 
     public IReadOnlyList<string>? States
     {
-        get { return JsonModel.GetNullableClass<List<string>>(this.RawData, "states"); }
+        get { return this._rawData.GetNullableStruct<ImmutableArray<string>>("states"); }
         init
         {
             if (value == null)
@@ -712,13 +730,16 @@ public sealed record class RelatedPark : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "states", value);
+            this._rawData.Set<ImmutableArray<string>?>(
+                "states",
+                value == null ? null : ImmutableArray.ToImmutableArray(value)
+            );
         }
     }
 
     public string? Url
     {
-        get { return JsonModel.GetNullableClass<string>(this.RawData, "url"); }
+        get { return this._rawData.GetNullableClass<string>("url"); }
         init
         {
             if (value == null)
@@ -726,7 +747,7 @@ public sealed record class RelatedPark : JsonModel
                 return;
             }
 
-            JsonModel.Set(this._rawData, "url", value);
+            this._rawData.Set("url", value);
         }
     }
 
@@ -748,14 +769,14 @@ public sealed record class RelatedPark : JsonModel
 
     public RelatedPark(IReadOnlyDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 
 #pragma warning disable CS8618
     [SetsRequiredMembers]
     RelatedPark(FrozenDictionary<string, JsonElement> rawData)
     {
-        this._rawData = [.. rawData];
+        this._rawData = new(rawData);
     }
 #pragma warning restore CS8618
 
