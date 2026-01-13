@@ -16,7 +16,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public string? ID
     {
-        get { return this._rawQueryData.GetNullableClass<string>("id"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("id");
+        }
         init
         {
             if (value == null)
@@ -33,7 +37,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public string? DateEnd
     {
-        get { return this._rawQueryData.GetNullableClass<string>("dateEnd"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("dateEnd");
+        }
         init
         {
             if (value == null)
@@ -50,7 +58,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public string? DateStart
     {
-        get { return this._rawQueryData.GetNullableClass<string>("dateStart"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("dateStart");
+        }
         init
         {
             if (value == null)
@@ -67,7 +79,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? EventType
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("eventType"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("eventType");
+        }
         init
         {
             if (value == null)
@@ -88,7 +104,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public bool? ExpandRecurring
     {
-        get { return this._rawQueryData.GetNullableStruct<bool>("expandRecurring"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<bool>("expandRecurring");
+        }
         init
         {
             if (value == null)
@@ -105,7 +125,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public long? Limit
     {
-        get { return this._rawQueryData.GetNullableStruct<long>("limit"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("limit");
+        }
         init
         {
             if (value == null)
@@ -122,7 +146,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? Organization
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("organization"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("organization");
+        }
         init
         {
             if (value == null)
@@ -142,7 +170,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public long? PageNumber
     {
-        get { return this._rawQueryData.GetNullableStruct<long>("pageNumber"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("pageNumber");
+        }
         init
         {
             if (value == null)
@@ -159,7 +191,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public long? PageSize
     {
-        get { return this._rawQueryData.GetNullableStruct<long>("pageSize"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("pageSize");
+        }
         init
         {
             if (value == null)
@@ -176,7 +212,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? ParkCode
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("parkCode"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("parkCode");
+        }
         init
         {
             if (value == null)
@@ -196,7 +236,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? Portal
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("portal"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("portal");
+        }
         init
         {
             if (value == null)
@@ -216,7 +260,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public string? Q
     {
-        get { return this._rawQueryData.GetNullableClass<string>("q"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("q");
+        }
         init
         {
             if (value == null)
@@ -233,7 +281,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public long? Start
     {
-        get { return this._rawQueryData.GetNullableStruct<long>("start"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("start");
+        }
         init
         {
             if (value == null)
@@ -250,7 +302,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? StateCode
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("stateCode"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("stateCode");
+        }
         init
         {
             if (value == null)
@@ -270,7 +326,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? Subject
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("subject"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("subject");
+        }
         init
         {
             if (value == null)
@@ -290,7 +350,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? TagsAll
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsAll"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsAll");
+        }
         init
         {
             if (value == null)
@@ -310,7 +374,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? TagsNone
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsNone"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsNone");
+        }
         init
         {
             if (value == null)
@@ -330,7 +398,11 @@ public sealed record class EventListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? TagsOne
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsOne"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("tagsOne");
+        }
         init
         {
             if (value == null)

@@ -17,6 +17,7 @@ public sealed record class ActivityListPageResponse : JsonModel
     {
         get
         {
+            this._rawData.Freeze();
             return this._rawData.GetNullableStruct<ImmutableArray<ActivityListResponse>>("data");
         }
         init
@@ -35,7 +36,11 @@ public sealed record class ActivityListPageResponse : JsonModel
 
     public long? Limit
     {
-        get { return this._rawData.GetNullableStruct<long>("limit"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<long>("limit");
+        }
         init
         {
             if (value == null)
@@ -49,7 +54,11 @@ public sealed record class ActivityListPageResponse : JsonModel
 
     public long? Start
     {
-        get { return this._rawData.GetNullableStruct<long>("start"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<long>("start");
+        }
         init
         {
             if (value == null)
@@ -63,7 +72,11 @@ public sealed record class ActivityListPageResponse : JsonModel
 
     public long? Total
     {
-        get { return this._rawData.GetNullableStruct<long>("total"); }
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableStruct<long>("total");
+        }
         init
         {
             if (value == null)

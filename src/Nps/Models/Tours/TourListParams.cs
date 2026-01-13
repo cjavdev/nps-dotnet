@@ -16,7 +16,11 @@ public sealed record class TourListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? ID
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("id"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("id");
+        }
         init
         {
             if (value == null)
@@ -36,7 +40,11 @@ public sealed record class TourListParams : ParamsBase
     /// </summary>
     public long? Limit
     {
-        get { return this._rawQueryData.GetNullableStruct<long>("limit"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("limit");
+        }
         init
         {
             if (value == null)
@@ -53,7 +61,11 @@ public sealed record class TourListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? ParkCode
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("parkCode"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("parkCode");
+        }
         init
         {
             if (value == null)
@@ -73,7 +85,11 @@ public sealed record class TourListParams : ParamsBase
     /// </summary>
     public string? Q
     {
-        get { return this._rawQueryData.GetNullableClass<string>("q"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableClass<string>("q");
+        }
         init
         {
             if (value == null)
@@ -97,7 +113,11 @@ public sealed record class TourListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? Sort
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("sort"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("sort");
+        }
         init
         {
             if (value == null)
@@ -117,7 +137,11 @@ public sealed record class TourListParams : ParamsBase
     /// </summary>
     public long? Start
     {
-        get { return this._rawQueryData.GetNullableStruct<long>("start"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<long>("start");
+        }
         init
         {
             if (value == null)
@@ -134,7 +158,11 @@ public sealed record class TourListParams : ParamsBase
     /// </summary>
     public IReadOnlyList<string>? StateCode
     {
-        get { return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("stateCode"); }
+        get
+        {
+            this._rawQueryData.Freeze();
+            return this._rawQueryData.GetNullableStruct<ImmutableArray<string>>("stateCode");
+        }
         init
         {
             if (value == null)
