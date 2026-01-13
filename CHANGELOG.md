@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.4.1 (2026-01-13)
+
+Full Changelog: [v0.4.0...v0.4.1](https://github.com/cjavdev/nps-dotnet/compare/v0.4.0...v0.4.1)
+
+### Bug Fixes
+
+* **client:** add missing `.Value` ([7f6a6d8](https://github.com/cjavdev/nps-dotnet/commit/7f6a6d8910715661b7b2d0291f4d38fe48f286c0))
+* **client:** add missing null check ([ff55619](https://github.com/cjavdev/nps-dotnet/commit/ff55619fea0df67f17dfdbf0a30011e24ee5965f))
+* **client:** ensure deep immutability for deep array/dict structures ([aafe46e](https://github.com/cjavdev/nps-dotnet/commit/aafe46e72453391189a5ca713fc95dba7b212d7d))
+* **client:** fix type mismatch for nested readonly types ([8fbb05b](https://github.com/cjavdev/nps-dotnet/commit/8fbb05bbe8e9a77f918712e707d3fe5d0c0b7ea0))
+* **client:** freeze models on property access ([0e36c2c](https://github.com/cjavdev/nps-dotnet/commit/0e36c2c893097643d7b29314b77816a19c0a0711))
+* **client:** incorrect variable reference ([f04c4b2](https://github.com/cjavdev/nps-dotnet/commit/f04c4b2af567b83713f44367b05e62bbd1b72be5))
+
+
+### Performance Improvements
+
+* **client:** add json deserialization caching ([aafe46e](https://github.com/cjavdev/nps-dotnet/commit/aafe46e72453391189a5ca713fc95dba7b212d7d))
+
+
+### Chores
+
+* **internal:** codegen related update ([a3a6376](https://github.com/cjavdev/nps-dotnet/commit/a3a6376cba5129fac3f7239bfe78bc9bd88a78f8))
+
+
+### Refactors
+
+* **client:** add `JsonDictionary` identity methods ([8270f1e](https://github.com/cjavdev/nps-dotnet/commit/8270f1e7c13758df1bfb460a426121b136359b48))
+* **internal:** `JsonElement` constant construction ([b47b3f0](https://github.com/cjavdev/nps-dotnet/commit/b47b3f096dabbac7754ee74700f5c045aa718ad0))
+
 ## 0.4.0 (2026-01-12)
 
 Full Changelog: [v0.3.0...v0.4.0](https://github.com/cjavdev/nps-dotnet/compare/v0.3.0...v0.4.0)
