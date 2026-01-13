@@ -251,7 +251,7 @@ public sealed record class Geometry : JsonModel
             }
 
             return ImmutableArray.ToImmutableArray(
-                Enumerable.Select(value, (item) => (IReadOnlyList<double>)item)
+                Enumerable.Select(value.Value, (item) => (IReadOnlyList<double>)item)
             );
         }
         init
