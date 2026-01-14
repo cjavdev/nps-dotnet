@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using Nps.Core;
 using Nps.Models.Amenities;
 
 namespace Nps.Tests.Models.Amenities;
@@ -128,8 +129,11 @@ public class AmenityListParksVisitorCentersResponseTest : TestBase
             Total = "53",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponse>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponse>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -173,9 +177,10 @@ public class AmenityListParksVisitorCentersResponseTest : TestBase
             Total = "53",
         };
 
-        string element = JsonSerializer.Serialize(model);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized = JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponse>(
-            element
+            element,
+            ModelBase.SerializerOptions
         );
         Assert.NotNull(deserialized);
 
@@ -422,9 +427,10 @@ public class AmenityListParksVisitorCentersResponseDataTest : TestBase
             ],
         };
 
-        string json = JsonSerializer.Serialize(model);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized = JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponseData>(
-            json
+            json,
+            ModelBase.SerializerOptions
         );
 
         Assert.Equal(model, deserialized);
@@ -460,9 +466,10 @@ public class AmenityListParksVisitorCentersResponseDataTest : TestBase
             ],
         };
 
-        string element = JsonSerializer.Serialize(model);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized = JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponseData>(
-            element
+            element,
+            ModelBase.SerializerOptions
         );
         Assert.NotNull(deserialized);
 
@@ -664,9 +671,12 @@ public class AmenityListParksVisitorCentersResponseDataParkTest : TestBase
             ],
         };
 
-        string json = JsonSerializer.Serialize(model);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized =
-            JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponseDataPark>(json);
+            JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponseDataPark>(
+                json,
+                ModelBase.SerializerOptions
+            );
 
         Assert.Equal(model, deserialized);
     }
@@ -693,9 +703,12 @@ public class AmenityListParksVisitorCentersResponseDataParkTest : TestBase
             ],
         };
 
-        string element = JsonSerializer.Serialize(model);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized =
-            JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponseDataPark>(element);
+            JsonSerializer.Deserialize<AmenityListParksVisitorCentersResponseDataPark>(
+                element,
+                ModelBase.SerializerOptions
+            );
         Assert.NotNull(deserialized);
 
         string expectedDesignation = "National Memorial";
@@ -863,8 +876,11 @@ public class VisitorcenterTest : TestBase
             Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Visitorcenter>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Visitorcenter>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -879,8 +895,11 @@ public class VisitorcenterTest : TestBase
             Url = "https://www.nps.gov/moru/planyourvisit/placestogo.htm",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Visitorcenter>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Visitorcenter>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         string expectedID = "AB856735-B829-4053-8BB2-9A27BC193084";
