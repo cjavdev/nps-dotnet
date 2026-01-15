@@ -28,9 +28,9 @@ NpsClient client = new();
 
 ActivityListParams parameters = new();
 
-var activities = await client.Activities.List(parameters);
+var page = await client.Activities.List(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(page);
 ```
 
 ## Client configuration
@@ -68,7 +68,7 @@ To temporarily use a modified client configuration, while reusing the same conne
 ```csharp
 using System;
 
-var activities = await client
+var page = await client
     .WithOptions(options =>
         options with
         {
@@ -78,7 +78,7 @@ var activities = await client
     )
     .Activities.List(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(page);
 ```
 
 Using a [`with` expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/with-expression) makes it easy to construct the modified options.
@@ -89,7 +89,7 @@ The `WithOptions` method does not affect the original client or service.
 
 To send a request to the Nps API, build an instance of some `Params` class and pass it to the corresponding client method. When the response is received, it will be deserialized into an instance of a C# class.
 
-For example, `client.Activities.List` should be called with an instance of `ActivityListParams`, and it will return an instance of `Task<List<ActivityListResponse>>`.
+For example, `client.Activities.List` should be called with an instance of `ActivityListParams`, and it will return an instance of `Task<ActivityListPage>`.
 
 ## Raw responses
 
@@ -109,11 +109,10 @@ For non-streaming responses, you can deserialize the response into an instance o
 
 ```csharp
 using System;
-using System.Collections.Generic;
 using Nps.Models.Activities;
 
 var response = await client.WithRawResponse.Activities.List();
-List<ActivityListResponse> deserialized = await response.Deserialize();
+ActivityListPage deserialized = await response.Deserialize();
 Console.WriteLine(deserialized);
 ```
 
@@ -155,7 +154,7 @@ To iterate through all results across all pages, use the `Paginate` method, whic
 ```csharp
 using System;
 
-var page = await client.Activities.ListParks(parameters);
+var page = await client.Activities.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
@@ -169,7 +168,7 @@ To access individual page items and manually request the next page, use the `Ite
 ```csharp
 using System;
 
-var page = await client.Activities.ListParks();
+var page = await client.Activities.List();
 while (true)
 {
     foreach (var item in page.Items)
@@ -213,13 +212,13 @@ Or configure a single method call using [`WithOptions`](#modifying-configuration
 ```csharp
 using System;
 
-var activities = await client
+var page = await client
     .WithOptions(options =>
         options with { MaxRetries = 3 }
     )
     .Activities.List(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(page);
 ```
 
 ### Timeouts
@@ -240,13 +239,13 @@ Or configure a single method call using [`WithOptions`](#modifying-configuration
 ```csharp
 using System;
 
-var activities = await client
+var page = await client
     .WithOptions(options =>
         options with { Timeout = TimeSpan.FromSeconds(42) }
     )
     .Activities.List(parameters);
 
-Console.WriteLine(activities);
+Console.WriteLine(page);
 ```
 
 ## Undocumented API functionality

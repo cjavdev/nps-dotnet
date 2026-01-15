@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Nps.Core;
@@ -30,7 +29,7 @@ public interface IActivityService
     /// <summary>
     /// Sends a request to <c>get /activities<c/>.
     /// </summary>
-    Task<List<ActivityListResponse>> List(
+    Task<ActivityListPage> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
@@ -61,7 +60,7 @@ public interface IActivityServiceWithRawResponse
     /// Returns a raw HTTP response for `get /activities`, but is otherwise the
     /// same as <see cref="IActivityService.List(ActivityListParams?, CancellationToken)"/>.
     /// </summary>
-    Task<HttpResponse<List<ActivityListResponse>>> List(
+    Task<HttpResponse<ActivityListPage>> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     );
