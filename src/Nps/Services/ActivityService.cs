@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ public sealed class ActivityService : IActivityService
     }
 
     /// <inheritdoc/>
-    public async Task<ActivityListPage> List(
+    public async Task<List<ActivityListResponse>> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -75,7 +76,7 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
     }
 
     /// <inheritdoc/>
-    public async Task<HttpResponse<ActivityListPage>> List(
+    public async Task<HttpResponse<List<ActivityListResponse>>> List(
         ActivityListParams? parameters = null,
         CancellationToken cancellationToken = default
     )
@@ -92,14 +93,17 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
             response,
             async (token) =>
             {
-                var page = await response
-                    .Deserialize<ActivityListPageResponse>(token)
+                var activities = await response
+                    .Deserialize<List<ActivityListResponse>>(token)
                     .ConfigureAwait(false);
                 if (this._client.ResponseValidation)
                 {
-                    page.Validate();
+                    foreach (var item in activities)
+                    {
+                        item.Validate();
+                    }
                 }
-                return new ActivityListPage(this, parameters, page);
+                return activities;
             }
         );
     }
