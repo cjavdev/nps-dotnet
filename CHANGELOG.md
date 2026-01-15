@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.5.0 (2026-01-15)
+
+Full Changelog: [v0.4.1...v0.5.0](https://github.com/cjavdev/nps-dotnet/compare/v0.4.1...v0.5.0)
+
+### Features
+
+* **client:** add helper functions for raw messages ([0f0c89a](https://github.com/cjavdev/nps-dotnet/commit/0f0c89ad758d7ecb5e6ac2c39de4a5f662925b41))
+
+
+### Bug Fixes
+
+* **ci:** don't throw an error about missing lsof ([02c3179](https://github.com/cjavdev/nps-dotnet/commit/02c31791b2c3f6e0248392a7ae39f4925d7876d4))
+* **client:** throw api enum errors as invalid data exception ([4b4d65a](https://github.com/cjavdev/nps-dotnet/commit/4b4d65ad1f7e9ae4a19b84c0db7ea91d46910386))
+
+
+### Chores
+
+* **client:** consistently use serializer options ([0bad921](https://github.com/cjavdev/nps-dotnet/commit/0bad921a699cd897724247218bdd35cc5ee3de83))
+* **readme:** remove beta warning now that we're in ga ([d0bdd61](https://github.com/cjavdev/nps-dotnet/commit/d0bdd614ece146f563c0dcf56b8b42400e52d0c9))
+
 ## 0.4.1 (2026-01-13)
 
 Full Changelog: [v0.4.0...v0.4.1](https://github.com/cjavdev/nps-dotnet/compare/v0.4.0...v0.4.1)
