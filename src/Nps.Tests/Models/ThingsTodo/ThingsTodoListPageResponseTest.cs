@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using Nps.Core;
 using Nps.Models.ThingsTodo;
 
 namespace Nps.Tests.Models.ThingsTodo;
@@ -333,8 +334,11 @@ public class ThingsTodoListPageResponseTest : TestBase
             Total = 0,
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<ThingsTodoListPageResponse>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<ThingsTodoListPageResponse>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -449,8 +453,11 @@ public class ThingsTodoListPageResponseTest : TestBase
             Total = 0,
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<ThingsTodoListPageResponse>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<ThingsTodoListPageResponse>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         List<ThingsTodoListResponse> expectedData =

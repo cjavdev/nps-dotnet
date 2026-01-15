@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using Nps.Core;
 using VisitorCenters = Nps.Models.VisitorCenters;
 
 namespace Nps.Tests.Models.VisitorCenters;
@@ -617,9 +618,12 @@ public class VisitorCenterListPageResponseTest : TestBase
             Total = 0,
         };
 
-        string json = JsonSerializer.Serialize(model);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized =
-            JsonSerializer.Deserialize<VisitorCenters::VisitorCenterListPageResponse>(json);
+            JsonSerializer.Deserialize<VisitorCenters::VisitorCenterListPageResponse>(
+                json,
+                ModelBase.SerializerOptions
+            );
 
         Assert.Equal(model, deserialized);
     }
@@ -828,9 +832,12 @@ public class VisitorCenterListPageResponseTest : TestBase
             Total = 0,
         };
 
-        string element = JsonSerializer.Serialize(model);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized =
-            JsonSerializer.Deserialize<VisitorCenters::VisitorCenterListPageResponse>(element);
+            JsonSerializer.Deserialize<VisitorCenters::VisitorCenterListPageResponse>(
+                element,
+                ModelBase.SerializerOptions
+            );
         Assert.NotNull(deserialized);
 
         List<VisitorCenters::VisitorCenterListResponse> expectedData =

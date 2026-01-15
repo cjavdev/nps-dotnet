@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using Nps.Core;
 using Nps.Models.Activities;
 
 namespace Nps.Tests.Models.Activities;
@@ -130,8 +131,11 @@ public class ActivityListParksPageResponseTest : TestBase
             Total = 0,
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<ActivityListParksPageResponse>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<ActivityListParksPageResponse>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -176,8 +180,11 @@ public class ActivityListParksPageResponseTest : TestBase
             Total = 0,
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<ActivityListParksPageResponse>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<ActivityListParksPageResponse>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         List<ActivityListParksResponse> expectedData =

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using Nps.Core;
 using Nps.Models.Amenities;
 
 namespace Nps.Tests.Models.Amenities;
@@ -128,8 +129,11 @@ public class AmenityListParksPlacesResponseTest : TestBase
             Total = "53",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponse>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponse>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -173,8 +177,11 @@ public class AmenityListParksPlacesResponseTest : TestBase
             Total = "53",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponse>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponse>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         List<AmenityListParksPlacesResponseData> expectedData =
@@ -420,8 +427,11 @@ public class AmenityListParksPlacesResponseDataTest : TestBase
             ],
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponseData>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponseData>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -456,8 +466,11 @@ public class AmenityListParksPlacesResponseDataTest : TestBase
             ],
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponseData>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<AmenityListParksPlacesResponseData>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         string expectedID = "75F2DA2A-1741-445A-9FA7-B63A81E4BD7F";
@@ -658,8 +671,8 @@ public class ParkTest : TestBase
             Url = "https://www.nps.gov/blri/index.htm",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Park>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Park>(json, ModelBase.SerializerOptions);
 
         Assert.Equal(model, deserialized);
     }
@@ -686,8 +699,8 @@ public class ParkTest : TestBase
             Url = "https://www.nps.gov/blri/index.htm",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Park>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Park>(element, ModelBase.SerializerOptions);
         Assert.NotNull(deserialized);
 
         string expectedDesignation = "Parkway";
@@ -855,8 +868,8 @@ public class PlaceTest : TestBase
             Url = "https://www.nps.gov/places/mabry-mill.htm",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Place>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Place>(json, ModelBase.SerializerOptions);
 
         Assert.Equal(model, deserialized);
     }
@@ -871,8 +884,8 @@ public class PlaceTest : TestBase
             Url = "https://www.nps.gov/places/mabry-mill.htm",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Place>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Place>(element, ModelBase.SerializerOptions);
         Assert.NotNull(deserialized);
 
         string expectedID = "E4267D0C-EE18-4020-88DC-40B5EBAC32E3";

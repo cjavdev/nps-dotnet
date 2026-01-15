@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using Nps.Core;
 using Nps.Models.People;
 
 namespace Nps.Tests.Models.People;
@@ -206,8 +207,11 @@ public class PersonListResponseTest : TestBase
             Total = "451",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<PersonListResponse>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<PersonListResponse>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -277,8 +281,11 @@ public class PersonListResponseTest : TestBase
             Total = "451",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<PersonListResponse>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<PersonListResponse>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         List<Data> expectedData =
@@ -690,8 +697,8 @@ public class DataTest : TestBase
             Url = "url",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Data>(json, ModelBase.SerializerOptions);
 
         Assert.Equal(model, deserialized);
     }
@@ -752,8 +759,8 @@ public class DataTest : TestBase
             Url = "url",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Data>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Data>(element, ModelBase.SerializerOptions);
         Assert.NotNull(deserialized);
 
         string expectedID = "7013F68B-9DAC-4C96-B1C5-0256CC6D1494";
@@ -1095,8 +1102,8 @@ public class ImageTest : TestBase
                 "https://www.nps.gov/common/uploads/people/nri/20200814/people/34BCEDFA-D585-62B8-086046B6CEF7BACC/34BCEDFA-D585-62B8-086046B6CEF7BACC.jpg",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Image>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Image>(json, ModelBase.SerializerOptions);
 
         Assert.Equal(model, deserialized);
     }
@@ -1115,8 +1122,8 @@ public class ImageTest : TestBase
                 "https://www.nps.gov/common/uploads/people/nri/20200814/people/34BCEDFA-D585-62B8-086046B6CEF7BACC/34BCEDFA-D585-62B8-086046B6CEF7BACC.jpg",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<Image>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<Image>(element, ModelBase.SerializerOptions);
         Assert.NotNull(deserialized);
 
         string expectedAltText = "Portrait Pauline Cushman Fryer in soldier uniform";
@@ -1261,8 +1268,8 @@ public class QuickFactTest : TestBase
             Value = "Civil War Spy",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<QuickFact>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<QuickFact>(json, ModelBase.SerializerOptions);
 
         Assert.Equal(model, deserialized);
     }
@@ -1277,8 +1284,11 @@ public class QuickFactTest : TestBase
             Value = "Civil War Spy",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<QuickFact>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<QuickFact>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         string expectedID = "F7A67C96-173F-4675-B374-7E3D3A1818B2";
@@ -1406,8 +1416,11 @@ public class RelatedParkTest : TestBase
             Url = "https://www.nps.gov/goga/index.htm",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<RelatedPark>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<RelatedPark>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -1425,8 +1438,11 @@ public class RelatedParkTest : TestBase
             Url = "https://www.nps.gov/goga/index.htm",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<RelatedPark>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<RelatedPark>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         string expectedDesignation = "National Recreation Area";

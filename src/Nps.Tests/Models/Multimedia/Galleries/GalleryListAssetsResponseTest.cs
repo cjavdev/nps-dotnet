@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using Nps.Core;
 using Nps.Models.Multimedia.Galleries;
 
 namespace Nps.Tests.Models.Multimedia.Galleries;
@@ -166,8 +167,11 @@ public class GalleryListAssetsResponseTest : TestBase
             Total = "13",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponse>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponse>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -225,8 +229,11 @@ public class GalleryListAssetsResponseTest : TestBase
             Total = "13",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponse>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponse>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         List<GalleryListAssetsResponseData> expectedData =
@@ -541,8 +548,11 @@ public class GalleryListAssetsResponseDataTest : TestBase
             Title = "1st place: 6th – 8th grade category",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseData>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseData>(
+            json,
+            ModelBase.SerializerOptions
+        );
 
         Assert.Equal(model, deserialized);
     }
@@ -586,8 +596,11 @@ public class GalleryListAssetsResponseDataTest : TestBase
             Title = "1st place: 6th – 8th grade category",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseData>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseData>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         string expectedID = "F2D0A915-155D-451F-67EA-767489860884";
@@ -829,9 +842,10 @@ public class GalleryListAssetsResponseDataConstraintsInfoTest : TestBase
             GrantingRights = "Full",
         };
 
-        string json = JsonSerializer.Serialize(model);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataConstraintsInfo>(
-            json
+            json,
+            ModelBase.SerializerOptions
         );
 
         Assert.Equal(model, deserialized);
@@ -846,9 +860,10 @@ public class GalleryListAssetsResponseDataConstraintsInfoTest : TestBase
             GrantingRights = "Full",
         };
 
-        string element = JsonSerializer.Serialize(model);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataConstraintsInfo>(
-            element
+            element,
+            ModelBase.SerializerOptions
         );
         Assert.NotNull(deserialized);
 
@@ -960,8 +975,8 @@ public class FileInfoTest : TestBase
             WidthPixels = "1024",
         };
 
-        string json = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<FileInfo>(json);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<FileInfo>(json, ModelBase.SerializerOptions);
 
         Assert.Equal(model, deserialized);
     }
@@ -978,8 +993,11 @@ public class FileInfoTest : TestBase
             WidthPixels = "1024",
         };
 
-        string element = JsonSerializer.Serialize(model);
-        var deserialized = JsonSerializer.Deserialize<FileInfo>(element);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
+        var deserialized = JsonSerializer.Deserialize<FileInfo>(
+            element,
+            ModelBase.SerializerOptions
+        );
         Assert.NotNull(deserialized);
 
         string expectedFileSizeKB = "147265";
@@ -1121,9 +1139,10 @@ public class GalleryListAssetsResponseDataRelatedParkTest : TestBase
             Url = "https://www.nps.gov/glac/index.htm",
         };
 
-        string json = JsonSerializer.Serialize(model);
+        string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataRelatedPark>(
-            json
+            json,
+            ModelBase.SerializerOptions
         );
 
         Assert.Equal(model, deserialized);
@@ -1142,9 +1161,10 @@ public class GalleryListAssetsResponseDataRelatedParkTest : TestBase
             Url = "https://www.nps.gov/glac/index.htm",
         };
 
-        string element = JsonSerializer.Serialize(model);
+        string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
         var deserialized = JsonSerializer.Deserialize<GalleryListAssetsResponseDataRelatedPark>(
-            element
+            element,
+            ModelBase.SerializerOptions
         );
         Assert.NotNull(deserialized);
 
