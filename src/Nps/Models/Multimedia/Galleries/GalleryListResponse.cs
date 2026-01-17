@@ -11,14 +11,12 @@ namespace Nps.Models.Multimedia.Galleries;
 [JsonConverter(typeof(JsonModelConverter<GalleryListResponse, GalleryListResponseFromRaw>))]
 public sealed record class GalleryListResponse : JsonModel
 {
-    public IReadOnlyList<global::Nps.Models.Multimedia.Galleries.Data>? Data
+    public IReadOnlyList<Data>? Data
     {
         get
         {
             this._rawData.Freeze();
-            return this._rawData.GetNullableStruct<
-                ImmutableArray<global::Nps.Models.Multimedia.Galleries.Data>
-            >("data");
+            return this._rawData.GetNullableStruct<ImmutableArray<Data>>("data");
         }
         init
         {
@@ -27,7 +25,7 @@ public sealed record class GalleryListResponse : JsonModel
                 return;
             }
 
-            this._rawData.Set<ImmutableArray<global::Nps.Models.Multimedia.Galleries.Data>?>(
+            this._rawData.Set<ImmutableArray<Data>?>(
                 "data",
                 value == null ? null : ImmutableArray.ToImmutableArray(value)
             );
@@ -134,12 +132,7 @@ class GalleryListResponseFromRaw : IFromRawJson<GalleryListResponse>
         GalleryListResponse.FromRawUnchecked(rawData);
 }
 
-[JsonConverter(
-    typeof(JsonModelConverter<
-        global::Nps.Models.Multimedia.Galleries.Data,
-        global::Nps.Models.Multimedia.Galleries.DataFromRaw
-    >)
-)]
+[JsonConverter(typeof(JsonModelConverter<Data, DataFromRaw>))]
 public sealed record class Data : JsonModel
 {
     public string? ID
@@ -253,14 +246,12 @@ public sealed record class Data : JsonModel
         }
     }
 
-    public IReadOnlyList<global::Nps.Models.Multimedia.Galleries.RelatedPark>? RelatedParks
+    public IReadOnlyList<RelatedPark>? RelatedParks
     {
         get
         {
             this._rawData.Freeze();
-            return this._rawData.GetNullableStruct<
-                ImmutableArray<global::Nps.Models.Multimedia.Galleries.RelatedPark>
-            >("relatedParks");
+            return this._rawData.GetNullableStruct<ImmutableArray<RelatedPark>>("relatedParks");
         }
         init
         {
@@ -269,7 +260,7 @@ public sealed record class Data : JsonModel
                 return;
             }
 
-            this._rawData.Set<ImmutableArray<global::Nps.Models.Multimedia.Galleries.RelatedPark>?>(
+            this._rawData.Set<ImmutableArray<RelatedPark>?>(
                 "relatedParks",
                 value == null ? null : ImmutableArray.ToImmutableArray(value)
             );
@@ -356,7 +347,7 @@ public sealed record class Data : JsonModel
 
     public Data() { }
 
-    public Data(global::Nps.Models.Multimedia.Galleries.Data data)
+    public Data(Data data)
         : base(data) { }
 
     public Data(IReadOnlyDictionary<string, JsonElement> rawData)
@@ -372,21 +363,18 @@ public sealed record class Data : JsonModel
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="global::Nps.Models.Multimedia.Galleries.DataFromRaw.FromRawUnchecked"/>
-    public static global::Nps.Models.Multimedia.Galleries.Data FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
+    /// <inheritdoc cref="DataFromRaw.FromRawUnchecked"/>
+    public static Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class DataFromRaw : IFromRawJson<global::Nps.Models.Multimedia.Galleries.Data>
+class DataFromRaw : IFromRawJson<Data>
 {
     /// <inheritdoc/>
-    public global::Nps.Models.Multimedia.Galleries.Data FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    ) => global::Nps.Models.Multimedia.Galleries.Data.FromRawUnchecked(rawData);
+    public Data FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        Data.FromRawUnchecked(rawData);
 }
 
 [JsonConverter(typeof(JsonModelConverter<ConstraintsInfo, ConstraintsInfoFromRaw>))]
@@ -583,12 +571,7 @@ class ImageFromRaw : IFromRawJson<Image>
         Image.FromRawUnchecked(rawData);
 }
 
-[JsonConverter(
-    typeof(JsonModelConverter<
-        global::Nps.Models.Multimedia.Galleries.RelatedPark,
-        global::Nps.Models.Multimedia.Galleries.RelatedParkFromRaw
-    >)
-)]
+[JsonConverter(typeof(JsonModelConverter<RelatedPark, RelatedParkFromRaw>))]
 public sealed record class RelatedPark : JsonModel
 {
     public string? Designation
@@ -712,7 +695,7 @@ public sealed record class RelatedPark : JsonModel
 
     public RelatedPark() { }
 
-    public RelatedPark(global::Nps.Models.Multimedia.Galleries.RelatedPark relatedPark)
+    public RelatedPark(RelatedPark relatedPark)
         : base(relatedPark) { }
 
     public RelatedPark(IReadOnlyDictionary<string, JsonElement> rawData)
@@ -728,19 +711,16 @@ public sealed record class RelatedPark : JsonModel
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="global::Nps.Models.Multimedia.Galleries.RelatedParkFromRaw.FromRawUnchecked"/>
-    public static global::Nps.Models.Multimedia.Galleries.RelatedPark FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    )
+    /// <inheritdoc cref="RelatedParkFromRaw.FromRawUnchecked"/>
+    public static RelatedPark FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData)
     {
         return new(FrozenDictionary.ToFrozenDictionary(rawData));
     }
 }
 
-class RelatedParkFromRaw : IFromRawJson<global::Nps.Models.Multimedia.Galleries.RelatedPark>
+class RelatedParkFromRaw : IFromRawJson<RelatedPark>
 {
     /// <inheritdoc/>
-    public global::Nps.Models.Multimedia.Galleries.RelatedPark FromRawUnchecked(
-        IReadOnlyDictionary<string, JsonElement> rawData
-    ) => global::Nps.Models.Multimedia.Galleries.RelatedPark.FromRawUnchecked(rawData);
+    public RelatedPark FromRawUnchecked(IReadOnlyDictionary<string, JsonElement> rawData) =>
+        RelatedPark.FromRawUnchecked(rawData);
 }
