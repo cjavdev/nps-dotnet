@@ -256,4 +256,34 @@ public class EventListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new EventListParams
+        {
+            ID = "id",
+            DateEnd = "dateEnd",
+            DateStart = "dateStart",
+            EventType = ["string"],
+            ExpandRecurring = true,
+            Limit = 0,
+            Organization = ["string"],
+            PageNumber = 0,
+            PageSize = 0,
+            ParkCode = ["string"],
+            Portal = ["string"],
+            Q = "q",
+            Start = 0,
+            StateCode = ["string"],
+            Subject = ["string"],
+            TagsAll = ["string"],
+            TagsNone = ["string"],
+            TagsOne = ["string"],
+        };
+
+        EventListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

@@ -8,12 +8,19 @@ using Nps.Core;
 
 namespace Nps.Models.Maps;
 
-public sealed record class MapRetrieveParkBoundariesParams : ParamsBase
+/// <summary>
+/// NOTE: Do not inherit from this type outside the SDK unless you're okay with breaking
+/// changes in non-major versions. We may add new methods in the future that cause
+/// existing derived classes to break.
+/// </summary>
+public record class MapRetrieveParkBoundariesParams : ParamsBase
 {
     public string? Sitecode { get; init; }
 
     public MapRetrieveParkBoundariesParams() { }
 
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
     public MapRetrieveParkBoundariesParams(
         MapRetrieveParkBoundariesParams mapRetrieveParkBoundariesParams
     )
@@ -21,6 +28,7 @@ public sealed record class MapRetrieveParkBoundariesParams : ParamsBase
     {
         this.Sitecode = mapRetrieveParkBoundariesParams.Sitecode;
     }
+#pragma warning restore CS8618
 
     public MapRetrieveParkBoundariesParams(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
@@ -55,6 +63,28 @@ public sealed record class MapRetrieveParkBoundariesParams : ParamsBase
         );
     }
 
+    public override string ToString() =>
+        JsonSerializer.Serialize(
+            new Dictionary<string, object?>()
+            {
+                ["Sitecode"] = this.Sitecode,
+                ["HeaderData"] = this._rawHeaderData.Freeze(),
+                ["QueryData"] = this._rawQueryData.Freeze(),
+            },
+            ModelBase.ToStringSerializerOptions
+        );
+
+    public virtual bool Equals(MapRetrieveParkBoundariesParams? other)
+    {
+        if (other == null)
+        {
+            return false;
+        }
+        return (this.Sitecode?.Equals(other.Sitecode) ?? other.Sitecode == null)
+            && this._rawHeaderData.Equals(other._rawHeaderData)
+            && this._rawQueryData.Equals(other._rawQueryData);
+    }
+
     public override Uri Url(ClientOptions options)
     {
         return new UriBuilder(
@@ -73,5 +103,10 @@ public sealed record class MapRetrieveParkBoundariesParams : ParamsBase
         {
             ParamsBase.AddHeaderElementToRequest(request, item.Key, item.Value);
         }
+    }
+
+    public override int GetHashCode()
+    {
+        return 0;
     }
 }

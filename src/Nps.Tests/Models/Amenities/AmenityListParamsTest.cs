@@ -90,4 +90,20 @@ public class AmenityListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new AmenityListParams
+        {
+            ID = ["string"],
+            Limit = 0,
+            Q = "q",
+            Start = 0,
+        };
+
+        AmenityListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

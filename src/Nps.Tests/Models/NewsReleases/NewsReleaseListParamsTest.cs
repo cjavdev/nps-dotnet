@@ -118,4 +118,22 @@ public class NewsReleaseListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new NewsReleaseListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Sort = ["string"],
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        NewsReleaseListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

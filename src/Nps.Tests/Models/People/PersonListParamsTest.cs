@@ -104,4 +104,21 @@ public class PersonListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new PersonListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        PersonListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

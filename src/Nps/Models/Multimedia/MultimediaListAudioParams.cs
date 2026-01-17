@@ -9,7 +9,12 @@ using Nps.Core;
 
 namespace Nps.Models.Multimedia;
 
-public sealed record class MultimediaListAudioParams : ParamsBase
+/// <summary>
+/// NOTE: Do not inherit from this type outside the SDK unless you're okay with breaking
+/// changes in non-major versions. We may add new methods in the future that cause
+/// existing derived classes to break.
+/// </summary>
+public record class MultimediaListAudioParams : ParamsBase
 {
     /// <summary>
     /// Number of results to return per request. Default is 50.
@@ -124,8 +129,11 @@ public sealed record class MultimediaListAudioParams : ParamsBase
 
     public MultimediaListAudioParams() { }
 
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
     public MultimediaListAudioParams(MultimediaListAudioParams multimediaListAudioParams)
         : base(multimediaListAudioParams) { }
+#pragma warning restore CS8618
 
     public MultimediaListAudioParams(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
@@ -160,6 +168,26 @@ public sealed record class MultimediaListAudioParams : ParamsBase
         );
     }
 
+    public override string ToString() =>
+        JsonSerializer.Serialize(
+            new Dictionary<string, object?>()
+            {
+                ["HeaderData"] = this._rawHeaderData.Freeze(),
+                ["QueryData"] = this._rawQueryData.Freeze(),
+            },
+            ModelBase.ToStringSerializerOptions
+        );
+
+    public virtual bool Equals(MultimediaListAudioParams? other)
+    {
+        if (other == null)
+        {
+            return false;
+        }
+        return this._rawHeaderData.Equals(other._rawHeaderData)
+            && this._rawQueryData.Equals(other._rawQueryData);
+    }
+
     public override Uri Url(ClientOptions options)
     {
         return new UriBuilder(options.BaseUrl.ToString().TrimEnd('/') + "/multimedia/audio")
@@ -175,5 +203,10 @@ public sealed record class MultimediaListAudioParams : ParamsBase
         {
             ParamsBase.AddHeaderElementToRequest(request, item.Key, item.Value);
         }
+    }
+
+    public override int GetHashCode()
+    {
+        return 0;
     }
 }

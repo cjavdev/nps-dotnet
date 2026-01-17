@@ -113,4 +113,22 @@ public class WebcamListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new WebcamListParams
+        {
+            ID = "id",
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        WebcamListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

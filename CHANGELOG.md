@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.6.0 (2026-01-17)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/cjavdev/nps-dotnet/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** manual updates ([037fa57](https://github.com/cjavdev/nps-dotnet/commit/037fa57ef05bc2bbde712be1121b6a553cf091af))
+* **api:** manual updates ([2a0af39](https://github.com/cjavdev/nps-dotnet/commit/2a0af3954634793075697067e0c68ec137c900f0))
+* **client:** add `ToString` to `ApiEnum` ([28cd293](https://github.com/cjavdev/nps-dotnet/commit/28cd29371a754ada5d0b8e092250480349f1f851))
+* **client:** add Equals and ToString to params ([65934d6](https://github.com/cjavdev/nps-dotnet/commit/65934d68a736329940a32e4b96b11df5d6ebd6c8))
+
+
+### Chores
+
+* **internal:** simplify imports ([48759e8](https://github.com/cjavdev/nps-dotnet/commit/48759e8419e9612a8991a056a04548aeb2e64aba))
+* **internal:** update `actions/checkout` version ([e1a225c](https://github.com/cjavdev/nps-dotnet/commit/e1a225cfa619a2c8a9759ea8ebf26a1e2c1e2cb7))
+
 ## 0.5.0 (2026-01-15)
 
 Full Changelog: [v0.4.1...v0.5.0](https://github.com/cjavdev/nps-dotnet/compare/v0.4.1...v0.5.0)

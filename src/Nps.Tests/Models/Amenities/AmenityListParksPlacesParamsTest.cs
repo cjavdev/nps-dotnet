@@ -113,4 +113,22 @@ public class AmenityListParksPlacesParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new AmenityListParksPlacesParams
+        {
+            ID = ["string"],
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Sort = "sort",
+            Start = 0,
+        };
+
+        AmenityListParksPlacesParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

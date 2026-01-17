@@ -104,4 +104,21 @@ public class AlertListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new AlertListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        AlertListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

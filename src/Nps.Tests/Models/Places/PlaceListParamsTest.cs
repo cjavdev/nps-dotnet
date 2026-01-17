@@ -104,4 +104,21 @@ public class PlaceListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new PlaceListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        PlaceListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }
