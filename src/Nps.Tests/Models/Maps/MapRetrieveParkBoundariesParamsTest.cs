@@ -29,4 +29,14 @@ public class MapRetrieveParkBoundariesParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new MapRetrieveParkBoundariesParams { Sitecode = "sitecode" };
+
+        MapRetrieveParkBoundariesParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

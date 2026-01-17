@@ -84,4 +84,20 @@ public class RoadEventListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new RoadEventListParams
+        {
+            Limit = 0,
+            ParkCode = "parkCode",
+            Start = 0,
+            Type = "type",
+        };
+
+        RoadEventListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

@@ -104,4 +104,21 @@ public class GalleryListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new GalleryListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        GalleryListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }
