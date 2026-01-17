@@ -104,4 +104,21 @@ public class ArticleListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new ArticleListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        ArticleListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

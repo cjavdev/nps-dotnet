@@ -118,4 +118,22 @@ public class CampgroundListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new CampgroundListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Sort = ["string"],
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        CampgroundListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

@@ -122,4 +122,23 @@ public class GalleryListAssetsParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new GalleryListAssetsParams
+        {
+            ID = "id",
+            GalleryID = "galleryId",
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        GalleryListAssetsParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

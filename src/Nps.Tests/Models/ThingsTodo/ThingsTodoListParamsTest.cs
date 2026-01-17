@@ -117,4 +117,23 @@ public class ThingsTodoListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new ThingsTodoListParams
+        {
+            ID = "id",
+            Limit = 0,
+            ParkCode = "parkCode",
+            Q = "q",
+            Sort = ["string"],
+            Start = 0,
+            StateCode = "stateCode",
+        };
+
+        ThingsTodoListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

@@ -99,4 +99,21 @@ public class TopicListParksParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new TopicListParksParams
+        {
+            ID = ["string"],
+            Limit = 0,
+            Q = "q",
+            Sort = "sort",
+            Start = 0,
+        };
+
+        TopicListParksParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }
