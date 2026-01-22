@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace Nps.Exceptions;
 
-public class NpsApiException : NpsException
+public class NationalParksApiApiException : NationalParksApiException
 {
     public new HttpRequestException InnerException
     {
@@ -18,10 +18,10 @@ public class NpsApiException : NpsException
         }
     }
 
-    public NpsApiException(string message, HttpRequestException? innerException = null)
+    public NationalParksApiApiException(string message, HttpRequestException? innerException = null)
         : base(message, innerException) { }
 
-    protected NpsApiException(HttpRequestException? innerException)
+    protected NationalParksApiApiException(HttpRequestException? innerException)
         : base(innerException) { }
 
     public required HttpStatusCode StatusCode { get; init; }

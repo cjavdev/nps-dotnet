@@ -18,7 +18,7 @@ public sealed class WebcamService : IWebcamService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public IWebcamService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class WebcamService : IWebcamService
         return new WebcamService(this._client.WithOptions(modifier));
     }
 
-    public WebcamService(INpsClient client)
+    public WebcamService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class WebcamService : IWebcamService
 /// <inheritdoc/>
 public sealed class WebcamServiceWithRawResponse : IWebcamServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IWebcamServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class WebcamServiceWithRawResponse : IWebcamServiceWithRawResponse
         return new WebcamServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public WebcamServiceWithRawResponse(INpsClientWithRawResponse client)
+    public WebcamServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }

@@ -1351,7 +1351,7 @@ sealed class TypeConverter : JsonConverter<global::Nps.Models.Campgrounds.Type>
             {
                 global::Nps.Models.Campgrounds.Type.Physical => "Physical",
                 global::Nps.Models.Campgrounds.Type.Mailing => "Mailing",
-                _ => throw new NpsInvalidDataException(
+                _ => throw new NationalParksApiInvalidDataException(
                     string.Format("Invalid value '{0}' in {1}", value, nameof(value))
                 ),
             },
@@ -2217,7 +2217,7 @@ sealed class PhoneNumberTypeConverter : JsonConverter<PhoneNumberType>
                 PhoneNumberType.Voice => "Voice",
                 PhoneNumberType.Fax => "Fax",
                 PhoneNumberType.Tty => "TTY",
-                _ => throw new NpsInvalidDataException(
+                _ => throw new NationalParksApiInvalidDataException(
                     string.Format("Invalid value '{0}' in {1}", value, nameof(value))
                 ),
             },

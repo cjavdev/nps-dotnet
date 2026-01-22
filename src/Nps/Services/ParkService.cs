@@ -18,7 +18,7 @@ public sealed class ParkService : IParkService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public IParkService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class ParkService : IParkService
         return new ParkService(this._client.WithOptions(modifier));
     }
 
-    public ParkService(INpsClient client)
+    public ParkService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class ParkService : IParkService
 /// <inheritdoc/>
 public sealed class ParkServiceWithRawResponse : IParkServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IParkServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class ParkServiceWithRawResponse : IParkServiceWithRawResponse
         return new ParkServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public ParkServiceWithRawResponse(INpsClientWithRawResponse client)
+    public ParkServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }

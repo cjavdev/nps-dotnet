@@ -49,7 +49,7 @@ public abstract record class ModelBase
     ///
     /// <para>This is useful for instances constructed from raw JSON data (e.g. deserialized from an API response).</para>
     ///
-    /// <exception cref="NpsInvalidDataException">
+    /// <exception cref="NationalParksApiInvalidDataException">
     /// Thrown when the instance does not pass validation.
     /// </exception>
     /// </summary>

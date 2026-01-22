@@ -1058,7 +1058,7 @@ sealed class TypeConverter : JsonConverter<global::Nps.Models.ParkingLots.Type>
                 global::Nps.Models.ParkingLots.Type.Voice => "Voice",
                 global::Nps.Models.ParkingLots.Type.Fax => "Fax",
                 global::Nps.Models.ParkingLots.Type.Tty => "TTY",
-                _ => throw new NpsInvalidDataException(
+                _ => throw new NationalParksApiInvalidDataException(
                     string.Format("Invalid value '{0}' in {1}", value, nameof(value))
                 ),
             },

@@ -18,7 +18,7 @@ public sealed class NewsReleaseService : INewsReleaseService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public INewsReleaseService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class NewsReleaseService : INewsReleaseService
         return new NewsReleaseService(this._client.WithOptions(modifier));
     }
 
-    public NewsReleaseService(INpsClient client)
+    public NewsReleaseService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class NewsReleaseService : INewsReleaseService
 /// <inheritdoc/>
 public sealed class NewsReleaseServiceWithRawResponse : INewsReleaseServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public INewsReleaseServiceWithRawResponse WithOptions(
@@ -59,7 +59,7 @@ public sealed class NewsReleaseServiceWithRawResponse : INewsReleaseServiceWithR
         return new NewsReleaseServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public NewsReleaseServiceWithRawResponse(INpsClientWithRawResponse client)
+    public NewsReleaseServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }

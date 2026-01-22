@@ -18,7 +18,7 @@ public sealed class TopicService : ITopicService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public ITopicService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class TopicService : ITopicService
         return new TopicService(this._client.WithOptions(modifier));
     }
 
-    public TopicService(INpsClient client)
+    public TopicService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -61,7 +61,7 @@ public sealed class TopicService : ITopicService
 /// <inheritdoc/>
 public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public ITopicServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -69,7 +69,7 @@ public sealed class TopicServiceWithRawResponse : ITopicServiceWithRawResponse
         return new TopicServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public TopicServiceWithRawResponse(INpsClientWithRawResponse client)
+    public TopicServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }

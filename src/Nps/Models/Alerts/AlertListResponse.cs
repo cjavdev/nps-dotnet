@@ -398,7 +398,7 @@ sealed class CategoryConverter : JsonConverter<Category>
                 Category.Caution => "Caution",
                 Category.Information => "Information",
                 Category.ParkClosure => "Park Closure",
-                _ => throw new NpsInvalidDataException(
+                _ => throw new NationalParksApiInvalidDataException(
                     string.Format("Invalid value '{0}' in {1}", value, nameof(value))
                 ),
             },

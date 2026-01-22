@@ -2082,7 +2082,7 @@ public class ContentOrderOrdinalsTest : TestBase
         );
 
         Assert.NotNull(value);
-        Assert.Throws<NpsInvalidDataException>(() => value.Validate());
+        Assert.Throws<NationalParksApiInvalidDataException>(() => value.Validate());
     }
 
     [Theory]

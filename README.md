@@ -1,6 +1,6 @@
-# Nps C# API Library
+# National Parks API C# API Library
 
-The Nps C# SDK provides convenient access to the Nps REST API from applications written in C#.
+The National Parks API C# SDK provides convenient access to the National Parks API REST API from applications written in C#.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -24,7 +24,7 @@ using System;
 using Nps;
 using Nps.Models.Activities;
 
-NpsClient client = new();
+NationalParksApiClient client = new();
 
 ActivityListParams parameters = new();
 
@@ -40,8 +40,8 @@ Configure the client using environment variables:
 ```csharp
 using Nps;
 
-// Configured using the NATIONAL_PARK_KEY and NPS_BASE_URL environment variables
-NpsClient client = new();
+// Configured using the NATIONAL_PARK_KEY and NATIONAL_PARKS_API_BASE_URL environment variables
+NationalParksApiClient client = new();
 ```
 
 Or manually:
@@ -49,17 +49,17 @@ Or manually:
 ```csharp
 using Nps;
 
-NpsClient client = new() { ApiKey = "My API Key" };
+NationalParksApiClient client = new() { ApiKey = "My API Key" };
 ```
 
 Or using a combination of the two approaches.
 
 See this table for the available options:
 
-| Property  | Environment variable | Required | Default value                        |
-| --------- | -------------------- | -------- | ------------------------------------ |
-| `ApiKey`  | `NATIONAL_PARK_KEY`  | false    | -                                    |
-| `BaseUrl` | `NPS_BASE_URL`       | true     | `"https://developer.nps.gov/api/v1"` |
+| Property  | Environment variable          | Required | Default value                        |
+| --------- | ----------------------------- | -------- | ------------------------------------ |
+| `ApiKey`  | `NATIONAL_PARK_KEY`           | false    | -                                    |
+| `BaseUrl` | `NATIONAL_PARKS_API_BASE_URL` | true     | `"https://developer.nps.gov/api/v1"` |
 
 ### Modifying configuration
 
@@ -87,7 +87,7 @@ The `WithOptions` method does not affect the original client or service.
 
 ## Requests and responses
 
-To send a request to the Nps API, build an instance of some `Params` class and pass it to the corresponding client method. When the response is received, it will be deserialized into an instance of a C# class.
+To send a request to the National Parks API API, build an instance of some `Params` class and pass it to the corresponding client method. When the response is received, it will be deserialized into an instance of a C# class.
 
 For example, `client.Activities.List` should be called with an instance of `ActivityListParams`, and it will return an instance of `Task<ActivityListPage>`.
 
@@ -120,28 +120,28 @@ Console.WriteLine(deserialized);
 
 The SDK throws custom unchecked exception types:
 
-- `NpsApiException`: Base class for API errors. See this table for which exception subclass is thrown for each HTTP status code:
+- `NationalParksApiApiException`: Base class for API errors. See this table for which exception subclass is thrown for each HTTP status code:
 
-| Status | Exception                          |
-| ------ | ---------------------------------- |
-| 400    | `NpsBadRequestException`           |
-| 401    | `NpsUnauthorizedException`         |
-| 403    | `NpsForbiddenException`            |
-| 404    | `NpsNotFoundException`             |
-| 422    | `NpsUnprocessableEntityException`  |
-| 429    | `NpsRateLimitException`            |
-| 5xx    | `Nps5xxException`                  |
-| others | `NpsUnexpectedStatusCodeException` |
+| Status | Exception                                       |
+| ------ | ----------------------------------------------- |
+| 400    | `NationalParksApiBadRequestException`           |
+| 401    | `NationalParksApiUnauthorizedException`         |
+| 403    | `NationalParksApiForbiddenException`            |
+| 404    | `NationalParksApiNotFoundException`             |
+| 422    | `NationalParksApiUnprocessableEntityException`  |
+| 429    | `NationalParksApiRateLimitException`            |
+| 5xx    | `NationalParksApi5xxException`                  |
+| others | `NationalParksApiUnexpectedStatusCodeException` |
 
-Additionally, all 4xx errors inherit from `Nps4xxException`.
+Additionally, all 4xx errors inherit from `NationalParksApi4xxException`.
 
 false
 
-- `NpsIOException`: I/O networking errors.
+- `NationalParksApiIOException`: I/O networking errors.
 
-- `NpsInvalidDataException`: Failure to interpret successfully parsed data. For example, when accessing a property that's supposed to be required, but the API unexpectedly omitted it from the response.
+- `NationalParksApiInvalidDataException`: Failure to interpret successfully parsed data. For example, when accessing a property that's supposed to be required, but the API unexpectedly omitted it from the response.
 
-- `NpsException`: Base class for all exceptions.
+- `NationalParksApiException`: Base class for all exceptions.
 
 ## Pagination
 
@@ -204,7 +204,7 @@ To set a custom number of retries, configure the client using the `MaxRetries` m
 ```csharp
 using Nps;
 
-NpsClient client = new() { MaxRetries = 3 };
+NationalParksApiClient client = new() { MaxRetries = 3 };
 ```
 
 Or configure a single method call using [`WithOptions`](#modifying-configuration):
@@ -231,7 +231,7 @@ To set a custom timeout, configure the client using the `Timeout` option:
 using System;
 using Nps;
 
-NpsClient client = new() { Timeout = TimeSpan.FromSeconds(42) };
+NationalParksApiClient client = new() { Timeout = TimeSpan.FromSeconds(42) };
 ```
 
 Or configure a single method call using [`WithOptions`](#modifying-configuration):
@@ -256,7 +256,7 @@ The SDK is typed for convenient usage of the documented API. However, it also su
 
 In rare cases, the API may return a response that doesn't match the expected type. For example, the SDK may expect a property to contain a `string`, but the API could return something else.
 
-By default, the SDK will not throw an exception in this case. It will throw `NpsInvalidDataException` only if you directly access the property.
+By default, the SDK will not throw an exception in this case. It will throw `NationalParksApiInvalidDataException` only if you directly access the property.
 
 If you would prefer to check that the response is completely well-typed upfront, then either call `Validate`:
 
@@ -270,7 +270,7 @@ Or configure the client using the `ResponseValidation` option:
 ```csharp
 using Nps;
 
-NpsClient client = new() { ResponseValidation = true };
+NationalParksApiClient client = new() { ResponseValidation = true };
 ```
 
 Or configure a single method call using [`WithOptions`](#modifying-configuration):

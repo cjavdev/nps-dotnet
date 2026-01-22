@@ -18,7 +18,7 @@ public sealed class RoadEventService : IRoadEventService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public IRoadEventService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class RoadEventService : IRoadEventService
         return new RoadEventService(this._client.WithOptions(modifier));
     }
 
-    public RoadEventService(INpsClient client)
+    public RoadEventService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class RoadEventService : IRoadEventService
 /// <inheritdoc/>
 public sealed class RoadEventServiceWithRawResponse : IRoadEventServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IRoadEventServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class RoadEventServiceWithRawResponse : IRoadEventServiceWithRawRe
         return new RoadEventServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public RoadEventServiceWithRawResponse(INpsClientWithRawResponse client)
+    public RoadEventServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }
