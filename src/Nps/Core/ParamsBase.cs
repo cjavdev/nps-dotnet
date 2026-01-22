@@ -206,8 +206,7 @@ public abstract record class ParamsBase
         );
     }
 
-    static string GetUserAgent() =>
-        $"{typeof(NationalParksApiClient).Name}/C# {GetPackageVersion()}";
+    static string GetUserAgent() => $"{typeof(NationalParksClient).Name}/C# {GetPackageVersion()}";
 
     static string GetOSArch() =>
         RuntimeInformation.OSArchitecture switch

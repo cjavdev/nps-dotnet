@@ -18,7 +18,7 @@ public sealed class ActivityService : IActivityService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INationalParksApiClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IActivityService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class ActivityService : IActivityService
         return new ActivityService(this._client.WithOptions(modifier));
     }
 
-    public ActivityService(INationalParksApiClient client)
+    public ActivityService(INationalParksClient client)
     {
         _client = client;
 
@@ -61,7 +61,7 @@ public sealed class ActivityService : IActivityService
 /// <inheritdoc/>
 public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResponse
 {
-    readonly INationalParksApiClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IActivityServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -69,7 +69,7 @@ public sealed class ActivityServiceWithRawResponse : IActivityServiceWithRawResp
         return new ActivityServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public ActivityServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
+    public ActivityServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

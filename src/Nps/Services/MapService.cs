@@ -19,7 +19,7 @@ public sealed class MapService : IMapService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INationalParksApiClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IMapService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -27,7 +27,7 @@ public sealed class MapService : IMapService
         return new MapService(this._client.WithOptions(modifier));
     }
 
-    public MapService(INationalParksApiClient client)
+    public MapService(INationalParksClient client)
     {
         _client = client;
 
@@ -68,7 +68,7 @@ public sealed class MapService : IMapService
 /// <inheritdoc/>
 public sealed class MapServiceWithRawResponse : IMapServiceWithRawResponse
 {
-    readonly INationalParksApiClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IMapServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -76,7 +76,7 @@ public sealed class MapServiceWithRawResponse : IMapServiceWithRawResponse
         return new MapServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public MapServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
+    public MapServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }
@@ -89,7 +89,7 @@ public sealed class MapServiceWithRawResponse : IMapServiceWithRawResponse
     {
         if (parameters.Sitecode == null)
         {
-            throw new NationalParksApiInvalidDataException("'parameters.Sitecode' cannot be null");
+            throw new NationalParksInvalidDataException("'parameters.Sitecode' cannot be null");
         }
 
         HttpRequest<MapRetrieveParkBoundariesParams> request = new()

@@ -18,7 +18,7 @@ public sealed class TourService : ITourService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INationalParksApiClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public ITourService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class TourService : ITourService
         return new TourService(this._client.WithOptions(modifier));
     }
 
-    public TourService(INationalParksApiClient client)
+    public TourService(INationalParksClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class TourService : ITourService
 /// <inheritdoc/>
 public sealed class TourServiceWithRawResponse : ITourServiceWithRawResponse
 {
-    readonly INationalParksApiClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public ITourServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class TourServiceWithRawResponse : ITourServiceWithRawResponse
         return new TourServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public TourServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
+    public TourServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

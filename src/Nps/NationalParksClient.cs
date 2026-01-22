@@ -12,7 +12,7 @@ using Nps.Services;
 namespace Nps;
 
 /// <inheritdoc/>
-public sealed class NationalParksApiClient : INationalParksApiClient
+public sealed class NationalParksClient : INationalParksClient
 {
     readonly ClientOptions _options;
 
@@ -58,18 +58,18 @@ public sealed class NationalParksApiClient : INationalParksApiClient
         init { this._options.ApiKey = value; }
     }
 
-    readonly Lazy<INationalParksApiClientWithRawResponse> _withRawResponse;
+    readonly Lazy<INationalParksClientWithRawResponse> _withRawResponse;
 
     /// <inheritdoc/>
-    public INationalParksApiClientWithRawResponse WithRawResponse
+    public INationalParksClientWithRawResponse WithRawResponse
     {
         get { return _withRawResponse.Value; }
     }
 
     /// <inheritdoc/>
-    public INationalParksApiClient WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    public INationalParksClient WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
-        return new NationalParksApiClient(modifier(this._options));
+        return new NationalParksClient(modifier(this._options));
     }
 
     readonly Lazy<IActivityService> _activities;
@@ -206,11 +206,11 @@ public sealed class NationalParksApiClient : INationalParksApiClient
 
     public void Dispose() => this.HttpClient.Dispose();
 
-    public NationalParksApiClient()
+    public NationalParksClient()
     {
         _options = new();
 
-        _withRawResponse = new(() => new NationalParksApiClientWithRawResponse(this._options));
+        _withRawResponse = new(() => new NationalParksClientWithRawResponse(this._options));
         _activities = new(() => new ActivityService(this));
         _alerts = new(() => new AlertService(this));
         _amenities = new(() => new AmenityService(this));
@@ -235,7 +235,7 @@ public sealed class NationalParksApiClient : INationalParksApiClient
         _webcams = new(() => new WebcamService(this));
     }
 
-    public NationalParksApiClient(ClientOptions options)
+    public NationalParksClient(ClientOptions options)
         : this()
     {
         _options = options;
@@ -243,7 +243,7 @@ public sealed class NationalParksApiClient : INationalParksApiClient
 }
 
 /// <inheritdoc/>
-public sealed class NationalParksApiClientWithRawResponse : INationalParksApiClientWithRawResponse
+public sealed class NationalParksClientWithRawResponse : INationalParksClientWithRawResponse
 {
 #if NET
     static readonly Random Random = Random.Shared;
@@ -301,11 +301,11 @@ public sealed class NationalParksApiClientWithRawResponse : INationalParksApiCli
     }
 
     /// <inheritdoc/>
-    public INationalParksApiClientWithRawResponse WithOptions(
+    public INationalParksClientWithRawResponse WithOptions(
         Func<ClientOptions, ClientOptions> modifier
     )
     {
-        return new NationalParksApiClientWithRawResponse(modifier(this._options));
+        return new NationalParksClientWithRawResponse(modifier(this._options));
     }
 
     readonly Lazy<IActivityServiceWithRawResponse> _activities;
@@ -474,14 +474,14 @@ public sealed class NationalParksApiClientWithRawResponse : INationalParksApiCli
 
                 try
                 {
-                    throw NationalParksApiExceptionFactory.CreateApiException(
+                    throw NationalParksExceptionFactory.CreateApiException(
                         response.StatusCode,
                         await response.ReadAsString(cancellationToken).ConfigureAwait(false)
                     );
                 }
                 catch (HttpRequestException e)
                 {
-                    throw new NationalParksApiIOException("I/O Exception", e);
+                    throw new NationalParksIOException("I/O Exception", e);
                 }
                 finally
                 {
@@ -534,7 +534,7 @@ public sealed class NationalParksApiClientWithRawResponse : INationalParksApiCli
         }
         catch (HttpRequestException e)
         {
-            throw new NationalParksApiIOException("I/O exception", e);
+            throw new NationalParksIOException("I/O exception", e);
         }
         return new() { RawMessage = responseMessage, CancellationToken = cts.Token };
     }
@@ -625,12 +625,12 @@ public sealed class NationalParksApiClientWithRawResponse : INationalParksApiCli
 
     static bool ShouldRetry(Exception e)
     {
-        return e is IOException || e is NationalParksApiIOException;
+        return e is IOException || e is NationalParksIOException;
     }
 
     public void Dispose() => this.HttpClient.Dispose();
 
-    public NationalParksApiClientWithRawResponse()
+    public NationalParksClientWithRawResponse()
     {
         _options = new();
 
@@ -658,7 +658,7 @@ public sealed class NationalParksApiClientWithRawResponse : INationalParksApiCli
         _webcams = new(() => new WebcamServiceWithRawResponse(this));
     }
 
-    public NationalParksApiClientWithRawResponse(ClientOptions options)
+    public NationalParksClientWithRawResponse(ClientOptions options)
         : this()
     {
         _options = options;

@@ -18,7 +18,7 @@ public sealed class ThingsTodoService : IThingsTodoService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INationalParksApiClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IThingsTodoService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class ThingsTodoService : IThingsTodoService
         return new ThingsTodoService(this._client.WithOptions(modifier));
     }
 
-    public ThingsTodoService(INationalParksApiClient client)
+    public ThingsTodoService(INationalParksClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class ThingsTodoService : IThingsTodoService
 /// <inheritdoc/>
 public sealed class ThingsTodoServiceWithRawResponse : IThingsTodoServiceWithRawResponse
 {
-    readonly INationalParksApiClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IThingsTodoServiceWithRawResponse WithOptions(
@@ -59,7 +59,7 @@ public sealed class ThingsTodoServiceWithRawResponse : IThingsTodoServiceWithRaw
         return new ThingsTodoServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public ThingsTodoServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
+    public ThingsTodoServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

@@ -581,7 +581,7 @@ public class CategoryTest : TestBase
         );
 
         Assert.NotNull(value);
-        Assert.Throws<NationalParksApiInvalidDataException>(() => value.Validate());
+        Assert.Throws<NationalParksInvalidDataException>(() => value.Validate());
     }
 
     [Theory]

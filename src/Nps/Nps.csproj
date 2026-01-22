@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!-- Metadata -->
-    <AssemblyTitle>National Parks API C#</AssemblyTitle>
+    <AssemblyTitle>National Parks C#</AssemblyTitle>
     <AssemblyName>Nps</AssemblyName>
     <VersionPrefix>0.6.0</VersionPrefix>
-    <Description>The official .NET library for the National Parks API API.</Description>
+    <Description>The official .NET library for the National Parks API.</Description>
     <OutputType>Library</OutputType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>

@@ -2420,7 +2420,7 @@ public class TypeTest : TestBase
         );
 
         Assert.NotNull(value);
-        Assert.Throws<NationalParksApiInvalidDataException>(() => value.Validate());
+        Assert.Throws<NationalParksInvalidDataException>(() => value.Validate());
     }
 
     [Theory]
@@ -3489,7 +3489,7 @@ public class PhoneNumberTypeTest : TestBase
         );
 
         Assert.NotNull(value);
-        Assert.Throws<NationalParksApiInvalidDataException>(() => value.Validate());
+        Assert.Throws<NationalParksInvalidDataException>(() => value.Validate());
     }
 
     [Theory]

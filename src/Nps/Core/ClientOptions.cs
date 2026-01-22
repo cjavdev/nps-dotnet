@@ -24,8 +24,7 @@ public struct ClientOptions()
     public HttpClient HttpClient { get; set; } = new();
 
     Lazy<string> _baseUrl = new(() =>
-        Environment.GetEnvironmentVariable("NATIONAL_PARKS_API_BASE_URL")
-        ?? EnvironmentUrl.Production
+        Environment.GetEnvironmentVariable("NATIONAL_PARKS_BASE_URL") ?? EnvironmentUrl.Production
     );
 
     /// <summary>
@@ -47,7 +46,7 @@ public struct ClientOptions()
     ///
     /// <para>Note that when set to true, the response body is only validated if the response is
     /// deserialized. Methods that don't eagerly deserialize the response, such as those on
-    /// <see cref="INationalParksApiClient.WithRawResponse"/>, don't perform validation until deserialization
+    /// <see cref="INationalParksClient.WithRawResponse"/>, don't perform validation until deserialization
     /// is triggered.</para>
     /// </summary>
     public bool ResponseValidation { get; set; } = false;

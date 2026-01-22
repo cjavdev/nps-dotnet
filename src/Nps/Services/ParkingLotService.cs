@@ -18,7 +18,7 @@ public sealed class ParkingLotService : IParkingLotService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INationalParksApiClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IParkingLotService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class ParkingLotService : IParkingLotService
         return new ParkingLotService(this._client.WithOptions(modifier));
     }
 
-    public ParkingLotService(INationalParksApiClient client)
+    public ParkingLotService(INationalParksClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class ParkingLotService : IParkingLotService
 /// <inheritdoc/>
 public sealed class ParkingLotServiceWithRawResponse : IParkingLotServiceWithRawResponse
 {
-    readonly INationalParksApiClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IParkingLotServiceWithRawResponse WithOptions(
@@ -59,7 +59,7 @@ public sealed class ParkingLotServiceWithRawResponse : IParkingLotServiceWithRaw
         return new ParkingLotServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public ParkingLotServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
+    public ParkingLotServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

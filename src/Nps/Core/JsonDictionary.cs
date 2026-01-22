@@ -92,18 +92,18 @@ sealed class JsonDictionary
         }
         if (!_rawData.TryGetValue(key, out JsonElement element))
         {
-            throw new NationalParksApiInvalidDataException($"'{key}' cannot be absent");
+            throw new NationalParksInvalidDataException($"'{key}' cannot be absent");
         }
         T deserialized;
         try
         {
             deserialized =
                 JsonSerializer.Deserialize<T>(element, ModelBase.SerializerOptions)
-                ?? throw new NationalParksApiInvalidDataException($"'{key}' cannot be null");
+                ?? throw new NationalParksInvalidDataException($"'{key}' cannot be null");
         }
         catch (JsonException e)
         {
-            throw new NationalParksApiInvalidDataException(
+            throw new NationalParksInvalidDataException(
                 $"'{key}' must be of type {typeof(T).FullName}",
                 e
             );
@@ -121,18 +121,18 @@ sealed class JsonDictionary
         }
         if (!_rawData.TryGetValue(key, out JsonElement element))
         {
-            throw new NationalParksApiInvalidDataException($"'{key}' cannot be absent");
+            throw new NationalParksInvalidDataException($"'{key}' cannot be absent");
         }
         T deserialized;
         try
         {
             deserialized =
                 JsonSerializer.Deserialize<T?>(element, ModelBase.SerializerOptions)
-                ?? throw new NationalParksApiInvalidDataException($"'{key}' cannot be null");
+                ?? throw new NationalParksInvalidDataException($"'{key}' cannot be null");
         }
         catch (JsonException e)
         {
-            throw new NationalParksApiInvalidDataException(
+            throw new NationalParksInvalidDataException(
                 $"'{key}' must be of type {typeof(T).FullName}",
                 e
             );
@@ -160,7 +160,7 @@ sealed class JsonDictionary
         }
         catch (JsonException e)
         {
-            throw new NationalParksApiInvalidDataException(
+            throw new NationalParksInvalidDataException(
                 $"'{key}' must be of type {typeof(T).FullName}",
                 e
             );
@@ -188,7 +188,7 @@ sealed class JsonDictionary
         }
         catch (JsonException e)
         {
-            throw new NationalParksApiInvalidDataException(
+            throw new NationalParksInvalidDataException(
                 $"'{key}' must be of type {typeof(T).FullName}",
                 e
             );
