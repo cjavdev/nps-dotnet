@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.0 (2026-01-22)
+
+Full Changelog: [v0.6.0...v0.7.0](https://github.com/cjavdev/nps-dotnet/compare/v0.6.0...v0.7.0)
+
+### Features
+
+* **api:** manual updates ([6457b09](https://github.com/cjavdev/nps-dotnet/commit/6457b0900548d6dc666bd919b39abc0f92bcb01d))
+* **api:** manual updates ([81825f1](https://github.com/cjavdev/nps-dotnet/commit/81825f195f1490822ca9ae376094e2568cbd8139))
+
 ## 0.6.0 (2026-01-17)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/cjavdev/nps-dotnet/compare/v0.5.0...v0.6.0)
