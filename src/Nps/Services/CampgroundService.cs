@@ -18,7 +18,7 @@ public sealed class CampgroundService : ICampgroundService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INationalParksApiClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public ICampgroundService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class CampgroundService : ICampgroundService
         return new CampgroundService(this._client.WithOptions(modifier));
     }
 
-    public CampgroundService(INationalParksApiClient client)
+    public CampgroundService(INationalParksClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class CampgroundService : ICampgroundService
 /// <inheritdoc/>
 public sealed class CampgroundServiceWithRawResponse : ICampgroundServiceWithRawResponse
 {
-    readonly INationalParksApiClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public ICampgroundServiceWithRawResponse WithOptions(
@@ -59,7 +59,7 @@ public sealed class CampgroundServiceWithRawResponse : ICampgroundServiceWithRaw
         return new CampgroundServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public CampgroundServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
+    public CampgroundServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

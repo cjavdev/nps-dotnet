@@ -18,7 +18,7 @@ public sealed class VisitorCenterService : IVisitorCenterService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INationalParksApiClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IVisitorCenterService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class VisitorCenterService : IVisitorCenterService
         return new VisitorCenterService(this._client.WithOptions(modifier));
     }
 
-    public VisitorCenterService(INationalParksApiClient client)
+    public VisitorCenterService(INationalParksClient client)
     {
         _client = client;
 
@@ -51,7 +51,7 @@ public sealed class VisitorCenterService : IVisitorCenterService
 /// <inheritdoc/>
 public sealed class VisitorCenterServiceWithRawResponse : IVisitorCenterServiceWithRawResponse
 {
-    readonly INationalParksApiClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IVisitorCenterServiceWithRawResponse WithOptions(
@@ -61,7 +61,7 @@ public sealed class VisitorCenterServiceWithRawResponse : IVisitorCenterServiceW
         return new VisitorCenterServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public VisitorCenterServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
+    public VisitorCenterServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

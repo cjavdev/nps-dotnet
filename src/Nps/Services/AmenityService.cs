@@ -18,7 +18,7 @@ public sealed class AmenityService : IAmenityService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INationalParksApiClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IAmenityService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class AmenityService : IAmenityService
         return new AmenityService(this._client.WithOptions(modifier));
     }
 
-    public AmenityService(INationalParksApiClient client)
+    public AmenityService(INationalParksClient client)
     {
         _client = client;
 
@@ -73,7 +73,7 @@ public sealed class AmenityService : IAmenityService
 /// <inheritdoc/>
 public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawResponse
 {
-    readonly INationalParksApiClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IAmenityServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -81,7 +81,7 @@ public sealed class AmenityServiceWithRawResponse : IAmenityServiceWithRawRespon
         return new AmenityServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public AmenityServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
+    public AmenityServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }
