@@ -949,7 +949,7 @@ sealed class TypeConverter : JsonConverter<global::Nps.Models.VisitorCenters.Typ
             {
                 global::Nps.Models.VisitorCenters.Type.Physical => "Physical",
                 global::Nps.Models.VisitorCenters.Type.Mailing => "Mailing",
-                _ => throw new NpsInvalidDataException(
+                _ => throw new NationalParksApiInvalidDataException(
                     string.Format("Invalid value '{0}' in {1}", value, nameof(value))
                 ),
             },

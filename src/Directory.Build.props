@@ -1,10 +1,10 @@
 <Project>
   <PropertyGroup>
-    <Authors>Nps</Authors>
-    <Company>Nps</Company>
+    <Authors>National Parks API</Authors>
+    <Company>National Parks API</Company>
     <PackageTags>sdk;api;http;library</PackageTags>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <Copyright>Copyright 2026 Nps</Copyright>
+    <Copyright>Copyright 2026 National Parks API</Copyright>
     <PackageProjectUrl>https://www.github.com/cjavdev/nps-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://www.github.com/cjavdev/nps-dotnet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

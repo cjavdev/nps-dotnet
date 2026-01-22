@@ -18,7 +18,7 @@ public sealed class LessonplanService : ILessonplanService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public ILessonplanService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class LessonplanService : ILessonplanService
         return new LessonplanService(this._client.WithOptions(modifier));
     }
 
-    public LessonplanService(INpsClient client)
+    public LessonplanService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class LessonplanService : ILessonplanService
 /// <inheritdoc/>
 public sealed class LessonplanServiceWithRawResponse : ILessonplanServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public ILessonplanServiceWithRawResponse WithOptions(
@@ -59,7 +59,7 @@ public sealed class LessonplanServiceWithRawResponse : ILessonplanServiceWithRaw
         return new LessonplanServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public LessonplanServiceWithRawResponse(INpsClientWithRawResponse client)
+    public LessonplanServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }

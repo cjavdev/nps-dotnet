@@ -18,7 +18,7 @@ public sealed class FeespassService : IFeespassService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public IFeespassService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class FeespassService : IFeespassService
         return new FeespassService(this._client.WithOptions(modifier));
     }
 
-    public FeespassService(INpsClient client)
+    public FeespassService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class FeespassService : IFeespassService
 /// <inheritdoc/>
 public sealed class FeespassServiceWithRawResponse : IFeespassServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IFeespassServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class FeespassServiceWithRawResponse : IFeespassServiceWithRawResp
         return new FeespassServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public FeespassServiceWithRawResponse(INpsClientWithRawResponse client)
+    public FeespassServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }

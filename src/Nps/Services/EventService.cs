@@ -18,7 +18,7 @@ public sealed class EventService : IEventService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public IEventService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class EventService : IEventService
         return new EventService(this._client.WithOptions(modifier));
     }
 
-    public EventService(INpsClient client)
+    public EventService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class EventService : IEventService
 /// <inheritdoc/>
 public sealed class EventServiceWithRawResponse : IEventServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IEventServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class EventServiceWithRawResponse : IEventServiceWithRawResponse
         return new EventServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public EventServiceWithRawResponse(INpsClientWithRawResponse client)
+    public EventServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }

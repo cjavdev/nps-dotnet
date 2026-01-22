@@ -656,7 +656,7 @@ sealed class ContentOrderOrdinalsConverter : JsonConverter<ContentOrderOrdinals>
                 ContentOrderOrdinals.TimedEntry => "timedEntry",
                 ContentOrderOrdinals.PaidParking => "paidParking",
                 ContentOrderOrdinals.CustomFee => "customFee",
-                _ => throw new NpsInvalidDataException(
+                _ => throw new NationalParksApiInvalidDataException(
                     string.Format("Invalid value '{0}' in {1}", value, nameof(value))
                 ),
             },

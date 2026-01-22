@@ -18,7 +18,7 @@ public sealed class PersonService : IPersonService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksApiClient _client;
 
     /// <inheritdoc/>
     public IPersonService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class PersonService : IPersonService
         return new PersonService(this._client.WithOptions(modifier));
     }
 
-    public PersonService(INpsClient client)
+    public PersonService(INationalParksApiClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class PersonService : IPersonService
 /// <inheritdoc/>
 public sealed class PersonServiceWithRawResponse : IPersonServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksApiClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IPersonServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class PersonServiceWithRawResponse : IPersonServiceWithRawResponse
         return new PersonServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public PersonServiceWithRawResponse(INpsClientWithRawResponse client)
+    public PersonServiceWithRawResponse(INationalParksApiClientWithRawResponse client)
     {
         _client = client;
     }

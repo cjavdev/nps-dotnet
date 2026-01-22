@@ -31,7 +31,7 @@ public record class ApiEnum<TRaw, TEnum>(JsonElement Json)
     /// any known enum member, and you want to know that value. For example, if the SDK is on an older
     /// version than the API, then the API may respond with new members that the SDK is unaware of.</para>
     ///
-    /// <exception cref="NpsInvalidDataException">
+    /// <exception cref="NationalParksApiInvalidDataException">
     /// Thrown when this instance's raw value isn't of type <typeparamref name="TRaw"/>. Use
     /// <see cref="Json"/> to access the raw value.
     /// </exception>
@@ -41,11 +41,13 @@ public record class ApiEnum<TRaw, TEnum>(JsonElement Json)
         try
         {
             return JsonSerializer.Deserialize<TRaw>(this.Json, ModelBase.SerializerOptions)
-                ?? throw new NpsInvalidDataException($"{nameof(this.Json)} cannot be null");
+                ?? throw new NationalParksApiInvalidDataException(
+                    $"{nameof(this.Json)} cannot be null"
+                );
         }
         catch (JsonException e)
         {
-            throw new NpsInvalidDataException(
+            throw new NationalParksApiInvalidDataException(
                 $"{this.Json} must be of type {typeof(TRaw).FullName}",
                 e
             );
@@ -63,11 +65,13 @@ public record class ApiEnum<TRaw, TEnum>(JsonElement Json)
         try
         {
             return JsonSerializer.Deserialize<TEnum?>(this.Json, ModelBase.SerializerOptions)
-                ?? throw new NpsInvalidDataException($"{nameof(this.Json)} cannot be null");
+                ?? throw new NationalParksApiInvalidDataException(
+                    $"{nameof(this.Json)} cannot be null"
+                );
         }
         catch (JsonException e)
         {
-            throw new NpsInvalidDataException(
+            throw new NationalParksApiInvalidDataException(
                 $"{this.Json} must be of type {typeof(TRaw).FullName}",
                 e
             );
@@ -77,7 +81,7 @@ public record class ApiEnum<TRaw, TEnum>(JsonElement Json)
     /// <summary>
     /// Verifies that this instance's raw value is a member of <typeparamref name="TEnum"/>.
     ///
-    /// <exception cref="NpsInvalidDataException">
+    /// <exception cref="NationalParksApiInvalidDataException">
     /// Thrown when this instance's raw value isn't a member of <typeparamref name="TEnum"/>.
     /// </exception>
     /// </summary>
@@ -85,7 +89,7 @@ public record class ApiEnum<TRaw, TEnum>(JsonElement Json)
     {
         if (!Enum.IsDefined(typeof(TEnum), Value()))
         {
-            throw new NpsInvalidDataException("Invalid enum value");
+            throw new NationalParksApiInvalidDataException("Invalid enum value");
         }
     }
 

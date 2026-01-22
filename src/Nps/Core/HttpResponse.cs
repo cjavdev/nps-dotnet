@@ -54,11 +54,11 @@ public class HttpResponse : IDisposable
                         cts.Token
                     )
                     .ConfigureAwait(false)
-                ?? throw new NpsInvalidDataException("Response cannot be null");
+                ?? throw new NationalParksApiInvalidDataException("Response cannot be null");
         }
         catch (HttpRequestException e)
         {
-            throw new NpsIOException("I/O Exception", e);
+            throw new NationalParksApiIOException("I/O Exception", e);
         }
     }
 

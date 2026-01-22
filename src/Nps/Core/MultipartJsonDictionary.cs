@@ -95,18 +95,21 @@ sealed class MultipartJsonDictionary
         }
         if (!_rawData.TryGetValue(key, out MultipartJsonElement element))
         {
-            throw new NpsInvalidDataException($"'{key}' cannot be absent");
+            throw new NationalParksApiInvalidDataException($"'{key}' cannot be absent");
         }
         T deserialized;
         try
         {
             deserialized =
                 MultipartJsonSerializer.Deserialize<T>(element, ModelBase.SerializerOptions)
-                ?? throw new NpsInvalidDataException($"'{key}' cannot be null");
+                ?? throw new NationalParksApiInvalidDataException($"'{key}' cannot be null");
         }
         catch (JsonException e)
         {
-            throw new NpsInvalidDataException($"'{key}' must be of type {typeof(T).FullName}", e);
+            throw new NationalParksApiInvalidDataException(
+                $"'{key}' must be of type {typeof(T).FullName}",
+                e
+            );
         }
         _deserializedData[key] = deserialized;
         return deserialized;
@@ -121,18 +124,21 @@ sealed class MultipartJsonDictionary
         }
         if (!_rawData.TryGetValue(key, out MultipartJsonElement element))
         {
-            throw new NpsInvalidDataException($"'{key}' cannot be absent");
+            throw new NationalParksApiInvalidDataException($"'{key}' cannot be absent");
         }
         T deserialized;
         try
         {
             deserialized =
                 MultipartJsonSerializer.Deserialize<T?>(element, ModelBase.SerializerOptions)
-                ?? throw new NpsInvalidDataException($"'{key}' cannot be null");
+                ?? throw new NationalParksApiInvalidDataException($"'{key}' cannot be null");
         }
         catch (JsonException e)
         {
-            throw new NpsInvalidDataException($"'{key}' must be of type {typeof(T).FullName}", e);
+            throw new NationalParksApiInvalidDataException(
+                $"'{key}' must be of type {typeof(T).FullName}",
+                e
+            );
         }
         _deserializedData[key] = deserialized;
         return deserialized;
@@ -160,7 +166,10 @@ sealed class MultipartJsonDictionary
         }
         catch (JsonException e)
         {
-            throw new NpsInvalidDataException($"'{key}' must be of type {typeof(T).FullName}", e);
+            throw new NationalParksApiInvalidDataException(
+                $"'{key}' must be of type {typeof(T).FullName}",
+                e
+            );
         }
         _deserializedData[key] = deserialized;
         return deserialized;
@@ -188,7 +197,10 @@ sealed class MultipartJsonDictionary
         }
         catch (JsonException e)
         {
-            throw new NpsInvalidDataException($"'{key}' must be of type {typeof(T).FullName}", e);
+            throw new NationalParksApiInvalidDataException(
+                $"'{key}' must be of type {typeof(T).FullName}",
+                e
+            );
         }
         _deserializedData[key] = deserialized;
         return deserialized;
