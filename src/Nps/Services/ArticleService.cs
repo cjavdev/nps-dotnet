@@ -18,7 +18,7 @@ public sealed class ArticleService : IArticleService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IArticleService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class ArticleService : IArticleService
         return new ArticleService(this._client.WithOptions(modifier));
     }
 
-    public ArticleService(INpsClient client)
+    public ArticleService(INationalParksClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class ArticleService : IArticleService
 /// <inheritdoc/>
 public sealed class ArticleServiceWithRawResponse : IArticleServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IArticleServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class ArticleServiceWithRawResponse : IArticleServiceWithRawRespon
         return new ArticleServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public ArticleServiceWithRawResponse(INpsClientWithRawResponse client)
+    public ArticleServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

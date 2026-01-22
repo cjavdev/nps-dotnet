@@ -8,7 +8,7 @@ using Nps.Services;
 namespace Nps;
 
 /// <summary>
-/// A client for interacting with the Nps REST API.
+/// A client for interacting with the National Parks REST API.
 ///
 /// <para>This client performs best when you create a single instance and reuse it
 /// for all interactions with the REST API. This is because each client holds its
@@ -19,7 +19,7 @@ namespace Nps;
 /// breaking changes in non-major versions. We may add new methods in the future that
 /// cause existing derived classes to break.</para>
 /// </summary>
-public interface INpsClient : IDisposable
+public interface INationalParksClient : IDisposable
 {
     /// <inheritdoc cref="ClientOptions.HttpClient" />
     HttpClient HttpClient { get; init; }
@@ -42,14 +42,14 @@ public interface INpsClient : IDisposable
     /// Returns a view of this service that provides access to raw HTTP responses
     /// for each method.
     /// </summary>
-    INpsClientWithRawResponse WithRawResponse { get; }
+    INationalParksClientWithRawResponse WithRawResponse { get; }
 
     /// <summary>
     /// Returns a view of this service with the given option modifications applied.
     ///
     /// <para>The original service is not modified.</para>
     /// </summary>
-    INpsClient WithOptions(Func<ClientOptions, ClientOptions> modifier);
+    INationalParksClient WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     IActivityService Activities { get; }
 
@@ -97,9 +97,9 @@ public interface INpsClient : IDisposable
 }
 
 /// <summary>
-/// A view of <see cref="INpsClient"/> that provides access to raw HTTP responses for each method.
+/// A view of <see cref="INationalParksClient"/> that provides access to raw HTTP responses for each method.
 /// </summary>
-public interface INpsClientWithRawResponse : IDisposable
+public interface INationalParksClientWithRawResponse : IDisposable
 {
     /// <inheritdoc cref="ClientOptions.HttpClient" />
     HttpClient HttpClient { get; init; }
@@ -123,7 +123,7 @@ public interface INpsClientWithRawResponse : IDisposable
     ///
     /// <para>The original service is not modified.</para>
     /// </summary>
-    INpsClientWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
+    INationalParksClientWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     IActivityServiceWithRawResponse Activities { get; }
 
@@ -170,7 +170,7 @@ public interface INpsClientWithRawResponse : IDisposable
     IWebcamServiceWithRawResponse Webcams { get; }
 
     /// <summary>
-    /// Sends a request to the Nps REST API.
+    /// Sends a request to the National Parks REST API.
     /// </summary>
     Task<HttpResponse> Execute<T>(
         HttpRequest<T> request,

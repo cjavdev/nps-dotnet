@@ -39,7 +39,7 @@ public sealed class WebcamListPage(
             }
             return this.Items.Count < totalCount;
         }
-        catch (NpsInvalidDataException)
+        catch (NationalParksInvalidDataException)
         {
             // If accessing the response data to determine if there's a next page failed, then just
             // assume there's no next page.

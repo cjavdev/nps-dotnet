@@ -12,7 +12,7 @@ using Nps.Services;
 namespace Nps;
 
 /// <inheritdoc/>
-public sealed class NpsClient : INpsClient
+public sealed class NationalParksClient : INationalParksClient
 {
     readonly ClientOptions _options;
 
@@ -58,18 +58,18 @@ public sealed class NpsClient : INpsClient
         init { this._options.ApiKey = value; }
     }
 
-    readonly Lazy<INpsClientWithRawResponse> _withRawResponse;
+    readonly Lazy<INationalParksClientWithRawResponse> _withRawResponse;
 
     /// <inheritdoc/>
-    public INpsClientWithRawResponse WithRawResponse
+    public INationalParksClientWithRawResponse WithRawResponse
     {
         get { return _withRawResponse.Value; }
     }
 
     /// <inheritdoc/>
-    public INpsClient WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    public INationalParksClient WithOptions(Func<ClientOptions, ClientOptions> modifier)
     {
-        return new NpsClient(modifier(this._options));
+        return new NationalParksClient(modifier(this._options));
     }
 
     readonly Lazy<IActivityService> _activities;
@@ -206,11 +206,11 @@ public sealed class NpsClient : INpsClient
 
     public void Dispose() => this.HttpClient.Dispose();
 
-    public NpsClient()
+    public NationalParksClient()
     {
         _options = new();
 
-        _withRawResponse = new(() => new NpsClientWithRawResponse(this._options));
+        _withRawResponse = new(() => new NationalParksClientWithRawResponse(this._options));
         _activities = new(() => new ActivityService(this));
         _alerts = new(() => new AlertService(this));
         _amenities = new(() => new AmenityService(this));
@@ -235,7 +235,7 @@ public sealed class NpsClient : INpsClient
         _webcams = new(() => new WebcamService(this));
     }
 
-    public NpsClient(ClientOptions options)
+    public NationalParksClient(ClientOptions options)
         : this()
     {
         _options = options;
@@ -243,7 +243,7 @@ public sealed class NpsClient : INpsClient
 }
 
 /// <inheritdoc/>
-public sealed class NpsClientWithRawResponse : INpsClientWithRawResponse
+public sealed class NationalParksClientWithRawResponse : INationalParksClientWithRawResponse
 {
 #if NET
     static readonly Random Random = Random.Shared;
@@ -301,9 +301,11 @@ public sealed class NpsClientWithRawResponse : INpsClientWithRawResponse
     }
 
     /// <inheritdoc/>
-    public INpsClientWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
+    public INationalParksClientWithRawResponse WithOptions(
+        Func<ClientOptions, ClientOptions> modifier
+    )
     {
-        return new NpsClientWithRawResponse(modifier(this._options));
+        return new NationalParksClientWithRawResponse(modifier(this._options));
     }
 
     readonly Lazy<IActivityServiceWithRawResponse> _activities;
@@ -472,14 +474,14 @@ public sealed class NpsClientWithRawResponse : INpsClientWithRawResponse
 
                 try
                 {
-                    throw NpsExceptionFactory.CreateApiException(
+                    throw NationalParksExceptionFactory.CreateApiException(
                         response.StatusCode,
                         await response.ReadAsString(cancellationToken).ConfigureAwait(false)
                     );
                 }
                 catch (HttpRequestException e)
                 {
-                    throw new NpsIOException("I/O Exception", e);
+                    throw new NationalParksIOException("I/O Exception", e);
                 }
                 finally
                 {
@@ -532,7 +534,7 @@ public sealed class NpsClientWithRawResponse : INpsClientWithRawResponse
         }
         catch (HttpRequestException e)
         {
-            throw new NpsIOException("I/O exception", e);
+            throw new NationalParksIOException("I/O exception", e);
         }
         return new() { RawMessage = responseMessage, CancellationToken = cts.Token };
     }
@@ -623,12 +625,12 @@ public sealed class NpsClientWithRawResponse : INpsClientWithRawResponse
 
     static bool ShouldRetry(Exception e)
     {
-        return e is IOException || e is NpsIOException;
+        return e is IOException || e is NationalParksIOException;
     }
 
     public void Dispose() => this.HttpClient.Dispose();
 
-    public NpsClientWithRawResponse()
+    public NationalParksClientWithRawResponse()
     {
         _options = new();
 
@@ -656,7 +658,7 @@ public sealed class NpsClientWithRawResponse : INpsClientWithRawResponse
         _webcams = new(() => new WebcamServiceWithRawResponse(this));
     }
 
-    public NpsClientWithRawResponse(ClientOptions options)
+    public NationalParksClientWithRawResponse(ClientOptions options)
         : this()
     {
         _options = options;

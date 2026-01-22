@@ -2,53 +2,56 @@ using System.Net;
 
 namespace Nps.Exceptions;
 
-public class NpsExceptionFactory
+public class NationalParksExceptionFactory
 {
-    public static NpsApiException CreateApiException(HttpStatusCode statusCode, string responseBody)
+    public static NationalParksApiException CreateApiException(
+        HttpStatusCode statusCode,
+        string responseBody
+    )
     {
         return (int)statusCode switch
         {
-            400 => new NpsBadRequestException()
+            400 => new NationalParksBadRequestException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,
             },
-            401 => new NpsUnauthorizedException()
+            401 => new NationalParksUnauthorizedException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,
             },
-            403 => new NpsForbiddenException()
+            403 => new NationalParksForbiddenException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,
             },
-            404 => new NpsNotFoundException()
+            404 => new NationalParksNotFoundException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,
             },
-            422 => new NpsUnprocessableEntityException()
+            422 => new NationalParksUnprocessableEntityException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,
             },
-            429 => new NpsRateLimitException()
+            429 => new NationalParksRateLimitException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,
             },
-            >= 400 and <= 499 => new Nps4xxException()
+            >= 400 and <= 499 => new NationalParks4xxException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,
             },
-            >= 500 and <= 599 => new Nps5xxException()
+            >= 500 and <= 599 => new NationalParks5xxException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,
             },
-            _ => new NpsUnexpectedStatusCodeException()
+            _ => new NationalParksUnexpectedStatusCodeException()
             {
                 StatusCode = statusCode,
                 ResponseBody = responseBody,

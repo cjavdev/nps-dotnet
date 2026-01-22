@@ -18,7 +18,7 @@ public sealed class PassportStampLocationService : IPassportStampLocationService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IPassportStampLocationService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class PassportStampLocationService : IPassportStampLocationService
         return new PassportStampLocationService(this._client.WithOptions(modifier));
     }
 
-    public PassportStampLocationService(INpsClient client)
+    public PassportStampLocationService(INationalParksClient client)
     {
         _client = client;
 
@@ -52,7 +52,7 @@ public sealed class PassportStampLocationService : IPassportStampLocationService
 public sealed class PassportStampLocationServiceWithRawResponse
     : IPassportStampLocationServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IPassportStampLocationServiceWithRawResponse WithOptions(
@@ -62,7 +62,7 @@ public sealed class PassportStampLocationServiceWithRawResponse
         return new PassportStampLocationServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public PassportStampLocationServiceWithRawResponse(INpsClientWithRawResponse client)
+    public PassportStampLocationServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

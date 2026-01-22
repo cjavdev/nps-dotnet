@@ -5,11 +5,11 @@ namespace Nps.Tests;
 
 public class TestBase
 {
-    protected INpsClient client;
+    protected INationalParksClient client;
 
     public TestBase()
     {
-        client = new NpsClient()
+        client = new NationalParksClient()
         {
             BaseUrl =
                 Environment.GetEnvironmentVariable("TEST_API_BASE_URL") ?? "http://localhost:4010",

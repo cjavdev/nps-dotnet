@@ -18,7 +18,7 @@ public sealed class GalleryService : IGalleryService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IGalleryService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class GalleryService : IGalleryService
         return new GalleryService(this._client.WithOptions(modifier));
     }
 
-    public GalleryService(INpsClient client)
+    public GalleryService(INationalParksClient client)
     {
         _client = client;
 
@@ -61,7 +61,7 @@ public sealed class GalleryService : IGalleryService
 /// <inheritdoc/>
 public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IGalleryServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -69,7 +69,7 @@ public sealed class GalleryServiceWithRawResponse : IGalleryServiceWithRawRespon
         return new GalleryServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public GalleryServiceWithRawResponse(INpsClientWithRawResponse client)
+    public GalleryServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

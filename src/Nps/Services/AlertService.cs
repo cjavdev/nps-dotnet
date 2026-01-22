@@ -18,7 +18,7 @@ public sealed class AlertService : IAlertService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IAlertService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class AlertService : IAlertService
         return new AlertService(this._client.WithOptions(modifier));
     }
 
-    public AlertService(INpsClient client)
+    public AlertService(INationalParksClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class AlertService : IAlertService
 /// <inheritdoc/>
 public sealed class AlertServiceWithRawResponse : IAlertServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IAlertServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class AlertServiceWithRawResponse : IAlertServiceWithRawResponse
         return new AlertServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public AlertServiceWithRawResponse(INpsClientWithRawResponse client)
+    public AlertServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

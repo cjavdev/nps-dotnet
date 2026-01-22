@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace Nps.Exceptions;
 
-public class NpsIOException : NpsException
+public class NationalParksIOException : NationalParksException
 {
     public new HttpRequestException InnerException
     {
@@ -17,6 +17,6 @@ public class NpsIOException : NpsException
         }
     }
 
-    public NpsIOException(string message, HttpRequestException? innerException = null)
+    public NationalParksIOException(string message, HttpRequestException? innerException = null)
         : base(message, innerException) { }
 }

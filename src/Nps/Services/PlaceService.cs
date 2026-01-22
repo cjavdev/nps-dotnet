@@ -18,7 +18,7 @@ public sealed class PlaceService : IPlaceService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IPlaceService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -26,7 +26,7 @@ public sealed class PlaceService : IPlaceService
         return new PlaceService(this._client.WithOptions(modifier));
     }
 
-    public PlaceService(INpsClient client)
+    public PlaceService(INationalParksClient client)
     {
         _client = client;
 
@@ -49,7 +49,7 @@ public sealed class PlaceService : IPlaceService
 /// <inheritdoc/>
 public sealed class PlaceServiceWithRawResponse : IPlaceServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IPlaceServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -57,7 +57,7 @@ public sealed class PlaceServiceWithRawResponse : IPlaceServiceWithRawResponse
         return new PlaceServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public PlaceServiceWithRawResponse(INpsClientWithRawResponse client)
+    public PlaceServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
     }

@@ -19,7 +19,7 @@ public sealed class MultimediaService : IMultimediaService
         get { return _withRawResponse.Value; }
     }
 
-    readonly INpsClient _client;
+    readonly INationalParksClient _client;
 
     /// <inheritdoc/>
     public IMultimediaService WithOptions(Func<ClientOptions, ClientOptions> modifier)
@@ -27,7 +27,7 @@ public sealed class MultimediaService : IMultimediaService
         return new MultimediaService(this._client.WithOptions(modifier));
     }
 
-    public MultimediaService(INpsClient client)
+    public MultimediaService(INationalParksClient client)
     {
         _client = client;
 
@@ -69,7 +69,7 @@ public sealed class MultimediaService : IMultimediaService
 /// <inheritdoc/>
 public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRawResponse
 {
-    readonly INpsClientWithRawResponse _client;
+    readonly INationalParksClientWithRawResponse _client;
 
     /// <inheritdoc/>
     public IMultimediaServiceWithRawResponse WithOptions(
@@ -79,7 +79,7 @@ public sealed class MultimediaServiceWithRawResponse : IMultimediaServiceWithRaw
         return new MultimediaServiceWithRawResponse(this._client.WithOptions(modifier));
     }
 
-    public MultimediaServiceWithRawResponse(INpsClientWithRawResponse client)
+    public MultimediaServiceWithRawResponse(INationalParksClientWithRawResponse client)
     {
         _client = client;
 
