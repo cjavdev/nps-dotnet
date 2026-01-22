@@ -118,4 +118,22 @@ public class FeespassListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new FeespassListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Sort = ["string"],
+            Start = 0,
+            Statecode = ["string"],
+        };
+
+        FeespassListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

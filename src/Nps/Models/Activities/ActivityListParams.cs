@@ -8,7 +8,12 @@ using Nps.Core;
 
 namespace Nps.Models.Activities;
 
-public sealed record class ActivityListParams : ParamsBase
+/// <summary>
+/// NOTE: Do not inherit from this type outside the SDK unless you're okay with breaking
+/// changes in non-major versions. We may add new methods in the future that cause
+/// existing derived classes to break.
+/// </summary>
+public record class ActivityListParams : ParamsBase
 {
     /// <summary>
     /// One or more activity unique IDs.
@@ -119,8 +124,11 @@ public sealed record class ActivityListParams : ParamsBase
 
     public ActivityListParams() { }
 
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
     public ActivityListParams(ActivityListParams activityListParams)
         : base(activityListParams) { }
+#pragma warning restore CS8618
 
     public ActivityListParams(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
@@ -155,6 +163,26 @@ public sealed record class ActivityListParams : ParamsBase
         );
     }
 
+    public override string ToString() =>
+        JsonSerializer.Serialize(
+            new Dictionary<string, object?>()
+            {
+                ["HeaderData"] = this._rawHeaderData.Freeze(),
+                ["QueryData"] = this._rawQueryData.Freeze(),
+            },
+            ModelBase.ToStringSerializerOptions
+        );
+
+    public virtual bool Equals(ActivityListParams? other)
+    {
+        if (other == null)
+        {
+            return false;
+        }
+        return this._rawHeaderData.Equals(other._rawHeaderData)
+            && this._rawQueryData.Equals(other._rawQueryData);
+    }
+
     public override Uri Url(ClientOptions options)
     {
         return new UriBuilder(options.BaseUrl.ToString().TrimEnd('/') + "/activities")
@@ -170,5 +198,10 @@ public sealed record class ActivityListParams : ParamsBase
         {
             ParamsBase.AddHeaderElementToRequest(request, item.Key, item.Value);
         }
+    }
+
+    public override int GetHashCode()
+    {
+        return 0;
     }
 }

@@ -104,4 +104,21 @@ public class ActivityListParksParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new ActivityListParksParams
+        {
+            ID = ["string"],
+            Limit = 0,
+            Q = "q",
+            Sort = ["string"],
+            Start = 0,
+        };
+
+        ActivityListParksParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

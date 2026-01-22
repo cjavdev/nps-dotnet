@@ -118,4 +118,22 @@ public class VisitorCenterListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new VisitorCenterListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Sort = ["string"],
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        VisitorCenterListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

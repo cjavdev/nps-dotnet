@@ -93,4 +93,21 @@ public class ActivityListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new ActivityListParams
+        {
+            ID = "id",
+            Limit = 0,
+            Q = "q",
+            Sort = "sort",
+            Start = 0,
+        };
+
+        ActivityListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }

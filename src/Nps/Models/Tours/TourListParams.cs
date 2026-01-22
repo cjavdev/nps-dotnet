@@ -9,7 +9,12 @@ using Nps.Core;
 
 namespace Nps.Models.Tours;
 
-public sealed record class TourListParams : ParamsBase
+/// <summary>
+/// NOTE: Do not inherit from this type outside the SDK unless you're okay with breaking
+/// changes in non-major versions. We may add new methods in the future that cause
+/// existing derived classes to break.
+/// </summary>
+public record class TourListParams : ParamsBase
 {
     /// <summary>
     /// A comma delimited list of tour IDs.
@@ -179,8 +184,11 @@ public sealed record class TourListParams : ParamsBase
 
     public TourListParams() { }
 
+#pragma warning disable CS8618
+    [SetsRequiredMembers]
     public TourListParams(TourListParams tourListParams)
         : base(tourListParams) { }
+#pragma warning restore CS8618
 
     public TourListParams(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
@@ -215,6 +223,26 @@ public sealed record class TourListParams : ParamsBase
         );
     }
 
+    public override string ToString() =>
+        JsonSerializer.Serialize(
+            new Dictionary<string, object?>()
+            {
+                ["HeaderData"] = this._rawHeaderData.Freeze(),
+                ["QueryData"] = this._rawQueryData.Freeze(),
+            },
+            ModelBase.ToStringSerializerOptions
+        );
+
+    public virtual bool Equals(TourListParams? other)
+    {
+        if (other == null)
+        {
+            return false;
+        }
+        return this._rawHeaderData.Equals(other._rawHeaderData)
+            && this._rawQueryData.Equals(other._rawQueryData);
+    }
+
     public override Uri Url(ClientOptions options)
     {
         return new UriBuilder(options.BaseUrl.ToString().TrimEnd('/') + "/tours")
@@ -230,5 +258,10 @@ public sealed record class TourListParams : ParamsBase
         {
             ParamsBase.AddHeaderElementToRequest(request, item.Key, item.Value);
         }
+    }
+
+    public override int GetHashCode()
+    {
+        return 0;
     }
 }

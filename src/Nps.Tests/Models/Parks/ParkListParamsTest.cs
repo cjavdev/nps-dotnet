@@ -118,4 +118,22 @@ public class ParkListParamsTest : TestBase
             url
         );
     }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var parameters = new ParkListParams
+        {
+            Limit = 0,
+            ParkCode = ["string"],
+            Q = "q",
+            Sort = ["string"],
+            Start = 0,
+            StateCode = ["string"],
+        };
+
+        ParkListParams copied = new(parameters);
+
+        Assert.Equal(parameters, copied);
+    }
 }
